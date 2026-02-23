@@ -1,0 +1,979 @@
+<!DOCTYPE html><html><head>
+      <title>readme</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///d:\Portable Software\VSCode\data\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>简体中文</strong> | <a href="./readme_en.md">English</a></p>
+<h1 align="center"> 电子科技大学学位论文模板2024 </h1>
+<div align="center">
+  <a href="https://www.latex-project.org/lppl/">
+    <img src="https://img.shields.io/badge/license-LPPL-blue?style=for-the-badge&amp;logo=latex&amp;label=License&amp;logoColor=white&amp;color=008080" alt="License">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/stargazers">
+    <img src="https://img.shields.io/github/stars/MGG1996/DissertationUESTC?style=for-the-badge&amp;logo=gleam&amp;label=Stars&amp;logoColor=white&amp;color=22c55e" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/forks">
+    <img src="https://img.shields.io/github/forks/MGG1996/DissertationUESTC?style=for-the-badge&amp;logo=git&amp;logoColor=white&amp;label=Forks&amp;color=995DFF" alt="GitHub forks">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/issues">
+    <img src="https://img.shields.io/github/issues/MGG1996/DissertationUESTC?style=for-the-badge&amp;logo=openbugbounty&amp;label=Issues&amp;logoColor=white&amp;color=D9B125" alt="Issues">
+  </a>
+</div>
+<div align="center">
+  <a href="https://github.com/MGG1996/DissertationUESTC/releases">
+    <img src="https://img.shields.io/github/downloads/MGG1996/DissertationUESTC/total?style=for-the-badge&amp;logo=transmission&amp;label=Downloads&amp;logoColor=white&amp;color=E05D44" alt="Downloads">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/releases/latest">
+    <img src="https://img.shields.io/github/v/release/MGG1996/DissertationUESTC?style=for-the-badge&amp;logo=github&amp;label=Release&amp;logoColor=white&amp;color=1a67af" alt="GitHub latest release">
+  </a>
+</div>
+<ul>
+<li><a href="#1-%E5%89%8D%E8%A8%80">1. 前言</a>
+<ul>
+<li><a href="#11-%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1">1.1 适用对象</a></li>
+<li><a href="#12-%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83">1.2 使用环境</a></li>
+<li><a href="#13-%E6%A8%A1%E6%9D%BF%E5%AE%8C%E6%88%90%E5%BA%A6">1.3 模板完成度</a></li>
+<li><a href="#14-%E6%A8%A1%E6%9D%BF%E7%9A%84%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95">1.4 模板的更新方法</a></li>
+<li><a href="#15-%E5%BC%80%E5%8F%91%E8%AF%A5%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%8E%9F%E5%9B%A0">1.5 开发该模板的原因</a></li>
+<li><a href="#16-%E9%B8%A3%E8%B0%A2">1.6 鸣谢</a></li>
+<li><a href="#17-%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E">1.7 免责声明</a></li>
+<li><a href="#18-%E9%A1%B9%E7%9B%AE%E7%BB%9F%E8%AE%A1">1.8 项目统计</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%AF%BC%E8%A8%80%E5%8C%BA">2. 导言区</a></li>
+<li><a href="#3-%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2%E5%8F%8A%E6%89%89%E9%A1%B5">3. 论文封面及扉页</a>
+<ul>
+<li><a href="#31-%E4%BF%9D%E5%AF%86%E6%A0%87%E8%AF%8620250107">3.1 保密标识（2025.01.07）</a></li>
+<li><a href="#32-%E5%B0%81%E9%9D%A2">3.2 封面</a>
+<ul>
+<li><a href="#321-%E5%8F%8C%E5%AD%A6%E4%BD%8D%E5%AD%A6%E5%A3%AB%E4%BB%A5%E5%A4%96%E7%9A%84%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2">3.2.1 “双学位学士”以外的论文封面</a></li>
+<li><a href="#322-%E5%8F%8C%E5%AD%A6%E4%BD%8D%E5%AD%A6%E5%A3%AB%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2">3.2.2 “双学位学士”论文封面</a></li>
+</ul>
+</li>
+<li><a href="#33-%E4%B8%AD%E6%96%87%E6%89%89%E9%A1%B5%E4%BB%85%E7%A0%94%E7%A9%B6%E7%94%9F">3.3 中文扉页（仅研究生）</a></li>
+<li><a href="#34-%E8%8B%B1%E6%96%87%E6%89%89%E9%A1%B5%E4%BB%85%E7%A0%94%E7%A9%B6%E7%94%9F">3.4 英文扉页（仅研究生）</a></li>
+</ul>
+</li>
+<li><a href="#4-%E7%8B%AC%E5%88%9B%E6%80%A7%E5%A3%B0%E6%98%8E%E4%BB%85%E7%A0%94%E7%A9%B6%E7%94%9F">4. 独创性声明（仅研究生）</a></li>
+<li><a href="#5-%E4%B8%AD%E8%8B%B1%E6%96%87%E6%91%98%E8%A6%81">5. 中英文摘要</a></li>
+<li><a href="#6-%E7%9B%AE%E5%BD%95%E5%9B%BE%E7%9B%AE%E5%BD%95%E8%A1%A8%E7%9B%AE%E5%BD%95%E4%B8%BB%E8%A6%81%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%BC%A9%E7%95%A5%E8%AF%8D%E8%A1%A8">6. 目录，图目录，表目录，主要符号表，缩略词表</a></li>
+<li><a href="#7-%E8%AE%BA%E6%96%87%E4%B8%BB%E4%BD%93%E9%83%A8%E5%88%86">7. 论文主体部分</a>
+<ul>
+<li><a href="#71-%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A220250107">7.1 写在最前面（2025.01.07）</a></li>
+<li><a href="#72-%E5%90%84%E7%BA%A7%E6%A0%87%E9%A2%98">7.2 各级标题</a></li>
+<li><a href="#73-%E5%9B%BE%E7%89%87">7.3 图片</a></li>
+<li><a href="#74-%E8%A1%A8%E6%A0%BC">7.4 表格</a>
+<ul>
+<li><a href="#741-%E6%99%AE%E9%80%9A%E8%A1%A8%E6%A0%BC">7.4.1 普通表格</a></li>
+<li><a href="#742-%E5%B8%A6%E9%99%84%E6%B3%A8%E8%A1%A8%E6%A0%BC">7.4.2 带附注表格</a></li>
+<li><a href="#743-%E8%B7%A8%E9%A1%B5%E8%A1%A8%E6%A0%BC">7.4.3 跨页表格</a></li>
+<li><a href="#744-%E8%B7%A8%E9%A1%B5%E5%B8%A6%E9%99%84%E6%B3%A8%E8%A1%A8%E6%A0%BC20250105">7.4.4 跨页带附注表格（2025.01.05）</a></li>
+</ul>
+</li>
+<li><a href="#75-%E4%BC%AA%E4%BB%A3%E7%A0%81">7.5 伪代码</a></li>
+<li><a href="#76-%E5%AE%9A%E4%B9%89%E5%85%AC%E7%90%86%E5%AE%9A%E7%90%86%E5%91%BD%E9%A2%98%E6%8E%A8%E8%AE%BA%E5%BC%95%E7%90%86%E7%A4%BA%E4%BE%8B%E5%81%87%E8%AE%BE%E6%B3%A8%E5%92%8C%E8%AF%81%E6%98%8E">7.6 定义，公理，定理，命题，推论，引理，示例，假设，注和证明</a></li>
+<li><a href="#77-%E8%84%9A%E6%B3%A8">7.7 脚注</a></li>
+<li><a href="#78-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E7%BC%96%E5%8F%B7">7.8 模板中的各种编号</a></li>
+<li><a href="#79-%E6%8E%92%E7%89%88%E5%8F%8A%E5%BE%AE%E8%B0%83%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F">7.9 排版及微调数学公式</a></li>
+<li><a href="#710-%E5%9C%A8%E6%A0%87%E9%A2%98%E4%B8%AD%E6%8E%92%E7%89%88%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7">7.10 在标题中排版数学符号</a></li>
+<li><a href="#711-%E6%8E%92%E7%89%88%E5%8C%96%E5%AD%A6%E6%96%B9%E7%A8%8B%E5%BC%8F">7.11 排版化学方程式</a></li>
+<li><a href="#712-%E5%BC%95%E7%94%A8">7.12 引用</a></li>
+</ul>
+</li>
+<li><a href="#8-%E8%87%B4%E8%B0%A2">8. 致谢</a></li>
+<li><a href="#9-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">9. 参考文献</a></li>
+<li><a href="#10-%E9%99%84%E5%BD%95">10. 附录</a></li>
+<li><a href="#11-%E6%94%BB%E8%AF%BB%E5%AD%A6%E4%BD%8D%E6%9C%9F%E9%97%B4%E5%8F%96%E5%BE%97%E7%9A%84%E6%88%90%E6%9E%9C%E5%8E%9F%E5%88%99%E4%B8%8A%E4%BB%85%E7%A0%94%E7%A9%B6%E7%94%9F">11. 攻读学位期间取得的成果（原则上仅研究生）</a></li>
+<li><a href="#12-%E5%A4%96%E6%96%87%E8%B5%84%E6%96%99%E5%8E%9F%E6%96%87%E4%BB%85%E6%9C%AC%E7%A7%91%E7%94%9F">12. 外文资料原文（仅本科生）</a></li>
+<li><a href="#13-%E5%A4%96%E6%96%87%E8%B5%84%E6%96%99%E8%AF%91%E6%96%87%E4%BB%85%E6%9C%AC%E7%A7%91%E7%94%9F">13. 外文资料译文（仅本科生）</a></li>
+</ul>
+<h2 id="1-前言">1. 前言 </h2>
+<h3 id="11-适用对象">1.1 适用对象 </h3>
+<p>本模板参照以下电子科技大学官方规范编写：</p>
+<ul>
+<li><a href="https://gr.uestc.edu.cn/xiazai/114/3917">研究生学位论文撰写规范（最后修订：2025.09.03）</a></li>
+<li><a href="https://www.sice.uestc.edu.cn/info/1140/14689.htm">关于启动2021级本科毕业设计（论文）工作的通知（发布时间：2024.10.09）</a></li>
+<li><a href="https://www.jwc.uestc.edu.cn/info/1507170256521551874">交叉复合型毕业设计（发布时间：2022.03.25）</a></li>
+</ul>
+<p>适用对象包括：</p>
+<blockquote>
+<p>✅ 学术学位博士 🎓 、专业学位博士 🎓</p>
+<p>✅ 学术学位硕士 🎓 、专业学位硕士 🎓</p>
+<p>✅ 普通学士 🎓 、<strong>双学位学士（2025.04.21新增）</strong> 🎓</p>
+<p>✅ <strong>来华留学生International Students（2025.01.07新增）</strong> 🎓</p>
+</blockquote>
+<p>使用本模板需要掌握基本的LaTeX排版操作，本文档不会阐述如何使用常见的LaTeX命令和环境。如果你是纯新手，那可以先看看<a href="https://ctan.math.utah.edu/ctan/tex-archive/info/lshort/chinese/lshort-zh-cn.pdf">一份（不太）简短的LaTeX2ε介绍</a>，它足以帮助你建立起基本概念，进而顺利使用本模板。</p>
+<p>另外，本文档及<code>tutorial.tex</code>示例文档中<strong>明确标注了<code>仅学士</code>、<code>仅研究生</code>或<code>仅专业学位</code>的内容只能由相应的同学使用，其他人应该注释或删除与自己无关的内容</strong>。</p>
+<h3 id="12-使用环境">1.2 使用环境 </h3>
+<p>本模板的开发测试环境是<code>TeXLive2024 + TeXstudio</code>以及<code>TeXLive2024 + VSCode</code>，<strong>兼容Windows、MacOS以及Overleaf等主流平台</strong> 👏。</p>
+<p>⚠️ 本地用户请务必将LaTeX环境更新到<a href="https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/">TeXLive2024及以上</a>或<a href="https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/">MacTeX2024及以上</a>，以避免兼容性问题。</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/389394015">🔗 TeXLive安装教程</a>、<a href="https://blog.csdn.net/ChrisP_333/article/details/82943508">🔗 MacTeX安装教程</a></li>
+<li><a href="https://texstudio.sourceforge.net/#download">🔗 TeXstudio下载地址</a>、<a href="https://code.visualstudio.com/Download">🔗 VSCode下载地址</a>、<a href="https://zhuanlan.zhihu.com/p/166523064">🔗 VSCode配置LaTeX环境</a></li>
+</ul>
+<p>⚠️ 模板需要使用<code>XeLaTeX</code>引擎进行编译：</p>
+<ul>
+<li>若使用TeXstudio编辑器，则不需要进行额外设置：<code>tutorial.tex</code>文件在首行设置了<code>% !TEX Program = xelatex</code>，该指令指定使用<code>XeLaTeX</code>引擎编译该文档；</li>
+<li>VSCode编辑器和Overleaf无法识别上述命令，需要自行将编译引擎设置为<code>XeLaTeX</code>。</li>
+</ul>
+<p>为了确保在Windows、MacOS、Overleaf等平台上编译出完全一致的结果，模板内置了所有用到的字体文件，这导致项目大小超出了Overleaf上传压缩包的限制。因此，Overleaf用户需要进行另一番操作： 💡 <strong>先在Overleaf上新建一个空项目，然后解压本模板并拖拽文件和文件夹到新建的项目中即可</strong>。 ❗ <strong><font color="#8b0000">切记网站里要选TeXLive2024</font></strong><font color="#8b0000">，经测试，目前线上的TeXLive2025反而无法编译出正确的<code>主要符号表</code>和<code>缩略词表</code>页眉，原因不明</font>。本地2024及以上的TeXLive均无任何问题！</p>
+<p><strong>提醒</strong>：<strong><font color="#8b0000">Overleaf近期似乎收紧了普通账号的编译时间限制</font></strong>，而模版需要完整编译4次才能建立缩略词表、交叉引用等信息，因此普通账号在Overleaf上会编译超时。所以：<font color="#8b0000">1）要么，搭建自己的本地环境，最稳妥；2）要么，升级Overleaf的高级账号；3）要么，用第三方的Overleaf平台</font>，这里推荐一个：<a href="https://www.onlinelatex.com/home/">OnlineLaTeX</a>。如果你既想用Overleaf，又不想升级高级账号或是用第三方平台，那只能用由网友<a href="https://github.com/note286">@note286</a>提供的方法：<strong><font color="#8b0000">在模版根目录新建名为<code>latexmkrc</code>的文件，内容为<code>$max_repeat = 1;</code></font></strong>。其原理是每次点击编译按钮后，让Overleaf只进行单次XeLaTeX编译，而不是默认的多次编译，这样只要单次编译时长不超过限制即可正常使用。代价是<font color="#8b0000">需要用户手动编译3次生成<code>缩略词表</code>，4次建立交叉引用</font>。自此提醒添加之日起，模版发布将分为常规版和Overleaf特别版，<strong>后者提供了<code>latexmkrc</code>文件，仅针对想使用官方Overleaf又不想升级高级会员的用户</strong>。（2026.01.03）</p>
+<h3 id="13-模板完成度">1.3 模板完成度 </h3>
+<p>模板已经实现了学位论文撰写规范中近乎全部的排版要求，仅有两处并未实现且暂无计划 😅：</p>
+<p>💢 未实现将图片附注排版在图题之下的功能。原因是未能找到实现该操作的LaTeX宏包，且本人能力有限，缺少实现该功能的思路。 💡 替代方案是使用脚注，即通过<code>\footnotemark</code>和<code>\footnotetext</code>相互配合，细节参见<a href="https://blog.csdn.net/xovee/article/details/127563209" title="\footnotemark、\footnotetext配合使用">LaTeX脚注@Xovee</a>。或者，干脆避免在图中使用附注，改为在文中解释。</p>
+<p>💢 伪代码环境不支持跨页排版。本模板排版伪代码使用的宏包是<a href="https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf">algorithm2e</a>，它无法跨页排版伪码。 💡 通常来说，伪码跨页会增加阅读难度。反之，根据算法逻辑将之拆分成数个子算法或子过程，分别进行排版，最后再汇总，这可能是更合适的做法。</p>
+<p>此外，不排除模板存在一些细节上的疏漏，各位在使用中若发现或遇到问题，欢迎来 🐛 <a href="https://github.com/MGG1996/DissertationUESTC/issues">项目Issue页</a>🐛 进行反馈。若确为模板问题，我会在闲暇时尽量修复并进行更新。 ✨ 在此之前，请使用本模板（尤其是从学长处继承本模板）的同学先来、常来 🎁 <a href="https://github.com/MGG1996/DissertationUESTC">项目发布页</a> 🎁 看看，确保自己使用的是最新版本 😆。</p>
+<h3 id="14-模板的更新方法">1.4 模板的更新方法 </h3>
+<p>💡 更新模板的正确方式：<strong>下载最新的完整压缩包，解压后用自己的<code>.bib</code>和<code>.tex</code>文件以及<code>fig</code>目录替换掉模板中原有的同名文件和目录</strong>。</p>
+<p>👍 更建议的更新方式：<strong><font color="#8b0000">在初次使用本模板时，修改<code>.tex</code>和<code>.bib</code>文件的文件名（别忘了<code>.tex</code>文件内通过<code>\bibliography{}</code>设置的<code>.bib</code>文件名），后续只需下载最新的模板，并将其内容全部复制到论文所在的目录进行替换</font></strong>。</p>
+<h3 id="15-开发该模板的原因">1.5 开发该模板的原因 </h3>
+<p>距离<strong>王稳</strong>学长发布<a href="https://github.com/bdebye/thesisuestc" title="王稳成电模板">thesisuestc</a>已经过去几年了，学校的撰写规范时有调整。例如在封面页、扉页等部分，<a href="https://github.com/bdebye/thesisuestc" title="王稳成电模板">thesisuestc</a>的排布结构虽大体与新规范一致，但部分页面元素的相对距离、大小等细节却与新规范有不少出入。<strong>我的本意是按照最新的撰写规范设计与之相对应的LaTeX模板，而非复刻<a href="https://github.com/bdebye/thesisuestc" title="王稳成电模板">thesisuestc</a></strong>。</p>
+<p>更重要的是，本模板希望提供 ✨ <strong>更完备的内容排版能力</strong> ✨ ，同时提供 ✨ <strong>更丰富的人性化功能</strong> ✨ ，以减少使用者消耗的精力：</p>
+<ol>
+<li>
+<p>本模板提供了印刷模式。该模式会根据学校的印刷规范自动在论文前置部分的必要位置插入空白页，无需人为处理编译后的文档，彻底避免出错。</p>
+</li>
+<li>
+<p>本模板提供了评审模式。该模式将隐去所有身份信息，包括导师信息以及独创性声明中的签名和日期，以便送审。</p>
+</li>
+<li>
+<p>本模板提供了查重模式。该模式将使用等尺寸的矩形框线替换论文中的所有图片，以在个人查重时尽可能保证数据安全性。</p>
+</li>
+<li>
+<p>本模板可显式提醒超页问题。规范对“中文摘要”和“致谢”的篇幅做出了限制，当这些内容超出了对应的篇幅限制时，模板将通过打印信息来提醒使用者。</p>
+</li>
+<li>
+<p>在“封面”和“英文扉页”中，本模板可根据输入内容的实际长度自动确定需生成的下划线数量，灵活性和适应性较强。</p>
+</li>
+<li>
+<p>除了“中英文摘要”和“目录”等必要的前置内容，本模板还完整提供了“图目录”、“表目录”、“主要符号表”、“缩略词表”等可选前置部分。</p>
+</li>
+<li>
+<p>本模板提供了更强大的表格排版能力，支持排版“跨页带附注表格”；模板封装了额外的伪码环境，允许使用者根据实际情况灵活调整伪码区域的左右缩进。</p>
+</li>
+<li>
+<p>本模板支持半自动生成形如<code>(1-1a)</code>的递增子公式编号。该编号常见于数学模型的各约束，虽然可使用<code>\tag{}</code>命令显示指定某条约束的编号，但该方式操作繁琐，且在需要调换或增删约束时容易漏改tag，造成子公式编号混乱。本模板可彻底避免这种情况。</p>
+</li>
+<li>
+<p>本模板优化了<code>.bst</code>文件的处理逻辑。它可自动确定参考文献编号的最大长度，从而调整文献条目的悬挂缩进距离，保证产生齐整的文献内容左边界。</p>
+</li>
+<li>
+<p>本模板尽可能使用LaTeX风格编写<code>.cls</code>文件，内容更易于理解。同时，该文件中留存了大量详细的注释内容，对有特殊需求或需要微调模板的使用者更加友好。</p>
+</li>
+</ol>
+<h3 id="16-鸣谢">1.6 鸣谢 </h3>
+<p>非常感谢<strong>王稳</strong>学长设计的<a href="https://github.com/bdebye/thesisuestc" title="王稳成电模板">thesisuestc</a>，它一直是成电毕业生撰写学位论文的首选。也因为该模板，本人产生了自行设计学位论文模板的想法并将之付诸行动。在设计模板的过程中，本人也借鉴了<strong>王稳</strong>学长的部分设计思路，实属站在前人的肩膀上，才在磕磕绊绊中将模板迭代到现今的程度。</p>
+<p>此外，非常感谢广大网友在各种网站（StackExchange，知乎、CSDN、博客园等）上分享的LaTeX相关知识。仅以我个人的能力，要设计出完备的LaTeX模板定然困难重重、周期漫长。</p>
+<h3 id="17-免责声明">1.7 免责声明 </h3>
+<p>⚠️ <code>tutorial.tex</code>文件中用于举例的各图片均来自于网络，如有侵权，请图片作者联系我进行删除。</p>
+<p>⚠️ 另外，为了全平台的通用性，模板内置了一些必要的字体。虽然Windows系统本就安装了某些字体，但实际上它们并不可商用，本模板的使用者需要注意该问题。</p>
+<h3 id="18-项目统计">1.8 项目统计 </h3>
+<p><a href="https://www.star-history.com/#MGG1996/DissertationUESTC&amp;bdebye/thesisuestc&amp;shifujun/UESTCthesis&amp;Date"><img src="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&amp;type=Date" alt="Star History Chart"></a></p>
+<h2 id="2-导言区">2. 导言区 </h2>
+<p>模板的导言区只有两行：</p>
+<ol>
+<li>
+<p><code>% !TEX Program = xelatex</code>在TeXstudio编辑器中表示指定使用<code>XeLaTeX</code>引擎编译该文档，对其他编辑器，可能需要手动设置编译引擎。</p>
+</li>
+<li>
+<p><code>\documentclass[&lt;选项列表&gt;]{DissertUESTC}</code>表示加载名为<code>DissertUESTC</code>的文档类，该文档类基于LaTeX的<code>book</code>类编写。此文档类可设置<strong>八种</strong>选项：</p>
+<ol>
+<li>
+<p><code>print</code>/<code>nonprint</code>：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为<code>nonprint</code>。</p>
+</li>
+<li>
+<p><code>doctor</code>/<code>prodoctor</code>/<code>intdoctor</code>/<code>ipdoctor</code>/<code>master</code>/<code>promaster</code>/<code>intmaster</code>/<code>ipmaster</code>/<code>bachelor</code>/<code>doublebachelor</code>：该选项设置学位论文类型，对应关系如下，默认为<code>doctor</code>。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>对应学位类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doctor</code></td>
+<td>学术学位博士</td>
+</tr>
+<tr>
+<td><code>prodoctor</code></td>
+<td>专业学位博士</td>
+</tr>
+<tr>
+<td><code>intdoctor</code></td>
+<td>International Doctor with Academic Degree</td>
+</tr>
+<tr>
+<td><code>ipdoctor</code></td>
+<td>International Doctor with Professional Degree</td>
+</tr>
+<tr>
+<td><code>master</code></td>
+<td>学术学位硕士</td>
+</tr>
+<tr>
+<td><code>promaster</code></td>
+<td>专业学位硕士</td>
+</tr>
+<tr>
+<td><code>intmaster</code></td>
+<td>International Master with Academic Degree</td>
+</tr>
+<tr>
+<td><code>ipmaster</code></td>
+<td>International Master with Professional Degree</td>
+</tr>
+<tr>
+<td><code>bachelor</code></td>
+<td>学士</td>
+</tr>
+<tr>
+<td><code>doublebachelor</code></td>
+<td>双学位学士</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>[<strong>新增</strong>]<code>subfigsimple</code>/<code>subfigparens</code>：该选项用于调整正文中对子图标签进行引用生成的编号样式，<code>subfigsimple</code>对应样式为<code>1-1a</code>，<code>subfigparens</code>对应样式为<code>1-1(a)</code>，默认为<code>subfigparens</code>。</p>
+</li>
+<li>
+<p>[<strong>新增</strong>]<code>draftfig</code>：LaTeX标准文档类提供的<code>draft</code>选项在排版草稿时不会生成交叉引用链接、超链接、书签，图片也会被替换为尺寸与之相同的方框+文本，并且会在超出表格、页面边界的位置标注粗框线。<code>draftfig</code>选项则仅将图片替换为方框+文本，而不修改标准<code>draft</code>选项涉及的其他内容。该选项的用处是便于在个人查重时隐去重要的实验结果数据，同时又不改变论文的整体排版。</p>
+</li>
+<li>
+<p>[<strong>新增</strong>]<code>review</code>：该选项将以评审模式排版论文的“封面”及“中英文扉页”，届时所有有关个人身份的信息都将被隐去，包括导师信息以及独创性声明中的签名和日期。当然，也可以通过设置空参数来隐去对应信息，但<code>review</code>选项能在不调整命令参数内容的情况下实现同样的效果。</p>
+<p>另外，模板支持将<code>review</code>的作用范围扩展到其他内容。例如，送审前需要抹除“致谢”和“成果”中的个人身份信息，使用者可将相应内容置于<code>\ifreview[&lt;替换文本&gt;]{&lt;原内容&gt;}</code>命令。若未指定该命令的第一项可选参数，<code>review</code>选项将以两字宽的水平空白替换原内容；否则，<code>review</code>选项将以指定的参数替换原内容。(2025.03.06)</p>
+</li>
+<li>
+<p>[<strong>新增</strong>]<code>noreminder</code>：默认情况下，当“<strong>中文摘要</strong>”和“<strong>致谢</strong>”的篇幅超出规范的最大页数限制时，模板（<strong>经过两次编译后</strong>）将在对应内容的结尾显式打印提醒信息。若使用者在知悉这些内容的长度超出规范限制后仍希望保持原样，则可使用<code>noreminder</code>选项禁用提醒信息。（2025.02.22）</p>
+</li>
+<li>
+<p>[<strong>新增</strong>]<code>cmmmath</code>/<code>timesmathnogreek</code>/<code>timesmath</code>：该选项用于选择渲染公式使用的字体。其中，<code>cmmmath</code>即对应LaTeX默认使用的Computer Modern Math，也是此类选项的默认值；<code>timesmathnogreek</code>指定使用Times New Roman来渲染公式中的英文字母和数字，但不影响希腊字母、手写体和双线体；<code>timesmath</code>则继续将希腊字母也设置成Times New Roman（个人觉得希腊字符用这个字体有些违和），手写体和双线体仍保持原样。</p>
+<p>追求公式字体均为Times New Roman的使用者可采用<code>timesmath</code>选项。后两种选项均基于<a href="https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf">mathspec</a>宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）</p>
+<p>❗ 需要注意，Times New Roman字体原不支持在公式中排版粗斜体，所以后两种选项将使<code>\boldsymbol{}</code>命令失效。为了解决该问题，模板（仅在后两种选项下）对这条命令进行了粗糙的重定义，使之能像原版那样生成粗斜体符号。但是，由于本人技术水平不足，重定义后的<code>\boldsymbol{}</code>命令需要遵循一条额外的使用规则：<strong>其输入参数必须是最原始的数学符号</strong>。比如你想排版<code>\boldsymbol{\hat{\alpha}}</code>（这在<code>cmmmath</code>下是没有问题的），那此时正确的源码应该是<code>\hat{\boldsymbol{\alpha}}</code>，<strong>即将<code>\boldsymbol{}</code>置于嵌套的最内层</strong>。如若不然，模板轻则无法渲染出预期的数学符号（在<code>timesmath</code>选项下），重则直接报<code>! Internal error: bad native font flag in 'map_char_to_glyph'</code>错误（在<code>timesmathnogreek</code>选项下）。大概是涉及了一些底层问题，我也不懂，无法解决。</p>
+<p>❗ 因为<a href="https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf">mathspec</a>宏包本身的特性，使用Times New Roman作为公式字体需要付出更多精力。举个例子，你想排版<code>$f^t$</code>，那么你会发现<code>f</code>和<code>t</code>之间的间隔很小，两者发生了重叠。此时需要手动用<code>"</code>插入空格，即<code>$f^{"t}$</code>。因此，<code>timesmathnogreek</code>和<code>timesmath</code>选项均存在类似瑕疵，届时请仔细查阅<a href="https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf">mathspec</a>的宏包文档。</p>
+<p>🍀 其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。</p>
+</li>
+<li>
+<p>另外，<a href="https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf">algorithm2e</a>宏包的<code>vlined</code>和<code>boxruled</code>选项也可以在加载文档类时设置。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-论文封面及扉页">3. 论文封面及扉页 </h2>
+<p>这部分主要通过模板提供的各项命令来填充论文封面和扉页中的内容。</p>
+<p>送审时，只需将本小节涉及的相应命令参数留空，即可生成对应位置为空的封面和扉页。 ⚠️ 注意，<strong><font color="#8b0000">参数留空表示<code>{}</code>，而非彻底删除</font></strong>。</p>
+<p>当然，<strong>更便捷的方法是使用文档类的<code>review</code>选项，无需调整命令参数设置即可隐去与个人身份有关的信息</strong>。若要隐去其他信息，则需要将对应参数留空（2024.12.15）。</p>
+<h3 id="31-保密标识20250107">3.1 保密标识（2025.01.07） </h3>
+<p>对涉密论文，可使用模板提供的<code>\setconfidential(&lt;信息右上角与纸张左、上边界的距离，以逗号分隔&gt;)[&lt;字体格式&gt;]{&lt;密级&gt;}{&lt;保密期限&gt;}</code>命令生成封面中的保密信息。</p>
+<p>该命令提供了两项可选参数以在必要时调整此信息的<code>摆放位置</code>和<code>字体格式</code>，默认值分别为<code>18cm,2cm</code>和<code>\zihao{4}\bfseries</code>。该命令必须先于<code>\uestccover</code>命令使用才有效。</p>
+<p>⚠️ <strong><font color="#8b0000">慎用保密标识！！！学生个人不应随意将论文定性为涉密</font></strong>，需经过相应审批。</p>
+<h3 id="32-封面">3.2 封面 </h3>
+<p>要生成正确的论文封面，首先必须要在文档类中指定与之对应的<code>doctor</code>/<code>prodoctor</code>/<code>intdoctor</code>/<code>ipdoctor</code>/<code>master</code>/<code>promaster</code>/<code>intmaster</code>/<code>ipmaster</code>/<code>bachelor</code>/<code>doublebachelor</code>选项。</p>
+<h4 id="321-双学位学士以外的论文封面">3.2.1 “双学位学士”以外的论文封面 </h4>
+<p>生成这些论文封面统一使用命令：<code>\uestccover[&lt;学院名称排版风格&gt;]{&lt;论文题目&gt;}{&lt;学科专业&gt;}{&lt;学号&gt;}{&lt;作者姓名&gt;}{&lt;指导教师&gt;}{&lt;教师职称&gt;}{&lt;学院&gt;}</code>。</p>
+<p>经同学反馈，部分学院的全称较长，会导致封面中<code>学院名称</code>和前方的提词重叠。针对该问题，本模板重新调整了<code>\uestccover</code>中排版<code>学院名称</code>的部分（2024.12.10）。目前该命令默认将<strong>过长</strong>的<code>学院名称</code>缩放至与对应下划线相适宜。此外，该命令<strong>新增</strong>了一项可选参数<code>&lt;学院名称排版风格&gt;</code>，参数值<strong>可以且仅可以</strong>设置为<code>par</code>，此时该命令将不再缩放<code>学院名称</code>而是让过长的<code>学院名称</code>自动换行：</p>
+<ul>
+<li>
+<p>对于研究生封面，<code>学院名称</code>所在的位置已经触及页面下边缘。为了让<strong>过长</strong>的<code>学院名称</code>顺利换行且不挤压下边界，<em><code>par</code>选项会借用<code>论文题目</code>尾行与<code>学科专业</code>间的部分垂直间距</em>。说人话就是：为了保持规范的页边距，不得不减小上述垂直间距，这是无可奈何的。</p>
+</li>
+<li>
+<p>对于学士论文封面，其<code>学院</code>紧跟<code>论文题目</code>。在两行学院名称下，两者间的垂直间距也会缩小。具体结果可参见<code>tutorial.pdf</code>文档给出的排版样例。</p>
+</li>
+</ul>
+<p>切记， ⚠️ <strong>最多完美支持两行</strong>。如果电子科大真的存在名称超过两行的学院，那很抱歉，本模板实在无法为你生成完美的封面。尤其是学士学位论文，三行及以上的<code>学院名称</code>肯定会跟下方内容发生重叠；而对研究生学位论文，虽然不存在与下方文字重叠的问题，但学院名称的尾行也一定会突破页面边界，导致整个页面看起来上下很不协调。对这类用户，如果你们还愿意使用本模板撰写其他内容，最后可以使用学校官方提供的Word文档生成论文封面，然后替换。除此之外，我没有想到其他更方便、更不容易出错的方案。（2024.12.10）</p>
+<p>❗ <strong>注意：<code>\uestccover</code>命令的参数顺序是根据研究生学位论文封面而设计的，学士学位论文封面的内容排布与之不同。<font color="#8b0000">本科生务必按照命令要求的顺序填写，而不是看着封面示例pdf填写</font>。</strong></p>
+<h4 id="322-双学位学士论文封面">3.2.2 “双学位学士”论文封面 </h4>
+<p>生成双学位学士论文封面使用：<code>\uestccover{&lt;论文题目&gt;}{&lt;学院&gt;}{&lt;第一专业&gt;}{&lt;第二专业&gt;}{&lt;学号&gt;}{&lt;作者姓名&gt;}{&lt;第一导师及职称&gt;}{&lt;第二导师及职称&gt;}</code>。（2025.04.21）</p>
+<p>❗ <strong>注意，上述命令与其他论文类型所采用的定义不同，<font color="#8b0000">共有8项强制参数，无可选参数，且参数顺序和意义也有变化</font>。用时务必仔细。</strong></p>
+<h3 id="33-中文扉页仅研究生">3.3 中文扉页（仅研究生） </h3>
+<p>“中文扉页”需要填写的内容过多，超过了LaTeX对命令最多支持9个参数的限制，因此需要先设置各项宏：</p>
+<ol>
+<li><code>\ClsNum{&lt;分类号&gt;}</code>；</li>
+<li><code>\ClsLv{&lt;密级&gt;}</code>；</li>
+<li><code>\UDC{&lt;UDC号&gt;}</code>；</li>
+<li><code>\DissertationTitle{&lt;题名&gt;}</code>；</li>
+<li><code>\Author{&lt;作者姓名&gt;}</code>；</li>
+<li><code>\Supervisor{&lt;指导教师&gt;}{&lt;职称&gt;}{&lt;单位名称&gt;}{&lt;单位地址&gt;}</code>；</li>
+<li><code>\AssociateSupervisor{&lt;副导师名称&gt;}{&lt;职称&gt;}{&lt;单位名称&gt;}{&lt;单位地址&gt;}</code>，设置副导师信息，若无则注释即可；</li>
+<li><code>\DegLv{&lt;申请学位级别&gt;}</code>，该信息由文档类选项自动确定，需修改默认内容时使用，否则注释即可；</li>
+<li><code>\Major{&lt;学科专业&gt;}</code>；</li>
+<li><code>\Profield{&lt;专业学位领域代码&gt;}</code>，此为<font color="#8b0000">专业学位独有</font>，学术学位用户注释即可；</li>
+<li><code>\Date{&lt;论文提交日期&gt;}{&lt;论文答辩日期&gt;}</code>；</li>
+<li><code>\Grant{&lt;学位授予单位&gt;}{&lt;学位授予日期&gt;}</code>；</li>
+<li><code>\Reviewer{&lt;答辩委员会主席&gt;}{&lt;评阅人&gt;}</code>；</li>
+</ol>
+<p>然后使用<code>\uestczhtitlepage</code>生成“中文扉页”。</p>
+<p><code>\uestczhtitlepage</code>命令可接受一项可选参数<code>[compress]</code>。在默认情况下（即不指定该可选参数，或指定为其他内容），如果遇到超长的导师<code>职称</code>，比如“教授级高级工程师”，本模板会以其实际长度进行排版，同时让其所在列的其他内容与之保持左对齐。这意味着<code>职称</code>的实际占位长度肯定突破了官方在规范中设置的<code>3.25cm</code>，尽管我个人觉得这样做并无不妥，但确实不确定是否合规。为此，模板为<code>\uestczhtitlepage</code>命令提供了<code>[compress]</code>可选参数，设置该参数后，长度超过<code>3.25cm</code>的<code>职称</code>将被自动压缩字宽，以严格适应学校官方为该内容预留的长度，实际效果参看<code>tutorial.tex</code>的编译结果。怎么选择，由你决定。（2025.03.04）</p>
+<h3 id="34-英文扉页仅研究生">3.4 英文扉页（仅研究生） </h3>
+<p>生成“英文扉页”使用命令：<code>\uestcentitlepage{&lt;文题&gt;}{&lt;专业&gt;}{&lt;学号&gt;}{&lt;作者&gt;}{&lt;导师&gt;}{&lt;副导师&gt;}{&lt;学院&gt;}</code>。若无副导师，则将<code>&lt;副导师&gt;</code>参数留空<code>{}</code>即可。</p>
+<h2 id="4-独创性声明仅研究生">4. 独创性声明（仅研究生） </h2>
+<p>生成独创性声明使用命令：<code>\declaration[&lt;签名宽度&gt;]{&lt;日期&gt;}{&lt;作者签名图片1文件名&gt;}[&lt;作者签名图片2文件名&gt;]{&lt;导师签名图片文件名&gt;}</code>。</p>
+<ul>
+<li>可选参数<code>&lt;签名宽度&gt;</code>能调整签名图片的显示宽度；</li>
+<li>可选参数<code>&lt;作者签名图片2文件名&gt;</code>用于为独创性声明中的第二处作者签字设置独立的签名图片，在字迹上与第一处签名进行区分，从而模拟手签的效果。若不指定该可选参数，则其值取<code>&lt;作者签名图片1文件名&gt;</code>。</li>
+</ul>
+<p>所有签名图片需要放置在项目目录的<code>./fig/</code>子目录下。</p>
+<p>该命令的设计初衷是允许强迫症用户在独创性声明页使用电子签，避免此页在印刷后扫描出来歪歪扭扭，替换到电子档里影响观感。 ❗ 不过，听说上传数据库的论文必须要手签，不知是否真如此严格。果真如此的话，只需要将全部强制参数留空<code>{}</code>，即可产生原始的独创性声明页。</p>
+<h2 id="5-中英文摘要">5. 中英文摘要 </h2>
+<p>生成中文摘要需先使用<code>\zhabstract</code>，然后继续追加内容即可，中文关键词用<code>\zhkeywords{&lt;中文关键词&gt;}</code>。</p>
+<p>生成英文摘要需先使用<code>\enabstract</code>，然后继续追加内容即可，英文关键词用<code>\enkeywords{&lt;English Keywords&gt;}</code>。</p>
+<p>❗ <strong><font color="#8b0000">2025年09月03日修订的研究生论文撰写规范要求改用<code>；</code>分隔关键词；（双学位）学士论文撰写规范尚未调整，仍使用<code>，</code>分隔关键词。</font></strong></p>
+<h2 id="6-目录图目录表目录主要符号表缩略词表">6. 目录，图目录，表目录，主要符号表，缩略词表 </h2>
+<p>在文档中的对应位置使用对应命令即可生成各种目录和符号表：</p>
+<ol>
+<li>
+<p>目录：<code>\tableofcontents</code>；</p>
+</li>
+<li>
+<p>图目录：<code>\listoffigures</code>；</p>
+</li>
+<li>
+<p>表目录：<code>\listoftables</code>；</p>
+</li>
+<li>
+<p>主要符号表：<code>\listofsymbs</code>命令+<code>symbtable</code>环境；</p>
+<ul>
+<li>在需要插入主要符号表的位置使用<code>\listofsymbs</code>命令生成主要符号表的章标题；</li>
+<li>紧接着使用<code>symbtable</code>环境排版主要符号表的内容。该环境基于<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf"><code>longtable</code></a>环境进行封装，依次接受两项可选参数：<code>\begin{symbtable}[&lt;表格整体位置&gt;](&lt;主要符号表的列控制参数&gt;)</code>。
+<ul>
+<li>第一项可选参数用于设置<code>longtable</code>环境的可选参数，其默认值与<code>longtable</code>环境保持一致；</li>
+<li>第二项可选参数用于设置<code>longtable</code>环境的必选参数，其默认值设置为<code>p{3.5em} p{\linewidth-9em} p{3em}&lt;{\centering}</code>。</li>
+</ul>
+</li>
+</ul>
+<p>若非必要，用户不应指定<code>symbtable</code>环境的可选参数。但若出于对排版美观性的考虑，可适当调整主要符号表各列的宽度。 ⚠️ 注意，按照学位论文撰写规范中的示例，<strong><font color="#8b0000">主要符号表有且仅有三列</font></strong>。因此，切勿对第二项可选参数设置其他列数。</p>
+</li>
+<li>
+<p>排版缩略词表要相对复杂一些：</p>
+<ul>
+<li>
+<p>先使用<code>\printnomenclature[&lt;英文缩写宽度&gt;](&lt;中文全称宽度&gt;)</code>，第一项可选参数控制<strong>英文缩写</strong>的列宽，默认为<code>5em</code>；第二项可选参数控制<strong>中文全称</strong>的列宽，默认为<code>7.5em</code>。</p>
+</li>
+<li>
+<p>然后在正文中出现缩略词的位置使用命令<code>\nomchn[&lt;排序前缀&gt;]{&lt;缩略词&gt;}{&lt;英文全称&gt;}{&lt;中文全称&gt;}</code>添加该缩略词条目。只需要添加一次。其中，<code>排序前缀</code>仅在对特定条目有特殊排序需求时才使用。具体细节参考<a href="https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf">nomencl</a>宏包对<code>\nomenclature</code>命令的参数说明。</p>
+</li>
+<li>
+<p>另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得预期的结果，教程参见<a href="https://zhuanlan.zhihu.com/p/46442713" title="本地缩略词表编译教程">编译缩略词表</a>或<strong>下方操作截图</strong> 👇。Overleaf用户则可以一键搞定，无需额外操作。⚠️ 注意，<strong><font color="#8b0000">Overleaf用户要在网站里选择TeXLive的2024版</font></strong>，亲测目前Overleaf的TeXLive2025版无法正确编译出<code>主要符号表</code>和<code>缩略词表</code>的页眉。本地用户只要保证TeXLive版本不低于2024就不会有问题。</p>
+<ul>
+<li>
+<p>💡 使用TeXstudio时，按下图中步骤配置用户命令：<code>makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile</code>，然后在工具栏执行该命令（一次），后续不再需要编译整个文档：</p>
+<p align="center">
+<img src="fig/TeXstudio-nomenclature1.jpg" width="700">
+<img src="fig/TeXstudio-nomenclature2.jpg" width="700">
+<img src="fig/TeXstudio-nomenclature3.jpg" width="700">
+</p>
+<p>若缩略词表有更新，则只需要再执行上述步骤7、8、9即可，无需再次定义命令。</p>
+</li>
+<li>
+<p>💡 使用VSCode时，需要呼出终端并键入命令：<code>makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls</code>，执行，之后还需要编译整个文档：</p>
+<p align="center">
+<img src="fig/VSCode-nomenclature.jpg" width="700">
+</p>
+<p>若缩略词表有更新，则要再次在终端中键入上述命令并执行，接着再次编译整个文档。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-论文主体部分">7. 论文主体部分 </h2>
+<h3 id="71-写在最前面20250107">7.1 写在最前面（2025.01.07） </h3>
+<p>曾经频繁收到同一类问题：</p>
+<ul>
+<li><strong>为什么文中的段间距过大？</strong></li>
+<li><strong>为什么行间公式前的空间过大？</strong></li>
+</ul>
+<p>当论文中某节的内容接近填满页面且其后紧随几项标题时，LaTeX更倾向于在后续的标题前分页，并且纵向拉伸当前页内容的段间距，以实现纵向分散对齐，也就是很多人在问的现象。这并不是模板bug，而是LaTeX特性。</p>
+<p>导致这种情况的“罪魁祸首”是用户的内容，常见于有图、表、行间公式、标题的页面，它们的高度很可能不是正文行距的整数倍，因此更容易造成这种现象。</p>
+<p>如果你觉得Word从上到下直接堆叠内容，然后在页尾留下明显空白的处理方式更合你意，那就在文档开头使用<code>\raggedbottom</code>命令。顾名思义，其作用是允许参差不齐的页尾，也就是类似Word那种形式。</p>
+<p>另外，行间公式前不应该有空行，<code>equation</code>环境会自行换行。加了空行，垂直间距自然就宽了。</p>
+<h3 id="72-各级标题">7.2 各级标题 </h3>
+<p>本模板基于<code>book</code>类实现，所以章标题需要使用<code>\chapter{&lt;章标题&gt;}</code>生成，其他各级标题依次为<code>\section{&lt;节标题&gt;}</code>、<code>\subsection{&lt;子节标题&gt;}</code>、<code>\subsubsection{&lt;孙节标题&gt;}</code>。</p>
+<p>规范要求：<strong><font color="#8b0000">两个标题之间无正文时，第二个标题的段前距设置为0磅</font></strong>。亲测LaTeX原本就会自动压缩连续标题间的垂直距离，且其采用的规则正是直接忽略下侧标题的段前距。</p>
+<p>然而，在实际使用中有时会出现连续标题间的垂直间隔仍然较大的情况，这一现象本质上仍是因为<a href="#71-%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A220250107">7.1节</a>提到的LaTeX排版特性。在默认情况下（即未使用<code>\raggedbottom</code>），当中间某页的实际内容并非恰好填满当页区域时，LaTeX会在该页的各段之间均匀插入额外的垂直空间，从而让整页的内容纵向对齐到页面的上下边界。正是这一特性在某些情况下导致了连续标题间的垂直距离过大。</p>
+<p>理论上讲，中间页的内容越充足，段落数越多，LaTeX对连续标题的排版结果越接近规范要求。若确实因为页面内容不足等原因，造成连续标题间的垂直间隔过大，则用户需要手动特调。操作方式是在连续的标题之间用<code>\vspace*{}</code>插入负垂直距离来进行补偿，负距离的取值并不固定，取决于当页的内容情况，需要用户自行尝试。<code>tutorial.tex</code>中提供了有关示例。</p>
+<h3 id="73-图片">7.3 图片 </h3>
+<p>本模板使用<a href="https://mirror.nyist.edu.cn/CTAN/macros/latex/required/graphics/grfguide.pdf">graphicx</a>和<a href="https://mirrors.bfsu.edu.cn/CTAN/macros/latex/contrib/subfig/subfig.pdf">subfig</a>宏包来处理插入的图片及子图。细节请参考<code>tutorial.tex</code>中的源码。</p>
+<p>需要将待排版图片文件放入项目目录<code>./fig/</code>中。</p>
+<h3 id="74-表格">7.4 表格 </h3>
+<p><strong>写在最开始</strong>：由于一些实现上的问题，对于<strong>确定非置底排版</strong>的任何表格，用户在通过<code>table</code>环境的选项指定可选择的排版模式时， ⚠️ <strong><font color="#8b0000">不可提供<code>b</code>模式</font></strong>，否则表格的上间距将过窄；反之，对于一页内<strong>确定置底排版</strong>的第一个表格，用户需要 ⚠️ <strong><font color="#8b0000">显式在选项中指定<code>b</code>或<code>!b</code></font></strong>，否则表格上间距将过宽。</p>
+<p>若出现意料之外的情况，用户可以通过在<code>table</code>环境开始后和结束前的位置插入<code>\vspace*{&lt;距离长度&gt;}</code>来调整其上下间距，使之看起来协调。</p>
+<h4 id="741-普通表格">7.4.1 普通表格 </h4>
+<p>排版普通表格本身无需多言，使用<code>table</code>+<code>tabular</code>环境即可，但是要注意：生成三线表中的三条线分别需要使用<code>\toprule</code>、<code>\midrule</code>、<code>\bottomrule</code>，这样才符合研究生规范中对线粗的要求（<code>1.5</code>磅、<code>0.75</code>磅、<code>1.5</code>磅）。注意不要用<code>\hline</code>。而对于本科生，学士学位论文规范要求表格中的线粗统一为<code>0.5</code>磅。因此，在<code>bachelor</code>和<code>doublebachelor</code>选项下，<code>\toprule</code>、<code>\midrule</code>、<code>\bottomrule</code>和<code>\cmidrule</code>的线粗均设置为<code>0.5</code>磅 <strong>（2025.05.01调整）</strong>。</p>
+<p>在需要为表格中的某些单元格添加水平框线时，应使用<code>\cmidrule[&lt;线粗&gt;](&lt;修剪&gt;){&lt;起始列-终止列&gt;}</code>而<font color="#8b0000">非</font><code>\cline{&lt;起始列-终止列&gt;}</code>。后者似乎无法调整线粗，也无法对框线的端点进行修剪。</p>
+<ul>
+<li>
+<p>前者的第一项可选参数允许用户设置框线粗细，其默认值在<code>bachelor</code>和<code>doublebachelor</code>选项下设置为了<code>0.5</code>磅，而在其他论文类型下设置为了<code>0.75</code>磅。如非必要，用户无需设置该可选参数；</p>
+</li>
+<li>
+<p>第二项可选参数允许用户对框线的端点进行修剪，当需要在视觉上分割同行的相邻框线时，该选项将很有用。有关第二项可选参数可取的值，建议用户查阅<a href="https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf">booktabs</a>宏包的官方文档。</p>
+</li>
+</ul>
+<p>若要调整表格中单元格的水平对齐方式，自适应宽度的表格可以直接使用<code>tabular</code>环境的<code>l/c/r</code>参数；如果同时需要限定单元格宽度，则可使用<code>p{&lt;宽度值&gt;}</code>、<code>p{&lt;宽度值&gt;}&lt;{\centering}</code>、<code>p{&lt;宽度值&gt;}&lt;{\raggedleft}</code>参数。</p>
+<p>若要调整具有多行内容的固定列宽单元格的垂直对齐方式，可以使用<code>tabular</code>环境的<code>p{&lt;宽度值&gt;}</code>、<code>m{&lt;宽度值&gt;}</code>、<code>b{&lt;宽度值&gt;}</code>参数，<strong>它们分别表示使用对应单元格内容的上线、中线、底线作为垂直对齐时的基准线</strong>，<font color="#8b0000">而非使单元格内容上端对齐、垂直居中对齐、下端对齐</font>。如果这段说明不好理解，那可以参考这个：<a href="https://tex.stackexchange.com/questions/35293">p, m and b columns in tables</a>。</p>
+<h4 id="742-带附注表格">7.4.2 带附注表格 </h4>
+<p>更需要说明的是该如何生成带附注的表格。本模板采用<a href="https://mirrors.cqu.edu.cn/CTAN/macros/latex/contrib/threeparttable/threeparttable.pdf">threeparttable</a>宏包提供的<code>threeparttable</code>环境实现将表格中的附注内容顶格排版在表格底部：</p>
+<ol>
+<li>使用<code>\tnote{&lt;label&gt;}</code>在表格中插入上标编号；</li>
+<li>使用<code>tablenotes</code>环境在表格底部排版附注。该环境提供选项<code>online</code>用于将附注文本前的标号从默认的上标样式更改为同行样式。</li>
+</ol>
+<p>🍀 上述方式排版的带附注表格无法通过点击表格中的编号跳转到对应附注。为此，本模板提供命令<code>\puttablenotelabel{&lt;标签&gt;}</code>和<code>\tablenoteref{&lt;标签&gt;}</code>来实现该操作 <strong>（2025.01.05新增）</strong>：</p>
+<ul>
+<li>
+<p>首先将<code>tablenotes</code>环境中手动设置的编号替换为<code>\puttablenotelabel{&lt;标签&gt;}</code>；</p>
+</li>
+<li>
+<p>然后在表格内容的对应位置使用<code>\tablenoteref{&lt;标签&gt;}</code>即可。编号将自动生成，并按照使用<code>\puttablenotelabel</code>的顺序递加。</p>
+</li>
+</ul>
+<p>这种方式需要建立交叉引用，故而通常得编译两次。切记， ⚠️ <strong><font color="#8b0000">标签必须全文唯一</font></strong>。</p>
+<h4 id="743-跨页表格">7.4.3 跨页表格 </h4>
+<p>原则上，长度不足一页的表格不应跨页。而对于本身超过一页的表格，本模板使用<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf">longtable</a>宏包提供的<code>longtable</code>环境进行排版。用户需要了解<code>longtable</code>环境的基本使用方法，它与<code>tabular</code>环境的最大区别在于需要用户自行定义分页后的表题、表头以及表尾。</p>
+<p>本模板提供了命令<code>\CPcaption{&lt;当前表格总列数&gt;}{&lt;跨页表题&gt;}</code>来正确排版跨页之后的表题。<strong>各位请务必使用此命令</strong>，否则跨页后的表题将会与表格内容采用相同的行距和段前段后，而非与规范中要求的跨页表题格式保持一致；并且在跨页表题长度超过表宽时，无法产生预期的排版结果。<strong>（2025.01.05更新）</strong></p>
+<p>此外， ⚠️ <strong><font color="#8b0000">不应将<code>longtable</code>环境嵌套在<code>table</code>等浮动环境中</font></strong>，否则长表格将无法正常跨页。</p>
+<p>更多细节参考<code>tutorial.tex</code>中的相应源码。</p>
+<h4 id="744-跨页带附注表格20250105">7.4.4 跨页带附注表格（2025.01.05） </h4>
+<p>在我有限的认知中，LaTeX似乎没有提供宏包来实现这类表格。无奈之下，本模板提供了一种繁琐但可行的做法。</p>
+<p>思路是利用<code>longtable</code>提供的表尾自定义功能来插入附注，即用户需要修改<code>longtable</code>在<code>\endlastfoot</code>前对表格尾部的设置。为此，模板提供如下命令：</p>
+<p><code>\tablenotetext(online)(&lt;附注编号悬挂距离&gt;)[&lt;附注上方垂直间隔&gt;]{&lt;附注总宽度&gt;}{&lt;附注标签&gt;}{&lt;附注内容&gt;}</code></p>
+<ul>
+<li>第一项可选参数以<code>()</code>标识，它仅接受参数<code>online</code>，作用是将附注编号从默认的上标形式更改为行内形式，即模仿<code>tablenotes</code>环境的选项；</li>
+<li>第二项可选参数仅在设置了第一项可选参数为<code>online</code>时有效，用于调整附注编号的悬挂缩进距离，默认是<code>1em</code>。当表格的附注数量过多时，可通过手动调整该可选参数来避免过长的编号与后方文字重叠；</li>
+<li>第三项可选参数以<code>[]</code>标识，当生成的附注与上方内容间的垂直距离不合适时，可通过此可选参数手动对其进行调整，默认为<code>0bp</code>；</li>
+<li>第四项强制参数对应附注整体的宽度，其取值需要根据表格排版后的宽度反复调整，直至附注与表格尾线等宽为止。这的确很繁琐，但我实在能力有限，想不出更好的办法，自动确定表格的实际宽度真的很难；</li>
+<li>第五项强制参数负责设置附注编号对应的标签，以便后续在表格中使用<code>\tablenoteref{}</code>进行引用，<font color="#8b0000">标签同样需要全文唯一</font>；</li>
+<li>第六项强制参数对应附注的实际内容。</li>
+</ul>
+<p>⚠️ <strong>注意</strong>：使用<code>\tablenotetext</code>命令的前提是对表格首列进行特定设置，<font color="#8b0000">用户 <strong><font color="#8b0000">必须</font></strong> 通过<code>p{&lt;长度&gt;}</code>或<code>m{&lt;长度&gt;}</code>来人为设定<code>longtable</code>的首列宽度，<strong><font color="#8b0000">切不可</font></strong> 将之设置为<code>c</code>、<code>r</code>或<code>l</code></font>。另外，表格中最后一条<code>\tablenotetext</code>之后不需要<code>\\</code>，否则表尾与下方文本的间隔将偏大。</p>
+<p>可能出现一种极端情况：跨页表格恰好在附注开始处发生了分页，此时也会产生另类的排版结果。要解决该问题，用户得手动在表格内容的适当位置使用<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf">longtable</a>宏包提供的<code>\pagebreak</code>命令提前断页，代价是前一页底部可能有更多空白。如果你运气尤其差，附注特别长，而且在附注中间发生了跨页，那我属实无能为力了 😱 😱 。</p>
+<p>❗ 必须要承认，<code>\tablenotetext</code>命令很不稳定。其参数在不同的表格中需要特调，甚至在同一表格的不同排版设置下都是如此，可谓一表一参。如遇到不得不用的时候，用户必须要投入很多精力。可惜，这已经是我目前所能做到的极限 😂 😂 。</p>
+<h3 id="75-伪代码">7.5 伪代码 </h3>
+<p>模板基于<a href="https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf">algorithm2e</a>宏包的<code>algorithm</code>环境排版伪代码，默认不添加其左右侧框线，顶部框线和底部框线类比规范对表格的要求进行了加粗，字体大小设置为<strong>五号字</strong>，与表格保持一致。💡 若要恢复伪代码的左右侧框线，可以在载入文档类时使用<code>boxruled</code>选项。该环境生成的伪码与正文文本保持相同宽度。</p>
+<p>除了<a href="https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf">algorithm2e</a>宏包本身提供的各种条件、循环语句，本模板基于宏包提供的接口，追加了<code>Do While</code>和<code>Loop</code>循环语句：</p>
+<ul>
+<li><code>\DoWhile(&lt;紧跟关键字do的文本，可用于添加注释&gt;){&lt;循环条件&gt;}{&lt;循环体&gt;}</code></li>
+<li><code>\Loop(&lt;紧跟关键字loop的文本，可用于添加注释&gt;){&lt;循环体&gt;}</code></li>
+</ul>
+<p>此外，基于调整后的<code>algorithm</code>环境，模板进一步封装了<code>algo</code>环境，它将生成比<code>algorithm</code>环境更<strong>窄</strong>的伪码浮动区域。除了接受浮动可选参数<code>[htbp]</code>，<code>algo</code>环境还支持另一可选参数<code>(&lt;伪码距正文文本边界的总距离&gt;)</code>：该参数控制浮动体距正文文本边界的总距离，默认<code>4em</code>，即单边缩进<code>2em</code>，与其下首行文本对齐。两项可选参数可以单独或同时使用，<strong>同时使用时的顺序必须与下方示例保持一致</strong>。</p>
+<pre data-role="codeBlock" data-info="tex" class="language-latex tex"><code><span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword keyword-algo">algo</span><span class="token punctuation">}</span><span class="token punctuation">[</span>&lt;浮动选项&gt;<span class="token punctuation">]</span>(&lt;伪码距正文文本边界的总距离&gt;)
+    .....
+<span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword keyword-algo">algo</span><span class="token punctuation">}</span>
+</code></pre><h3 id="76-定义公理定理命题推论引理示例假设注和证明">7.6 定义，公理，定理，命题，推论，引理，示例，假设，注和证明 </h3>
+<p>本模板为上述内容分别定义了环境：<code>definition</code>、<code>axiom</code>、<code>theorem</code>、<code>proposition</code>、<code>corollary</code>、<code>lemma</code>、<code>example</code>、<code>assumption</code>、<code>annotation</code>和<code>proof</code>。</p>
+<h3 id="77-脚注">7.7 脚注 </h3>
+<p>本模板使用包含了带圈数字的字体来替换LaTeX绘制的带圈数字，提供了充足的带圈编号数量，同时保证了带圈脚注编号足够优雅。</p>
+<ul>
+<li>
+<p>在正文中，插入脚注只需要在相应位置使用<code>\footnote{&lt;脚注内容&gt;}</code>命令；</p>
+</li>
+<li>
+<p>在其他环境中，如表格，用户需要组合使用<code>\footnotemark</code>+<code>\footnotetext{&lt;脚注文本&gt;}</code>命令来排版脚注：</p>
+<ol>
+<li>首先在需要插入脚注标号的位置使用<code>\footnotemark</code>；</li>
+<li>然后在环境外使用<code>\footnotetext{&lt;脚注文本&gt;}</code>指明脚注内容。更详细的使用方法参考<a href="https://blog.csdn.net/xovee/article/details/127563209" title="\footnotemark+\footnotetext配合生成脚注">LaTeX脚注</a>。</li>
+</ol>
+</li>
+</ul>
+<h3 id="78-模板中的各种编号">7.8 模板中的各种编号 </h3>
+<p>“标题”、“图片”、“表格”、“伪码”、“公式”、“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”、“脚注”这些文档元素均可自行计算并生成编号，无需使用者费心。<strong>但形如(1-1a)的子公式编号不能全自动生成</strong>，为此，模板提供了<code>\subeqtag[&lt;子公式编号标签&gt;]</code>命令。</p>
+<p>在为数学模型的约束创建编号时，常见的方式可能是使用<code>\tag{}</code>命令直接指定编号内容。但是，该方式操作繁琐，且在后续需要调换或增删约束时很容易漏改某些tag，导致子公式编号混乱，而又不容易察觉。</p>
+<p>本模板提供的<code>\subeqtag[&lt;子公式编号标签&gt;]</code>命令彻底避免了上述问题。使用者只需要在对应的约束后插入<code>\subeqtag</code>，即可赋予该约束与当前主公式编号保持一致的次级编号。而且，对连续多个约束使用该命令会<strong>自动生成</strong>递增的子公式编号，交换约束顺序编号也会自行更新，断不会出错。</p>
+<p>如果需要在正文中引用某个子公式编号，既可以像往常一样在<code>\subeqtag</code>之后使用<code>\label{&lt;编号标签&gt;}</code>，也可以直接指定<code>\subeqtag[&lt;子公式编号标签&gt;]</code>的可选参数，非常人性化。详情可以参考<code>tutorial.tex</code>中给出的示例。</p>
+<p>📌 有两点需要提醒:</p>
+<ol>
+<li>
+<p><code>\subeqtag[&lt;子公式编号标签&gt;]</code>的可选参数全文不可重复定义，因为它本质上还是调用的<code>\label{&lt;编号标签&gt;}</code>。</p>
+</li>
+<li>
+<p>尽管<code>\subeqtag[&lt;子公式编号标签&gt;]</code>在底层是调用<code>\label{&lt;编号标签&gt;}</code>来添加标签，TeXstudio编辑器在使用<code>\ref{&lt;编号标签&gt;}</code>或<code>\eqref{&lt;编号标签&gt;}</code>时却不会弹出这些标签的选项，需要手动输入；而直接用<code>\label{&lt;编号标签&gt;}</code>指定的标签在引用时则会出现在选项提示中，可以直接选择。这是<code>\subeqtag[&lt;子公式编号标签&gt;]</code>在接受可选参数后的不便之处，可惜我并不知道该如何解决。 😭 😭</p>
+</li>
+</ol>
+<h3 id="79-排版及微调数学公式">7.9 排版及微调数学公式 </h3>
+<p>对于不熟悉数学符号与LaTeX源码对应关系的用户，请参考<a href="https://www.cnblogs.com/1024th/p/11623258.html">LaTeX公式手册（全网最全）@樱花赞</a>，此处不再赘述。</p>
+<p>当论文中出现包含公式较多的数学模型或行间公式组，且当页剩余的排版空间又无法完整容纳它们时，用户可以在导言区或文档开头使用<code>\allowdisplaybreaks[&lt;跨页倾向值&gt;]</code>来允许跨页排版行间公式组，从而避免该页底部出现大幅空白。该命令的可选参数可取的值有<code>1,2,3,4</code>，值越大表示跨页排版的倾向越高。</p>
+<p>当某些行间公式过长以致于超出页面边界时，用户可以在<code>equation</code>环境中嵌套<code>aligned</code>环境将之调整为多行排版。此外，若公式超出页面边界的部分不多，也可以在<code>equation</code>环境内通过调整公式中数学符号间的三种间距<code>\thinmuskip</code>、<code>\medmuskip</code>、<code>\thickmuskip</code>来略微压缩公式的排版长度，三者的单位只能是<code>mu</code>。<code>tutorial.tex</code>中给出了相应的示例。</p>
+<h3 id="710-在标题中排版数学符号">7.10 在标题中排版数学符号 </h3>
+<p>尽管我不建议在标题中排版数学符号（因为规范甚至不建议在标题中排版英文缩略词），但如果非排版不可，那可使用<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf">hyperref</a>宏包（模板已载入该宏包）提供的<code>\texorpdfstring{&lt;TeXstring&gt;}{&lt;PDFstring&gt;}</code>命令，该命令的具体用法请参考：<a href="https://blog.csdn.net/qq_42679415/article/details/139592054">texorpdfstring使用方法</a>。<code>tutorial.tex</code>中也有对应的使用示例。</p>
+<h3 id="711-排版化学方程式">7.11 排版化学方程式 </h3>
+<p>本模板基于<a href="https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf">mhchem</a>和<a href="https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf">chemfig</a>宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或<a href="https://www.luogu.com.cn/user/45443">@codesonic</a>的文章：<a href="https://www.luogu.com.cn/article/o7mlv3w8">用LaTeX写化学方程式</a>。<code>tutorial.tex</code>引用了该文章中的部分示例以做演示，感谢。</p>
+<h3 id="712-引用">7.12 引用 </h3>
+<p>引用“公式”、“图片”、“表格”、“伪码”、“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”等环境的编号直接用<code>\ref{&lt;编号label&gt;}</code>即可，其中生成带括号公式编号则使用<code>\eqref{&lt;公式label&gt;}</code>。</p>
+<p>若要对子图题编号进行完整引用，那直接使用<code>\ref{&lt;子图题标签&gt;}</code>即可。<code>DissertUESTC</code>文档类默认生成形如<code>1-1(a)</code>的完整编号，但若用户指定了文档类的<code>subfigsimple</code>选项，则会生成形如<code>1-1a</code>的完整编号（<em>注：学位论文撰写规范中并未明确说明引用子图编号应该采用哪种形式，但我翻了本中文专著，里面采用了<code>1-1(a)</code>的形式，故而将之设为默认样式</em>）；反之，若要单独引用子图题编号（比如在主图题之后按子图编号添加子图题文本），则需要使用<code>\subref{&lt;子图题标签&gt;}</code>，它将生成形如<code>(a)</code>的单独编号。</p>
+<p>对参考文献的行内引用直接使用<code>\cite{&lt;参考文献label&gt;}</code>，以上标形式引用则使用<code>\citess{&lt;参考文献label&gt;}</code>。</p>
+<p>引用参考文献是基于<a href="https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf">natbib</a>宏包实现，可单次引用多篇参考文献（即<code>\cite{&lt;参考文献label1, 参考文献label2, 参考文献label3&gt;}</code>或<code>\citess{&lt;参考文献label1, 参考文献label2, 参考文献label3&gt;}</code>），届时序号会被排序并压缩（如果可以的话）。</p>
+<p>另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即<code>(1-1)</code>，而本科论文规范中则要求是中文括号，即<code>（1-1）</code>。在公式右侧的编号中，两者均采用英文括号。此间差异完全由相应的选项（<code>doctor</code>/<code>prodoctor</code>/<code>intdoctor</code>/<code>ipdoctor</code>/<code>master</code>/<code>promaster</code>/<code>intmaster</code>/<code>ipmaster</code>/<code>bachelor</code>/<code>doublebachelor</code>）控制，所以一定要确保设置了正确的选项。</p>
+<h2 id="8-致谢">8. 致谢 </h2>
+<p>生成<strong>致谢章</strong>使用<code>\acknowledgement</code>，而后编辑内容即可。该命令本质上是对<code>\chapter*{}</code>的封装，加入了生成目录项、书签条目以及修改页眉的操作。</p>
+<h2 id="9-参考文献">9. 参考文献 </h2>
+<p>本模板实现了规范中列举的 <strong>“期刊论文”</strong>、<strong>“会议论文”</strong>、<strong>“专著”</strong>、<strong>“学位论文”</strong>、<strong>“报纸文章”</strong>、<strong>“报告”</strong>、<strong>“授权专利”</strong>、<strong>“标准”</strong>、<strong>“电子文献”</strong>，共计9种文献类型的排版风格。</p>
+<p>本模板为这些文献类型定义的<code>.bib</code>数据库条目<strong>类型标识</strong>分别为<code>article</code>、<code>inproceedings/conference</code>、<code>book</code>、<code>mastersthesis/phdthesis</code>、<code>news</code>、<code>report</code>、<code>patent</code>、<code>standard</code>、<code>digital</code>。</p>
+<p>不同文档类型条目包含不同的域，下面列举了一些<a href="https://gr.uestc.edu.cn/xiazai/114/3917">研究生学位论文撰写规范</a>中用作示例的参考文献对应的<code>.bib</code>数据库形式，覆盖了上述9种文献类型：</p>
+<pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@book{教育部国家语言文字工作委员2018,
+    author={教育部国家语言文字工作委员},
+    title={通用规范汉字},
+    address={北京},
+    publisher={语文出版社},
+    year={2018},
+    language={schinese},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@standard{学位论文编写规范555,
+    author={全国信息与文献标准化技术委员},
+    title={学位论文编写规范},
+    number={GB/T 7713.1-2006},
+    address={北京},
+    publisher={中国标准出版社},
+    year={2007},
+    pages={17-20},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@article{王晓琰2019关于连续出版会议论文著录格式的探讨,
+    title={关于连续出版会议论文著录格式的探讨},
+    author={王晓琰 and 殷建芳 and 王晓峰 and 邓迎 and 杨蕾},
+    journal={学报编辑丛论},
+    number={0},
+    year={2019},
+    pages={162-165},
+    language={schinese},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@article{hu2014domain,
+    title={Domain decomposition method based on integral equation for solution of scattering from very thin, conducting cavity},
+    author={Hu, Jun and Zhao, Ran and Tian, Mi and Zhao, Huapeng and Jiang, Ming and Wei, Xiang and Nie, Zai Ping},
+    journal={IEEE Transactions on Antennas and Propagation},
+    volume={62},
+    number={10},
+    pages={5344-5348},
+    year={2014},
+    publisher={IEEE}
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@inproceedings{bergamasco2015adopting,
+    title={Adopting an unconstrained ray model in light-field cameras for 3d shape reconstruction},
+    author={Bergamasco, Filippo and Albarelli, Andrea and Cosmo, Luca and Torsello, Andrea and Rodola, Emanuele and Cremers, Daniel},
+    booktitle={IEEE Conference on Computer Vision and Pattern Recognition},
+    pages={3003-3012},
+    year={2015},
+    organization={Boston, USA}
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@article{xue2024survey,
+    title={A survey of beam management for mmWave and THz communications towards 6G},
+    author={Xue, Qing and Ji, Chengwang and Ma, Shaodan and Guo, Jiajia and Xu, Yongjun and Chen, Qianbin and Zhang, Wei},
+    journal={IEEE Communications Surveys \&amp; Tutorials},
+    year={2024},
+    pages={1-41},
+    publisher={IEEE}
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@book{罗杰斯2011,
+    author={罗杰斯},
+    title={西方文明史：问题与源头},
+    translator={潘惠霞 and 魏婧 and 杨艳 and 汤玲},
+    edition={2},
+    address={大连},
+    publisher={东北财经大学出版社},
+    year={2011},
+    pages={1-353},
+    language={schinese},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@book{harrington1993field,
+    title={Field computation by moment methods},
+    author={Harrington, Roger F},
+    year={1993},
+    pages={76-112},
+    edition={3},
+    address={New York},
+    publisher={Wiley-IEEE Press}
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@digital{电子文献1,
+    author={Deverell, W and gler, D},
+    title={A companion to California history},
+    type={M/OL},
+    modifydate={2013-11-15},
+    url={http://onlinelibrary.wiley.com/doi/.ch2/summary},
+    doi={10.1002/9781444305036},
+    address={New York},
+    publisher={John Wiley \&amp; Sons},
+    year={2013},
+    pages={21-22},
+    citedate={2014-06-24},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@digital{电子文献2,
+    author={Clerc, M},
+    title={Discrete particle swarm optimization: a fuzzy combinatorial box},
+    type={EB/OL},
+    modifydate={2010-07-16},
+    url={http://clere.maurice.free.fr/pso/Fuzzy_Discrere_PSO/Fuzzy_DPSO.html},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@mastersthesis{陈念永2001毫米波细胞生物效应及抗肿瘤研究,
+    author={陈念永},
+    title={毫米波细胞生物效应及抗肿瘤研究},
+    address={成都},
+    school={电子科技大学},
+    year={2001},
+    pages={50-60},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@news{顾春20122,
+    author={顾春},
+    title={牢牢把握稳中求进的总基调},
+    publisher={人民日报},
+    year={2012},
+    month={03},
+    day={31},
+    number={3},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@report{冯西桥1997,
+    author={冯西桥},
+    title={核反应堆压力容器的{LBB}分析},
+    address={北京},
+    publisher={清华大学核能技术设计研究院},
+    year={1997},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@patent{肖珍新2012,
+    author={肖珍新},
+    title={一种新型排渣阀调节降温装置},
+    number={ZL201120085830.0},
+    year={2012},
+    month={04},
+    day={25},
+}
+</code></pre><pre data-role="codeBlock" data-info="bib" class="language-bib bib"><code>@phdthesis{陈念永2001毫米波细胞生物效应及抗肿瘤研究无页码,
+	author={陈念永},
+	title={毫米波细胞生物效应及抗肿瘤研究（无页码测试）},
+	address={成都},
+	school={电子科技大学},
+	year={2001},
+}
+</code></pre><p>这些<code>.bib</code>数据编译后的结果依次见下图，用户可对应查看。感兴趣的朋友可与<a href="https://gr.uestc.edu.cn/xiazai/114/3917">研究生学位论文撰写规范</a>中给出的结果进行对比，看看是否做到了完全复刻。</p>
+<p><img src="./fig/refsample.png" alt="示例参考文献编译结果" title="示例参考文献编译结果"></p>
+<p>另外， ⚠️ <strong><font color="#8b0000">学士学位论文在大部分参考文献类型上采用了与研究生学位论文不同的排版风格</font></strong>，不过其中大部分只是各项内容的排布顺序和其后的标点符号不同，而这些由模板负责处理。换句话说，上述大多数<code>bib</code>条目同样适用于学士学位论文。但是，<font color="#8b0000">对“<strong><font color="#8b0000">专利</font></strong>”而言，学士学位论文还需要新的域：<code>nation</code>（专利国别）和<code>type</code>（专利种类）</font>。以下是本科生需要为“<strong>专利</strong>”维护的<code>bib</code>信息：</p>
+<pre data-role="codeBlock" data-info="tex" class="language-latex tex"><code>@patent<span class="token punctuation">{</span>肖珍新2012,
+    author=<span class="token punctuation">{</span>肖珍新<span class="token punctuation">}</span>,
+    title=<span class="token punctuation">{</span>一种新型排渣阀调节降温装置<span class="token punctuation">}</span>,
+    number=<span class="token punctuation">{</span>ZL201120085830.0<span class="token punctuation">}</span>,
+    year=<span class="token punctuation">{</span>2012<span class="token punctuation">}</span>,
+    month=<span class="token punctuation">{</span>04<span class="token punctuation">}</span>,
+    day=<span class="token punctuation">{</span>25<span class="token punctuation">}</span>,
+    nation=<span class="token punctuation">{</span>中国<span class="token punctuation">}</span>,
+    type=<span class="token punctuation">{</span>发明专利<span class="token punctuation">}</span>,
+<span class="token punctuation">}</span>
+</code></pre><p>类似的，<font color="#8b0000">学士学位论文在引用“<strong><font color="#8b0000">电子文献</font></strong>”时，<code>出版地</code>和<code>获取地址</code>只取其一、<code>发表更新日期</code>和<code>引用日期</code>同样只取其一</font>。本科生只需要用<code>address</code>域为之提供<code>出版地</code><strong>或</strong><code>获取地址</code>；用<code>modifydate</code>域为之提供<code>发表更新日期</code><strong>或</strong><code>引用日期</code>即可。如下所示（2025.03.12）：</p>
+<pre data-role="codeBlock" data-info="tex" class="language-latex tex"><code>@digital<span class="token punctuation">{</span>电子文献1,
+    author=<span class="token punctuation">{</span>Deverell, W and gler, D<span class="token punctuation">}</span>,
+    title=<span class="token punctuation">{</span>A companion to California history<span class="token punctuation">}</span>,
+    type=<span class="token punctuation">{</span>M/OL<span class="token punctuation">}</span>,
+    modifydate=<span class="token punctuation">{</span>2013-11-15<span class="token punctuation">}</span>,
+    address=<span class="token punctuation">{</span>New York<span class="token punctuation">}</span>,
+    publisher=<span class="token punctuation">{</span>John Wiley <span class="token function selector">\&amp;</span> Sons<span class="token punctuation">}</span>,
+<span class="token punctuation">}</span>
+</code></pre><p>若漏掉了参考文献需要的强制域，BibTeX编译会报错。在VSCode中，编译将直接中断；在TeXstudio中，编译不会中断，但log窗口会打印错误信息。这是一种规范控制手段，并非模板bug。遇到这类情况，使用者应该自行筛查漏掉了哪些信息。</p>
+<p>生成参考文献最耗费精力之处在于维护正确的<code>.bib</code>数据库。在这之后，只需要在正文的对应位置使用以下单行代码即可插入完整的参考文献列表：</p>
+<pre data-role="codeBlock" data-info="tex" class="language-latex tex"><code><span class="token function selector">\bibliography</span><span class="token punctuation">{</span>&lt;.bib文件名称，模板默认为ref&gt;<span class="token punctuation">}</span>
+</code></pre><p>⚠️ <strong><font color="#8b0000">重要提醒：示例文档在上述命令之前使用了命令<code>\nocite{*}</code>，其作用是在参考文献列表中列出<code>.bib</code>数据库中的所有参考文献条目，以便用作示例。因此，各位在正式撰写论文时一定要确保该条命令处于被注释状态！！！</font></strong></p>
+<p>尽管研究生和学士学位论文对参考文献的排版风格有不同要求，<strong><font color="#8b0000">用户在开篇通过文档类选项指定学位论文类型后，模板将自动确定并应用相应的<code>.bst</code>风格文件</font></strong>，无需使用<code>\bibliographystyle{&lt;.bst文件名&gt;}</code>来显式设置。（2025.03.12）</p>
+<p>📌 <strong>补充说明</strong>：</p>
+<ol>
+<li>
+<p>对于某些缺少非必要信息的文献，本模板提供的<code>.bst</code>文件依然可以正确处理。比如上图中[3]这篇期刊论文缺少卷号，它仍能仅排版期号，这是符合规范的。再比如，文献[10]比文献[9]少了<strong>出版地</strong>、<strong>出版者</strong>等信息，依然能正常排版；但是注意，[10]已经是这类文献的最简形式，不可再缺信息。</p>
+</li>
+<li>
+<p>对中文参考文献，如果希望将它们的第四顺位及以后的作者显示为<code>“等”</code>，则必须要在它们的bib条目中加入<code>language={}</code>域，并将值设置为<code>schinese</code>。这是文献编译引擎判断该条参考文献是否是中文的唯一依据。类似的，上图[7]中的<code>“等译”</code>、<code>“2版”</code>均靠设置<code>language={schinese}</code>实现。我的建议是，虽然<code>language</code>域并非是强制添加的，但对于中文文献，最好将其添加进去。</p>
+</li>
+<li>
+<p>对电子文献，其类型众多，因此需要用户通过<code>type={}</code>域显式指定其具体类型，如上图中的[9]和[10]；而对其他的文献类型，只要在<code>@</code>符号后输入了正确的类型标识，对应的类型标签会自动生成，无需手动逐条添加。</p>
+</li>
+<li>
+<p>需要特别说明的参考文献类型是<code>mastersthesis/phdthesis</code>，即学位论文。学校在撰写规范中提到参考文献排版应该遵循国标<a href="https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf">GB/T 7714-2015</a>，在此国标中，对学位论文的引用不需要页码信息。但是，<strong>学校的规范中又明确为学位论文引用添加了页码信息</strong>。为此，我询问了学位办的相关老师，得到的答复大致是：“<em>我翻阅了手边信通学院学生的论文，他们是写了页码信息的。但是这个要求并没有那么严格，不会说你没写就评审不过，历年也没有出现因为这个没写就不过的情况，评审老师也没有严格挑这个。学位论文的质量并不是通过这个来评判的，不过我们这边还是建议写上</em>”。（2025.01.02）</p>
+<p>本模板原本的实现方式是遵循学校的撰写规范，将学位论文的页码信息设置为了强制域。如果缺少该信息，使用VSCode作为编辑器时将报错而无法完成编译；TeXstudio则能跳过这种小问题继续编译，但BibTeX仍会输出错误提醒。GitHub用户<a href="https://github.com/zealrussell">@zealrussell</a>在使用VSCode撰写论文时，发现不为学位论文这类参考文献添加页码信息将无法顺利编译，遂发起了issue。</p>
+<p>经过查阅相关文件，以及向学位办老师求证后，本模板对此类文献的排版规则进行了调整。现在，学位论文的<code>pages域</code>将不再是强制域，缺少该信息不会再中断编译过程，但会输出警告，提醒用户某条参考文献条目缺少页码信息。如果你使用TeXstudio，则在编译参考文献辅助文件时BibTeX会发出该警告（下图1）；如果你使用VSCode，则需要去检查<code>problems</code>窗口输出的信息。它是按文件对警告进行分类的，你需要先定位到<code>.bib</code>文件（下图2）。本模板将是否加页码的选择权交予用户，但我个人仍建议各位遵循学校的规范。</p>
+<p align="center">
+<img src="fig/TeXstudio_bibtex.png" width="500">
+<img src="fig/VScode_bibtex.png" width="500">
+</p>
+</li>
+</ol>
+<h2 id="10-附录">10. 附录 </h2>
+<p>添加附录需要先在<strong>附录开始的位置</strong>使用<code>\appendix</code>，而后照常使用<code>\chapter{}</code>、<code>\section{}</code>等标题命令产生各级附录标题。</p>
+<h2 id="11-攻读学位期间取得的成果原则上仅研究生">11. 攻读学位期间取得的成果（原则上仅研究生） </h2>
+<p>生成<strong>成果章</strong>使用<code>\achievement</code>，而后编辑内容即可。其实现原理与<code>\acknowledgement</code>一致。</p>
+<p>📌 <em>学校官方仅对研究生论文有这部分内容要求，但是好像现在很多本科生成果也很猛，所以模板也为本科生提供了该命令。</em></p>
+<h2 id="12-外文资料原文仅本科生">12. 外文资料原文（仅本科生） </h2>
+<p>首先使用命令<code>\originalliterature{&lt;外文标题&gt;}{&lt;外文作者&gt;}</code>生成这部分的开头。</p>
+<p>这部分内容中的各级标题使用模板封装的命令：<code>\Section{}</code>、<code>\Subsection{}</code>、<code>\Subsubsection{}</code>。<strong><font color="#8b0000">注意它们的首字母是大写的；另外，不要使用任何chapter命令</font></strong>。这些新命令能生成自动编号的标题，且不会将之插入到论文目录或书签。如果你使用了LaTeX原生的首字母小写的命令，那对应内容就会出现在目录和书签中。</p>
+<p>在这部分内容中排版图、表时需要在<code>figure</code>、<code>table</code>环境内使用<code>\captionsetup{list=no}</code>来阻止对应的图题和表题出现在图目录和表目录中。</p>
+<p>这部分内容中的“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“注”对应 <strong><font color="#8b0000">首字母大写的环境</font></strong>：<code>Definition</code>、<code>Axiom</code>、<code>Theorem</code>、<code>Proposition</code>、<code>Corollary</code>、<code>Lemma</code>、<code>Example</code>、<code>Assumption</code>、<code>Annotation</code>。<code>proof</code>环境保持不变。</p>
+<p>更多细节可参考<code>tutorial.tex</code>示例文档。</p>
+<h2 id="13-外文资料译文仅本科生">13. 外文资料译文（仅本科生） </h2>
+<p>首先使用命令<code>\translatedliterature{&lt;译文标题&gt;}{&lt;原文作者&gt;}</code>生成这部分的开头。</p>
+<p>这部分内容中的各级标题仍然使用模板封装的命令：<code>\Section{}</code>、<code>\Subsection{}</code>、<code>\Subsubsection{}</code>。<strong><font color="#8b0000">注意它们的首字母是大写的；另外，不要使用任何chapter命令</font></strong>；排版图、表时仍需要在<code>figure</code>、<code>table</code>环境内使用<code>\captionsetup{list=no}</code>。原因同上。</p>
+<p>这部分内容中的“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”对应<strong>与正文一致的环境</strong>，即首字母小写的版本。</p>
+<p>更多细节可参考<code>tutorial.tex</code>示例文档。</p>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#1-前言" class="md-toc-link"><ol>
+<li>前言</li>
+</ol>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#11-适用对象" class="md-toc-link">
+            <p>1.1 适用对象</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#12-使用环境" class="md-toc-link">
+            <p>1.2 使用环境</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#13-模板完成度" class="md-toc-link">
+            <p>1.3 模板完成度</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#14-模板的更新方法" class="md-toc-link">
+            <p>1.4 模板的更新方法</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#15-开发该模板的原因" class="md-toc-link">
+            <p>1.5 开发该模板的原因</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#16-鸣谢" class="md-toc-link">
+            <p>1.6 鸣谢</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#17-免责声明" class="md-toc-link">
+            <p>1.7 免责声明</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#18-项目统计" class="md-toc-link">
+            <p>1.8 项目统计</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#2-导言区" class="md-toc-link">
+            <ol start="2">
+<li>导言区</li>
+</ol>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#3-论文封面及扉页" class="md-toc-link"><ol start="3">
+<li>论文封面及扉页</li>
+</ol>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#31-保密标识20250107" class="md-toc-link">
+            <p>3.1 保密标识（2025.01.07）</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#32-封面" class="md-toc-link"><p>3.2 封面</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#321-双学位学士以外的论文封面" class="md-toc-link">
+            <p>3.2.1 “双学位学士”以外的论文封面</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#322-双学位学士论文封面" class="md-toc-link">
+            <p>3.2.2 “双学位学士”论文封面</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#33-中文扉页仅研究生" class="md-toc-link">
+            <p>3.3 中文扉页（仅研究生）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#34-英文扉页仅研究生" class="md-toc-link">
+            <p>3.4 英文扉页（仅研究生）</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#4-独创性声明仅研究生" class="md-toc-link">
+            <ol start="4">
+<li>独创性声明（仅研究生）</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#5-中英文摘要" class="md-toc-link">
+            <ol start="5">
+<li>中英文摘要</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#6-目录图目录表目录主要符号表缩略词表" class="md-toc-link">
+            <ol start="6">
+<li>目录，图目录，表目录，主要符号表，缩略词表</li>
+</ol>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#7-论文主体部分" class="md-toc-link"><ol start="7">
+<li>论文主体部分</li>
+</ol>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#71-写在最前面20250107" class="md-toc-link">
+            <p>7.1 写在最前面（2025.01.07）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#72-各级标题" class="md-toc-link">
+            <p>7.2 各级标题</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#73-图片" class="md-toc-link">
+            <p>7.3 图片</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#74-表格" class="md-toc-link"><p>7.4 表格</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#741-普通表格" class="md-toc-link">
+            <p>7.4.1 普通表格</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#742-带附注表格" class="md-toc-link">
+            <p>7.4.2 带附注表格</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#743-跨页表格" class="md-toc-link">
+            <p>7.4.3 跨页表格</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#744-跨页带附注表格20250105" class="md-toc-link">
+            <p>7.4.4 跨页带附注表格（2025.01.05）</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#75-伪代码" class="md-toc-link">
+            <p>7.5 伪代码</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#76-定义公理定理命题推论引理示例假设注和证明" class="md-toc-link">
+            <p>7.6 定义，公理，定理，命题，推论，引理，示例，假设，注和证明</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#77-脚注" class="md-toc-link">
+            <p>7.7 脚注</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#78-模板中的各种编号" class="md-toc-link">
+            <p>7.8 模板中的各种编号</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#79-排版及微调数学公式" class="md-toc-link">
+            <p>7.9 排版及微调数学公式</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#710-在标题中排版数学符号" class="md-toc-link">
+            <p>7.10 在标题中排版数学符号</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#711-排版化学方程式" class="md-toc-link">
+            <p>7.11 排版化学方程式</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#712-引用" class="md-toc-link">
+            <p>7.12 引用</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#8-致谢" class="md-toc-link">
+            <ol start="8">
+<li>致谢</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#9-参考文献" class="md-toc-link">
+            <ol start="9">
+<li>参考文献</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#10-附录" class="md-toc-link">
+            <ol start="10">
+<li>附录</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#11-攻读学位期间取得的成果原则上仅研究生" class="md-toc-link">
+            <ol start="11">
+<li>攻读学位期间取得的成果（原则上仅研究生）</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#12-外文资料原文仅本科生" class="md-toc-link">
+            <ol start="12">
+<li>外文资料原文（仅本科生）</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#13-外文资料译文仅本科生" class="md-toc-link">
+            <ol start="13">
+<li>外文资料译文（仅本科生）</li>
+</ol>
+
+          </a></div>
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
