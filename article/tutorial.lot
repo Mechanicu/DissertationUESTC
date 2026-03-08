@@ -1,0 +1,18 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\cftsetpnumwidth {\widthof {39}-1bp}
+\contentsline {table}{\numberline {4-1}{\ignorespaces EasyAda-SM内存管理原语}}{39}{table.caption.18}%
+\cftsetpnumwidth {\widthof {42}-1bp}
+\contentsline {table}{\numberline {4-2}{\ignorespaces EasyAda-SM内存保护原语}}{42}{table.caption.20}%
+\cftsetpnumwidth {\widthof {44}-1bp}
+\contentsline {table}{\numberline {4-3}{\ignorespaces EasyAda-SM安全内存管理原语}}{44}{table.caption.22}%
+\cftsetpnumwidth {\widthof {50}-1bp}
+\contentsline {table}{\numberline {4-4}{\ignorespaces CVM管理模块在机密流支持的句柄类型}}{50}{table.caption.27}%
+\cftsetpnumwidth {\widthof {50}-1bp}
+\contentsline {table}{\numberline {4-5}{\ignorespaces CVM管理模块在机密流支持的句柄类型}}{50}{table.caption.28}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsfinish 

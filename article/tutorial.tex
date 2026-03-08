@@ -1,0 +1,1342 @@
+% !TEX Program = xelatex
+\documentclass[master, vlined]{DissertUESTC}
+
+
+
+\begin{document}
+	
+	% 以下两条命令为高亮示例文档中的关键内容而设，正式撰写时切不可使用
+	\newcommand{\shad}[1]{\textcolor{DodgerBlue}{\ttfamily #1}}
+	\newcommand{\shadcmd}[1]{\shad{$\backslash$#1}}
+	
+	
+	% 下方命令允许跨页排版包含多个行间公式的公式组，可选参数可取值为1,2,3,4，越大表示跨页倾向越高
+	% \allowdisplaybreaks[3]
+	
+	
+	% 当论文中某节的内容接近填满页面且其下紧随几项标题时，LaTeX更倾向于在后续的标题前分页，并且纵向拉伸当前页内容的段间距，以实现纵向分散对齐，也就是很多人在问的现象。这并不是模板bug，而是LaTeX特性。
+	% 出现这种情况的本质原因是用户的内容，尤其是在页面中有些图、表、标题的时候，它们的高度很可能不是正文行距的整数倍，那必然就会出现这种问题。
+	% 如果你觉得Word从上到下直接堆叠内容，然后在页尾留下明显空白的处理方式更合你意，那就使用下方的\raggedbottom命令
+	\raggedbottom  % 此命令可让LaTeX像Word那样直接堆叠页面内容，而不再默认拉伸段间距，代价是页尾可能会有明显空白
+	
+	
+	% \setconfidential命令用于设置论文封面中的“密级信息”。慎用！！！学生个人不应随意将论文定性为涉密，需要先经过审批。此命令必须先于\uestccover使用才有效
+	% 命令参数：\setconfidential(<信息右上角与纸张左、上边界的距离，以逗号分隔>)[<字体格式>]{<密级>}{<保密期限>}。可选参数默认值：(18cm,2cm)[\zihao{4}\bfseries]
+	% \setconfidential{密级}{保密期限}  % 非涉密论文一定要注释掉该命令
+	
+	% 封面示例————“双学位学士”以外的学位论文
+	%	\uestccover[<学院名称排版风格>]{<论文题目>}{<学科专业>}{<学号>}{<作者姓名>}{<指导教师>}{<教师职称>}{<学院>} % 单学位学士、研究生通用
+	% \uestccover{}{}{}{}{}{}{}  % 空封面
+	
+	\uestccover{基于RISC-V的微内核虚拟化方案研究}
+	{计算机科学与技术}
+	{202321081001}
+	{李金哲}
+	{罗蕾}
+	{教\hspace{1em}授}%{终南山古墓派}
+	{ 	信息与软件工程学院（示范性软件学院）}  % 默认将过长的学院名称压缩至下划线宽度
+	
+	% \uestccover[par]{关于我的杀父仇人疑似是名震天下的大侠时该如何报仇}
+	% 			{玉女素心剑法}
+	% 			{1182000}
+	% 			{杨\hspace{1em}过}
+	% 			{小龙女}
+	% 			{掌\hspace{1em}门}%{终南山古墓派}
+	% 			{终南山古墓派终南山古墓派终南山古墓派}  % par参数将过长学院名称换行排版，此参数必影响封面布局，无可避免
+	
+	% 封面示例————“双学位学士”论文，需要doublebachelor选项
+	% \uestccover{<论文题目>}{<学院>}{<第一专业>}{<第二专业>}{<学号>}{<作者姓名>}{<第一导师及职称>}{<第二导师及职称>} % 仅双学位学士论文，需要doublebachelor选项
+	% \uestccover{}{}{}{}{}{}{}{}  % 空封面
+	% \uestccover{关于我的杀父仇人疑似是名震天下的大侠时该如何报仇}
+	% 			{终南山古墓派终南山古墓派终南山古墓派}  % 空间有限，过长的学院名称必须压缩至下划线宽度
+	% 			{玉女素心剑法}
+	% 			{打狗棒法}
+	% 			{1182000}
+	% 			{杨\hspace{1em}过}
+	% 			{小龙女\hspace*{4em}掌\hspace{1em}门}
+	% 			{洪七公\hspace*{4em}帮\hspace{1em}主}
+	
+	
+	
+	% 中文扉页，仅研究生用
+	\DegLv{}  % 清空文档类选项设置的<申请学位级别>
+	\uestczhtitlepage  % 空白中文扉页
+	
+	% \ClsNum{TN828.6}  % \ClsNum{<分类号>}
+	% \ClsLv{公开}  % \ClsLv{<密级>}
+	% \UDC{621.39}  % \UDC{<UDC号>}
+	% \DissertationTitle{关于我的杀父仇人疑似是名震天下的大侠时\\该如何报仇}  % \DissertationTitle{<题名>}
+	% \Author{杨过}  % \Author{<作者姓名>}
+	% \Supervisor{小龙女}{掌门}{古墓派}{活死人墓}  % \Supervisor{<指导教师>}{<职称>}{<单位名称>}{<单位地址>}
+	% % 副导师信息，无则注释
+	% \AssociateSupervisor{洪七公}{前帮主}{丐帮}{襄阳}  % \AssociateSupervisor{<副导师名称>}{<职称}>{<单位名称>}{<单位地址>}
+	% \DegLv{西狂}  % \DegLv{<申请学位级别>}，该信息由文档类选项自动确定，需修改默认内容时使用，否则注释即可
+	% \Major{玉女素心剑法}  % \Major{<学科专业>}
+	% \Profield{剑道}  % \Profield{专业学位领域代码}，此为专业学位独有，学术学位用户注释即可
+	% \Date{1959年1月1日}{1961年1月1日}  % \Date{<论文提交日期>}{<论文答辩日期>}
+	% \Grant{中华武林}{1961年2月2日}  % \Grant{<学位授予单位>}{<学位授予日期>}
+	% \Reviewer{黄蓉}{一灯大师、老顽童、黄老邪、郭靖、小龙女}  % \Reviewer{<答辩委员为主席>}{<评阅人>}
+	% \uestczhtitlepage
+	
+	
+	% \Supervisor{小龙女}{古墓派末代掌门}{古墓派}{活死人墓}  % \Supervisor{<指导教师>}{<职称>}{<单位名称>}{<单位地址>}
+	% % 副导师信息，无则注释
+	% \AssociateSupervisor{洪七公}{天下第一帮前帮主}{丐帮}{襄阳}  % \AssociateSupervisor{<副导师名称>}{<职称}>{<单位名称>}{<单位地址>}
+	% \Reviewer{黄蓉}{一灯大师、老顽童、黄老邪、郭靖、小龙女、金轮法王、洪七公、欧阳锋}  % \Reviewer{<答辩委员为主席>}{<评阅人>}
+	% \uestczhtitlepage  % 过长评阅人文本将被自动压缩至下划线宽度，不会超出页面边界
+	
+	% \uestczhtitlepage[compress]  % 在compress选项下，“中文扉页”将自动压缩过长职称的字宽，使之不超出官方模板为该内容设定的长度
+	
+	
+	% 英文扉页，仅研究生用
+	% \uestcentitlepage{<文题>}{<专业>}{<学号>}{<作者>}{<导师>}{<副导师>}{<学院>}，若无副导师，则将“<副导师>”参数留空即可
+	\uestcentitlepage{}{}{}{}{}{}{}  % 空白英文扉页
+	% \uestcentitlepage{How to Take Revenge When My Father's Murderer is Suspected to Be a Famous Hero}
+	% 				{Jade Lady Soul Sword Technique Jade Lady Soul Sword Technique}
+	% 				{1182000}
+	% 				{Yang Guo}
+	% 				{Grandmaster Dragondaughter Little}{Grandmaster Northern Beggar}
+	% 				{Ancient Tomb Sect Ancient Tomb Sect Ancient Tomb Sect Ancient Tomb Sect}
+	
+	% 独创性声明：[<签名宽度>]{<日期>}{<作者签名图片1>}[<作者签名图片2 默认值为作者签名图片1>]{<导师签名图片>}，仅研究生用
+	
+	\declaration[3cm]{2024年08月31日}{authsign}{spvrsign}
+	
+	
+	% 开启中文摘要
+	\zhabstract
+	
+	
+	% \null\newpage
+	
+	% 杨过少年时期母亲染病而亡，随后他便过着四处流浪的生活。后来遇到郭靖夫妇，便由他们照看。但之后因杨过与郭芙等人之间的矛盾，郭靖便送其去全真派习武。其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女，后结为夫妇；他和郭家恩怨难分，数度因误会关系紧张，却始终挺身而出相助他们，解除嫌隙，化气为和；命运多舛，与小龙女分隔十六年里，随伴亦师亦友的神雕行侠仗义，惩恶扬善。江湖人称“神雕大侠”。后等小龙女不至毅然跳崖殉情，在谷底与小龙女重逢后携手保卫襄阳城，杨过一展其旷世武学的威力，打败金轮法王，飞石击杀蒙古大汗，保大宋十三年和平。成为名扬天下的“神雕侠侣”。最后一次华山论剑后，与妻子小龙女绝迹江湖。
+	
+	% 杨过少年时期母亲染病而亡，随后他便过着四处流浪的生活。后来遇到郭靖夫妇，便由他们照看。但之后因杨过与郭芙等人之间的矛盾，郭靖便送其去全真派习武。其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女，后结为夫妇；他和郭家恩怨难分，数度因误会关系紧张，却始终挺身而出相助他们，解除嫌隙，化气为和；命运多舛，与小龙女分隔十六年里，随伴亦师亦友的神雕行侠仗义，惩恶扬善。江湖人称“神雕大侠”。后等小龙女不至毅然跳崖殉情，在谷底与小龙女重逢后携手保卫襄阳城，杨过一展其旷世武学的威力，打败金轮法王，飞石击杀蒙古大汗，保大宋十三年和平。成为名扬天下的“神雕侠侣”。最后一次华山论剑后，与妻子小龙女绝迹江湖。
+	
+	% 杨过少年时期母亲染病而亡，随后他便过着四处流浪的生活。后来遇到郭靖夫妇，便由他们照看。但之后因杨过与郭芙等人之间的矛盾，郭靖便送其去全真派习武。其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女，后结为夫妇；他和郭家恩怨难分，数度因误会关系紧张，却始终挺身而出相助他们，解除嫌隙，化气为和；命运多舛，与小龙女分隔十六年里，随伴亦师亦友的神雕行侠仗义，惩恶扬善。江湖人称“神雕大侠”。后等小龙女不至毅然跳崖殉情，在谷底与小龙女重逢后携手保卫襄阳城，杨过一展其旷世武学的威力，打败金轮法王，飞石击杀蒙古大汗，保大宋十三年和平。成为名扬天下的“神雕侠侣”。最后一次华山论剑后，与妻子小龙女绝迹江湖。
+	
+	% 杨过少年时期母亲染病而亡，随后他便过着四处流浪的生活。后来遇到郭靖夫妇，便由他们照看。但之后因杨过与郭芙等人之间的矛盾，郭靖便送其去全真派习武。其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女，后结为夫妇；
+	
+	% 中文关键词
+	\zhkeywords{}
+	
+	
+	
+	
+	% 开启英文摘要
+	\enabstract
+	
+	
+	% When Yang was a teenager, his mother contracted a disease and died, and he then lived a wandering life. When he met Guo Jing and his wife, they took care of him. However, due to the conflict between Yang and Guo Fu, Guo Jing sent him to learn martial arts in the Quanzhen Sect. Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian. He was surrounded by many confidantes who were in love with him, but he only loved Little Dragon Girl, and later married; he and the Guo family feud, several times due to misunderstanding tension, but always stepped forward to help them, lifting the suspicion, turning the gas into peace; ill-fated, separated from Little Dragon Girl for sixteen years, along with the Divine Eagle who is also a teacher and friend of the chivalrous, punishing the evil and promoting the good. Jianghu people ``divine eagle hero". After the little dragon lady is not to perseverance to jump off the cliff to martyrdom, in the bottom of the valley and the little dragon lady reunited with the defence of Xiangyang City.
+	
+	% When Yang was a teenager, his mother contracted a disease and died, and he then lived a wandering life. When he met Guo Jing and his wife, they took care of him. However, due to the conflict between Yang and Guo Fu, Guo Jing sent him to learn martial arts in the Quanzhen Sect. Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian. He was surrounded by many confidantes who were in love with him, but he only loved Little Dragon Girl, and later married; he and the Guo family feud, several times due to misunderstanding tension, but always stepped forward to help them, lifting the suspicion, turning the gas into peace; ill-fated, separated from Little Dragon Girl for sixteen years, along with the Divine Eagle who is also a teacher and friend of the chivalrous, punishing the evil and promoting the good. Jianghu people ``divine eagle hero". After the little dragon lady is not to perseverance to jump off the cliff to martyrdom, in the bottom of the valley and the little dragon lady reunited with the defence of Xiangyang City, Yang past a show of its unparalleled martial arts power to defeat the Golden Wheel of the Fa Wang, flying stone to kill the Mongolian Khan, to protect the thirteen years of peace in the Great Song Dynasty. He became the world-famous ``Divine Eagle Couple". After the last Mount Hua sword debate, he and his wife Xiaolongnu went into exile.
+	
+	% When Yang was a teenager, his mother contracted a disease and died, and he then lived a wandering life. When he met Guo Jing and his wife, they took care of him. However, due to the conflict between Yang and Guo Fu, Guo Jing sent him to learn martial arts in the Quanzhen Sect. Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian. He was surrounded by many confidantes who were in love with him, but he only loved Little Dragon Girl, and later married; he and the Guo family feud, several times due to misunderstanding tension, but always stepped forward to help them, lifting the suspicion, turning the gas into peace; ill-fated, separated from Little Dragon Girl for sixteen years, along with the Divine Eagle who is also a teacher and friend of the chivalrous, punishing the evil and promoting the good. Jianghu people ``divine eagle hero". After the little dragon lady is not to perseverance to jump off the cliff to martyrdom, in the bottom of the valley and the little dragon lady reunited with the defence of Xiangyang City, Yang past a show of its unparalleled martial arts power to defeat the Golden Wheel of the Fa Wang, flying stone to kill the Mongolian Khan, to protect the thirteen years of peace in the Great Song Dynasty. He became the world-famous ``Divine Eagle Couple". After the last Mount Hua sword debate, he and his wife Xiaolongnu went into exile.
+	
+	
+	% 英文关键词
+	\enkeywords{}
+	
+	
+	\tableofcontents  % 主目录，必要
+	
+	\listoffigures  % 图多则放，反之不放
+	
+	\listoftables  % 表多则放，反之不放
+	
+	% \listofsymbs  % 生成主要符号表标题，需要额外维护符号表内容
+	
+	% 生成主要符号表的章标题需使用本模板提供的\shadcmd{listofsymbs}命令。排版主要符号表的内容则需要使用本模板提供的\shad{symbtable}环境。该环境基于\shad{longtable}环境进行封装，依次接受两个可选参数：
+	
+	% \shadcmd{begin\{symbtable\}[<表格整体位置>](<主要符号表的列控制参数>)}
+	
+	% \noindent 其中，第一项可选参数用于设置\shad{longtable}环境的可选参数，且默认值与\shad{longtable}环境保持一致；第二项可选参数用于设置\shad{longtable}环境的必选参数，其默认值设置为\shad{p\{3.5em\} p\{$\backslash$linewidth-9em\} p\{3em\}<\{$\backslash$centering\}}。
+	
+	% 若非必要，用户不应指定\shad{symbtable}环境的可选参数。但若出于对排版美观性的考虑，可适当调整主要符号表各列的宽度。注意，按照学位论文撰写规范中的示例，\textbf{主要符号表有且仅有三列}。因此，切勿对第二项可选参数设置其他列数。
+	
+	% \textbf{重要提醒}：\shadcmd{listofsymbs}命令和\shad{symbtable}环境必须同时出现或消失。不需要主要符号表时，通通注释掉即可；需要时，必须使用\shad{symbtable}环境生成表格内容。
+	
+	% \begin{symbtable}
+		% 	a & 加速度（acceleration） & 1 \\
+		% 	A & 振幅（amplitude）、面积（Area)、磁场矢量势（magnetic vector potential） & 2 \\
+		% 	B & 磁场、磁感应强度、核结合能 & 3 \\
+		% 	c & 真空中光速 & 4 \\
+		% 	C & 比热容(heat capacity）、电容 & 5 \\
+		% 	d & 长度（distance）、直径（diameter）、微分（differential，如dx）& 6 \\
+		% 	D & 电位移矢量（electric displacement） & 7 \\
+		% 	e & 元电荷、自然底数（欧拉常数）& 8 \\
+		% 	E & 能量、电场场强，电动势 & 9 \\
+		% 	f & 频率、焦距（光学） & 10 \\
+		% 	F & 力、通量（Flux） & 11 \\
+		% 	g &（地表）重力加速度 & 12 \\
+		% 	G & 万有引力常数 & 13 \\
+		% 	h & 普朗克常数、高度 & 14 \\
+		% 	H & 哈勃常数、焓、磁化强度矢量、哈密顿算符（Hamiltonian） & 15 \\
+		% 	i & 虚数单位 & 16 \\
+		% 	I & 电流、惯量（inertia）、冲量(impulse) & 17 \\
+		% 	j & 辐射强度、加加速度（jerk） & 18 \\
+		% 	J & 角动量、概率流(量子力学）、电流密度、巨配分函数里的巨势 Z(J) & 19 \\
+		% 	k & 玻尔兹曼(Boltzmann)常数、库伦常数、用来指代某常量或固定比值 & 20 \\
+		% 	K & 四维波矢量（相对论）、动能 & 21 \\
+		% 	l & 长度(length) & 22 \\
+		% 	L & 角动量、电感系数 & 23 \\
+		% 	m & 质量 & 24 \\
+		% 	M & 磁化率 & 25 \\
+		% 	n & 序数、主量子数、摩尔数（化学）、折射率（光学） & 26 \\
+		% 	N & 序数、中子数、放大倍率（光学）& 27 \\
+		% 	o & 小o符号 & 28 \\
+		% 	O & 大O符号 & 29 \\
+		% 	p & 动量、压强(pressure)、电偶极矩(electric dipole moment) & 30 \\
+		% 	P & 概率（量子力学，统计学）、功率（power)、极化度 & 31 \\
+		% 	q & 电荷 & 32 \\
+		% 	Q & 电荷热量、流量 & 33 \\
+		% 	r & 半径、位置向量、球坐标系半径轴 & 34 \\
+		% 	R & 电阻、普适气体常数（热力学）、里德伯(Rydberg)常数（光谱学）、反射率（Reflectivity，光学） & 35 \\
+		% 	s & 自旋 & 36 \\
+		% 	S & 熵、面积 & 37 \\
+		% 	t & 时间 & 38 \\
+		% 	T & 温度、周期、透射率（Transmittance，光学） & 39 \\
+		% 	u & 原子质量单位、物距（光学） & 40 \\
+		% 	U & 电压、电势 & 50 \\
+		% 	v & 速度、像距（光学） & 51 \\
+		% 	V & 体积、势能 & 52 \\
+		% 	w & 速度 & 53 \\
+		% 	W & 功 & 54 \\
+		% 	x & 直角坐标系横轴 & 55 \\
+		% 	X & 磁化率、电抗 & 56 \\
+		% 	y & 直角坐标系纵轴 & 57 \\
+		% 	Y & 光亮度、球谐函数 & 58 \\
+		% 	z & 直角/圆柱坐标系竖轴、复数变量 & 59 \\
+		% 	Z & 阻抗、原子序数（质子数）、配分函数（partition function） & 60 \\
+		% 	$\alpha$ & 角度、精细结构常数、角加速度、四维加速度（相对论）、攻角 & 61 \\
+		% 	Α & Alpha （与英文拼写难区分的希腊字母一般不使用） & 62 \\
+		% 	$\beta$ & 角度；磁通系数；速度与光速的比值 & 63 \\
+		% 	Β & Beta Β函数 & 64 \\
+		% 	γ & 电导系数、洛伦兹因子、热容比 & 65 \\
+		% 	Γ & Gamma Γ函数、克里斯托弗尔符号 & 66 \\
+		% 	δ & 狄拉克δ函数、克罗内克函数（Kronecker delta）、屈光度、微分 & 67 \\
+		% 	Δ & Delta 拉普拉斯算子、有限差 & 68 \\
+		% 	ε & 电容率（permittivity）、介电常数、列维-奇维塔符号(Levi-Civita symbol)、发射率 & 69 \\
+		% 	Ε & Epsilon & 70 \\
+		% 	Ϝ & digamma & 71 \\
+		% 	ζ & 阻尼比、黎曼ζ函数 & 72 \\
+		% 	Ζ & Zeta & 73 \\
+		% 	η & 黏度（viscosity）、磁滞系数、效率 & 74 \\
+		% 	Η & Eta & 75 \\
+		% 	θ & 角变量、温度、球坐标/圆柱坐标横角 & 76 \\
+		% 	Θ & Theta 单位阶跃函数（Heaviside step function） & 77 \\
+		% 	Ι & Iota & 78 \\
+		% 	$\kappa$ & 介质常数比ε/ε0、导热率、热扩散率 & 79 \\
+		% 	$\kappa$ & Kappa & 80 \\
+		% 	λ & 波长、mean free path、半衰期 & 81 \\
+		% 	$\Lambda$ & Lambda 洛伦兹变换、冯·卡门常数 & 82 \\
+		% 	μ & 磁导率、质子质量单位、摩擦系数、离子迁移率 & 83 \\
+		% 	Μ & Mu & 84 \\
+		% 	ν & 频率、运动粘度、自由度 & 85 \\
+		% 	Ν & Nu & 86 \\
+		% 	ξ & 黎曼ξ函数、随机变量 & 87 \\
+		% 	Ξ & Xi & 88 \\
+		% 	Ο & Omicron & 89 \\
+		% 	π & 圆周率、共轭动量 & 90 \\
+		% 	∏ & Pi 乘积 & 91 \\
+		% 	ρ & 密度、电阻率 & 92 \\
+		% 	Ρ & Rho & 93 \\
+		% 	σ & 导电率、斯提芬-波尔兹曼常数（Stefan–Boltzmann constant）、核反应截面、表面密度、标准差 & 94 \\
+		% 	∑ & Sigma 总和 & 95 \\
+		% 	τ & 扭矩(Torque)、剪应力（Shear stress）、时间常数、2π & 96 \\
+		% 	Τ & Tau & 97 \\
+		% 	Υ & Upsilon & 98 \\
+		% 	φ & 球坐标纵角、波相位（wave phase）、直径 & 99 \\
+		% 	Φ & Phi 磁通量、辐射通量、逸出功 & 100 \\
+		% 	χ & 电极化率(Electric susceptibility) & 101 \\
+		% 	Χ & Chi 电抗 & 102 \\
+		% 	ψ & 角速；介质电通量（静电力线） & 103 \\
+		% 	Ψ & Psi 波函数 & 104 \\
+		% 	ω & 角速度 & 105 \\
+		% 	Ω & omega 蔡廷常数（Chaitin's constant） 立体角（Solid angle） & 106 \\
+		% \end{symbtable}
+	
+	
+	
+	% 打印缩略词表，\printnomenclature[<英文缩写宽度>](<中文全称宽度>)
+	% \printnomenclature
+	% \nomchn{LP}{Linear Programming}{线性规划}  % 创建缩略词条目，% \nomchn{<缩略词>}{<英文全称>}{<中文全称>}
+	% \nomchn{PLE}{Path Loss Exponent}{路径损失指数}
+	% \nomchn{QoS}{Quality of Service}{服务质量}
+	% \nomchn{SLA}{Service Level Agreement}{服务水平协议}
+	% \nomchn{NLP}{non-linear programming}{非线性规划}
+	% \nomchn{4G}{Fourth Generation Mobile Communication Technology}{第四代移动通信技术}
+	% \nomchn{5G}{Fifth Generation Mobile Communication Technology}{第五代移动通信技术}
+	% \nomchn{B5G}{Beyond 5G}{超五代移动通信技术}
+	% \nomchn{NSA}{Non-Standalone}{非独立组网}
+	% \nomchn{mMIMO}{massive Multiple Input Multiple Output}{大规模多输入多输出}
+	% \nomchn{FDMA}{Frequency Division Multiple Access}{频分多址}
+	% \nomchn{TDMA}{Time Division Multiple Access}{时分多址}
+	% \nomchn{IP}{Internet Protocol}{网际互连协议}
+	% \nomchn{CDMA}{Code Division Multiple Access}{码分多址}
+	% \nomchn{LTE}{Long Term Evolution}{长期演进}
+	% \nomchn{OFDM}{Orthogonal Frequency Division Multiplexing}{正交频分复用}
+	% \nomchn{SDMA}{Space Division Multiple Access}{空分多址}
+	% \nomchn{MIMO}{Multiple Input Multiple Output}{多输入多输出}
+	% \nomchn{MBS}{Macro Base Station}{宏基站}
+	% \nomchn{SBS}{Small Base Station}{微基站}
+	% \nomchn{PBS}{Pico Base Station}{微微基站}
+	% \nomchn{FBS}{Femto Base Station}{毫微微基站}
+	% \nomchn{NR}{New Radio}{新空口}
+	% \nomchn{EPC}{Evolved Packet Core}{演进分组核心}
+	% \nomchn{5GC}{The Fifth Generation Core Network}{5G核心网}
+	% \nomchn{RAN}{Radio Access Network}{无线接入网络}
+	% \nomchn{Multi-RAT}{Multi Radio Access Technology}{多制式}
+	% \nomchn{HetNet}{Heterogeneous Network}{异构网络}
+	% \nomchn{CSI}{Channel State Information}{信道状态信息}
+	% \nomchn{3GPP}{3rd Generation Partnership Project}{第三代合作伙伴计划}
+	% \nomchn{PDCP}{Packet Data Convergence Protocol}{分组数据汇聚协议}
+	% \nomchn{MME}{Mobile Management Entity}{移动管理实体}
+	% \nomchn{S-GW}{Serving GateWay}{服务网关}
+	% \nomchn{RLC}{Radio Link Control}{无线链路控制协议}
+	% \nomchn{MAC}{Media Access Control}{媒体访问控制协议}
+	% \nomchn{SDN}{Software-Defined Networking}{软件定义网络}
+	% \nomchn{NFV}{Network Functions Virtualization}{网络功能虚拟化}
+	% \nomchn{NSI}{Network Slice Instance}{网络切片实例}
+	% \nomchn{MANO}{Management and Network Orchestration}{管理和网络编排}
+	% \nomchn{SDM-X}{Software-Defined Mobile Network Coordinator}{软件定义移动网络协调器}
+	% \nomchn{SDM-C}{Software-Defined Mobile Network Controller}{软件定义移动网络控制器}
+	% \nomchn{VNF}{Virtual Network Function}{虚拟网络功能}
+	% \nomchn{PNF}{Physical Network Function}{物理网络功能}
+	% \nomchn{ETSI}{European Telecommunications Standards Institute}{欧洲电信标准化协会}
+	% \nomchn{NFVO}{Network Function Virtualization Orchestrator}{虚拟网络功能编排器}
+	% \nomchn{VNFM}{Virtual Network Function Manager}{虚拟网络功能管理器}
+	% \nomchn{VIM}{Virtual Infrastructure Manager}{虚拟基础设施管理器}
+	% \nomchn{NSMF}{Network Slice Management Function}{网络切片管理功能}
+	% \nomchn{NSSMF}{Network Sub-Slice Management Function}{网络子切片管理功能}
+	% \nomchn{SDM-O}{Software-Defined Mobile Network Orchestrator}{软件定义移动网络编排器}
+	% \nomchn{SLA}{Service Level Agreement}{服务水平协议}
+	% \nomchn{5GPPP}{5G Infrastructure Public Private Partnership}{5G基础设施公私合作伙伴关系}
+	% \nomchn{InP}{Infrastructure Provider}{基础设施提供商}
+	% \nomchn{QoS}{Quality of Service}{服务质量}
+	% \nomchn{NFC}{Network Function Component}{网络功能组件}
+	% \nomchn{QoE}{Quality of Experience}{服务体验}
+	% \nomchn{AI}{Artificial Intelligence}{人工智能}
+	% \nomchn{RSRP}{Reference Singal Receiving Power}{参考信号接收功率}
+	% \nomchn{RSSI}{Received Signal Strength Indicator}{接收信号强度指标}
+	
+	% 生成缩略词表相对复杂一些：
+	% \begin{enumerate}
+		% 	\item 先使用\shadcmd{printnomenclature[<英文缩写宽度>](<中文全称宽度>)}，第一项可选参数控制\textbf{英文缩写}的列宽，默认为\shad{5em}；第二项可选参数控制\textbf{中文全称}的列宽，默认为\shad{7.5em}。
+		
+		% 	\item 然后在正文中出现缩略词的位置使用命令\\\shadcmd{nomchn[<排序前缀>]\{<缩略词>\}\{<英文全称>\}\{<中文全称>\}}添加该缩略词条目。其中\shad{排序前缀}是可选参数，仅在对特定条目有特殊排序需求时才使用。具体细节参考\href{https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{nomencl}}宏包对\shadcmd{nomenclature}命令的参数说明。
+		% \end{enumerate}
+	
+	% 另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{编译缩略词表}} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-目录图目录表目录主要符号表缩略词表}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{项目readme第6节}}给出的操作图示，对应本文档中的图\ref{fig: VSCode编译缩略词表}和图\ref{fig: TeXstudio编译缩略词表}。图中用到的命令分别为：
+	% \begin{itemize}
+		% 	\item \shad{makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls}
+		% 	\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
+		% \end{itemize}
+	% Overleaf用户则可以一键搞定，无需额外操作。\textbf{\color{DarkRed}注意，Overleaf用户要在网站里选择TeXLive的2024版，亲测Overleaf目前的TeXLive2025版无法正确编译出“主要符号表”和“缩略词表”的页眉。本地用户只要保证TeXLive版本≥ 2024就不会有问题。}
+	
+	% \begin{figure}[!htb]
+		% 	\centering
+		% 	\includegraphics[width=0.95\linewidth]{VSCode-nomenclature}
+		% 	\caption{VSCode编译缩略词表的操作步骤} \label{fig: VSCode编译缩略词表}
+		% \end{figure}
+	% \begin{figure}[!htb]
+		% 	\centering
+		% 	\includegraphics[width=0.95\linewidth]{TeXstudio-nomenclature1}
+		% 	\\
+		% 	\includegraphics[width=0.95\linewidth]{TeXstudio-nomenclature2}
+		% 	\\
+		% 	\includegraphics[width=0.95\linewidth]{TeXstudio-nomenclature3}
+		% 	\caption{TeXstudio编译缩略词表的操作步骤} \label{fig: TeXstudio编译缩略词表}
+		% \end{figure}
+	
+	
+	
+	\chapter{绪论}
+	\section{研究工作的背景与意义}
+	
+	近年来，物联网（Internet of Things，IoT）和嵌入式技术的迅速发展正在推动各行业向智能化方向升级。物联网通过将大量边缘设备纳入到网络管理中，实现对边缘数据的收集，传输和处理，并且已经在智能家居、工业自动化、智慧城市和医疗健康等领域得到了广泛应用。
+	作为物联网的核心，嵌入式系统在设备控制、传感器数据监测和实时数据处理等方面发挥着关键作用，为各种智能设备提供技术支撑。
+	
+	然而，随着物联网设备功能的不断扩展，嵌入式技术正面临更加复杂的应用需求和安全问题：（1）在场景方面，多样化的嵌入式应用场景对嵌入式系统的实时性、可靠性和资源利用效率提出了差异化要求，对于关键安全场景，需要确保高实时性，可靠性和安全性；而消费电子更关注低成本和高能效。传统嵌入式系统通常只运行单一操作系统，在需要兼顾多种功能需求时，往往依赖于增加硬件资源，从而导致系统成本、复杂性和功耗的显著提升；而基于OpenAMP\citess{openamp}的多操作系统部署方案虽然可以一定程度上兼顾多种功能需求，但是无法很好的确保操作系统间的资源隔离和安全。
+	（2）在安全方面，传统嵌入式系统通常针对特定场景高度定制化，其软硬件高度固化因此攻击面较小。但是随着边缘计算和IoT的发展，嵌入式场景需要承担更复杂的计算任务，并且依赖互联网实现设备控制和数据处理。系统的代码量膨胀和开放的网络环境导致嵌入式系统攻击面急剧增大，对嵌入式系统的安全性提出了更高的要求。
+	
+	为了应对嵌入式硬件资源丰富化和应用场景复杂化的趋势，现代嵌入式系统正在从单一操作系统演变为混合关键系统（Mixed Critical System，MCS）以提升系统资源利用率和安全性，降低重复开发成本。现代MCS通过引入虚拟化技术，对物理硬件进行抽象，实现在同一硬件环境上部署多操作系统以应对不同应用场景的差异化需求，并且通过隔离不同运行环境间的内存，CPU和I/O等资源，增强了系统的稳定性和可靠性。但是基于虚拟化的隔离方案以虚拟机监视器（hypervisor）作为可信计算基（Trust Computing Base，TCB），可信基较大易被攻破，难以有效保护用户的隐私数据。为了确保数据得到有效保护，用于保护敏感代码与数据的可信执行环境（Trust Execution Environment, TEE）在过去十年间已经得到广泛普及。目前所有主流CPU指令集均已推出各自的TEE解决方案（如ARM的TrustZone\citess{trustzone}、Intel的SGX\citess{sgx}，AMD的SEV\citess{sev}，以及RISC-V的Penglai\citess{penglai}和Keystone\citess{keystone}等）以提供一个安全的执行环境，该环境通常被称为飞地（enclave）或安全世界（secure world）。TEE的应用场景广泛，可部署在云服务器、移动设备、IoT设备、传感器以及硬件令牌等环境中。
+	
+	目前嵌入式场景下大部分TEE方案基于ARM TrustZone拓展和GP-TEE\citess{gptee}规范实现，但是这种实现方式存在部分缺陷：（1）闭源性：ARM指令集的闭源特性导致其难以根据用户需求进行精细化定制。（2）拓展性不足：ARM TrustZone将运行环境分为安全世界（Secure World，SW）和普通世界（Normal World，NW），所有的TA均使用同一个SW，TA间资源隔离主要依赖TEE-OS，TCB较大，容易引入代码漏洞或被攻破。（3）虚拟化支持不足：ARM TrustZone并未在硬件层面支持运行机密虚拟化，导致其需要额外工作以支持运行机密虚拟机（Confidential Virtual Machine，CVM），否则需要针对依赖TEE的应用开发专用的可信操作系统（TEE-OS）和可信应用（Trust Application，TA），增加开发难度和成本。
+	
+	而随着边缘计算的发展，大量的AI模型被部署到端侧执行，这些模型需要处理大量的用户隐私数据因此应当得到足够的保护。而将这些模型移植到TEE-OS中执行需要花费大量的工作，或者仅使用TrustZone保护关键计算路径，但是仍需要付出额外性能开销和侵入式修改模型执行逻辑的代价。为了降低厂商的移植难度，降低TEE的准入门槛，主要CPU厂商均提出了基于CVM抽象的TEE框架，如ARM CCA\citess{cca}。CCA的设计目标是在保留现有系统软件对CVM所需硬件资源进行管理的同时，防止各类软件及其他硬件原语对CVM的内容进行窥探或篡改。虽然CCA在增强安全性的同时降低了软件开发成本，但是CCA主要是面向服务器或高性能嵌入式场景，难以兼容基于TrustZone的TEE方案，因此CCA难以满足中低端嵌入式设备对功耗和实时性的要求，升级现存大量嵌入式设备的成本极大。
+	
+	虽然TEE能够防御不可信组建对TEE的篡改或非法访问，但是TEE本身仍然可能存在代码漏洞，并且因为TEE通常具备更高的权限，其中的代码漏洞会造成更大的破坏，严重影响TEE的安全性和系统稳定性。以ARM TrustZone为例，披露的代码漏洞中多数为不安全内存访问带来引发内存破坏导致的\citess{tee-vul}。而Rust\citess{rust}通过编译时的内存安全检查，可以实现可靠性与高效性的兼得，在尽可能消除代码中不安全内存操作的同时确保性能，非常适合开发内存安全的嵌入式应用。目前已经有部分研究\citess{rustsgx, rust-tz}使用Rust实现了TA以消除内存漏洞，但是目前缺少使用Rust实现软件TCB的相关研究工作。
+	
+	RISC-V是一种基于既定精简指令集计算机 (RISC) 原理的开放标准指令集架构 (ISA)。得益于其新颖的开放指令集和指令集模块化的特点，RISC-V可以在保持简洁性和可靠性的同时支持多种平台，硬件系统可以根据场景需要包含可选的RISC-V标准拓展，甚至实现用户自定义的拓展指令，这使得RISC-V可以支持从嵌入式微控制器到高性能计算的丰富场景。过去几年中RISC-V已经在嵌入式领域得到了广泛应用，主流工具链和操作系统均添加了对RISC-V的支持。虽然目前RISC-V已经完善了硬件辅助的虚拟化拓展（H拓展）并且提供了一些硬件以支持在RISC-V上实现TEE方案，但是相关研究仍在起步阶段。
+	
+	
+	综上所述，结合开源的RISC-V指令集，实现支持运行机密虚拟机的TEE方案，并且通过引入内存安全语言Rust消除软件TCB中存在的内存漏洞，在确保嵌入式系统实时性和可靠性的同时，提高嵌入式系统的安全性和资源利用率，降低TA开发成本和TEE准入门槛这一课题具有重大研究意义。
+	
+	\section{国内外研究背景与现状}
+	
+	\subsection{虚拟化技术研究现状}
+	
+	虚拟化技术的逻辑起源可追溯至20世纪70年代，其核心本质在于通过构建硬件抽象层实现物理资源与执行环境的解耦。1974年，Popek与Goldberg提出了虚拟机监视器（VMM）的经典理论框架，界定了合格VMM须具备的等效性（Equivalence）、高效性（Efficiency）及资源控制（Resource Control）三大关键属性\citess{virt_def}。
+
+	虚拟化的实现基石在于“陷入-模拟”（Trap-and-Emulate）机制，该机制深度依赖于指令集中特权指令与敏感指令的正交性逻辑：当硬件架构满足敏感指令集为特权指令集的子集时，即具备原生虚拟化能力。在此架构下，客户机操作系统（Guest OS）执行敏感指令将触发特权级陷阱（Trap），由处于最高特权级的Hypervisor捕获异常并实施语义模拟，从而在保障物理资源受控的前提下，实现多虚拟机间的强隔离与资源复用\citess{hypervisor_def}。根据实现路径及Guest OS的感知程度，虚拟化技术演进为两种主流范式：全虚拟化通过完全的硬件模拟支持未经修改的Guest OS，具备极佳的兼容性；而半虚拟化则通过超级调用（Hypercalls）接口建立Guest与Hypervisor的协同演进机制，以适度的非侵入式修改换取更高的交互效率。
+	\begin{figure}[!htb]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.3\linewidth]{type1_hyper.pdf}
+			\label{type1_hyper}
+		}
+		\hfill
+		\subfloat[]{
+			\includegraphics[width=0.4\linewidth]{type2_hyper.pdf}
+			\label{type2_hyper}
+		}
+		\caption{CVM的I/O数据保护机制}\label{hyper_style}
+	\end{figure}
+	
+	根据Hypervisor与宿主环境的依赖关系，其部署架构可分为Type-1（裸金属型）与Type-2（宿主型）两类，如\ref{hyper_style}所示。Type-1架构直接植根于物理硬件，拥有对底层资源的绝对控制权，因其访存路径极短且指令处理链路精简，在性能表现与硬件利用率上占据显著优势。相比之下，Type-2架构寄生于宿主操作系统（Host OS），需跨越Host OS的抽象层间接访问硬件。尽管这种间接调用机制引入了额外的性能损耗，但其能够充分复用Host OS成熟的驱动体系与管理工具，展现出更强的环境适配性与部署灵活性。
+	
+	面向传统云服务场景的虚拟机监视器（如KVM\citess{kvm}、Xen\citess{xen}等）侧重于大规模租户的资源隔离。尽管已有研究尝试对其进行轻量化改造以向嵌入式场景迁移\citess{embedded-kvm,embedded-xen}，但受限于其宏内核架构下庞大的可信计算基（TCB），仍难以满足嵌入式环境对计算资源受限及严苛实时性的双重要求。为此，学术界与工业界相继提出了Bao、ACRN、XtratuM等针对高实时性与低功耗定制优化的轻量级方案\citess{bao,acrn,multipartes}。然而，此类方案在实际部署中仍面临资源动态调配率偏低及系统架构可拓展性受限等瓶颈。
+	
+	在车载与工业控制等高实时性关键场景中，基于微内核的虚拟化技术凭借其极简的特权层级与卓越的系统响应性能，成为突破上述瓶颈的优选路径。依托seL4微内核构建的camkes-vmm框架，通过极致的架构精简与低延迟设计，确立了高实时与低开销需求的理想范式\citess{sel4-virt}。同时，以QNX为代表的商用微内核方案，通过跨架构的强兼容性与关键任务（Mission-critical）调度策略，在自动驾驶等领域印证了微内核架构在兼顾强实时性与高安全性方面的固有优势\citess{qnx-hypervisor}。
+	
+	综上所述，虚拟化技术已从早期的资源模拟演变为支撑现代复杂系统的核心基底。微内核虚拟化技术通过架构级的解耦与精简，在系统灵活性与执行效率之间取得了优异平衡，高度契合现代嵌入式系统的复杂虚拟化需求，并已在严苛的实时性场景中确立了显著的技术优势地位。
+	
+	\subsection{基于硬件虚拟化扩展的TEE构建机制研究现状}
+	
+	主流指令集架构（ISA）均已引入成熟的硬件辅助虚拟化技术，通过提供标准化的特权级扩展，使Hypervisor能够有效屏蔽底层异构硬件的差异，实现统一的虚拟机管理与资源调度。相比于逻辑复杂的通用操作系统，Hypervisor具备更精简的架构设计，能够显著压缩可信计算基（TCB）的攻击面。因此，利用Hypervisor构建安全隔离域以实现可信执行环境（TEE），已成为机密计算领域的重要研究方向。
+	
+	在学术界，针对传统硬件动态信任根（DRTM）机制因频繁触发硬件重置导致的巨额性能开销，以及宏内核TCB过于庞大难以验证等挑战，McCune等人\citess{trustvisor}构建了专用轻量化Hypervisor——TrustVisor。该方案通过软件模拟实现了度量信任根与微型软件TPM，在仅约6KLoC的极小特权内核保障下，利用二级页表（NPT）将安全应用（PAL）的内存空间与不可信组件强制隔离，在不依赖特定硬件微码的前提下，以极低的性能开销为应用程序提供了隔离执行环境。
+	
+	为进一步优化Hypervisor自身的稳健性，Steinberg等人\citess{nova}借鉴微内核设计理念，提出了安全虚拟化架构NOVA。该架构将资源管理、设备驱动及虚拟机监控逻辑移出特权内核，使内核态核心代码缩减至约9KLoC；同时利用硬件虚拟化扩展，为每个虚拟机（VM）分配独立且运行于用户态的VMM实例，确保了单一组件的失效不会威胁全局安全。在兼容性研究方面，Jia等人\citess{hyper-enclave}针对Intel SGX等专有硬件TEE的闭源依赖问题，提出了基于通用虚拟化技术的HyperEnclave架构。其核心贡献在于通过软件定义的方式实现了与SGX兼容的Enclave抽象，成功将TEE保护能力与特定硬件微码解耦，并采用内存安全语言Rust构建轻量级监视器RustMonitor，从语言特性层面进一步消减了TCB的攻击面。
+	
+	针对Arm TrustZone架构因软硬件耦合度过高导致的潜在攻击风险，Pereira等人\citess{bao-enclave}利用静态分区Hypervisor构建了Bao-Enclave。该方案通过硬件辅助虚拟化技术将安全功能从庞大的特权操作系统中剥离，利用空间分区机制为可信应用（TA）提供强隔离运行环境，有效防御了针对常规TEE实现的架构性攻击，并在保持极小TCB的同时实现了对硬件资源的精细化访问控制。
+	
+	综上所述，基于虚拟化的TEE方案凭借硬件平台的广泛兼容性，能够在不依赖特定安全微码的前提下，实现TA与不可信组件间的物理级隔离，并显著降低安全保护带来的性能损耗。然而，尽管Hypervisor架构已极度精简，其作为特权层软件仍面临复杂的侧信道分析及部分针对性硬件攻击的威胁，这促使研究者进一步探索软硬协同的深度防护机制。
+	
+	\subsection{基于指令集安全特性的架构级TEE研究现状}
+	纯虚拟化TEE方案虽能提供基础的内存隔离，但仍面临软件TCB冗余及难以防御物理层硬件攻击等局限。针对高安全需求场景，硬件厂商引入了具备内存加密与硬核隔离能力的专有扩展。
+	
+	\subsubsection{面向x86架构的硬件机密计算关键技术研究}	
+	Intel SGX（Software Guard Extensions）\citess{sgx}作为一种具有代表性的硬件扩展技术，其核心贡献在于定义了极为严苛的威胁模型：该模型假定包括操作系统与超监视器在内的所有系统软件栈均不可信，仅将硬件CPU与受保护的可信应用（Trust Application，TA）纳入可信计算基（Trust Computing Base，TCB）。SGX通过指令集扩展实现了名为飞地（Enclave）的硬件隔离执行环境，支持在开放的云环境下进行远程机密计算。其交互机制依赖于特定的硬件指令：利用ECALL发起入界请求以进入受保护空间，并经由OCALL返回执行结果。
+	
+	然而，SGX在提供高强度隔离的同时，亦面临显著的技术局限性。首先，由于SGX将TA视作TCB的关键组成部分，而传统TA多采用C/C++等非内存安全语言构建，导致其易受到缓冲区溢出、释放后使用（Use-after-Free）等内存破坏攻击的威胁。针对此问题，Wang等人\citess{rustsgx}提出了Rust-SGX框架，通过将内存安全的Rust语言引入SGX SDK，利用其所有权机制在编译期消除内存隐患，有效规避了高昂的运行时安全检查开销。其次，SGX采用基于进程的隔离范式，受限于受限的受保护内存（EPC）容量及复杂的编程模型，现有应用往往难以平滑迁移。特别是对于计算资源需求极高的深度学习模型，SGX在可扩展性与开发成本方面面临巨大挑战。
+	
+	为了降低开发难度，CPU厂商尝试引入基于CVM抽象的enclave，降低用户开发成本。AMD SEV\citess{sev}是基于AMD硬件虚拟化拓展的拓展，通过为每个VM指定唯一的运行时标识符ASID，该ID在VM整个生命周期中均存储在内存中不发生变化，确保每个虚拟机仅能访问当前ASID关联的系统资源。同时借助AES加密引擎，使用当前ASID关联密钥对所有读写内存操作进行加解密，其他VM或hypervisor仅能访问加密后的数据，确保了被保护数据的机密性。
+	
+	为破解进程级TEE的灵活性瓶颈，硬件厂商相继推出了基于机密虚拟机（Confidential Virtual Machine, CVM）抽象的硬件方案，旨在降低开发门槛并实现对既有软件生态的兼容。AMD SEV\citess{sev}（Secure Encrypted Virtualization）利用虚拟化扩展技术，为每个虚拟机分配唯一的地址空间标识符（ASID），并结合硬件级AES加密引擎，确保Guest VM的内存数据在整个生命周期中均以密文形式存储。此举实现了Guest VM与Hypervisor之间的语义脱钩，有效保障了租户数据的机密性。
+	
+	随后，针对SEV难以抵御的内存重放及映射欺诈等攻击，AMD推出了增强版SEV-SNP\citess{sev-snp}（Secure Nested Paging）协议。该方案引入了反向映射表（Reverse Map Table, RMP）机制，通过建立物理页面与归属VM之间的强绑定关系，强制性防止Hypervisor篡改内存页面的访问权限。
+	AMD 
+
+	与此同时，Intel提出了TDX\citess{tdx}（Trust Domain Extensions）架构，将CVM定义为独立的可信域（Trust Domain, TD）。TDX引入了全新的特权层级SEAM（Secure Arbitration Mode）及专用的TDX Module，从而在架构层面剥离了不可信Hypervisor对TD生命周期的控制权。与SEV-SNP不同，TDX在内存访问控制上采用了更为直接的硬件标记位（TD bit）机制，任何未经授权的特权级对机密内存的非法访问均会触发硬件级阻断。	
+	
+	综上所述，x86架构下的TEE研究已从早期的进程级细粒度隔离转向兼顾性能与生态的虚拟机级保护，通过软硬协同的深度演进，逐步确立了现代云计算环境下机密计算的技术底座。
+	\subsubsection{基于ARM架构的安全扩展与TEE隔离技术研究}
+	
+	与x86架构主导服务器及高性能计算领域的格局不同，ARM架构凭借其卓越的能效比在嵌入式及移动终端市场占据绝对主导地位。因此，该场景下的机密计算研究主要围绕ARM TrustZone技术及GlobalPlatform(GP)标准展开。
+	
+	针对信息物理系统(CPS)在富执行环境(Rich Execution Environment，REE)受损时面临的实时性挑战，Wang等人\citess{rt-tee}提出了RT-TEE架构。该研究利用TrustZone强制保障系统的可用性，通过引入策略驱动的事件分层调度器与硬件安全定时器，并结合驱动精简技术极大地压缩了可信计算基(TCB)的规模，从而确保关键控制逻辑在遭遇拒绝服务(Deny of Service，DoS)攻击时仍能保持时限确定性。
+	
+	为突破TrustZone原生架构中安全世界(Secure World)资源独占且难以动态扩展的局限，Brasser等人\citess{sanctury}构建了SANCTUARY架构。该方案通过巧妙利用地址空间硬件隔离原语，在不引入额外虚拟化开销的前提下实现了用户态Enclave范式，支持在非安全侧动态划分出受硬件保护的执行环境，有效抵御了针对敏感数据的侧信道分析与内存探测攻击。与此同时，Zhao等人\citess{sectee}提出了SecTEE方案，旨在ARM平台上模拟类Intel SGX的Enclave抽象。通过将细粒度软件监测与硬件隔离机制相结合，SecTEE成功降低了TEE开发的准入门槛，提升了移动平台机密计算的可扩展性。	
+	
+	在面向云端多租户的复杂场景中，针对TrustZone缺乏多安全世界隔离能力的架构缺陷，Hua等人\citess{vtz}研发了vTZ系统。该方案在最高特权级引入受信任管理模块，利用硬件虚拟化扩展(VE)与TrustZone隔离原语，实现了安全世界的逻辑隔离与时分复用，确保了不同租户的机密虚拟机(CVM)在共享硬件资源时具备互不干扰的隔离强度。
+	
+	此外，针对TEE内部TA因使用C/C++等非内存安全语言而引入的内存漏洞风险，RusTEE\citess{rust-tz}提出了一套基于Rust语言的框架。该方案通过扩展Rust编译器以适配TrustZone特殊环境，并设计了受信任的系统调用与跨世界通信(World Switching)接口，利用Rust的所有权与借用检查机制在编译阶段静态消除内存破坏隐患，显著增强了TEE软件栈的稳健性。
+	
+	\subsubsection{基于RISC-V开放架构的可定制TEE研究现状}
+	
+	作为新兴的开源指令集架构（ISA），RISC-V凭借其高度的可扩展性为学术界探索面向服务器及嵌入式场景的定制化TEE方案提供了理想平台。
+	
+	Dong等人\citess{penglai,penglai-iopmp,penglai-hpmp}针对现代机密计算在无服务（Serverless）及大规模云场景下遭遇的扩展性与性能瓶颈，提出了一套从内存隔离到I/O安全的RISC-V软硬协同优化方案。为解决安全内存初始化滞后及容量受限问题，Penglai-sPMP通过引入受护页表（Guarded Page Table，GPT）与挂载式默克尔树（Mountable Merkle Tree，MMT），实现了高达512GB的动态隔离空间支持；在此基础上，Penglai-HPMP采用混合物理内存保护策略，利用段寄存器加速页表遍历（Page Walk），显著降低了多维权限验证带来的性能损耗；而Penglai-sIOPMP则通过多级树状检查器构建了高可扩展的I/O隔离机制，在有效防御恶意DMA攻击的同时提升了异构计算下的网络吞吐量。
+	
+	针对现有商业CPU厂商TEE方案缺乏灵活性且难以跨硬件定制的局限，Dayeol等人\citess{keystone}提出了首个基于RISC-V的开源机密计算框架Keystone。该框架在最高特权级引入可编程的安全监视器（Security Monitor），通过对TEE依赖的硬件原语进行抽象封装，实现了核心功能的模块化与可重用性。Keystone允许开发者根据具体应用场景动态权衡TCB规模与功能集合，在不修改底层硬件的前提下，为从低功耗传感器到云服务器的多样化设备提供可定制的受信任执行环境。此外，针对商用TEE难以通过高等级安全认证的挑战，Ozga等人\citess{ace}提出了一种基于RISC-V的形式化验证框架，通过对安全监视器逻辑进行数学证明，确保了TEE可信根的确定性，填补了机密计算在形式化验证领域的通用性空白。
+	
+	综合上述研究可知，传统的x86架构TEE方案受限于指令集的复杂性，其开发成本高昂且难以适配下游厂商的灵活定制需求；ARM架构虽具备一定灵活性，但在支持多安全世界等复杂场景时仍存在架构级缺陷。更为关键的是，x86与ARM作为闭源指令集，其TEE实现方案严格受制于特定的CPU供应商。相比之下，RISC-V作为可扩展的开源指令集，不仅能有效规避闭源架构导致的准入门槛过高问题，更赋予了用户根据特定安全需求与硬件约束进行深度定制的能力，为构建下一代高性能、高可信的计算体系奠定了基础。
+	
+	\subsection{异构计算环境下GPU-TEE安全隔离与防护技术研究}
+	随着端侧人工智能与云端大模型业务的爆发式增长，保障异构计算平台(如CPU+GPU/NPU)的数据隐私与模型完整性已成为系统安全领域的研究热点。在架构实现上，高性能服务器场景通常采用独立显存的离散式GPU，其受信任执行环境(TEE)仅需隔离GPU的内存映射I/O(MMIO)区域；而在端侧场景中，集成式硬件加速器通常与CPU共享物理内存，因此不仅需隔离MMIO，更要求对GPU缓冲区实施动态物理隔离。为在不改变底层硬件设计的前提下构建GPU TEE，学术界主要探索了基于CPU安全特性监控与软硬协同原语防护两条技术路径。
+
+	在基于CPU安全特性的监控机制研究中，Wu等人\citess{x86_gputee}提出的GEVisor利用现有Intel SGX构建了经过形式化验证的安全参考监视器(SRM)，在Enclave与GPU间建立可信I/O路径，有效消除了系统对不可信驱动的依赖。面向端侧统一内存架构，Deng等人\citess{arm_gputee}在StrongBox中利用ARM TrustZone技术，通过动态拦截MMIO与二阶段页表控制实现了高效隔离，其可信计算基(TCB)仅约1.4K LoC。为突破传统TEE因频繁数据加解密导致的性能瓶颈，Fan等人\citess{x86_gputee1}提出的XpuTEE框架在VMX Root模式下引入微型监控器XM，通过联合抽象与直接物理映射实现了“去加密化”监控，将大模型推理开销显著压缩至2.5\%以下。
+
+	为应对新一代指令集架构与存量基础设施的兼容性挑战，机密计算研究逐渐转向软硬协同的深度解耦范式。针对Arm CCA架构缺乏加速器支持的局限，Wang等人\citess{cage}提出的CAGE框架在根世界(Root World)部署安全监控模块，借助粒度保护检查(GPC)原语率先实现了Armv9架构下的GPU硬件级隔离；其首创的影子任务(Shadow Task)机制在维持不可信宿主驱动逻辑的同时，将TCB增量严格控制在1.3K LoC以内。此外，针对现有机密加速器高度依赖特定硬件更迭的问题，Wang等人\citess{ccai}设计了具备强兼容性的ccAI系统。该方案通过在物理层部署轻量级监视器动态截获并重定向GPU任务提交路径，从架构层面完成了TEE与不可信驱动的深度解耦，能以极低性能损耗平滑支持DeepSeek、Llama等大模型的机密推理，为异构AI算力的泛化安全部署提供了高效路径。
+
+	尽管异构隔离技术不断演进，Lu等人\citess{gpu_sec}在MOLE研究中揭示了新型硬件侧攻击面：GPU内部集成的微控制器(MCU，如Falcon/GSP)拥有超越系统IOMMU限制的特权级访问能力。攻击者可通过劫持MCU固件绕过CPU侧所有监控机制，直接窃取TEE显存数据。该发现打破了“直通即安全”的传统假设，表明未来的异构机密计算不仅需要系统级外部隔离，更亟须建立涵盖外设内部组件完整性度量的全路径防护体系。
+	
+	\section{本文主要贡献和创新}
+	本文的主要贡献在于对现有典型开源hypervisor文献和源码的深入分析，结合RISC-V等指令集TEE相关硬件拓展和方案，完成了基于RISC-V硬件和微内核虚拟化技术的TEE设计和实现。本文贡献和创新可以细分为以下两个方面：
+	\begin{enumerate}
+		\item \textbf{内存安全的安全固件设计与实现：}基于内存安全语言Rust重新设计和实现了运行在RISC-V最高特权的安全固件EasyAda-SM，消除了核心软件TCB中的不安全内存访问。同时，该固件采用分层和模块化设计，通过抽象TEE所需的软硬件原语，在确保对现有RISC-V主流TEE方案提供广泛兼容性的同时，避免代码量的过度膨胀，为不同场景的TEE方案提供统一的安全底座。
+		\item \textbf{基于RISC-V和微内核虚拟化技术的TEE方案设计与实现：}在EasyAda-SM和EasyAda-hypervisor的基础上，进一步拓展了EasyAda-hypervisor和EasyAda-SM，设计和实现了支持部署CVM的TEE方案EasyAda-trust，并实现安全启动，内存隔离，安全I/O等TEE关键能力，降低用户在端侧场景使用TEE保护AI模型的开发难度和成本。
+	\end{enumerate}
+	
+	本文研究路径如下所示：
+	1.深入学习和研究RISC-V指令集，分析现有RISC-V主流TEE方案文献和源码，在理解其威胁模型，架构设计和安全监视器（Secure Monitor，SM）设计和实现等基础上，基于RustSBI重新设计和实现了兼容现有RISC-V主流TEE方案，内存安全的SM——EasyAda-SM。
+	
+	2.深入学习RISC-V硬件虚拟化拓展——H拓展，分析典型开源hypervisor和EasyAda-hypervisor，理解其架构设计、资源调度及中断处理机制等。在此基础上，对原有基于ARM的EasyAda-hypervisor的用户态VMM和内核态hypervisor驱动进行了拓展，构建了基于RISC-V的微内核虚拟化方案EasyAda-hypervisor。
+	
+	3.分析现有ARM，x86，RISC-V指令集基于CVM抽象的TEE方案，理解其威胁模型以及安全启动，内存隔离，安全I/O等关键TEE功能的设计和实现，在此基础上对EasyAda-SM和EasyAda-hypervisor进行拓展，设计和实现基于RISC-V，支持部署和管理CVM的TEE方案EasyAda-trust。
+	
+	4.在实现了最小硬件能力子集的RISC-V仿真和物理硬件上对EasyAda-SM进行功能和兼容性测试，并与基于C的原生实现进行对比性能测试和结果分析；然后在RISC-V仿真和实际硬件环境上对EasyAda-hypervisor和EasyAda-trust进行了功能和性能测试，并对测试结果进行分析和评估。
+	
+	\section{论文结构}
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=1\linewidth]{article_arch.pdf}
+		\caption{章节结构}
+	\end{figure}
+	第一章：绪论。 本章介绍了嵌入式系统在物联网背景下的安全与实时性挑战，阐述了研究基于 RISC-V 架构的TEE技术与微内核虚拟化技术的背景、动机与目标。调研了现有基于微内核的hypervisor架构、以及现有TEE方案研究现状。最后总结了本文的主要工作与结构安排。
+	
+	第二章：相关技术理论概述。本章从RISC-V指令集出发，阐述了RISC-V硬件虚拟化扩展——H拓展，以及PMP/sPMP，SmmTT等硬件安全原语。然后介绍TEE背景知识，对比了不同级别enclave抽象和TEE方案的技术差异和优劣势，最后介绍了微内核EasyAda的设计理念以及虚拟化相关技术。
+	
+	第三章：基于RISC-V的微内核虚拟化方案设计。本章主要介绍基于RISC-V，支持运行CVM的微内核虚拟化方案EasyAda-trust的总体设计。首先对现有需求进行分析，然后基于需求分析介绍EasyAda-trust的使用场景，设计目标并分析其威胁模型，给出EasyAda-trust的总体设计。接下来，本章将详细分析介绍EasyAda-trust中包含的核心组件及其功能。
+	
+	第四章：基于Rust的内存安全固件实现。本章介绍了运行在最高特权级的安全固件EasyAda-SM的实现。首先阐述SM如何通过分层和模块化设计实现可拓展的SM，以及如何利用Rust消除SM中不安全的内存访问。接下来分析介绍EasyAda-SM如何在对现有RISC-V主流TEE方案提供广泛兼容性的同时减少软件TCB的膨胀。最后详细分析介绍如何在EasyAda-SM中引入TSM驱动以实现EasyAda-trust对CVM的管理和TEE功能。
+	
+	第五章：基于微内核的虚拟化方案实现。本章介绍了基于RISC-V的微内核虚拟化方案EasyAda-hypervisor的实现。首先分析介绍了微内核操作系统EasyAda和基于ARM的微内核虚拟化方案EasyAda-hypervisor的设计和实现，然后详细介绍了EasyAda-hypervisor内存虚拟化、CPU虚拟化，中断虚拟化以及I/O虚拟化等模块设计和实现。接下来介绍如何拓展EasyAda-hypervisor，在用户态VMM和内核态hypervisor驱动中引入硬件兼容层以实现基于RISC-V的微内核虚拟化方案EasyAda-hypervisor。最后详细分析如何拓展EasyAda-hypervisor以实现对CVM生命周期的管理。
+	
+	第六章：系统测试与分析。本章在RISC-V硬件/仿真环境下对EasyAda-SM，EasyAda-hypervsior-rv和EasyAda-trust分别进行了功能与性能测试，并根据其设计目标与原生实现的性能测试结果进行了对比分析。验证了EasyAda-trust可以对CVM进行足够的保护，并评估了虚拟化和TEE对应用程序的性能开销。
+	
+	第七章：总结与展望。 本章总结了本文在RISC-V微内核虚拟化与TEE领域的研究贡献，回顾了 EasyAda-trust框架的设计关键点，指出了当前系统存在的不足，并对未来嵌入式TEE研究方向进行了展望。
+	
+	
+	\chapter{相关技术理论概论}
+	\section{RISC-V相关知识介绍}
+	X86指令集因为其发展历史较长，出于兼容性等原因的考虑，其指令集非常庞大和臃肿，虽然在服务器等高性能计算场景拥有良好的性能表现，但是难以适应嵌入式场景对于功耗和成本的要求。
+	
+	ARM作为一种精简指令集，更加符合嵌入式场景的需求，并且通过授权IP的方式使得下游厂商可以拥有一定的定制硬件的自由，但是其闭源性，基于ARM指令集的硬件面临较高的IP授权成本和指令集碎片化的问题，32位和64位指令集乃至不同指令集版本如ARMv7，v8之间均存在较大差异，依赖针对特定指令集版本的工具链如编译器等实现跨硬件平台的兼容性和以及性能优化。
+	
+	而RISC-V作为相对较新的一种指令集，其模块化和开源性的特点与软件模块化的需求非常契合，硬件厂商可以根据场景需求自由选择实现的指令集集合，对应的软件厂商则可以通过模块化的软件实现灵活的扩展和精简，避免了不同指令集版本之间昂贵的代码移植成本。面向边端场景的硬件环境仅需实现最核心的指令集扩展集合以确保对功耗和成本的需求，而面向云端等高端场景的硬件则可以实现更多复杂的指令集扩展以提升功能和性能，这有助于构建一个通用的，可拓展的TEE方案。
+	
+	\subsection{RISC-V特权级介绍}	
+	与ARMTrustZone引入了最高特权级EL3和安全固件后工作模式类似，RISC-V在设计之初专门预留了用于屏蔽硬件差异的M态和SBI固件，并且使用与内核态（S态）完全不同的系统寄存器。因此在RISC-V下操作系统存在两种完全不同的形态的：（1）RTOS：大部分RTOS因为业务单一且高度定制化，不需要引入额外SBI固件作为硬件抽象层，直接在M态下运行，应用程序可以在
+	
+	\subsection{RISC-V物理内存保护机制介绍}
+	\subsection{RISC-V硬件虚拟化拓展介绍}
+	\begin{enumerate}
+		\item \textbf{指令集拓展}：该范式将AI运算逻辑直接嵌入CPU的执行流水线中，通过RISC-V预留的编码空间实现自定义指令扩展（如矩阵运算或向量增强）。加速单元共享处理器的通用寄存器组或向量寄存器，加速指令由CPU译码后直接分发至执行单元。此模式消除了数据在异构组件间的移动开销，具有极高的指令响应速度和极低的上下文切换延迟。它适用于细粒度、高频次的张量运算，是追求极致单核计算密度及实时性场景的首选理论模型。
+		\item \textbf{协处理器}：此范式下，加速器作为SoC内部独立的硬件IP存在，通过片上总线与CPU交互。加速器拥有独立的控制逻辑与局部存储空间，由CPU通过MMIO进行任务配置和启动，并通过DMA自主完成大规模数据的搬运。该架构实现了计算压力从通用核心向专用硬件的有效卸载。通过异步工作机制，CPU仅负责高层调度，而加速器专注于流水化处理大体量数据。这种模式在能效比与系统灵活性之间进行了平衡，是当前主流嵌入式AI SoC范式。
+		\item \textbf{片外加速器}：加速器位于独立的物理芯片或插卡上，通过高速串行总线与主机互联。此类加速器通常具备独立的全局显存和复杂的层次化缓存结构。系统通过驱动程序管理设备内存空间，并采用命令队列模式进行大规模任务的批处理提交。其逻辑设计的复杂度不再受限于主机SoC的热设计功耗与封装面积，能够提供极高的峰值算力。然而，由于跨物理总线通信的存在，该范式对主机侧的安全隔离机制提出了更高的时延容忍度与带宽管理要求。
+	\end{enumerate}
+
+	
+	\section{TEE相关技术介绍}
+	\subsection{基于指令集的TEE分类}
+	\subsection{基于可信域抽象的TEE分类}
+	\subsection{面向异构计算环境的TEE}
+	
+	\section{微内核相关知识介绍}
+	\section{Rust相关知识介绍}
+	
+	\chapter{基于RISC-V的微内核虚拟化方案设计}
+	\section{设计目标和需求分析}
+	根据前文的介绍，基于RISC-V的微内核虚拟化方案——EasyAda-trust主要面向支持硬件虚拟化的中高端嵌入式场景，设计目标为在提供可信计算能力，在CPU侧和I/O侧保护用户隐私代码和数据的同时，尽可能降低因为内存隔离等保护机制引入的额外性能开销，以及降低TEE的开发难度和准入成本，降低端侧AI模型等安全应用供应商的开发成本和难度。
+	
+	基于以上设计目标，本文认为EasyAda-trust应当满足以下需求。
+	\begin{enumerate}
+		\item \textbf{安全性：}安全性包括功能安全和数据安全两个方面，从功能上来说，整个虚拟化方案中上层代码中出现的漏洞或不安全行为不应影响更高特权级软硬件的状态，同时单一应用或VM的崩溃不应扩散影响到其它同层应用或VM；从数据保护的角度，每一个软件实体应当遵循最小权限原则，能且仅能访问当前实体所依赖的资源和服务等，即使是更高特权级的软件也不应当拥有无限制访问上层数据和代码的权力。
+		\item \textbf{可拓展性：}可拓展性同样分为硬件和软件两个方面。从硬件角度，虚拟化方案应当支持用户根据需求引入和整合定制化的硬件，或者引入更高级的指令集拓展（如向量计算拓展等）；从软件角度，虚拟化方案应当支持灵活的部署方案，并且允许用户开发定制化应用。
+		\item \textbf{硬件兼容性：}虚拟化方案应当实现对现有商用硬件的广泛兼容性，并且能够向前兼容更先进的硬件平台。
+		\item \textbf{易用性：}虚拟化方案应当兼容主流基础软件以及相关工具链，包括普通VM和CVM，降低开发人员开发难度。
+	\end{enumerate}
+	\section{EasyAda-trust全生命周期中的角色}
+	在进一步讨论EasyAda-trust的设计之前，需要解释整个TEE生命周期中涉及的角色以方便说明其威胁模型。本文根据EasyAda-trust的使用场景在TEE的生命周期中定义了以下三类主要角色，与Keystone将云服务下TEE全生命周期中的角色细分为六类不同，EasyAda-trust根据嵌入式场景的需求简化了生命周期中包含的角色并将其分为四大类：
+	\begin{enumerate}
+		\item \textbf{芯片IP供应商}：负责芯片IP设计。
+		\item \textbf{硬件供应商}：完成硬件平台设计并根据芯片IP和硬件平台设计完成硬件制造，采购以及最终的组装，并对上提供RoT，硬件密钥对和SM配置和实现等。
+		\item \textbf{平台供应商}：负责所有基础软件如操作系统，hypervisor，的研发和配置。
+		\item \textbf{平台用户：}基于平台供应商提供的软硬件生态和相关SDK，根据业务场景开发部署定制化的VM/CVM和应用。
+	\end{enumerate}
+
+	以典型的智能驾驶场景为例，ARM等公司负责设计芯片IP，高通/联发科等公司基于芯片IP完成硬件平台的设计，制造和组装并提供RoT和SM。智驾供应商则负责批量采购硬件平台，并基于硬件平台完成开发EasyAda-trust的基础组件，如微内核操作系统，hypervisor和SDK等，对上层提供统一的开发平台；上层业务部门则可以根据不同汽车厂商的需求选择不同的EasyAda-trust配置和实例化方案，并基于SDK二次开发VM/CVM以及其上的应用（这一阶段中可能还有第三方开发人员开发的侧载应用）。最终作为一个统一的智能驾驶系统对驾驶人员提供服务。在实际场景中，多个角色可能由同一实体或组织承担。
+	\section{威胁模型}
+	根据上一节对EasyAda-trust全生命周期中的角色的分析，其威胁模型如下所示。硬件层面，不考虑供应链攻击，本文假定方案运行的硬件环境实现符合标准且无缺陷；系统上下文切换时，所有微架构层的运行轨迹均被正确清除。
+	
+	软件层面，本文假定软件层攻击者会尝试攻陷受保护的CVM，其攻击方式可以分为（1）篡改CVM的控制流或数据流执行逻辑，破坏其运行完整性；（2）窃取CVM中受保护的数据；（3）冒充被攻击的CVM向其所有者发起交互。
+	
+	因为嵌入式系统的特性，基础软件通常是可信的，不会主动尝试攻击其他软件实体以及窃取和篡改用户隐私数据，但是可能存在会被恶意应用的代码漏洞；普通VM上可能运行不可信的第三方侧载应用，并且普通VM，微内核操作系统和hypervisor的根权限可能因为代码漏洞被利用或受到网络攻击而被完全控制；同时，本文认为运行在最高特权级的SM可信但是同样可能存在代码漏洞的。
+	
+	同时，攻击者可能尝试运行恶意的CVM，还可通过hypervisor管控的寄存器、共享内存缓冲区、虚拟输入输出设备，或CVM初始镜像状态、扁平设备树（Flattened Device Tree，FDT）等，对被攻击CVM的全生命周期及输入数据实现完全控制。
+	
+	本文的威胁模型排除针对内存、总线及处理器的物理攻击。因为已有成熟的防护方案可应对此类攻击，例如锁步故障检测机制、基于纠错码的内存保护、总线加密等。针对面临物理攻击风险的目标系统，可单独部署上述技术而无需对EasyAda-trust的实现进行修改。
+	
+	\section{微内核操作系统EasyAda介绍}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{microkernel.pdf}
+	\caption{微内核操作系统EasyAda总体架构}
+	\label{mk_arch}
+\end{figure}
+EasyAda是一款自研微内核操作系统，如图\ref{mk_arch}所示，其设计理念遵循最小特权原则，旨在构建高安全性、高可靠性的操作系统内核，适用于对稳定性和安全性要求较高的嵌入式应用场景。
+
+EasyAda将内核态精简为仅保留必要的特权功能模块，如核间通信、权能管理、中断与异常处理、时钟管理、地址空间管理和内核对象管理等核心组件，内核将对外提供的服务封装为系统调用接口，仅暴露较小的攻击面。同时，通过硬件兼容层（Hardware Abstract Layer，HAL）抽象了操作系统依赖的硬件原语，如启动/暂停CPU核心，中断配置和处理，MMU配置等，实现了统一的硬件操作接口，简化了操作系统在不同指令集和架构间移植的难度并且有效降低了内核代码的复杂度，确保EasyAda可以在异构环境上对外提供统一的软件平台。
+
+EasyAda将核心功能模块外的其余大部分功能模块迁移至用户态，在地址空间隔离的上下文中运行，并由根服务（Rootserver）统一管理。根服务作为一个运行在用户态的多线程进程，集成了多个功能子系统。这些子系统既包括独立的模块化组件，如文件系统、进程管理、网络协议栈等，也包括执行特定任务的独立线程，如Shell交互模块等。根服务将对外提供的服务封装为RPC接口，为操作系统提供统一、透明的服务访问接口，并且对RPC参数进行严格的检查以防范外部攻击。其他服务或用户应用可以通过系统共享库提供的POSIX API前端，将函数调用转换为RPC调用。同时，所有应用和系统服务的拥有独立的权能空间，仅能访问当前权能空间支持的RPC接口和系统调用，进一步缩小系统攻击面。
+
+基于微内核的设计思想，EasyAda相比Linux等宏内核操作系统具备更小的软件TCB，而相比传统的RTOS如FreeRTOS等，EasyAda又具备强大的可拓展性，可以通过拓展系统服务实现与宏内核对等的功能和性能。因此EasyAda通过灵活调整用户态系统服务配置，可以适应边缘到中高端嵌入式等多样化的场景和需求，为云边端场景提供通用的OS底座。
+
+因为EasyAda被设计为面向多样化场景的通用操作系统，所以其应用和系统服务运行在U态，内核运行在S态（未开启虚拟化）/HS态（开启虚拟化支持），并且通过SBI请求与M态SBI固件进行交互以实现硬件管理。
+
+	\section{微内核虚拟化方案EasyAda-hypervisor}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\linewidth]{hypervisor.pdf}
+	\caption{EasyAda-hypervisor总体架构}
+	\label{hyper_arch}
+\end{figure}
+图\ref{hyper_arch}展示了支持管理CVM生命周期的基于RISC-V的EasyAda-hypervisor设计。EasyAda-hypervisor仍然遵守了EasyAda微内核的设计哲学和思路：
+\begin{enumerate}
+	\item \textbf{统一资源管理}：主要系统资源由EasyAda负责管理和分配。充分复用微内核操作系统现有代码和能力，实现统一的资源管理并减少EasyAda-hypervisor的代码量，缩小其TCB。
+	\item \textbf{hypervisor解耦}：hypervisor被划分为运行在EasyAda用户态下的VMM和内核态下的hypervisor驱动，以尽可能复用EasyAda现有代码和功能。前者负责主要的VM管理工作，包括管理VM生命周期和软硬件资源，模拟虚拟化设备后端，以及管理VM服务线程等；后者作为屏蔽不同架构硬件虚拟化拓展实现的抽象层，对外提供基于虚拟化依赖的硬件原语抽象的统一接口，完成对硬件虚拟化拓展相关寄存器进行配置，以及接收和处理VM中断和异常等。
+	\item \textbf{静态分区}：hypervisor采用静态分区策略，虽然该策略缺乏灵活性，但是因为嵌入式场景应用高度定制化的特点，静态分区策略足够满足其功能需求。并且静态分区策略可以简化代码逻辑，缩小hypervisor的攻击面，这一点在引入CVM支持之后更加重要，因为标准RISC-V CoVE拓展要求SM实现数十个SBI接口以实现对CVM资源的细粒度控制，显著增大了TCB的攻击面，并且导致hyperivsor需要数个SBI调用才能完成一个功能，严重影响了系统的实时性和性能。
+\end{enumerate}
+
+EasyAda-hypervisor通过在EasyAda中引入两个核心组件实现基于硬件虚拟化拓展的VM生命周期管理：（1）运行在内核态（HS态）的hypervisor驱动，负责抽象虚拟化硬件原语并对上提供虚拟化能力接口。其虚拟化能力主要可以分为五类：CPU虚拟化，内存虚拟化，中断虚拟化，时钟虚拟化和I/O虚拟化。
+\begin{enumerate}
+	\item \textbf{CPU虚拟化}：目标是基于虚拟化专用特权级（RISC-V的VS/VU/HS态），为VM提供符合其运行要求数量的vhart并在隔离的硬件环境中运行VM上下文，在实现操作系统无感迁移到虚拟化环境中运行的同时，避免VM访问和篡改hypervisor或其他VM的上下文信息。
+	\item \textbf{内存虚拟化}：目标是基于硬件虚拟化提供的二阶段地址翻译能力，通过动态配置和管理VM的二阶段页表，实现细粒度的，VM无感的强制内存隔离。
+	\item \textbf{中断虚拟化}：目标是基于硬件提供的中断控制器（包括本地中断控制器和平台中断控制器等），通过中断注入或中断直通等手段，实现VM中断管理的同时，避免VM接收和配置不属于当前VM的中断。
+	\item \textbf{时钟虚拟化}：目标是基于虚拟硬件时钟，通过虚拟化计时器和虚拟时钟补偿计时器，实现VM无感退出/恢复。
+	\item \textbf{I/O虚拟化}：目标是基于共享物理内存和虚拟中断，通过为不同VM模拟虚拟设备，在保证VM无感迁移的同时，提升VM的I/O性能和安全性。
+\end{enumerate}
+
+用户态VMM主要包括两个部分：VM资源和生命周期管理模块和vhart服务线程，负责提供完整的虚拟机管理与运行支持。VM资源和生命周期管理模块负责虚拟机的生命周期管理，包括创建、运行、暂停、恢复及删除虚拟机等功能，并且通过Shell和RPC接口对外提供交互式接口，简化用户对虚拟机实例的管理。
+
+vhart服务线程可以视为vhart的调度实体和VM在host侧的用户接口，作为VirtIO后端负责响应VM的I/O请求。以实现I/O虚拟化和中断处理的高效执行。vhart服务线程运行于VMM进程上下文中，与VMM及内核态虚拟化组件协同工作，优化虚拟机的计算与I/O任务调度。
+
+	\section{EasyAda-trust详细设计}
+	\subsection{总体设计}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{software_arch.pdf}
+		\caption{基于RISC-V的微内核虚拟化方案总体架构}
+		\label{sw_arch}
+	\end{figure}
+	如图\ref{sw_arch}所示，如果将整个EasyAda-trust视为两层TEE的组合，则可以将其划分为三个层级：
+	\begin{enumerate}
+		\item \textbf{不可信应用（蓝色部分）}：不可信应用包括第三方开发者开发的侧载应用，以及由供应商直接开发，但是存在安全隐患，可能被利用的应用。是终端用户主要使用的软件实体。
+		\item \textbf{非机密虚拟机TCB（黄色部分）}：黄色部分主要是不存在恶意但是可能被攻破的软件组件（为了方便叙述，后文和蓝色部分统一称为不可信组件），包括\textbf{不可信的VM}，\textbf{微内核操作系统EasyAda}以及\textbf{微内核hypervisor——EasyAda-hypervisor}。不可信VM负责为上层应用提供统一的基础软件，降低应用开发成本和难度；EasyAda-hypervisor负责管理所有VM的资源和生命周期，对不可信VM提供虚拟SBI固件实现，并复用EasyAda现有功能以实现统一的资源管理并减少代码量；EasyAda是整个系统的核心，负责管理和调度所有的硬件资源，并且允许对性能和安全性要求更高的应用直接部署在EasyAda上以避免虚拟化对性能和实时性的负面影响。
+		\item \textbf{机密虚拟机TCB（红色部分）}：红色部分是可信且不可被攻破的组件，包括运行在最高特权级的安全监视器EasyAda-SM，实现在SM中的TEE安全管理驱动（TEE Security Manager Driver，TSM Driver），运行在相互隔离的运行环境（EasyAda-trust称之为enclave）中的CVM以及其上运行的各类TA。EasyAda-SM（如无特殊说明，后文以SM代指）是隔离不可信组件和CVM的核心，EasyAda-hypervisor只能通过TSM Driver提供的接口实现对CVM生命周期和资源的管理。CVM对其上的TA提供了统一的开发平台，尤其是可以复用现有AI模型的开发框架和运行时依赖，开发者无需针对TEE环境开发专有的安全AI模型。
+	\end{enumerate}
+	
+	EasyAda-trust为了兼顾的兼容性和安全性，要求硬件环境至少应当实现\textbf{RISC-V硬件虚拟化拓展——H拓展}和\textbf{物理内存保护机制（PMP）}。边缘用户可以在一个相对轻量化和精简的硬件环境上运行EasyAda-trust，而需要更高性能或依赖定制化硬件的场景则可以引入增强计算能力的指令拓展和定制化硬件。
+	
+	第一层TEE以EasyAda和EasyAda-hypervisor作为核心软件TCB，目标是通过hypervisor在不可信VM间提供强制内存和I/O资源隔离，确保VM内代码和数据的安全，并且借助微内核高安全的特性，尽可能缩小TCB的攻击面，避免不可信应用通过攻击获取EasyAda-hypervisor的根权限实现窃取和篡改用户隐私数据。按照前文对EasyAda-trust全生命周期的分析，实际部署流程中黄色部分通常是基础软件的一部分，由统一的供应商负责开发部署，确保这些组件安全可信符合供应商的利益，因此可以将其视为无恶意的软件，但是EasyAda-hypervisor仍然具备较大攻击面，难以满足更高等级的安全需求。
+	
+	因此，EasyAda-trust在第一层TEE的基础上引入了第二层TEE（如无特殊说明，后文TEE相关描述均默认描述第二层TEE），以运行在最高特权级的SM作为核心软件TCB，目标是借助RISC-V PMP等机制提供的强制内存隔离能力实现CVM与不可信组件的内存隔离，保护CVM中数据和代码的不被窃取和篡改，并且借助一个更加精简的SM，在实现隔离不可信组件和CVM执行流的同时缩小软件TCB的攻击面。
+	
+	EasyAda-SM的设计目标是在不同硬件平台上对通用的安全固件，通过模块化和分层设计，允许用户根据使用场景引入或移除模块。EasyAda-trust拓展了EasyAda-SM，引入了CVM管理模块等组件并设计实现了基于EasyAda-SM的TSM驱动。
+	
+	同时，EasyAda-trust拓展了EasyAda-hypervisor以实现对CVM生命周期的管理。为了简化CVM创建流程，避免不稳定的中间状态增加TEE攻击面并影响其安全性，EasyAda-trust仅在EasyAda-hypervisor中针对CVM定义了三种无中间状态的动作：\textbf{转换（promote）}，\textbf{执行（run）}和\textbf{销毁（destory）}。转换负责将一个已创建但未运行的VM实例通过TSM驱动转换为一个CVM实例；执行负责运行一个CVM实例；销毁则负责停止一个CVM实例并回收其资源。
+
+	进一步的，为了在端侧实现安全的外设管理和机密异构计算环境，EasyAda-trust在设计并实现了专用的加速器管理CVM，并针对无IOMMU的场景进行了优化。
+
+	虽然EasyAda-trust将EasyAda-SM和CVM视为可信的软件TCB，但是可信并不意味着绝对安全，用户在开发过程中可能因为缺乏测试等原因引入破坏TEE安全性的代码漏洞，尤其是不安全的内存访问导致的内存泄漏等问题。针对用户可能引入的代码漏洞，EasyAda-trust对EasyAda-SM和CVM分别采取了不同的方案以尽可能减少代码漏洞或隔离并限制局部代码漏洞，避免单一漏洞导致整个TEE被攻破。EasyAda-SM使用内存安全的编程语言Rust实现以尽可能消除其中因为不安全的内存访问产生的代码漏洞，并通过分层设计，将不安全的内存操作进行封装和限制以降低测试和形式化验证的难度。同时，EasyAda-trust为每个CVM启用了硬件虚拟化拓展，通过二阶段地址翻译实现不同可信组件间的强制内存隔离，避免CVM的安全漏洞影响TEE的稳定性和安全性。具体设计和实现将在后文详细介绍。
+	
+
+
+	\subsection{安全监视器EasyAda-SM设计}
+	\subsubsection{设计目标}
+	EasyAda-SM并非专为EasyAda-trust设计，而是被设计为支持部署从简单裸机应用到复杂CVM级别enclave抽象的通用的安全固件。任何运行在HS/S态的不可信组件都可以通过SBI接口获取EasyAda-SM提供的TEE等能力。因此本文对EasyAda-SM提出了以下设计目标。
+	\begin{enumerate}
+		\item \textbf{兼容性}：EasyAda-SM应当兼容现有RISC-V主流TEE方案，包括不可信组件的host，enclave中运行的TA和TEE-OS，以及开发工具链等。同时EasyAda-SM应当尽可能兼容RISC-V商用硬件环境，支持在不同级别的硬件环境上提供统一的TEE安全能力。
+		\item \textbf{安全性}：不安全的内存访问是TEE中可信组件需要面临的主要代码漏洞。EasyAda-SM应当尽可能消除内部不安全的内存操作，增强TEE的安全性。
+		\item \textbf{可拓展性}：EasyAda-SM的核心能力仅能依赖安全保护所需的最小硬件集合以确保对硬件环境的广泛兼容性。为了确保EasyAda-trust开发者可以充分利用不同硬件环境上的资源，EasyAda-SM的能力集合应当具备可拓展性，开发者可以拓展或收缩其能力边界适应不同的硬件环境。
+	\end{enumerate}
+
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{sm_arch.pdf}
+		\caption{EasyAda-SM总体架构}
+		\label{sm_arch}
+	\end{figure}
+	
+	如图\ref{sm_arch}所示，EasyAda-SM是整个EasyAda-trust的核心安全组件，作为不可信组件和enclave间交互的桥梁，其需要承担以下几个核心职能：（1）对外提供SBI接口服务；（2）建立可信链，包括密钥存储和对CVM镜像和初始状态进行度量等功能；（3）隔离不可信组件与enclave，包括CPU隔离，内存隔离，中断和I/O隔离等。
+
+	\subsubsection{内存分类}
+	EasyAda-SM将内存划分为以下几类并据此设计内存隔离方案。
+	\begin{enumerate}
+		\item \textbf{通用区域和通用内存}：任何未被SM标记和保护的片上/外内存都属于通用区域下的通用内存。为了提高系统整体的内存利用率，默认情况下所有内存都是由不可信的host负责管理的通用内存。
+		\item \textbf{安全区域}：被SM标记和保护的连续内存区域被称为安全区域。安全区域由通用区域划分而来，SM会为每个安全区域分配唯一的硬件单元用于实现内存隔离。
+		\begin{enumerate}
+			\item \textbf{安全内存}：被SM标记和保护，但是尚未被enclave使用的安全内存，由SM负责分配和管理。
+			\item \textbf{enclave内存}：被SM标记和保护并且被enclave使用的安全内存。Enclave内存由SM负责配置和保护，但是在enclave释放之前SM无权进行释放或再分配。
+		\end{enumerate}
+	\end{enumerate}
+	
+	基于以上设计目标，本文给出如图\ref{secmem_divided}所示的EasyAda-SM的总体设计。EasyAda-SM将通用内存视为初始状态（未初始化），enclave内存视为最终状态（被使用），安全内存作为两者转化的桥梁，处于中间状态（初始化但未使用）。EasyAda-SM引入安全内存的目的是平衡\textbf{缩小SM攻击面}和\textbf{提高系统整体内存利用率}两个需求。
+	
+	Keystone没有安全内存的中间状态，通用内存直接转化为enclave内存，优势是内存管理简单，攻击面较小，劣势是难以在enclave运行期间动态伸缩内存；ACE则在系统启动时静态划分安全内存和通用内存区域，SM负责从安全内存中为可信VM分配enclave内存，优势是可以在可信VM运行期间动态伸缩内存，劣势是安全区域在系统初始化时静态划分，容易降低系统整体内存利用率；而RISC-V的CoVE拓展则要求host以物理页为单位捐赠内存并由SM直接转化为enclave内存，优势是提高了系统整体内存利用率，劣势是SM需要实现多个SBI接口并且完全依赖host侧实现内存管理，显著增加了SM的攻击面。
+	
+	因此EasyAda-SM延续了Penglai的设计思路，允许SM从host侧动态获取内存并转化为相互隔离的安全区域或归还安全区域到通用内存，然后由SM负责从安全内存中动态分配enclave启动和运行时需要的enclave内存。在提高系统内存利用率的同时减少对host侧内存管理的依赖，缩小SM的攻击面，实现两种需求的平衡。
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{secmem_divided.pdf}
+		\caption{EasyAda-SM的内存管理模式}
+		\label{secmem_divided}
+	\end{figure}
+	
+	
+	\subsubsection{模块化和分层设计}
+	EasyAda-SM将TEE所需的操作，如内存隔离，密钥管理，镜像度量和安全中断和异常处理等抽象为独立的子模块，每个子模块对外提供抽象的操作原语。如图\ref{sm_arch}所示，EasyAda-trust开发者可以针对不同的TEE方案开发独立的enclave管理模块，也可以对特定模块进行修改以适配专有指令集和硬件。根据最小特权原则（Principle of Least Privilege），每个模块仅被授予完成其特定功能所必需的最小权限集合，从而限制潜在安全漏洞的影响范围。
+	
+
+	同时，通过对现有RISC-V主流TEE方案进行深入分析，本文发现不同TEE方案对安全内存管理，使用和隔离机制存在较大差异，在安全启动和中断，I/O隔离等方面的机制和策略则较为共通，如Penglai的SM被设计为实现更灵活和细粒度的安全内存管理，因此需要SM实现安全内存分配能力；Keystone的SM则被设计为一次性内存分配，SM不进行动态安全内存分配，仅负责进行保护；ACE中TSM驱动为了适应CVM二阶段页表的构建，实现了专用的物理页分配器（Page Allocator），充分利用Rust的所有权机制消除了重复分配的隐患。
+	
+	EasyAda-SM分层设计的核心是统一的安全区域和内存管理层（Secure Region and Memory Management，SRMM）。SRMM将安全内存相关操作，如创建/销毁安全区域，申请/释放安全内存，隔离安全内存等进行封装，对上层的enclave管理模块等提供了统一的安全内存管理原语。同时，SRMM将安全内存管理原语依赖的硬件操作划分为内存管理和内存保护两个部分，并且抽象出了统一的内存管理原语和内存保护原语，开发者可以根据硬件环境和业务需求提供具体的原语实现。通过提供统一的内存安全原语，SRMM简化了开发enclave模块的难度；通过抽象统一的内存管理和保护原语，SRMM实现了不同enclave管理模式间基础代码的复用和可拓展性，开发者可以在上层无感的条件下复用已有原语或根据场景需求和硬件环境实现新的原语。
+	
+	\subsection{安全特性设计}
+	接下来将介绍EasyAda-trust如何针对CVM需求设计安全的虚拟化方案。
+		\subsubsection{安全启动}
+	\begin{figure}[!h]
+		\centering		\includegraphics[width=1\linewidth]{secboot.pdf}
+		\caption{EasyAda-trust可信启动流程}
+		\label{secboot}
+	\end{figure}
+	安全启动的目标是构建可信链（Trusted Chain，TC），确保只有由授权用户开发的，未经篡改的可信组件可以加载到TEE中运行，并且最终的安全应用仅能在经过验证的平台上运行并获取敏感I/O数据。图\ref{secboot}完整展示了EasyAda-trust开发生命周期中所有角色及其任务，其中红色/淡红色为可信组件以及可信的供应商；绿色组件为可信供应商提供的度量值，密钥对等；蓝色/淡蓝色组件则为不可信的供应商和组件。实线表示可信链建立的流程，虚线表示供应商与组件间的供应关系。
+	
+	\textbf{可信根：}RoT是可信链建立的起点。EasyAda-trust将整个硬件和固件（存储在eFUSE和ROM等中的代码和数据）视为RoT，即EasyAda-trust信任芯片和硬件平台供应商。为了减少对特定硬件如TPM的依赖，EasyAda-trust平台供应商可以可以将硬件私钥存储在硬件RoT中作为根密钥，而硬件公钥提供给上层，用于生成数字签名和加密。
+	
+	\textbf{部署安全监视器：}硬件平台供应商需要提供RoT，硬件密钥对和SM。在开发阶段，硬件平台供应商负责编译获得SM的二进制文件并对其计算生成预期度量值，然后使用平台供应商提供的硬件公钥生成数字签名。在系统启动时，RoT会尝试对SM进行度量并结合硬件私钥对比数字签名，如果两者符合则证明SM是可信的，可以将SM加入到可信链中。此时RoT会将硬件私钥传递到SM中并进入SM初始化代码，SM初始化流程会首先清空RoT副本并将SM使用的内存进行隔离，确保硬件私钥不会外泄。
+	
+	\textbf{环境初始化}：SM完成自身的内存隔离后，将继续进行两个部分的初始化：SBI运行环境和TSM驱动初始化。该阶段初始化逻辑取决于SM设计：（1）如果将TSM驱动作为SBI固件的拓展，则首先进行SBI运行环境初始化，然后进行TSM驱动初始化，最后由SBI固件转移控制权。（2）如果将SBI固件作为TSM驱动的静态库则相反，由TSM驱动调用SBI固件实现的接口进行初始化，并最终由TSM驱动转移控制权。EasyAda-trust采用方法（2）以确保TSM驱动可以在后续完全控制中断和陷入入口。TSM驱动初始化主要需要完成安全内存初始化，防止SM在系统运行过程中被运行在更低特权级的不可信组件非法访问和篡改，并且确保低特权软件的执行在明确定义的入口点陷入到TSM驱动和SM中。当TSM驱动初始化完成时，SM已经通过硬件实现了与不可信组件的强制隔离，可以安全进入更低特权级转移控制权到hypervisor。
+	
+	\textbf{部署CVM}：部署CVM时需要进行双向验证（1）验证CVM是否可信且未被篡改。（2）验证硬件环境和TSM驱动是否可信。云服务厂商通常采取远程证明（Remote Attestation），通过远程的可信设备验证当前硬件环境和代码是否可信且未经篡改，只有经过验证的环境才能成功部署CVM。然而嵌入式系统可能在无法访问网络的环境中长期运行。为了支持在离线环境中度量CVM，EasyAda-trust支持\textbf{本地证明}\citess{localattest}。在本地证明中，CVM所有者使用自己的密钥对称加密当前CVM的TEE证明载荷（TEE Attest Payload，TAP）——用于存储CVM完整性度量值和特定密钥的文件，并且配合一个用于存储该对称密钥，使用可信的硬件公钥加密的锁盒（LockBox），同一TAP可以关联多个使用不同硬件公钥加密的锁盒以实现在多个硬件环境上部署。在部署CVM时，SM会将CVM的初始化状态保存到安全内存中并对关键数据进行度量，然后使用RoT提供的硬件私钥解密锁盒，使用锁盒中的对称密钥解密TAP，最终得到CVM的数字签名和特定密钥，如果对比成功则当前CVM可信，可以被部署。通过这种方法，本地证明可以实现CVM与硬件环境的双向证明，因为TAP仅能在持有对应硬件私钥的硬件环境上进行解密，即使CVM被强行拉起，不可信的硬件和固件仍然无法获取CVM开发者提供的特定秘密，无法从CVM中解密敏感代码或数据；另一方面，任何对TAP，锁盒或者CVM镜像的篡改都会导致最终的度量失败，确保只有可信的，未经过篡改的CVM可以被部署。同时，本地证明与远程证明并不冲突，在具备网络条件的环境上仍然可以使用远程证明验证可信环境。
+	
+	\textbf{获取密钥}：当CVM通过度量后，TSM驱动会将从TAP中解密获得的特定秘密存储在安全内存中。CVM可以通过SBI请求获取自己的秘密，秘密由TSM驱动保护，其它CVM或不可信组件无法获取，用于进一步的代码和I/O数据加解密中。至此可信链建立完成。
+	
+	
+	\subsubsection{安全CPU虚拟化}
+	EasyAda-hypervisor能够确保VM间vhart的隔离，VM间不会泄漏上下文信息，但是无法实现EasyAda-hypervisor与VM间的上下文隔离，因此EasyAda-trust对hart引入了机密流和非机密流以实现不同执行环境间上下文的隔离。
+	
+	RISC-V的硬件虚拟化拓展引入了虚拟化专用特权级以实现VM间以及VM和host间CPU上下文的隔离。对于不可信VM，SM会将大多数系统级异常委派到hypervisor进行处理以监控VM的任何敏感行为。但是对于CVM，将异常委派到hypervisor进行处理会导致VM运行上下文泄露给hypervisor，因此需要TSM驱动拦截和监控CVM的敏感行为。
+	
+	如图\ref{hyper_arch}所示，物理CPU的分配和vhart与物理CPU的绑定由hypervisor完成，与普通VM保持一致。但是为了避免不可信组件访问和篡改CVM上下文，在切换到CVM上下文后会配置其触发的异常直接陷入M态中，通过轻量上下文切换到TSM驱动进行处理。若异常需要由hypervisor处理，则由TSM驱动进行完整的安全上下文切换，清理所有上下文并切换到hypervisor上下文进行处理。
+	
+	\subsubsection{安全内存虚拟化}
+	内存虚拟化主要涉及为VM分配运行内存，并建立和维护VM运行内存和虚拟设备地址的第二阶段地址映射表。前者用于容纳VM运行时的代码和数据，后者用于实现设备直通和VM间通信等。
+	
+	\textbf{不可信组件与CVM间内存隔离}：为了实现CVM与不可信组件间的内存隔离，CVM无法直接使用hypervisor分配的不可信内存作为运行时内存，因此EasyAda-trust引入了安全内存和安全区域的概念。安全内存指由SM配置，使用硬件实现强制内存隔离，不可信组件无法直接访问的内存区域，任何用于存储CVM敏感数据和代码的内存必须使用安全内存以确保其机密性和完整性。EasyAda-trust以安全区域为单位管理安全内存，每个安全区域标记了一片物理连续的内存区域，由绑定的硬件和SM进行保护，安全区域内的内存分配由SM负责。安全内存由不可信内存转化而来，hypervisor可以申请一块连续的不可信内存捐献给SM，由SM进行保护，并将其标记为安全内存，之后任何不可信组件都无法直接访问这片内存区域。
+	
+	\textbf{CVM间内存隔离}：虽然CVM被视为EasyAda-trust软件TCB的一部分，但是CVM中的代码漏洞可能破坏TEE提供的安全保护，并且控制了hypervisor的恶意攻击者可能运行恶意的CVM以尝试攻击受害CVM，因此CVM间同样需要实现内存隔离。ACE\citess{ace}中所有CVM共享一个安全区域，通过硬件虚拟化提供的二阶段地址翻译实现CVM间内存隔离。虽然这提供了足够的安全防护，但是难以根据需求对安全内存进行动态收缩和扩容。EasyAda-trust支持增加或回收安全区域，多个CVM可以共享一个安全区域以提高内存利用率。CVM间的内存隔离则通过二级段地址翻译实现隔离。
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.75\linewidth]{cvm_mminit.pdf}
+		\caption{CVM二阶段页表初始化}
+		\label{cvm_mminit}
+	\end{figure}
+	
+	\textbf{CVM内存虚拟化}：CVM在创建VM实例阶段与不可信VM类似，由hypervisor完成内存申请和二阶段页表初始化等。当用户需要将VM转换为CVM时，hypervisor驱动通过TSM驱动对外提供的promote接口，将二阶段页表和FDT的IPA作为参数交给TSM。如图\ref{cvm_mminit}TSM首先会遍历由hypervisor为当前VM维护的二阶段页表，申请安全内存用于构建完全一致的页表作为CVM的初始二阶段页表，同时按序申请安全内存用以拷贝不可信内存中的数据，避免后续hypervisor篡改初始状态。
+	
+	然后TSM驱动将按序遍历CVM的二阶段页表并度量FDT，kernel和initrd的初始度量值（具体CVM度量流程设计将在后续\textbf{安全启动}小节详细说明），并与CVM开发者提供的初始度量值进行对比，若度量值校验通过则说明当前VM符合预期，由可信的开发者开发并且没有被hypervisor篡改，允许被拉起并访问开发者提供的用于后续加解密I/O数据的密钥。
+	
+	\textbf{安全MMIO区域隔离}：RISC-V采用统一编址模式，设备的MMIO区域以内存区域的方式进行管理。因此EasyAda-trust基于安全区域与不可信组件的隔离实现了设备MMIO区域与不可信组件的隔离，并且通过为安全区域引入额外的标识符，标识当前安全区域类型是否为MMIO区域，并且可以进行进一步细分实现具体设备类型的标识。
+	
+	\textbf{不可信共享内存}：除了存储数据和代码的安全内存，CVM与不可信组件间需要额外的共享内存以实现高效的数据交换，尤其针对磁盘等块设备的I/O虚拟化场景。EasyAda-trust支持CVM向不可信host请求共享内存。
+	
+	不可信共享内存由host分配和管理，主要用于VM间，VM与host间，以及不可信组件与CVM间的数据交换。host完成内存分配后，需要由hypervisor映射到VM地址空间内，或由TSM驱动映射到CVM地址空间内，确保组件可以在当前地址空间下直接访问共享内存。因为不可信共享内存由host管理，因此CVM在读写这类内存时，需要进行严格的安全检查并主动对敏感信息进行加密避免泄露。
+	
+	EasyAda-trust并不支持在CVM间分配可信共享内存。因为（1）根据角色划分，VM和CVM均由同一角色——EasyAda-trust用户负责开发，应用功能在开发时已经相对确定，不需要也不应该将需要大量数据交换的多个功能拆分到多个CVM中实现（2）CVM和TSM驱动作为TCB应当尽可能保证精简，在CVM间支持可信共享内存会进一步增加TCB的大小和复杂度（3）少量的数据交换可以通过不可信共享内存和加密信道实现CVM间的数据交换。综上，EasyAda-trust的设计并未考虑使用可信共享内存实现CVM间通信。
+	
+	\subsubsection{安全中断虚拟化}
+	中断安全分为两个部分：中断发送的安全和中断接收的安全。两者都要求目标的中断不应被不可信组件获取和篡改。
+	
+	对于发送中断，RISC-V要求所有中断必须在M态下发送。对于不可信VM，发送中断首先会陷入到hypervisor驱动中，由hypervisor驱动决定实际的接收hart，再通过SBI调用陷入SBI固件进行中断发送。在这个流程中hypervisor对VM的中断有绝对的控制权。但是在CVM场景下，不可信组件无权控制CVM发送的中断，需要直接陷入到TSM驱动中发送，并且需要TSM驱动为CVM维护接收方到物理hart的映射关系。
+	
+	对于接收中断，SM会将除外部中断外的所有中断全部委派到HS态由hypervisor进行处理，因为EasyAda-hypervisor采用静态分区策略，hypervisor可以进一步将时钟中断直接委派到VS态由VM直接处理，避免频繁陷入hypervisor带来的性能开销。其他中断如软件中断等需要陷入到hypervisor中进行处理，由hypervisor决定是否需要注入中断或切换到vhart服务线程上下文运行，无需对CPU当前上下文进行清理，相关中断配置由hypervisor负责。
+	
+	但是对于CVM，除时钟中断外的其他中断必须绕过hypervisor直接陷入到TSM驱动中进行处理并决定是否需要中断注入。如果中断涉及进一步的上下文切换，需要由TSM驱动负责清理CVM上下文避免泄露任何敏感数据。中断相关配置均由TSM驱动负责。
+	
+	除了中断发送/接收安全外，还需要额外注意拒绝服务攻击（Deny of Service，DoS），包括CVM对host侧的DoS攻击，以及host对CVM侧的DoS攻击。前者因为host侧可以通过TSM驱动强制销毁CVM解决，而后者则需要进一步区分攻击方式，一种攻击模式是host生成大量伪造的中断请求，迫使CVM频繁陷入TSM驱动，导致CVM无法及时响应其他正常请求，这种攻击可以通过TSM驱动对来自host侧的中断进行监控和计数，进而对中断请求进行管控和屏蔽实现防御；另一种攻击模式则是host拒绝响应来自CVM的任何请求，因为host被设计为负责管理系统资源，所以不针对这种攻击进行防御。
+	
+	\subsubsection{安全I/O虚拟化}
+	EasyAda-hypervisor原有的安全I/O虚拟化方案能够实现：（1）VM间数据流和控制流的隔离（2）确保同一时刻一个设备仅能划分给一个软件实体（VM或hypervisor）直接访问。
+	
+	为了确保CVM使用的外部设备的安全性，EasyAda-trust需要额外实现以下安全能力：
+	\begin{enumerate}
+		\item \textbf{平台和硬件的可信性验证：}根据当前设备的安全级别，在CVM使用安全设备之前对设备进行可信验证，防止CVM被恶意外设攻击导致敏感数据的泄漏和篡改。
+		\item \textbf{CVM生命周期中I/O数据的安全性}
+		\begin{enumerate}
+			\item \textbf{CPU侧数据安全性}：保护CVM访问外设过程中输入输出数据的机密性和完整性，包括通过设备独占，数据加密和校验等方案实现。
+			\item \textbf{设备侧数据安全性}：具备DMA能力的设备可以绕过CPU侧的内存隔离机制直接访问物理内存，恶意设备可以利用这一点直接读写安全区域，因此需要根据外设安全级别限制外设可访问的内存区域。
+		\end{enumerate}
+	\end{enumerate}
+
+	针对以上安全需求，EasyAda-trust根据外设的使用特点将设备划分为两类：
+	\begin{enumerate}
+		\item \textbf{普通I/O设备：}这类I/O设备包括串口，网卡，磁盘等设备，这些设备的特点是设备对数据内容不敏感，无需或仅需少量计算。
+		\item \textbf{安全设备：}这类设备重视安全性，对输入数据内容敏感或需要进行大量计算，如指纹采集器，摄像头和硬件加速器等。
+	\end{enumerate}
+	
+	EasyAda-trust根据设备类型采取了不同的可信性验证方案。对于由host管理的普通I/O设备，EasyAda-trust不对其进行可信验证。而对于安全设备，EasyAda-trust采用了host分配，TSM驱动鉴权和管理的逻辑，并在安全启动流程中引入了可信设备注册，使用和回收的可信链。以系统开发时硬件供应商提供的可信硬件配置文件作为可信链起点，。在host未将可信设备提升为安全设备时，仍然可以正常控制该设备，同时host可以在系统运行过程中向TSM驱动请求提升设备为安全设备，由TSM驱动根据硬件配置文件对设备进行可信验证，只有通过验证的外设会被视为可信设备并提升为安全设备。因为CVM在启动时会对硬件环境进行验证，未通过验证的硬件环境无法对CVM核心的机密代码和数据进行加解密，因此由TSM驱动负责对外设进行可信验证是符合可信链建立流程的。
+	
+	完成设备的可信验证后，EasyAda-trust需要进一步保护机密I/O数据，对于CPU侧的保护，有三种思路可以用于保护CVM的输入输出数据：
+	
+	\textbf{1.基于纯加密的数据保护：}如图\ref{iosec_encrypt}所示，因为系统设备主要用host负责管理，最简单的方案是CVM使用开发者提供的密钥对所有I/O数据进行加解密和度量，并通过不可信的共享内存和VirtIO协议栈实现与不可信组件的数据交换。最终由host侧的vhart服务线程调用实际外设驱动完成对外设的读写。
+		
+	这种保护模式适用于纯粹的I/O请求保护，如网卡设备，串口，磁盘块设备等。由CVM作为数据发送者对数据进行度量和加密，用于加解密的密钥仅在安全内存中才会以明文形式存储和使用。而数据使用者通过配对的密钥进行解密和度量，阻止信道上任何潜在的攻击者进行窃听，可以有效保障数据的机密性。但是一方面，因为需要由不可信组件读写数据，需要额外的重传机制保障数据的完整性；另一方面，多数计算任务要求数据以明文形式提供，对数据进行加解密会引入额外的性能开销。
+		
+	\textbf{2.基于临时设备授权的数据保护}：如图\ref{iosec_temp}所示，如果将设备管理和授权剥离，将设备授权提升到SM进行管理，由SM在不可信组件和CVM间实现设备的分时授权，确保同一时刻一个设备仅能授权给一个CVM或不可信组件使用，当一个实体获得授权之后，其他实体无权对设备进行任何读写和配置操作。
+		
+	这种保护适用于全局唯一设备的I/O请求保护。在软件实体获得授权时可以获得设备的完全访问和配置权限，当CVM获取授权时，可以直接使用明文数据读写设备而不用担心不可信组件和其他CVM劫持设备或窃取和篡改数据；同样的，当不可信组件获取设备授权时，CVM也无法劫持或访问设备；当解除权限时，由SM或软件实体自身清理设备状态，避免泄露敏感信息。这种模式可以在保护数据机密性和完整性的同时，避免加解密带来的开销。但是这种保护方式需要额外引入复杂的时分复用逻辑，尤其对于在内核态下直接进行管理的设备，需要对内核进行修改以确保SM可以正确监控系统对外设的使用，避免因为调整设备授权导致当前实体对外设的访问异常中断。
+		
+	\textbf{3.基于硬件分区的数据保护}：如图\ref{iosec_part}所示，若当前硬件环境中存在冗余或专为安全应用设计的设备，参考静态分区的思想，可以对设备进行分区，将部分设备固定划分给可信组件使用的同时，避免影响不可信组件对外设的访问。如ARM下安全世界拥有独立的UART，GPIO，flash和RAM等设备专供安全世界使用。
+		
+	这种保护模式适用于专用安全设备或冗余外设的I/O请求保护，如指纹/声纹输入设备，冗余串口/flash等。因为RISC-V采用统一内存编制，硬件分区可以基于内存隔离机制实现，CVM可以以明文形式直接读写TEE外设，无需额外的加解密工作；同时CVM和host侧因为访问独立的外设，I/O流程完全隔离，对外设的访问互不干扰，在保证数据完整性和机密性的同时具备更高的效率，且无需在host和CVM间实现复杂的时分复用逻辑。但是一方面该方法对硬件环境有较高要求，在硬件资源受限的环境中难以使用；另一方面可拓展性不足，如果存在多个CVM实例，CVM间仍然需要针对设备实现时分复用逻辑。
+	\begin{figure}[!htb]
+		\centering
+		\subfloat[基于密码学的I/O数据保护框架]{
+			\includegraphics[width=0.4\linewidth]{iosec_encrypt.pdf}
+			\label{iosec_encrypt}
+		}
+		\hfill
+		\subfloat[基于临时设备授权的I/O数据保护框架]{
+			\includegraphics[width=0.4\linewidth]{iosec_temp.pdf}
+			\label{iosec_temp}
+		}
+		\hfill
+		\subfloat[基于硬件分区的I/O数据保护框架]{
+			\includegraphics[width=0.4\linewidth]{iosec_part.pdf}
+			\label{iosec_part}
+		}
+		\caption{CVM的I/O数据保护机制}\label{iosec_frame}
+	\end{figure}
+	
+	对于普通I/O设备，EasyAda-trust允许CVM不保护I/O数据（如串口输出）或参考\ref{iosec_encrypt}方法保护I/O数据，设备直接授权给host使用，CVM和不可信VM需要通过不可信的共享内存与host通信，由host完成对外设的实际操作。简化设备的管理逻辑，同时确保设备可以拓展给更多组件使用。
+	
+	而对于安全设备，EasyAda-trust参考\ref{iosec_part}方法，由CVM直接独占设备进行管理，SM负责实现设备的数据缓冲区和MMIO区域与不可信组件间的隔离。CVM仍然可以通过共享内存的方式与其他组件间进行交换数据。为了避免复杂的运行时设备发现，EasyAda-trust要求开发者在开发阶段对完成可信设备的标记并将可信的硬件配置存储在硬件RoT中或直接固化在TSM驱动中，用于对设备身份进行验证。
+	
+	对于设备侧的I/O数据保护，EasyAda-trust基于RISC-V的IOPMP拓展实现。为了避免IOPMP条目的快速耗尽和频繁的IOPMP切换，EasyAda-trust对安全设备仅开发所有由host分配的安全区域的访问权限，而非安全设备仅能访问不可信的内存区域，具体IOPMP管理方案实现将在安全监视器章节详细介绍。
+	
+	同时，必须考虑到部分端侧硬件环境出于功耗和成本考虑，仅实现了RISC-V硬件虚拟化拓展而未实现IOMMU，并且外部设备本身不具备地址管理单元（Memory Management Unit，MMU）。因此EasyAda-trust在部分硬件环境中无法使用IOMMU实现I/O虚拟地址（Input/Output Virtual Address），使用IPA直接配置DMA会导致外设的内存访问触发未定义的行为，必须要通过软件实现IPA到HPA的地址翻译。一种方案是在此类环境上整体回退到全虚拟化设备，CVM仍然具备完整的设备驱动，但是任何对MMIO设备的访问都需要陷入到TSM驱动中完成地址翻译和硬件操作，对于性能敏感场景会引入无法接受的时延和性能开销。因此EasyAda-trust在保留了全虚拟化支持的基础上，允许CVM显式向TSM驱动发起请求批量实现IPA到HPA的翻译，仅需在配置DMA地址时触发一次下限，并且可以通过合并I/O请求进一步降低地址翻译的开销。
+	
+	为了实现CVM使用硬件加速器计算时数据的机密性和安全性，下面将详细介绍基于EasyAda-trust的安全异构计算环境的设计。
+
+	\subsubsection{安全异构计算环境设计}
+	与其他I/O设备相比，硬件加速器丰富的软硬件计算和存储资源增加了I/O数据保护的难度；同时，因为硬件加速器承担了大量的计算任务，对性能非常敏感；而且与其他设备类似，需要考虑跨执行环境的设备复用。	前文已经介绍了通过数据加密和独占设备的I/O数据保护，但是这些措施在实现CVM数据保护时存在一定的局限性：
+	\begin{enumerate}
+		\item \textbf{纯密码学方案的吞吐开销：}对于资源稀缺的嵌入式场景，安全性并非硬件加速器的第一考量，因此通常并不具备硬件加解密能力，需要通过软件方案加解密，如果采用3-7(a)的方法进行保护，对于AI训练中的大规模梯度同步，密码学操作会迅速占满显存控制器的带宽或CPU的计算周期，导致严重的计算延迟并显著降低带宽利用率。Lee\citess{gputee_performance}等人的研究显示这种开销导致DDP训练迭代时间平均增加了8倍，极端情况甚至达到41.6倍。同时，密码学基于块的计算方式与GPU非连续的内存访问间粒度不一致，会进一步放大加解密的负面影响。
+		\item \textbf{独占设备难以满足复杂场景：}复杂嵌入式场景下通常需要部署多个模型以应对不同的使用场景，如车载场景下座舱AI和自动驾驶模型通常位于不同的执行环境中，均需使用硬件加速器进行计算。因此EasyAda-trust被设计为支持在不可信组件和CVM间共享的硬件加速器。
+	\end{enumerate}
+	
+	根据硬件加速器与CPU的耦合程度，可以将其划分为以下三类：（1）指令集拓展，将AI运算逻辑直接嵌入CPU流水线中，集成度最高；（2）协处理器，与CPU共享物理内存并通过MMIO进行控制，集成度次之；（3）片外加速器，拥有独立显存，自由度最高，通常在服务器等高性能场景下使用。端侧场景下为了控制功耗和成本，主流硬件平台中硬件加速器通常以协处理器的模式集成在SoC中，以统一内存架构（Unified Memory Architecture，UMA）的方式进行管理。因此除了隔离硬件加速器的MMIO区域外，还需要额外隔离从内存中动态分配的数据缓冲区。
+	
+	\begin{figure}[!h]
+		\centering		\includegraphics[width=0.7\linewidth]{iosec_arch.pdf}
+		\caption{硬件加速器管理CVM设计}
+		\label{iosec_arch}
+	\end{figure}
+	
+	如图\ref{sw_arch}所示，EasyAda-trust为了降低用户安全管理硬件专用加速器的难度，实现为不同的硬件加速器提供统一的保护方案，引入了专用加速器管理CVM（Accelerator CVM，加速器管理CVM）。得益于CVM的引入，开发者可以实现对现有硬件加速器驱动的复用而无需进行代价高昂的移植。
+	
+	对于CPU侧，与其它安全设备类似，有TSM驱动通过安全硬件实现硬件加速器MMIO区域与不可信组件的隔离。而对于硬件加速器使用的动态数据缓冲区，因为数据缓冲区由加速器驱动从CVM的安全内存中进行分配，同样可以复用安全区域提供的内存隔离保障。对于外设侧，TSM驱动会通过IOPMP授予且仅授予硬件加速器访问管理CVM的使用的安全区域的访问权限，由TSM驱动确保不会因为错误配置DMA导致硬件加速器I/O地址异常。得益于I/O数据保护，CVM可以直接以明文数据形式与硬件加速器进行交互，避免了高昂的加解密开销。
+	
+	为了实现硬件加速器在不同执行环境间的复用，加速器管理CVM可以作为半虚拟化设备后端，为其它不可信组件提供虚拟硬件加速器设备。不可信组件和加速器管理CVM间的虚拟设备发现同样在开发时通过配置硬件配置文件静态实现。因为EasyAda-trust的首要目标是确保CVM内机密应用和数据的安全性，对于不可信组件则不进行任何保障，因此不可信组件和加速器管理CVM间使用不可信的共享内存进行数据交换，并且不强制要求任何数据加密和校验。	
+	
+	\section{本章小结}
+	本章系统论述了基于RISC-V架构的微内核虚拟化方案EasyAda-trust的架构设计与核心机制。该方案以EasyAda和EasyAda-hypervisor微内核虚拟化方案为底层支撑，通过引入Rust编写的安全监视器EasyAda-SM及内存原语抽象，有效缩减了系统的TCB。在安全机制方面，建立了涵盖机密虚拟机全生命周期的防护体系，利用本地证明、机密流隔离及二阶段页表等技术，保障了CPU状态与内存空间的强隔离性，并构建了抗攻击的安全中断处理路径。此外，针对端侧异构计算需求，方案结合IOPMP技术设计了专用加速器管理机制，在提升设备复用效率的同时确保了数据的机密性。
+
+	\chapter{基于Rust的内存安全固件实现}
+	
+	\section{内存安全固件}
+	为了消除SM中不安全的内存访问，EasyAda-SM使用适合嵌入式场景的内存安全语言Rust实现，通过静态的编译时内存检查消除代码中可能存在的不安全内存访问，避免了昂贵的运行时内存检查和回收。EasyAda-SM基于RustSBI\citess{rustsbi}而非基于内存不安全语言C的SBI固件实现——OpenSBI实现，进一步消除了SBI固件中不安全的内存访问。
+	
+	\section{安全区域和内存管理层SRMM实现}
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=0.8\linewidth]{sec_region.pdf}
+		\caption{SRMM管理单元实现}
+		\label{sec_region}
+	\end{figure}
+	SRMM的目标是\textbf{实现不可信组件与安全内存间隔离的同时提高系统整体的内存利用率}。如图\ref{sec_region}所示，SRMM以安全内存管理器（Secure Memory Manager，SMM）作为安全内存的顶级管理单元，对外提供安全内存管理接口，每个SRMM包含多个安全区域（Secure Region，SR）和一个安全内存保护器（Secure Memory Protector，SMPt）。
+	
+	每个SR关联一块连续内存区域和一个内存分配器（allocator），内存分配器对应一套内存管理算法实现。严格来说SR管理的内存在被强制隔离之前并不属于安全内存，因为不同TEE方案对于安全内存的保护时机存在较大差异，因此EasyAda-SM将SMPt和allocator分离，由SMM自行决定内存的保护时机，为了方便叙述，后文以安全内存代指SR管理的内存区域。
+	
+	SMPt则负责管理用于隔离安全内存的安全硬件如PMP,并对外提供内存保护接口。SMPt的保护粒度是安全区域，主要目标是隔离不可信组件和安全内存，并辅助实现enclave间内存隔离。
+	
+	为了在同一enclave管理模式下提供统一的安全内存视图，每个enclave管理模块通常使用一个全局的SMM实现统一的安全内存管理，并使用每个SR独立的allocator实现精细化的内存管理。
+	
+	根据上一章中介绍EasyAda-SM的分层设计思想，SMM抽象了安全内存管理原语，allocator抽象了内存管理原语，而SMPt则抽象了内存保护原语，三者共同实现对安全内存生命周期的管理。下面将按序说明每个原语的具体实现。
+	
+	\subsection{内存管理原语}
+	\begin{table}[!ht]
+		\caption{EasyAda-SM内存管理原语}
+		\label{memmgr}
+		\begin{tabular}{p{2cm} <{\centering} p{10cm}<{\raggedleft}}
+			\toprule
+			\textbf{原语} & \textbf{功能} \\
+			\midrule
+			new & 创建一个空的allocator（此时无安全内存需要管理） \\
+			init & 使用指定连续内存区域初始化一个allocator \\
+			alloc & 从当前安全内存中申请内存 \\
+			free &  释放安全内存到当前安全区域中\\
+			avaliable & 获取当前安全内存剩余可分配内存 \\
+			total & 获取当前安全内存总大小 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	如表\ref{memmgr}所示，内存管理原语抽象了安全内存管理所需的操作。包括初始化安全内存，申请/释放安全内存等。为了简化实现并避免重复安全检查引入的系统性能，内存管理原语不进行任何安全检查，如不在free原语中检查释放内存是否属于当前安全区域以避免破坏内存管理元数据等。
+	
+	本文分析了不同enclave抽象的安全内存使用特点：
+	\begin{enumerate}
+		\item \textbf{基于应用的enclave抽象（App enclave）：}此类轻量化enclave通常直接运行在用户态，无权访问和控制任何内核态资源，如MMU和中断配置等。因此TA的虚拟地址空间和物理地址空间在enclave运行时不会进行任何修改。
+		\item \textbf{基于OS的enclave抽象（Rt enclave）：}此类enclave更加复杂，拥有完整的用户态和内核态资源，TA的虚拟地址空间在运行时可能修改；但是因为直接运行在与host相同的特权级，为了保证高效的内存隔离，enclave的物理地址空间在运行时不会进行修改。
+		\item \textbf{基于VM的enclave抽象（VM enclave）：}因为开启了硬件虚拟化，此类enclave兼具前两种enclave的特点：在虚拟化特权级下拥有完整的用户态和内核态资源，又可以在运行时无感可控地调整enclave物理地址空间并且不破坏当前内存隔离。
+	\end{enumerate}
+	
+	EasyAda-SM针对不同类型enclave使用安全内存的特点，提供了三种参考内存管理原语实现，下面将介绍其具体实现。
+	
+	\subsubsection{基于空分配算法的原语实现}
+	该实现为安全区域的内存管理器的空实现，仅用于安全区域初始化，因为部分关键安全区域（如SM自身代码和数据占用内存区域）仅需要进行隔离，不允许进行任何分配，需要使用空分配算法作为分配器占位符。在空分配算法上尝试调用任何初始化或分配操作都会导致异常。
+	
+	\subsubsection{基于伙伴分配算法的原语实现}
+	Buddy分配器基于对RustSBI现有系统堆管理算法的复用，使用buddy算法管理安全内存，支持多个enclave共享相同的安全区域。该实现针对App enclave，以2的幂次为粒度分配和管理安全内存，足以满足App enclave的内存需求，可以较好的兼顾分配效率和内存利用率，同时内存管理元数据直接存储在安全内存中，对SM本身的内存依赖较少。劣势是为了简化管理逻辑需要预留一部分安全内存用于存储内存管理元数据，在大片内存分配场景下容易产生外部碎片。
+	
+	该算法可以确保内存分配行为的安全，即同一内存块同一时刻能且仅能属于一个enclave内存区域。但是对内存块间的隔离不提供任何保障，依赖enclave管理模块配置MMU实现隔离，因此不可用于Rt enclave的内存管理。
+	
+	\subsubsection{基于一次性分配器的原语实现}
+	一次性分配器将当前安全区域内所有安全内存作为一个内存块进行分配和释放，同一安全区域仅供一个enclave使用。该实现专门针对Rt enclave和安全设备的内存管理。因为Rt enclave在内存管理上具备两个特点：（1）可以在enclave内部进行内存分配，利用预留的空闲内存区域（2）可以配置MMU，因此不能通过MMU实现enclave间内存隔离。而一个安全设备的内存区域应当完全由一个实体进行管理，不应进行拆分。一次性分配器仅对enclave内存需求和类型进行简单判断，如果类型匹配且安全内存满足enclave需求，则直接完整分配所有安全内存为enclave内存，并返回内存信息，由enclave在内部进行二次内存管理；同时复用SMPt提供的安全区域间隔离实现enclave内存间的隔离（因为此时enclave独占安全区域）。
+	
+	该算法可以确保任意类型enclave间的内存隔离，并且分配逻辑简单，开销较低。但是因为没有对内存进行任何分配，对于不具备内存管理能力的enclave容易引入内部碎片降低内存利用率；同时，SMPt可以使用的安全硬件数量较为有限（如RISC-V PMP条目数量多为16，最多不超过64个），该方法会快速耗尽可用的安全硬件，因此不应大量使用。
+	
+	\subsubsection{基于页分配器的原语实现}
+	页分配器（Page Allocator）是专为VM enclave设计实现的内存分配器。充分利用页表以特定粒度（如4KB，2MB和1GB等）建立映射的特点，结合Rust的所有权机制，避免了传统管理方式通过不安全的内存操作实现内存分配时可能导致内存管理元数据破坏的问题。
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{pageallocator.pdf}
+		\caption{PageAllocator结构}
+		\label{pageallocator}
+	\end{figure}
+	\textbf{页分配器结构}：以图\ref{pageallocator}为例，页分配器以类似页表和Btree的模式管理和索引内存块，以RISC-V硬件支持的物理页大小划分层级，其中每个节点称为page token（PTk），每个PTk包括：（1）物理页地址和范围；（2）子PTk数组：管理将当前物理页进一步细分为子物理页对应的PTk。PTk可以进一步细分为三类：
+	\begin{enumerate}
+		\item \textbf{索引PTk（Index Page Token，IPTk）}：用于索引的PTk，并不用于分配，仅用于标记当前物理页管辖的子物理页被分配和使用。IPTk会记录当前区域被分割后可以支持的单次内存分配最大大小（即当前内存区域最大物理页大小）以进行快速分配时检查，并为子PTk数组实际分配内存以存储子PTk状态。
+		\item \textbf{空闲PTk（Free Page Token，FPTk）}：用于实际分配物理页的PTk，因为仅标识当前物理页未被使用，所以未对子PTk数组实际分配内存。
+		\item \textbf{被分配的PTk（Allocated Page Token，APTk）}：APTk标识当前物理页已经被分配并不可被使用。严格来说APTk不占用内存并且不具备实体，根据Rust的所有权机制，当一个PTk被实际分配之后，其所有权会被转移和消耗，同时其使用的所有资源会被释放，后续该PTk不可被再次使用以避免不安全的二次分配。
+	\end{enumerate}
+	
+	\textbf{分配器初始化}：分配器初始化时会对需要管理的安全内存进行基本检查，其起始地址必须至少对齐4KB物理页。然后分配器会根据当前内存区域大小设置根PTk物理页大小，避免直接以128TB作为根PTk导致的内存浪费和递归深度增加。
+	
+	接下来分配器将遍历安全内存并创建PTk。为了尽可能减少PTk数量，分配器将计算当前地址对齐的最大物理页大小并创建FPTk，同时递归创建或查找父IPTk以存储新的FPTk。当安全内存遍历完成后，分配器初始化完成，可以使用。
+	
+	\textbf{PTk生命周期管理}：初始状态PTk仅包括用于实际分配的FPTk和用于索引的IPTk。当申请分配物理页时，分配器按照以下逻辑处理：（1）从根PTk开始广度优先遍历查找第一个符合内存需求的FPTk；（2）若得到的FPTk对应物理页刚好满足，则直接消耗当前FPTk（转为APTk）并返回物理页；（3）若大于所需物理页，则将当前FPTk\textbf{拆分}为多个更小的子FPTk，将当前FPTk转变为IPTk并存储创建子FPTk，然后继续对子FPTk重复（2）（3）操作。
+	
+	当释放物理页时，（1）从根PTk开始，计算当前物理页在安全内存中的偏移并转为IPTk的子PTk索引；（2）索引到物理页偏移和大小均符合的子PTk位置，然后使用物理页创建新的FPTk并存入数组；（3）若当前IPTk下所有子PTk均为FPTk，则消耗所有子PTk并执行\textbf{合并}，将当前IPTk转换为FPTk。
+	
+	\subsection{内存保护原语}
+	\begin{table}[!ht]
+		\caption{EasyAda-SM内存保护原语}
+		\label{mempro}
+		\begin{tabular}{p{3cm} <{\centering} p{10cm}<{\centering}}
+			\toprule
+			\textbf{原语} & \textbf{功能} \\
+			\midrule
+			alloc & 申请一个安全硬件用于隔离安全区域，返回ID \\
+			free & 根据ID释放一个安全硬件 \\
+			disable & 根据ID关闭指定安全硬件 \\
+			enable & 根据ID使能指定安全硬件 \\
+			grant\_access & 在指定CPU/hart集合中使用指定安全硬件授权访问指定内存区域 \\
+			retrive\_access & 在指定CPU/hart集合中使用指定安全硬件限制访问指定内存区域 \\
+			is\_protectable & 检查指定内存区域是否可以被保护 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	如表\ref{mempro}所示，内存保护原语抽象了隔离安全区域所需操作，包括安全硬件管理和限制/授权指定内存区域访问。
+	
+	因为不同的安全硬件和内存隔离机制间存在较大差异，如PMP机制下每个条目直接保护连续内存区域，而MPT条目则存储地址空间的权限表，两者的管理模式完全不同。因此SMPt不对安全设备管理进行约束，仅要求每种实现显式告知SRMM安全区域与硬件的关联关系（alloc/free原语），以及根据关联关系实现对指定内存区域的访问权限控制（grant/retrive）。
+	
+	因为不同执行环境间通常拥有各自独立的hart，因此RISC-V下硬件内存保护机制通常以hart为单位，每个hart拥有独立的硬件且仅负责配置当前hart内存保护视图。为了实现全局统一的内存保护视图，访存控制配置需要同时同步到所有相关hart，以安全区域为例，SM需要同时完成\textbf{在不可信组件使用的hart集合中限制访问安全内存}和\textbf{在enclave使用的hart集合中授权访问安全内存}，因此grant和access以hart集合为单位进行配置，不同hart间通过核间中断和原子操作确保配置的一致性。同时，具体的hart集合由更上层的enclave管理模块管理，内存保护原语仅负责同步配置到指定hart集合。
+	
+	因为EasyAda-trust主要使用RISC-V PMP机制保护安全内存，因此下面主要介绍基于PMP的内存保护原语实现。
+	
+	\subsubsection{基于PMP的内存保护原语实现}
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{pmpslot.pdf}
+		\caption{PMP槽结构}
+		\label{pmpslot}
+	\end{figure}
+	
+	\textbf{PMP slot}：RISC-V下每个hart有独立的PMP条目和相关配置，仅控制当前hart内存访问。为了实现所有hart拥有统一的安全内存视图，如图\ref{pmpslot}所示，PMP管理器以PMP slot为单位管理PMP硬件，每个PMP slot是所有hart上索引相同的PMP条目的集合。
+	
+	\textbf{PMP管理器}：EasyAda-SM定义的PMP管理器使用位图管理PMP slot，为了提高灵活性，位图中包含三个掩码：（1）当前管理器管理的PMP slot索引的掩码，标记当前PMP管理器管理的所有PMP slot的索引，运行时不可变；（2）当前管理器可分配的PMP slot索引的掩码，标记当前PMP管理器总共可分配给安全区域的PMP slot索引，运行时不可变；（3）当前管理器已分配PMP slot索引的掩码，标记当前PMP管理器中已分配PMP slot索引，运行时动态修改。
+	
+	在初始化时，开发者初始化当前管理器可使用和管理的PMP slot索引掩码（两者的区别在于，可使用的PMP slot可以动态分配，用于隔离安全区域，而被管理的PMP slot同时包括可使用和开发者预留的PMP slot，如最高权限的PMP slot被用于保护SM，虽然该slot可以被配置，但是不能被使用）。在配置时，安全区域可以选择需要配置的hart的集合，并在这些hart上配置关联的PMP slot限制/授权访问安全内存。
+	
+	\textbf{授权/限制访问内存}：上层模块可以自由决定本次授权/限制操作覆盖的hart范围。当前请求权限控制时，上层模块需要传入需要控制的内存区域，需要操作的hart集合以及被使用的安全硬件ID。PMP管理器会对安全硬件可用性进行基本检查，然后在当前hart上配置对应的安全硬件，如果涉及多个hart，则需要通过RISC-V下软件中断向远端hart发起请求，确保配置的原子性和一致性。
+	
+	\subsection{安全内存管理原语}
+	\begin{table}[!ht]
+		\caption{EasyAda-SM安全内存管理原语}
+		\label{secmemmgr}
+		\begin{tabular}{p{3cm} <{\centering} p{10cm}<{\centering}}
+			\toprule
+			\textbf{原语} & \textbf{功能} \\
+			\midrule
+			new &  创建新的SMM\\
+			init &  初始化SMM\\
+			deinit &  重置软硬件状态并销毁SMM\\
+			extend &  创建一个新的安全区域\\
+			reclaim &  回收一个空闲安全区域\\
+			alloc\_em &  从符合enclave类型的安全区域中申请enclave内存\\
+			free\_em &  释放enclave内存到对应安全区域中\\
+			grant\_access & 在指定hart集合上授权访问指定内存区域 \\
+			retrive\_access & 在指定hart集合上限制访问指定内存区域 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	前文介绍了SRMM对内存管理和保护原语的抽象和实现，本节将介绍SRMM对安全内存管理原语的抽象和实现。如表\ref{secmemmgr}所示，安全内存管理原语总体上可以分为SMM生命周期管理，安全区域生命周期管理，enclave内存管理和内存保护四类。
+	
+	\textbf{SMM生命周期管理}：SMM作为SRMM的顶级管理单元，负责统筹安全内存资源和安全硬件资源，并使用安全硬件保护安全内存。在init阶段，SMM预期完成安全硬件的初始化和关键安全区域的初始化（尤其是SM本身的代码和数据），此时SMM中不存在可以被用于分配enclave内存的安全区域，后续可以在SMM中动态拓展/回收安全区域。在deinit阶段，SMM会检查所有安全区域是否可回收（未使用），为了确保内存回收不会异常中断enclave运行，SMM要求enclave管理模块主动完成所有enclave的清理后才能发起deinit请求。同时，因为内存清理已经在enclave内存释放时完成，因此无需二次清理以避免敏感信息泄漏。然后SMM会消耗所有安全区域的所有权并记录安全内存信息归还到不可信host。
+	
+	\textbf{安全区域生命周期管理}：安全区域的初始化分为三个部分：内存分配，安全内存隔离，以及内存分配器初始化。内存分配通常由不可信的host完成；在拓展安全区域时，SMM会首先检查当前安全硬件是否支持保护安全区域，以及是否与已有安全区域重叠，确保不会破坏enclave间内存隔离。然后SMM会尝试从SMPt中申请一个安全硬件，使用该安全硬件隔离安全内存和不可信组件，此时安全内存仅能被SMM访问，最后使用安全内存初始化安全区域，设置当期区域为未使用，完成安全区域初始化，但是内存分配器初始化时机由SMM自行决定，本文将在后文展示延迟初始化的实现；在回收安全区域时，SMM会检查安全区域是否是未使用状态，enclave管理模块必须主动销毁使用当前安全区域的enclave，然后才能安全回收内存。
+	
+	\textbf{Enclave内存生命周期管理}：SMM最终的目标是管理enclave分配，当enclave管理模块申请enclave内存时，需要告知SMM当前enclave类型以选择合适的安全区域及内存分配器，SMM会遍历所有安全区域查找符合类型和内存需求的安全区域，然后尝试申请enclave内存，如果申请成功则返回内存信息和安全区域编号，否则继续重复该操作直到遍历所有安全区域；当释放enclave内存时，enclave管理模块需要提供enclave内存信息，由SMM负责遍历所有安全区域并查找enclave内存属于的安全区域，然后通过安全区域的内存分配器释放enclave内存。
+	\begin{figure}[!htb]
+		\centering
+		\subfloat[不可信上下文中PMP配置]{
+			\includegraphics[width=0.4\linewidth]{pmp_iso.pdf}
+			\label{pmp_iso}
+		}
+		\hfill
+		\subfloat[可信上下文中PMP配置]{
+			\includegraphics[width=0.4\linewidth]{pmp_auth.pdf}
+			\label{pmp_auth}
+		}
+		\caption{PMP运行时配置}\label{pmp_use}
+	\end{figure}
+	
+	\textbf{内存保护}：如图\ref{pmp_use}所示，本段以PMP为例介绍不安全上下文和enclave上下文间切换是内存保护配置。对于不可信的上下文，SM会通过retrive限制hart访问任何安全区域，其它内存可以正常访问；而对于可信上下文，SM会通过grant授予hart访问enclave内存所属的安全区域访问权限。因为复杂enclave可能使用多个不连续的enclave内存和多个hart，需要在每个hart上授权访问多个安全区域，并通过hart生命周期管理接口实现其它enclave使用的hart上下文的安全切换。
+	
+	这里需要额外关注default slot，该slot用于赋予任何hart默认访问所有内存区域的权限，避免因为保护安全内存导致hart无法访问不可信内存，图\ref{pmp_auth}展示了OS enclave的管理方式，因为其具备配置MMU的能力且直接运行在内核态下，需要修改default slot禁止访问所有物理内存空间，而对于App和VM enclave则不强制要求，因为enclave与MMU相互隔离。
+	
+	下面将详细介绍EasyAda-SM针对多种enclave抽象提供统一管理的安全内存管理原语实现。
+	
+	\subsubsection{面向通用enclave部署场景的安全内存管理原语实现}
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{unimemmgr.pdf}
+		\caption{PageAllocator结构}
+		\label{unimemmgr}
+	\end{figure}
+	为了支持通用的enclave管理，降低用户开发难度，EasyAda-SM实现了如图\ref{unimemmgr}所示的通用安全内存管理器（USMM），将enclave和安全区域划分为一一对应的五类：（1）Application（2）Runtime（3）VirtulaMachine（4）Devices（Devices会进一步划分为串口，硬件加速器等设备类型）（5）None，并且如图\ref{}所示，为每类enclave绑定了特定的内存分配器。
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.75\linewidth]{enclave_divided.pdf}
+		\caption{不同类型Enclave与区域类型和分配器的关联关系}
+		\label{enclave_divided}
+	\end{figure}
+	具体来说，不同enclave内存与不可信组件的隔离机制相同均基于PMP实现，区别在enclave内部内存管理和PMP权限配置不同。因此EasyAda-SM引入了通用安全区域表示多种安全区域状态，为了符合Rust的类型检查要求，EasyAda-SM定义了包含所有分配器实现的枚举（类似C/C++中的union），安全区域通过在不同的分配器枚举间切换实现状态切换。并且状态切换按照以下状态机进行。
+	
+	\textbf{安全区域状态转换}：初始状态下，所有安全区域均为未使用状态，使用空分配器管理内存，仅实现内存隔离，无法进行任何内存分配；当申请enclave内存时需要显式指定enclave类型，USMM将enclave类型划分为五类并为每一类绑定了一个
+	USMM会遍历获取内存需求匹配的安全区域，若当前类型匹配则直接分配，或者当前区域未被使用则转化为目标enclave类型区域，初始化内存分配器并尝试分配内存，否则继续查找符合条件的区域；当释放enclave内存时，USMM会遍历查找包含enclave内存的安全区域并尝试释放内存，若释放后安全区域无内存分配，则消耗当前安全区域所有权，转换为未使用安全区域。
+	
+	除内存管理外，不同enclave抽象在安全区域保护逻辑上存在较大差异，但是该部分不属于USMM的职责范围，下一节将介绍如何基于USMM实现面向CVM的enclave管理模块。
+	
+	\section{面向CVM的enclave管理模块实现}
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=0.6\linewidth]{cvmm.pdf}
+		\caption{CVM管理器结构}
+		\label{cvmm}
+	\end{figure}
+	如图\ref{cvmm}所示，CVM管理模块包括四个主要模块：
+	\begin{enumerate}
+		\item \textbf{通用安全内存管理器}：如前文所说，通用安全内存管理器目标是实现安全内存与不可信组件间的隔离，负责统一管理安全设备和安全内存区域。
+		\item \textbf{CVM保护器}：CVM保护器的目标是实现CVM间的地址空间隔离。因为CVM管理模块使用二阶段地址翻译机制在CVM间实现地址空间隔离的，因此该组件实际负责CVM的二阶段页表管理。
+		\item \textbf{CVM证明器}：CVM证明器的目标是实现CVM的可信启动，负责完成CVM初始状态度量，TAP解密和密钥管理。
+		\item \textbf{CVM处理程序}：CVM处理程序是CVM管理模块的统一入口，负责实现对不可信组件和CVM所有异常和中断的拦截和处理，机密处理流和非机密流间敏感数据的隔离和安全上下文切换。
+	\end{enumerate}
+	
+	\textbf{可以将该模块视为TSM驱动的一种实现，后文直接以TSM驱动代指CVM管理器}。
+	
+	\subsection{Enclave间内存安全}
+	Enclave间内存安全的核心是隔离不同enclave的地址空间， 安全内存管理器实现了不可信组件和安全内存间的隔离，如果直接基于其实现CVM间隔离会快速耗尽可用安全硬件，减少可管理的CVM数量。因此TSM驱动利用CVM基于硬件虚拟化拓展运行的特点，引入了CVM保护器基于二阶段页表管理和实现enclave间内存安全。
+	
+	CVM保护器的核心职责是维护当前CVM的二阶段页表，包括初始化CVM二阶段页表，映射/解映射安全内存和不可信内存以及使用二阶段页表翻译得到物理地址。为了避免CVM保护器耗尽SM的堆内存，CVM保护器构建二阶段页表使用的内存主要来自于从安全内存管理器中申请的内存。为了提高系统内存利用率，CVM保护器允许从多个安全区域中申请，因为二阶段地址翻译和页分配器保证同一物理页仅能分配给一个CVM且CVM仅能访问指定的地址空间，因此不会破坏CVM间内存隔离。
+	
+	在CVM初始化时，CVM保护器使用安全内存根据不可信VM的二阶段页表构建完全对等的CVM初始二阶段页表，并将所有物理页中的内容拷贝到安全内存中，该操作会耗费大量内存和CPU运行周期，但是嵌入式场景下CVM部署之后通常会持续运行直到下一个电源周期，而且安全性是EasyAda-SM的首要考虑目标，因此EasyAda-SM认为在系统启动时该操作带来的延迟和性能降低是可以接受的。在系统运行时，CVM保护器会负责二阶段页表的动态维护。
+	
+	\subsection{安全启动}
+	安全启动的核心是确保只有被验证证明了可信且未被篡改的软件实体才能访问敏感资源。CVMM引入了attester模块用于管理密钥并对CVM进行度量。
+	
+	在系统开发阶段，EasyAda-trust的硬件平台供应商会将硬件密钥固化在RoT中，并对上提供硬件公钥，可以进一步使用硬件公钥对EasyAda-SM的预期度量值进行签名。在系统初始化阶段，RoT负责对SM进行度量并结合硬件密钥与数字签名进行对比，如果度量成功则转移控制权到SM，并传递硬件密钥给SM。该私钥后续会由TSM驱动用于CVM的安全启动。
+	
+	在系统初始化时，CVMM会初始化attester模块用于存储硬件私钥，并作为根密钥用于派生其他密钥。因为此时SM所在内存区域已经通过硬件实现隔离，因此硬件密钥无法被不可信组件窃取。
+	
+	\textbf{内存布局度量}：当hypervisor请求提升VM为CVM并陷入TSM驱动时，TSM驱动会尝试从安全内存中为CVM的hart分配元数据区域，用于存储CVM的hart上下文信息，并使用安全内存创建VM内存布局的安全副本，包括页表本身和物理页中的内容。然后TSM驱动将内存布局副本和FDT传递给attester，由attester遍历内存布局副本并根据FDT对内存中的关键数据进行度量（包括kernel，initrd和FDT等）并生成运行时度量值，attester并不关心非关键区域的内容，在度量过程中attester会负责清理所有非关键内存区域内容，避免不可信组件在其中存储恶意数据和代码。在内存布局度量完成后，attester会将度量值存储到CVM在安全内存中的元数据中。
+	
+	\textbf{CVM上下文度量}：完成内存布局度量后，attester会进一步度量CVM元数据区域中存储启动hart的初始上下文信息，包括通用寄存器和控制寄存器信息。因为除了启动hart，其他hart的启动均由启动hart通过hart状态管理拓展（Hart State Management，HSM）拓展进行管理，初始上下文由TSM驱动进行设置和保护，所以无需进行度量。attester同样会将初始上下文度量值存储在CVM对应的元数据中。
+	
+	\textbf{对比预期度量值}：在系统初始化阶段，TSM驱动从RoT中获取了硬件私钥。Attester完成对CVM的度量之后，使用硬件密钥解密CVM开发者提供的锁盒，然后使用解密得到的对称密钥解密TAP，得到CVM开发者提供的数字签名和密钥。如果使用硬件私钥签名的CVM上下文和内存布局度量值与数字签名匹配，则度量通过，当前CVM被纳入可信链中。
+	
+	\textbf{密钥管理}：除了硬件私钥外，attester还需要保护和管理CVM开发者提供的密钥。这些密钥通常会用于（1）CVM解密机密应用或根文件系统等（2）作为根密钥直接或衍生密钥对网络，串口和磁盘块设备等I/O数据进行加解密。CVM可以在运行时通过SBI请求从TSM驱动获取密钥。
+	
+	\subsection{中断和异常安全}\label{cvmm_exception_sec}
+	\begin{table}[!ht]
+		\caption{CVM管理模块在机密流支持的句柄类型}
+		\label{tab:confidential-flow}
+		\begin{tabular}{p{4cm} <{\centering} p{9cm}<{\centering}}
+			\toprule
+			\textbf{类别} & \textbf{功能描述} \\
+			
+			\midrule
+			标准SBI拓展 & 包括（1）探测SBI基础扩展支持，获取硬件基本信息（2）发送处理器间中断，远程刷新指令缓存和虚拟内存地址等（3）Hart状态管理，启动、停止、挂起机密hart，查询hart运行状态等（4）系统控制，请求系统重置或关机 \\
+
+			\midrule
+			I/O虚拟化拓展 & （1）MMIO服务请求，向不可信host发起MMIO读写请求（2）不可信的共享内存管理，向不可信的host请求共享内存，用于实现I/O半虚拟化（3）安全设备管理，请求直接映射/移除安全设备物理内存地址到CVM，用于实现设备直通。 \\
+			
+			\midrule
+			密钥管理 & 从TSM驱动中获取CVM的特定密钥等机密数据 \\
+			
+			\midrule
+			机密异常处理 & 处理CVM二阶段地址访问异常，虚拟指令等 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\begin{table}[!ht]
+		\caption{CVM管理模块在机密流支持的句柄类型}
+		\label{tab:non-confidential-flow}
+		\begin{tabular}{p{4cm} <{\centering} p{9cm}<{\centering}}
+			\toprule
+			\textbf{类别} & \textbf{功能描述} \\
+			\midrule
+			标准SBI拓展 & 所有RustSBI实现的标准SBI拓展，由CVM处理程序调用RustSBI的接口实现。 \\
+
+			\midrule
+			CVM生命周期管理 & 实现不可信host对CVM生命周期的管理，包括将普通VM提升为CVM，运行CVM和销毁CVM。 \\
+			
+			\midrule
+			I/O虚拟化管理拓展 & （1）MMIO请求回复，回复CVM的MMIO请求处理结果。（2）共享内存请求回复，回复CVM共享内存请求处理结果以及分配的共享内存信息。\\
+			
+			\midrule
+			安全区域管理拓展 & 管理安全区域的创建和回收，不可信host通过此拓展捐赠内存创建新的安全区域/回收空闲安全区域使用内存 \\
+
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	中断和异常安全的核心是确保机密流和非机密流之间的敏感数据互不泄露，并且阻止不可信组件通过中断或异常攻击CVM。
+	
+	在标准流程中，M态中断和异常的入口（trap handler）由SBI固件实现和初始化。而在EasyAda-SM中，CVMM会修改M态trap handler以确保CVMM负责响应和监控所有异常和中断，再根据需要调用RustSBI固件提供的能力。这样的好处是无需在执行环境切换时重新配置trap handler以实现对CVM中断和SBI请求的接管和确保CVMM可以监控所有敏感操作。
+	
+	对于非TEE环境，即标准的hypervisor和不可信VM流程，中断和异常默认委派到HS态进行处理（\textbf{需要由enclave管理的设备的外部中断必须在M态下进行处理}），hypervisor可以进一步委派中断到VS态进行处理。但是对于TEE环境，默认情况下CVMM会将所有VS态中断委派到CVM中，但是其它中断均需要陷入M态。而对于机密流下的异常，大部分会委派到CVM中进行处理，而GUEST\_PAGE\_FAULT等异常则直接陷入到M态进行处理。
+	
+	不管是异常还是中断，最后都会进入CVM handler进行统一处理。CVM handler实现了所有CVMM的对外提供的服务接口，如表\ref{tab:confidential-flow}和\ref{tab:non-confidential-flow}所示，根据hart当前状态划分为机密流和非机密流两类，当前hart如果运行在enclave中，则会进入可信流处理，反之则进入不可信流处理。
+	
+	\subsubsection{机密流和非机密流}
+	
+	因此，CVM handler的核心工作之一是实现不可信组件和CVM上下文间的安全切换。EasyAda-SM将其hart的上下文切换分为\textbf{普通上下文切换}和\textbf{安全上下文切换}两个阶段。CVM/hypervisor进入SM时首先会执行普通上下文切换，保存当前执行必须的通用寄存器和配置寄存器，然后进行处理。如果需要切换执行环境，即跨处理流处理时，CVMM会进行安全上下文切换，将hart当前所有执行状态保存到安全内存中，同时加载目标上下文的执行状态，并且，CVMM还会通过USMM执行关键的\textbf{内存访问权限调整}和清理操作（如TLB），避免当前软件实体的敏感信息泄漏给将要执行的一方，并确保正确配置将要执行的软件实体相关内存资源的权限。
+	
+	\subsection{IOPMP管理}
+	\begin{figure}[!htb]
+		\centering
+		\subfloat[非安全设备的IOPMP配置]{
+			\includegraphics[width=1\linewidth]{iopmp_nonsecdev.pdf}
+			\label{iopmp_nonsecdev}
+		}
+		\hfill
+		\subfloat[安全设备的IOPMP配置]{
+			\includegraphics[width=1\linewidth]{iopmp_secdev.pdf}
+			\label{iopmp_secdev}
+		}
+		\caption{EasyAda
+		-SM中非安全/安全设备的IOPMP管理}\label{iopmp_mg}
+	\end{figure}
+	为了防止支持DMA的恶意外设绕过CPU的内存隔离直接访问安全内存，EasyAda-trust使用IOPMP拓展限制了每个硬件可以访问的内存区域。在开发时，硬件供应商需要为可信设备静态分配SID作为唯一标识符号。
+	
+	在系统启动时，TSM驱动创建安全区域是会同时完成对最高特权级的IOPMP条目（SM条目）的配置，限制任何设备对SM内存区域的读写，同时配置最低优先级的条目（default条目）赋予设备默认访问所有不可信内存区域的权限。此时设备可以正常使用，但是无法读写SM中的代码和数据。同时，TSM驱动会为所有设备的SID创建，绑定并启用一个用于限制访问的MD，初始状态下每个MD中仅包含SM和default条目。
+	
+	图\ref{iopmp_mg}展示了EasyAda-trust使用IOPMP控制设备访问安全区域的流程。在系统运行时，EasyAda-trust以\textbf{IOPMP条目对}的形式管理IOPMP硬件，每当一个安全区域创建时，TSM驱动会按序申请第一对空闲的2n-1和2n表项，2n-1用于授权访问安全区域的，2n则用于限制访问安全区域。如图\ref{iopmp_nonsecdev}所示，对于不安全的设备，每当TSM驱动创建新的安全区域和IOPMP表项时，会同步当前配置到所有设备的限制MD中，默认限制所有设备对安全区域的读写。
+	
+	同时，hypervisor可以在任何时刻请求将可信设备提升为安全设备，TSM驱动会通过可信的硬件配置文件验证设备可信，并创建安全区域隔离安全设备的MMIO区域，以及为安全设备创建未初始化的，用于授权访问的MD。当安全设备实际分配给CVM时，TSM驱动会将CVM关联的所有安全区域的授权条目加入设备的授权MD中，并切换安全设备的MD为。如图\ref{iopmp_secdev}所示，此时安全设备仅能访问CVM关联的安全区域，杜绝了安全设备将敏感数据写入不可信内存的隐患。
+	
+	TSM驱动仅在设备提升为安全设备时，或从安全设备回退为不安全设备时进行重新配置，避免频繁切换IOPMP配置时上下文切换和缓存一致性带来的性能开销。
+	
+	\section{本章小结}        
+	本章详细论述了基于Rust语言的内存安全固件EasyAda-SM的实现。通过充分利用Rust的内存安全特性，方案从根源上消除了安全监视器中的内存破坏漏洞，并借助模块化设计的安全区域与内存管理层，实现了物理内存的细粒度原语抽象。在虚拟机管理层面，本章介绍了面向CVM的enclave管理模块的实现，集成了基于PMP的强隔离原语、本地证明安全启动及TSM驱动下的安全中断异常处理路径。此外，针对异构计算场景，方案实现了基于IOPMP的动态管理机制，通过对I/O访问路径的统一监控与隔离，在保障硬件加速器高效复用的同时，构建了防御恶意DMA攻击的安全底座。
+	
+	\chapter{基于微内核的可信虚拟化方案实现}
+	\section{安全CPU虚拟化实现}
+	EasyAda-hypervisor将vhart设计为微内核操作系统中的线程进行调度，其TCB中除了标准的通用寄存器信息外，额外记录了当前VM的控制寄存器信息用以准确恢复VM的运行上下文。同时，EasyAda-hypervisor为每个vhart实现了两个独立的上下文：vhart运行线程和vhart服务线程，运行线程负责存储/调度VM运行时上下文，服务线程则负责实现VM的异步I/O请求。
+	
+	为了提升系统整体性能，EasyAda-hypervisor将物理hart静态划分为三类功能区：（1）vhart运行区，主要承担VM及其应用的计算任务。（2）vhart服务区，主要用于运行vhart服务线程，用于异步处理VM的I/O请求，确保VM的I/O请求能尽快得到响应并减少对VM计算任务的影响。（3）系统服务区，主要用于运行微内核关键的系统服务，如内存和进程管理，文件系统服务等，避免因为调度抖动导致系统整体性能下降。	
+	
+	EasyAda-trust拓展了EasyAda-hypervisor的CPU虚拟化实现，引入了额外的安全机制实现CVM和hypervisor间上下文的隔离。
+	
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{cpu_area.pdf}
+		\caption{EasyAda-trust下hart分区结构图}
+		\label{cpu_area}
+	\end{figure}
+	\subsection{安全上下文管理}
+	EasyAda-trust中，TSM驱动不介入不可信VM的vhart管理，仍由hypervisor负责，而CVM的vhart调度虽然由hypervisor负责，但是其上下文必须由TSM驱动安全管理并对hypervisor不可见，hypervisor仅能通过TSM驱动对外提供的CVM生命周期管理接口实现对CVM的vhart的调度。
+
+	如图\ref{cpu_area}所示，EasyAda-trust在原有hart分区的基础上将vhart运行区进一步划分为CVM vhart运行区和不可信VM运行区，两者主要的差异在与执行环境间上下文切换流程。
+	
+	\subsubsection{安全上下文切换}
+	为了避免不必要的上下文保护和恢复开销，EasyAda-hypervisor将vhart上下文保护划分为两个阶段：\textbf{执行环境内的轻量上下文切换和执行环境间安全上下文切换}。对于不可信VM，hypervisor在逻辑上将其上下文划分为VM侧的VM上下文，以及hypervisor侧的vhart运行上下文，两者各自拥有完整的
+	（1）最小架构状态寄存器集合（如通用寄存器和TSM驱动运行时可能修改的控制寄存器），（2）虚拟化控制寄存器信息，（3）虚拟化功能寄存器信息。但是因为
+	hypervisor运行时不会修改（2）和（3）中的信息，所以VM与hypervisor间上下文切换仅需保存（1）中的信息即可，而VM间切换时需要完整保存并清理（1）（2）（3）在内的所有上下文信息，。因此hypervisor使用vhart运行线程同时管理两类逻辑上下文的信息。
+	
+	CVM的上下文切换具备以下特征：
+	\begin{enumerate}
+		\item \textbf{更多的上下文信息}：为了保护CVM上下文信息，CVM不信任任何来自hypervisor的上下文信息，因此除了前文提到的三类上下文信息，TSM驱动需要额外切换M态和HS态的控制寄存器信息（如中断和异常委派状态信息等）。
+		\item \textbf{隔离的物理内存视图}：CVM和hypervisor使用相互隔离的物理内存视图。在上下文切换时TSM驱动还需配置安全硬件实现安全内存与不可信组件的隔离。
+		\item \textbf{安全的执行流切换}：CVM和hypervisor的执行流相互隔离，在特定请求场景下如MMIO异常时会触发执行流切换。与不可信VM不同，hypervisor在执行流切换不能获取任何CVM和TSM驱动上下文信息。
+	\end{enumerate}
+	
+	针对CVM上下文切换的特点，EasyAda-trust
+	将CVM上下文划分为不可信vhart和机密vhart两类，前者负责存储hypervisor侧vhart运行线程所有上下文信息，后者负责存储CVM所有的上下文信息，两者均包括所有通用寄存器和VS/HS/M态系统控制寄存器信息，如果当前环境支持浮点或向量计算指令拓展，则还需要额外保存浮点/向量处理单元的上下文信息。
+	
+	为了减少CVM和hypervisor间上下文切换带来的性能开销，CVM的上下文切换仍然分为两个阶段进行。参考上一章的CVM管理模块章节，若当前hart执行流不跨运行环境切换，则仅进行轻量上下文切换，否则执行完整的安全上下文切换流程。
+	
+	\textbf{轻量上下文切换}：当前hart从hypervisor/CVM陷入TSM驱动中执行，由TSM驱动直接完成请求处理，hart仅需保存当前环境的通用寄存器信息，由TSM驱动完成处理后恢复。因为不涉及执行环境切换，无需修改当前物理内存保护视图，
+	
+	\textbf{安全上下文切换}：当前hart需要在hypervisor和CVM间转移控制权，则需遵照CVM管理模块的有限状态机，完成参数的安全传递后，由TSM驱动保存全部的上下文信息到对应的vhart中，清理当前环境，然后完成下一个执行环境的上下文恢复，最终完成执行流切换。在实际切换前，还需重新配置安全硬件以切换物理内存视图。由不可信vhart切换到机密vhart时，TSM驱动会授权当前hart访问除SM自身外所有的安全区域和不可信内存，同时因为二阶段页表的存在，TSM驱动可以完全控制CVM的地址访问；相对的，当机密vhart切换到不可信vhart时，TSM驱动会限制当前hart对所有安全区域的访问。
+
+	\subsection{安全异常处理}
+	根据\ref{cvmm_exception_sec}小节的叙述，EasyAda-SM通过Rust静态内存检查消除了不安全内存访问可能导致的敏感数据泄漏问题，并通过构造->处理->析构的流程严格约束了每个处理器可以访问的能力和资源范围。同时，TSM驱动没有对外提供写入不可信组件内存的能力，确保其无法泄漏数据到不可信组件中。
+	
+	但是必须注意的是，虽然TSM驱动可以确保不同处理器和执行流之间的安全，但是CVM负责正确的使用TSM驱动提供的处理器，如TSM驱动支持为CVM分配不可信的共享内存以实现I/O半虚拟化，但是不能也无法对数据提供机密性和完整性的保证，CVM需要自行对数据进行加解密和度量以确保数据使用符合预期。
+	
+	\section{安全内存虚拟化实现}
+	内存虚拟化主要涉及虚拟机运行时内存，设备MMIO区域和用于I/O半虚拟化的共享内存的二阶段地址映射等，二阶段页表的根页表地址作为虚拟机配置信息的一部分保存在vhart运行线程的上下文中。EasyAda-Hypervisor需按照以下流程建立和维护二阶段页表：（1）用户态VMM根据当前VM的配置文件如FDT计算VM所需运行时内存（除MMIO区域外的内存），通过系统服务获取足够的物理内存。（2）根据配置文件将VM的kernel，FDT等加载到符合对齐要求的地址中。（3）根据配置文件计算GPA到HPA的映射关系，通过hypervisor驱动创建初始初始二阶段页表并存储在vhart的上下文中。
+	
+	MMIO区域映射主要用于直通设备的管理。由内核态下hypervisor驱动在创建VM时，根据配置文件中解析得到的物理设备信息，并依据IPA和HPA的映射关系将物理设备直接映射到VM的地址空间中，并且将该设备的中断号注册至虚拟机，以确保后续的虚拟中断注入能够正确触发，从而使虚拟机能够正常访问直通设备并处理其中断事件。
+	
+	共享内存映射主要用于基于半虚拟化技术的虚拟设备管理。在VM在系统运行过程中访问虚拟设备MMIO区域的GPA触发异常时进行初始化。内核态下的hypervisor驱动拦截到VM的异常后与虚拟设备信息进行匹配，若属于虚拟设备MMIO区域，则切换到vhart运行上下文并在用户态下向系统服务申请对应的物理共享内存，最终由hypervisor驱动在内核态下完成共享内存到VM地址空间的映射，完成异常处理并切换到VM上下文继续运行。EasyAda对共享内存以UNIX风格的文件进行管理，对于VM则文件的所有者为vhart运行线程，而通常会映射到vhart服务线程中以实现异步I/O。
+	
+	EasyAda-trust未对不可信VM的内存虚拟化流程进行修改，仅将CVM的内存虚拟化流程与hypervisor分离，hypervisor仅负责创建安全区域和分配共享内存，主要的安全内存/设备分配和二阶段映射工作则由TSM驱动负责。
+	
+	\subsection{安全区域生命周期管理}
+	如第三章所述，EasyAda-trust强制要求CVM除用于半虚拟化I/O的共享内存外的所有内存必须使用安全内存，而安全内存全部从安全区域中分配获得。为了提高系统内存的利用率，EasyAda-trust要求hypervisor通过TSM驱动提供的安全区域管理拓展实现运行时动态创建和回收安全区域。
+	
+	\subsubsection{安全区域创建}
+	系统早期初始化时仅存在一个不可读写的安全区域负责保护SM自身。系统运行时，hypervisor需要主动从系统服务中申请连续的物理内存（因为PMP仅支持保护连续的物理内存）或物理设备的MMIO区域并翻译为物理地址，然后通过TSM驱动完成安全区域创建和初始化。在创建过程中，TSM驱动会根据当前硬件环境的FDT检查传入内存区域合法性，只有在FDT中存在且合法的内存/设备区域能够用于创建安全区域，TSM驱动会根据传入内存区域类型设置安全区域的类型。一旦安全区域创建成功，不可信组件无法再访问安全内存，hypervisor负责确保内存保护不会中断当前正在执行任务。
+	
+	为了避免hypervisor转换恶意设备/内存，TSM驱动会存储可信的硬件配置文件，并且对hypervisor提供的内存地址进行匹配，只有由硬件配置文件标记可信的内存/MMIO区域可以转换为安全区域。
+	
+	\subsubsection{安全区域分配}
+	安全内存主要分为两类：安全内存区域和安全设备区域。安全内存区域可根据分配器类型细分使用场景，而安全设备区域可根据设备类型进行进一步细分。当hypervisor请求创建CVM时，TSM驱动会从符合当前场景的多个安全区域中顺序申请足够的安全内存，用于容纳CVM镜像和二阶段页表等CVM元数据，并根据CVM的FDT尝试预分配安全设备区域，当CVM被证明可信后再进行实际分配和映射。
+	
+	\subsubsection{安全区域回收}
+	如果hypervisor中内存或设备资源紧张，可以尝试从TSM驱动中回收空闲的安全内存/设备区域。TSM驱动会查找未被使用的安全内存区域并回收当前安全区域资源，然后返回物理内存信息到hypervisor。安全设备区域回收则需要hypervisor传入设备的MMIO地址，由TSM驱动尝试释放并归还设备到hypervisor。
+
+	\subsection{不可信共享内存映射}
+	和不可信VM类似，CVM使用的共享内存由hypervisor分配和管理（为了缩小TEE攻击面EasyAda-trust中安全内存不支持在多个CVM间共享，因此后文以共享内存代称不可信的共享内存）。与首要目标是安全性的安全内存相比，共享内存的首要目标是实现不可信组件与CVM间高效的数据交换，因此TSM驱动不对共享内存提供任何机密性和完整性的保障，仅确保映射过程的安全性，共享内存不可映射到任何已有映射范围，避免CVM泄漏敏感数据。
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{req_sharemem.pdf}
+		\caption{EasyAda-trust共享内存创建流程}
+		\label{req_sharemem}
+	\end{figure}
+	如图\ref{req_sharemem}所示，共享内存主要用于软件实体间跨执行环境的数据交换。共享内存的请求和映射是两个异步的操作，在虚拟化场景下，共享内存的请求方通常是CVM，通过虚拟机无感的内存访问异常或主动的SBI请求下限到TSM驱动中，由TSM驱动转发请求到vhart运行线程，后者作为共享内存文件的所有者完成共享内存文件的创建，并在hypervisor内部向vhart服务线程发起映射请求，要求对方完成对共享内存文件的映射。然后由vhart运行线程发起SBI请求，告知TSM驱动当前请求已完成，最后由TSM驱动安全地映射共享内存到CVM的地址空间中，并切换到机密vhart继续运行。TSM驱动仅介入共享内存控制流，即建立映射的过程，不感知上层对共享内存的读写操作（数据流），因此通信双方需要主动基于共享内存进行通信协议和信道的初始化，并且CVM需要主动确保共享内存使用过程中的安全性，如进行必要的加密和校验。
+
+	\section{安全I/O虚拟化实现}
+	EasyAda-hypervisor支持三种I/O虚拟化技术：（1）全虚拟化，用于模拟简单或安全性要求较高的设备，如串口和中断控制器等；（2）半虚拟化，用于模拟需要大量I/O数据的设备，如网卡，磁盘设备等；（3）设备直通，用于管理驱动较复杂或有特殊需求的设备，如硬件加速器等。
+	
+	EasyAda-hypervisor中VM设备初始化流程是VM无感的被动流程，目的是减少对VM代码的修改，并且采用静态分区和动态分配相结合的硬件发现机制以兼顾降低系统复杂度和提高硬件利用率两个需求，完整的设备发现和初始化分为三个步骤：（1）在系统开发时，硬件供应商需要提供可信的硬件配置信息如FDT，而应用开发者需要根据硬件配置划分出VM直通设备并通过VM硬件配置文件实现VM与设备的静态绑定，而全虚拟化和半虚拟化设备可以由软件实现时分复用，因此在运行时完成设备发现；（2）在VM初始化时，hypervisor会对VM硬件配置文件进行检查，如果需要并且存在匹配的直通设备，则将设备分配给当前VM，否则会回退为全虚拟化设备；（3）在VM初始化时，虽然直通设备已经分配给当前VM，但是首次使用仍然需要陷入到hypervisor中完成设备到VM地址空间的映射，再由VM完成初始化，全虚拟化设备则在每次访问MMIO区域时陷入到hypervisor中，由hypervisor负责处理，半虚拟化设备则在第一次访问MMIO区域时陷入到hypervisor中完成共享内存的创建和到通信双方的映射，之后数据流无需hypervisor介入，控制流则按照VM为主，vhart服务线程为从端的主从通信模式进行通知，VM主动访问特定MMIO区域，陷入hypervisor并发送事件通知vhart服务线程进行处理，完成通知流程，当vhart服务线程完成处理后，则由hypervisor执行中断注入，通知VM当前I/O请求完成。
+	
+	EasyAda-trust在CVM中基本复用了VM全虚拟化/半虚拟化设备的管理和使用逻辑，重点拓展了EasyAda-hypervisor管理安全设备的能力。
+	
+	安全设备管理基于安全区域管理实现，安全设备创建的时机取决于hypervisor。当hypervisor需要将特定设备转换为安全设备时，仍然通过安全区域管理请求要求TSM驱动创建安全区域以隔离安全设备的MMIO区域，hypervisor负责确保安全设备隔离不会异常中断当前业务。因此不再进行赘述，本节主要描述EasyAda-trust如何确保CVM使用设备过程中的安全性。
+	
+	\subsection{安全设备管理}
+	EasyAda-trust中安全设备遵循主机分配，TSM驱动鉴权的逻辑。在系统开发时，硬件供应商需要对上层提供硬件配置文件，而EasyAda-trust的应用开发者则需要提供CVM专用的虚拟硬件配置文件，这个过程实现了CVM与TSM驱动静态设备发现流程，避免复杂的运行时设备发现逻辑。
+	
+	在VM创建时，hypervisor仍然按照相同的逻辑进行设备初始化，如果当前VM使用安全设备，虽然可以正常建立映射，但是VM运行时无法对设备进行任何读写操作。当hypervisor请求将VM提升为CVM时，TSM驱动会对CVM的硬件配置文件进行检查，如果存在匹配的安全设备，则TSM驱动将为当前CVM分配安全设备对应的安全区域，否则将对应MMIO区域回退为全虚拟化设备。
+	
+	当CVM运行时访问MMIO区域下陷到TSM驱动中时，TSM驱动会根据当前MMIO区域类型（全虚拟化/版虚拟化/设备直通）进行分类处理，全虚拟化设备会转换为MMIO请求，而半虚拟化设备则会转换为共享内存请求，然后将请求转发到hypervisior侧进行处理并返回。而直通的安全设备则由TSM驱动完成物理MMIO区域到CVM地址空间的映射，由CVM完成设备初始化。
+	
+
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{weights_protect.pdf}
+		\caption{EasyAda-trust下CVM的I/O密钥管理}
+		\label{weights_protect}
+	\end{figure}
+
+	\subsection{数据使用环境保护}
+	安全数据流需要建立在安全可信的执行环境上。机密应用是I/O数据的主要使用者，包括用户的AI模型和参数等。
+	
+	可信硬件配置文件会用于运行时的安全设备检查，只有被TSM驱动标记为可信的设备可以转化为安全设备，防范hypervisor通过向CVM提供恶意设备实现窃取和篡改机密数据。
+	
+	为了确保硬件平台和TSM驱动本身是可信的，在TSM驱动验证CVM可信的同时，CVM也会对硬件平台进行验证，这个步骤通过密钥交换完成。图\ref{weights_protect}展示了CVM使用的I/O密钥管理流程，根据EasyAda-trust的安全启动流程，CVM在启动时会与硬件环境进行双向验证，通过双向验证后的CVM和硬件环境都是可信的。然后TSM会使用硬件私钥对锁盒进行解锁，并使用其中的对称密钥解密TAP获取开发者提供的秘密并存储在TSM驱动。当CVM启动时，会通过密钥管理请求从TSM驱动获取开发者密钥并使用密钥对核心的机密应用代码和数据进行解密，确保不会在不可信的硬件环境中泄漏用户代码和数据。
+	
+	\subsection{CPU侧I/O数据安全}
+	安全设备管理可以确保不可信组件无法以任何形式访问安全设备的MMIO区域，因此机密应用可以以明文形式向安全设备传输数据并且不会被篡改或窃取。
+	
+	但是对基于不可信的共享内存实现的半虚拟化设备，CVM需要对其中的数据进行额外的加密以保护数据机密性。CVM和数据供应方（网络数据发送方或写入磁盘数据方）需要使用CVM开发者预先提供的对称/非对称密钥及其衍生的会话密钥对数据进行加解密和校验，以并且不会使用篡改后的数据。
+	
+	\subsection{设备侧I/O数据安全}
+	为了防止支持DMA的恶意外设绕过CPU的内存隔离直接访问安全内存，EasyAda-trust使用IOPMP拓展限制了每个硬件可以访问的内存区域。在开发时，硬件供应商需要为可信设备静态分配SID作为唯一标识符号。
+	hypervisor可以在任何时刻请求将设备提升为安全设备。TSM驱动会通过可信的硬件配置文件检查当前设备是否可信，如果设备可信则为设备创建未初始化的可信MD，只有当安全设备实际分配给CVM时，TSM驱动会将CVM关联的所有安全区域的授权条目加入设备的可信MD中，并将设备的SID与可信MD关联。此时安全设备仅能访问安全内存，杜绝了安全设备将敏感数据写入不可信内存的问题。
+	
+	相对的，当CVM销毁并释放当前安全设备时，TSM驱动会重置设备的可信MD，hypervisor可以向TSM驱动请求回收当前设备，TSM驱动会重新为当前设备的SID绑定不可信MD。
+	
+	
+
+	\subsection{机密异构计算环境实现}
+	
+	EasyAda-trust一个重要的目标是保障用户AI模型和敏感数据的机密性和完整性。该目标可以进一步细分为两个目标：
+	\begin{enumerate}
+		\item \textbf{保障用户运行环境的可信和隔离}：为了保护用户AI模型，CVM仅能在可信的硬件环境上对用户模型进行解密和部署，并且由EasyAda-trust确保CVM运行环境与不可信组件的隔离。
+		\item \textbf{保障用户I/O数据的机密性和完整性}：为了确保用户敏感数据不被窃取或篡改，EasyAda-trust需要对用户I/O数据采取必要的加密和校验，并确保用户模型使用硬件加速器过程中的安全。
+	\end{enumerate}
+	
+	同时，EasyAda-trust为了增强系统的可拓展性，需要实现硬件加速器在不同执行环境间的复用，为了实现以上目标，EasyAda-trust实现了专用的硬件加速器管理CVM，并通过I/O半虚拟化技术实现硬件加速器在不同执行环境间的复用。下面将详细介绍EasyAda-trust如何实现机密异构计算环境。
+	
+	\subsubsection{硬件加速器的保护}
+	
+	为了确保CVM使用硬件加速器过程中的安全性，hypervisor必须显式将硬件加速器提升为安全设备，TSM驱动在加速器管理CVM启动时，会检查并尝试分配安全设备，只有经过验证的安全硬件加速器可以映射到CVM的地址空间中进行管理。同时，硬件加速器使用的内存缓冲区由加速器管理CVM内的驱动从当前CVM的安全内存中进行分配，不可信组件无法访问安全的内存缓冲区和MMIO区域。
+
+	\subsubsection{加速器管理CVM初始化}
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=0.75\linewidth]{acccvm_pmp.pdf}
+		\caption{引入安全设备后的CVM安全内存视图}
+		\label{acccvm_pmp}
+	\end{figure}
+
+	在未引入CVM的架构下，EasyAda-hypervisor为了实现对现有驱动的复用，避免增大微内核操作系统的攻击面，会在启动阶段将硬件加速器的MMIO地址透传到硬件加速器管理VM中，由该VM加载驱动并完成硬件加速器初始化，后续通过I/O半虚拟化技术（如VirtI/O协议）实现硬件加速器在VM间以及host间的时分复用。
+	
+	加速器管理CVM的创建与其他CVM类似，在创建加速器管理CVM前，hypervisor需要主动将可信的硬件加速器提升为安全硬件，因为提升时机由EasyAda-hypervisor决定，应当由其自身确保无任何组件正在访问硬件加速器，避免访问流程的异常中断。当硬件加速器被提升为安全设备后，不可信组件无法访问硬件加速器的MMIO区域，
+	
+	
+	接下来由hypervisor负责创建CVM，在TSM驱动为CVM分配安全设备时，会同时为硬件加速器创建授权MD用于授予当前硬件加速器访问安全区域的能力，因为端侧硬件加速器多以协处理器的形式集成在SoC中，因此其数据缓冲区需要动态进行分配，为了降低IOPMP管理的开销，TSM驱动配置IOPMP授权硬件加速器访问加速器管理CVM关联的所有安全区域以确保可以正常访问动态数据缓冲区，因为配置DMA时会通过IOMMU或TSM驱动软件翻译IPA为物理地址，避免了硬件加速器因为DMA配置错误写入其它安全内存中。隔离完成后，不可信组件无法访问硬件加速器的MMIO区域，硬件加速器也无法写入不可信的内存区域。
+	
+	加速器管理CVM创建成功后，如图\ref{acccvm_pmp}所示，此时加速器管理CVM是除TSM驱动外唯一可以访问硬件加速器软件实体。当加速器管理CVM实际运行时，需要按照安全启动流程，CVM从TSM驱动获取开发者密钥并对开发者提供的AI模型和参数进行解密和部署，并对不可信的半虚拟化和全虚拟化设备进行初始化。	
+
+	加速器管理CVM创建成功之后，可以直接对其上的机密应用提供服务。如果需要与不可信环境间进行复用，则需要与请求使用硬件加速器的不可信组件建立信道，下面将介绍信道建立的过程。
+	
+	\subsubsection{建立信道}
+	
+	加速器管理CVM其它组件均通过I/O半虚拟化技术——VirtI/O协议实现硬件加速器的时分复用。
+	
+	虚拟设备的发现在开发是通过静态的硬件配置文件如FDT文件静态完成，EasyAda-trust应用开发者需要根据硬件供应商提供的可信物理硬件配置完成设备静态分区，并在加速器管理CVM的硬件配置文件中预留内存区域用于建立映射共享内存。
+	
+	加速器管理CVM会对设备进行初始化，当访问到预留的内存区域时会陷入TSM驱动，由TSM驱动检查MMIO区域类型后，将共享内存申请请求转发到EasyAda-hypervisor处理。EasyAda-hypervisor负责完成共享内存分配并返回地址给TSM驱动，由TSM驱动完成共享内存到CVM地址空间的映射以及CVM上下文的恢复，并准备进行驱动后端初始化。同时，EasyAda-hypervisor会标记该共享内存为虚拟硬件加速器设备区域，等待映射到驱动前端中。
+	
+	当不可信VM尝试初始化虚拟硬件加速器时，会陷入到EasyAda-hypervisor中，由EasyAda-hypervisor将会获取之前加速器管理CVM申请的共享内存，并将其映射到请求方VM对应的虚拟设备地址中。之后VM和加速器管理CVM可以通过该共享内存完成数据交换，由TSM驱动和EasyAda-hypervisor转发和注入中断进行I/O请求通知和回复。EasyAda-trust并不要求加速器管理CVM和请求方VM的初始化时序，双方可以由任意一方进行初始化并完成共享内存的申请和标记，EasyAda-trust不感知实际的进一步的协议交互和信道建立流程，通信双方可以基于共享内存，通过轮询或中断完成通信协议的初始化。
+
+	\section{本章小结}
+	本章详细论述了基于微内核的可信虚拟化方案的工程实现，重点阐述了如何适配EasyAda-hypervisor以实现对CVM的安全管理与资源虚拟化 。在CPU虚拟化方面，方案通过扩展EasyAda-hypervisor的hart分区架构，引入了机密与非机密 vhart运行区，并利用TSM驱动接管CVM的两阶段安全上下文切换流程，确保了CVM的CPU状态对不可信hypervisor完全隐匿。在内存与I/O虚拟化层面，方案将安全资源的直接控制权从EasyAda-hypervisor中剥离，确立了由hypervisor负责物理内存分配、设备发现与宏观生命周期调度，进而委托TSM驱动完成安全区域动态构建、二阶段页表隔离映射及安全设备鉴权配置的职责解耦机制。此外，针对端侧异构计算需求，方案利用EasyAda-hypervisor辅助建立不可信共享内存通信信道，成功实现了专用硬件加速器管理CVM的安全部署与跨环境复用。综上所述，本章通过对EasyAda-hypervisor 实施职责解耦与非侵入式安全拓展，在充分复用微内核统一资源管理优势的同时，为CVM提供了一个高安全、高可靠的可信虚拟化运行底座。
+	
+	\chapter{系统测试与分析}
+	\chapter{总结和展望}
+	
+	
+	
+	%% 参考文献部分
+	% \nocite{*}% 为了便于在示例文档中展示参考文献而设，正式撰写时需要注释掉
+	% \bibliographystyle{DissertUESTC}% 自v25.03.12版本后，参考文献风格文件由用户设定的论文类型选项自动确定，无需在此手动设置
+	\bibliography{ref}
+	
+	% 附录起始位置
+	\appendix
+	
+	\achievement % 仅研究生用    
+	
+\end{document}

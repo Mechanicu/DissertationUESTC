@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tutorial.aux
+The style file: DissertUESTC.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: ref.bib
+Warning--empty booktitle in rust
+Warning--there's a number but no volume in sel4-virt
+Warning--empty booktitle in sanctury
+`pages' is a missing field, not a string, for entry cage
+while executing---line 1686 of file DissertUESTC.bst
+Warning--empty pages in cage
+Warning--empty chapter and pages in ccai
+You've used 45 entries,
+            3315 wiz_defined-function locations,
+            905 strings with 14469 characters,
+and the built_in function-call counts, 30231 in all, are:
+= -- 3184
+> -- 540
+< -- 0
++ -- 270
+- -- 135
+* -- 1488
+:= -- 2966
+add.period$ -- 134
+call.type$ -- 45
+change.case$ -- 44
+chr.to.int$ -- 0
+cite$ -- 50
+duplicate$ -- 3486
+empty$ -- 2537
+format.name$ -- 169
+if$ -- 6910
+int.to.chr$ -- 0
+int.to.str$ -- 45
+missing$ -- 396
+newline$ -- 230
+num.names$ -- 45
+pop$ -- 1549
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 866
+stack$ -- 0
+substring$ -- 3463
+swap$ -- 941
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 227
+width$ -- 47
+write$ -- 458
+(There was 1 error message)
