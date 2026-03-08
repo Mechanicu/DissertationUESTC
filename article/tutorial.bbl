@@ -261,6 +261,12 @@ Lu H, Deng Y, Mertoguno S, et~al.
 \newblock Proceedings of the 2025 ACM SIGSAC Conference on Computer and
   Communications Security, 2025: 693–707.
 
+\bibitem{rv-setman}
+International R~V.
+\newblock The risc-v instruction set manual: Volume ii[EB/OL].
+\newblock 2025-05-08,
+  \url{https://docs.riscv.org/reference/isa/_attachments/riscv-privileged.pdf}.
+
 \bibitem{localattest}
 Hunt G~D~H, Pai R, Le M~V, et~al.
 \newblock Confidential computing for openpower[C].

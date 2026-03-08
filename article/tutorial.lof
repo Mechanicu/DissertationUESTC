@@ -1,63 +1,71 @@
 \addvspace {10\p@ }
 \cftsetpnumwidth {\widthof {4}-1bp}
-\contentsline {figure}{\numberline {1-1}{\ignorespaces CVM的I/O数据保护机制}}{4}{figure.caption.6}%
+\contentsline {figure}{\numberline {1-1}{\ignorespaces 虚拟化技术分类}}{4}{figure.caption.5}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{4}{subfigure.1.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{4}{subfigure.1.2}%
 \cftsetpnumwidth {\widthof {11}-1bp}
-\contentsline {figure}{\numberline {1-2}{\ignorespaces 章节结构}}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {1-2}{\ignorespaces 章节结构}}{11}{figure.caption.6}%
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\cftsetpnumwidth {\widthof {13}-1bp}
+\contentsline {figure}{\numberline {2-1}{\ignorespaces 未引入硬件虚拟化拓展时RISC-V系统架构}}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {特权级转换}}}{13}{subfigure.1.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {软硬件架构}}}{13}{subfigure.1.2}%
 \cftsetpnumwidth {\widthof {17}-1bp}
-\contentsline {figure}{\numberline {3-1}{\ignorespaces 微内核操作系统EasyAda总体架构}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {2-2}{\ignorespaces 引入硬件虚拟化拓展后的RISC-V系统架构}}{17}{figure.caption.8}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {特权级转换}}}{17}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {软硬件架构}}}{17}{subfigure.2.2}%
 \cftsetpnumwidth {\widthof {19}-1bp}
-\contentsline {figure}{\numberline {3-2}{\ignorespaces EasyAda-hypervisor总体架构}}{19}{figure.caption.9}%
-\cftsetpnumwidth {\widthof {20}-1bp}
-\contentsline {figure}{\numberline {3-3}{\ignorespaces 基于RISC-V的微内核虚拟化方案总体架构}}{20}{figure.caption.10}%
-\cftsetpnumwidth {\widthof {23}-1bp}
-\contentsline {figure}{\numberline {3-4}{\ignorespaces EasyAda-SM总体架构}}{23}{figure.caption.11}%
+\contentsline {figure}{\numberline {2-3}{\ignorespaces 微内核操作系统EasyAda总体架构}}{19}{figure.caption.9}%
+\cftsetpnumwidth {\widthof {21}-1bp}
+\contentsline {figure}{\numberline {2-4}{\ignorespaces EasyAda-hypervisor总体架构}}{21}{figure.caption.10}%
+\addvspace {10\p@ }
 \cftsetpnumwidth {\widthof {25}-1bp}
-\contentsline {figure}{\numberline {3-5}{\ignorespaces EasyAda-SM的内存管理模式}}{25}{figure.caption.12}%
-\cftsetpnumwidth {\widthof {26}-1bp}
-\contentsline {figure}{\numberline {3-6}{\ignorespaces EasyAda-trust可信启动流程}}{26}{figure.caption.13}%
+\contentsline {figure}{\numberline {3-1}{\ignorespaces 基于RISC-V的微内核虚拟化方案总体架构}}{25}{figure.caption.11}%
+\cftsetpnumwidth {\widthof {28}-1bp}
+\contentsline {figure}{\numberline {3-2}{\ignorespaces EasyAda-SM总体架构}}{28}{figure.caption.12}%
 \cftsetpnumwidth {\widthof {29}-1bp}
-\contentsline {figure}{\numberline {3-7}{\ignorespaces CVM二阶段页表初始化}}{29}{figure.caption.14}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces EasyAda-SM的内存管理模式}}{29}{figure.caption.13}%
+\cftsetpnumwidth {\widthof {31}-1bp}
+\contentsline {figure}{\numberline {3-4}{\ignorespaces EasyAda-trust可信启动流程}}{31}{figure.caption.14}%
 \cftsetpnumwidth {\widthof {34}-1bp}
-\contentsline {figure}{\numberline {3-8}{\ignorespaces CVM的I/O数据保护机制}}{34}{figure.caption.15}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {基于密码学的I/O数据保护框架}}}{34}{subfigure.8.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {基于临时设备授权的I/O数据保护框架}}}{34}{subfigure.8.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {基于硬件分区的I/O数据保护框架}}}{34}{subfigure.8.3}%
-\cftsetpnumwidth {\widthof {36}-1bp}
-\contentsline {figure}{\numberline {3-9}{\ignorespaces 硬件加速器管理CVM设计}}{36}{figure.caption.16}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3-5}{\ignorespaces CVM二阶段页表初始化}}{34}{figure.caption.15}%
 \cftsetpnumwidth {\widthof {38}-1bp}
-\contentsline {figure}{\numberline {4-1}{\ignorespaces SRMM管理单元实现}}{38}{figure.caption.17}%
-\cftsetpnumwidth {\widthof {41}-1bp}
-\contentsline {figure}{\numberline {4-2}{\ignorespaces PageAllocator结构}}{41}{figure.caption.19}%
-\cftsetpnumwidth {\widthof {43}-1bp}
-\contentsline {figure}{\numberline {4-3}{\ignorespaces PMP槽结构}}{43}{figure.caption.21}%
-\cftsetpnumwidth {\widthof {45}-1bp}
-\contentsline {figure}{\numberline {4-4}{\ignorespaces PMP运行时配置}}{45}{figure.caption.23}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {不可信上下文中PMP配置}}}{45}{subfigure.4.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {可信上下文中PMP配置}}}{45}{subfigure.4.2}%
-\cftsetpnumwidth {\widthof {46}-1bp}
-\contentsline {figure}{\numberline {4-5}{\ignorespaces PageAllocator结构}}{46}{figure.caption.24}%
-\cftsetpnumwidth {\widthof {47}-1bp}
-\contentsline {figure}{\numberline {4-6}{\ignorespaces 不同类型Enclave与区域类型和分配器的关联关系}}{47}{figure.caption.25}%
-\cftsetpnumwidth {\widthof {47}-1bp}
-\contentsline {figure}{\numberline {4-7}{\ignorespaces CVM管理器结构}}{47}{figure.caption.26}%
-\cftsetpnumwidth {\widthof {52}-1bp}
-\contentsline {figure}{\numberline {4-8}{\ignorespaces EasyAda -SM中非安全/安全设备的IOPMP管理}}{52}{figure.caption.29}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {非安全设备的IOPMP配置}}}{52}{subfigure.8.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {安全设备的IOPMP配置}}}{52}{subfigure.8.2}%
+\contentsline {figure}{\numberline {3-6}{\ignorespaces CVM的I/O数据保护机制}}{38}{figure.caption.16}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {基于密码学的I/O数据保护框架}}}{38}{subfigure.6.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {基于临时设备授权的I/O数据保护框架}}}{38}{subfigure.6.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {基于硬件分区的I/O数据保护框架}}}{38}{subfigure.6.3}%
+\cftsetpnumwidth {\widthof {40}-1bp}
+\contentsline {figure}{\numberline {3-7}{\ignorespaces 硬件加速器管理CVM设计}}{40}{figure.caption.17}%
 \addvspace {10\p@ }
-\cftsetpnumwidth {\widthof {55}-1bp}
-\contentsline {figure}{\numberline {5-1}{\ignorespaces EasyAda-trust下hart分区结构图}}{55}{figure.caption.30}%
+\cftsetpnumwidth {\widthof {42}-1bp}
+\contentsline {figure}{\numberline {4-1}{\ignorespaces SRMM管理单元实现}}{42}{figure.caption.18}%
+\cftsetpnumwidth {\widthof {45}-1bp}
+\contentsline {figure}{\numberline {4-2}{\ignorespaces PageAllocator结构}}{45}{figure.caption.20}%
+\cftsetpnumwidth {\widthof {47}-1bp}
+\contentsline {figure}{\numberline {4-3}{\ignorespaces PMP槽结构}}{47}{figure.caption.22}%
+\cftsetpnumwidth {\widthof {49}-1bp}
+\contentsline {figure}{\numberline {4-4}{\ignorespaces PMP运行时配置}}{49}{figure.caption.24}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {不可信上下文中PMP配置}}}{49}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {可信上下文中PMP配置}}}{49}{subfigure.4.2}%
+\cftsetpnumwidth {\widthof {50}-1bp}
+\contentsline {figure}{\numberline {4-5}{\ignorespaces PageAllocator结构}}{50}{figure.caption.25}%
+\cftsetpnumwidth {\widthof {51}-1bp}
+\contentsline {figure}{\numberline {4-6}{\ignorespaces 不同类型Enclave与区域类型和分配器的关联关系}}{51}{figure.caption.26}%
+\cftsetpnumwidth {\widthof {51}-1bp}
+\contentsline {figure}{\numberline {4-7}{\ignorespaces CVM管理器结构}}{51}{figure.caption.27}%
+\cftsetpnumwidth {\widthof {56}-1bp}
+\contentsline {figure}{\numberline {4-8}{\ignorespaces EasyAda -SM中非安全/安全设备的IOPMP管理}}{56}{figure.caption.30}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {非安全设备的IOPMP配置}}}{56}{subfigure.8.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {安全设备的IOPMP配置}}}{56}{subfigure.8.2}%
+\addvspace {10\p@ }
 \cftsetpnumwidth {\widthof {59}-1bp}
-\contentsline {figure}{\numberline {5-2}{\ignorespaces EasyAda-trust共享内存创建流程}}{59}{figure.caption.31}%
-\cftsetpnumwidth {\widthof {61}-1bp}
-\contentsline {figure}{\numberline {5-3}{\ignorespaces EasyAda-trust下CVM的I/O密钥管理}}{61}{figure.caption.32}%
+\contentsline {figure}{\numberline {5-1}{\ignorespaces EasyAda-trust下hart分区结构图}}{59}{figure.caption.31}%
 \cftsetpnumwidth {\widthof {63}-1bp}
-\contentsline {figure}{\numberline {5-4}{\ignorespaces 引入安全设备后的CVM安全内存视图}}{63}{figure.caption.33}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces EasyAda-trust共享内存创建流程}}{63}{figure.caption.32}%
+\cftsetpnumwidth {\widthof {65}-1bp}
+\contentsline {figure}{\numberline {5-3}{\ignorespaces EasyAda-trust下CVM的I/O密钥管理}}{65}{figure.caption.33}%
+\cftsetpnumwidth {\widthof {67}-1bp}
+\contentsline {figure}{\numberline {5-4}{\ignorespaces 引入安全设备后的CVM安全内存视图}}{67}{figure.caption.34}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 
