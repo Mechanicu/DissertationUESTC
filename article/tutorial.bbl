@@ -140,7 +140,7 @@ Matos E~d, Ahvenjärvi M.
   towards a standard vmm[J].
 \newblock Electronics, 2022, (24).
 
-\bibitem{qnx-hypervisor}
+\bibitem{qnx-Hypervisor}
 Limited B.
 \newblock Qnx hypervisor 8.0 empowering embedded systems with trusted
   virtualization and mixed-criticality support[EB/OL].
@@ -158,14 +158,14 @@ Steinberg U, Kauer B.
 \newblock Proceedings of the 5th European Conference on Computer Systems, 2010:
   209–222.
 
-\bibitem{hyper-enclave}
+\bibitem{hyper-Enclave}
 Jia Y, Liu S, Wang W, et~al.
 \newblock {HyperEnclave}: An open and cross-platform trusted execution
   environment[C].
 \newblock 2022 USENIX Annual Technical Conference (USENIX ATC 22), 2022:
   437--454.
 
-\bibitem{bao-enclave}
+\bibitem{bao-Enclave}
 Pereira S, Sousa J, Pinto S, et~al.
 \newblock Bao-enclave: Virtualization-based enclaves for arm[C].
 \newblock 2022 IEEE 8th World Forum on Internet of Things (WF-IoT), 2022: 1-6.
@@ -266,6 +266,25 @@ International R~V.
 \newblock The risc-v instruction set manual: Volume ii[EB/OL].
 \newblock 2025-05-08,
   \url{https://docs.riscv.org/reference/isa/_attachments/riscv-privileged.pdf}.
+
+\bibitem{tee_survey}
+Li X, Zhao B, Yang G, et~al.
+\newblock A survey of secure computation using trusted execution
+  environments[J].
+\newblock arXiv preprint arXiv:2302.12150, 2023.
+
+\bibitem{cc_def}
+Consortium C~C.
+\newblock Confidential computing – the next frontier in data security[EB/OL].
+\newblock 2021-10-19,
+  \url{https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/Everest_Group_-_Confidential_Computing_-_The_Next_Frontier_in_Data_Security_-_2021-10-19.pdf}.
+
+\bibitem{rubbish}
+Jinzhe L, Kun X, Lei L, et~al.
+\newblock Easy adazone: A memory-safe physical memory isolation framwork for
+  risc-v[C].
+\newblock 2025 22nd International Computer Conference on Wavelet Active Media
+  Technology and Information Processing (ICCWAMTIP), 2025: 1-4.
 
 \bibitem{localattest}
 Hunt G~D~H, Pai R, Le M~V, et~al.

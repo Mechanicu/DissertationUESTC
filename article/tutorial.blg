@@ -12,45 +12,45 @@ Warning--empty booktitle in sanctury
 while executing---line 1686 of file DissertUESTC.bst
 Warning--empty pages in cage
 Warning--empty chapter and pages in ccai
-You've used 46 entries,
+You've used 49 entries,
             3315 wiz_defined-function locations,
-            910 strings with 14622 characters,
-and the built_in function-call counts, 30613 in all, are:
-= -- 3228
-> -- 544
+            927 strings with 15386 characters,
+and the built_in function-call counts, 32341 in all, are:
+= -- 3406
+> -- 580
 < -- 0
-+ -- 272
-- -- 136
-* -- 1511
-:= -- 3007
-add.period$ -- 137
-call.type$ -- 46
-change.case$ -- 45
++ -- 290
+- -- 145
+* -- 1604
+:= -- 3186
+add.period$ -- 146
+call.type$ -- 49
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 51
-duplicate$ -- 3533
-empty$ -- 2566
-format.name$ -- 170
-if$ -- 6990
+cite$ -- 54
+duplicate$ -- 3738
+empty$ -- 2709
+format.name$ -- 181
+if$ -- 7369
 int.to.chr$ -- 0
-int.to.str$ -- 46
-missing$ -- 401
-newline$ -- 235
-num.names$ -- 46
-pop$ -- 1569
+int.to.str$ -- 49
+missing$ -- 427
+newline$ -- 250
+num.names$ -- 49
+pop$ -- 1666
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 867
+skip$ -- 895
 stack$ -- 0
-substring$ -- 3514
-swap$ -- 948
+substring$ -- 3715
+swap$ -- 987
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 229
-width$ -- 48
-write$ -- 468
+while$ -- 243
+width$ -- 51
+write$ -- 498
 (There was 1 error message)

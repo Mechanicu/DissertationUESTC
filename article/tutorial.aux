@@ -15,8 +15,8 @@
 \citation{sev}
 \citation{penglai}
 \citation{keystone}
-\HyPL@Entry{10<</S/D>>}
-\pp@pagectr{footnote}{1}{21}{1}
+\HyPL@Entry{9<</S/D>>}
+\pp@pagectr{footnote}{1}{19}{1}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第一章}绪论}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -36,7 +36,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}国内外研究背景与现状}{3}{section.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}虚拟化技术研究现状}{3}{subsection.1.2.1}\protected@file@percent }
 \citation{sel4-virt}
-\citation{qnx-hypervisor}
+\citation{qnx-Hypervisor}
 \@writefile{lof}{\cftsetpnumwidth {\widthof {4}-1bp}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{type1_hyper}{{1-1(a)}{4}{Subfigure 第一章 1-1(a)}{subfigure.1-1.1}{}}
@@ -50,8 +50,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}基于硬件虚拟化扩展的TEE构建机制研究现状}{4}{subsection.1.2.2}\protected@file@percent }
 \citation{trustvisor}
 \citation{nova}
-\citation{hyper-enclave}
-\citation{bao-enclave}
+\citation{hyper-Enclave}
+\citation{bao-Enclave}
 \citation{sgx}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}基于指令集安全特性的架构级TEE研究现状}{5}{subsection.1.2.3}\protected@file@percent }
 \citation{rustsgx}
@@ -81,7 +81,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1.4}论文结构}{10}{section.1.4}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {11}-1bp}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1-2}{\ignorespaces 章节结构}}{11}{figure.caption.6}\protected@file@percent }
-\pp@pagectr{footnote}{2}{45}{13}
+\pp@pagectr{footnote}{2}{43}{13}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第二章}相关技术理论概论}{13}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -113,199 +113,210 @@
 \newlabel{overall_virt}{{2-2}{17}{引入硬件虚拟化拓展后的RISC-V系统架构}{figure.caption.8}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {特权级转换}}}{17}{subfigure.2.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {软硬件架构}}}{17}{subfigure.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}TEE相关技术介绍}{18}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}基于指令集的TEE分类}{18}{subsection.2.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}基于可信域抽象的TEE分类}{18}{subsection.2.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}面向异构计算环境的TEE}{18}{subsection.2.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}微内核相关知识介绍}{19}{section.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}微内核操作系统EasyAda介绍}{19}{subsection.2.3.1}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {19}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2-3}{\ignorespaces 微内核操作系统EasyAda总体架构}}{19}{figure.caption.9}\protected@file@percent }
-\newlabel{mk_arch}{{2-3}{19}{微内核操作系统EasyAda总体架构}{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}微内核虚拟化方案EasyAda-hypervisor}{20}{subsection.2.3.2}\protected@file@percent }
+\citation{tee_survey}
+\citation{cc_def}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}可信执行环境（TEE相关技术介绍}{18}{section.2.2}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {18}-1bp}}
+\newlabel{tee_app}{{2-3(a)}{18}{Subfigure 第二章 2-3(a)}{subfigure.2-3.1}{}}
+\newlabel{sub@tee_app}{{(a)}{(a)}{Subfigure 第二章 2-3(a)\relax }{subfigure.2-3.1}{}}
+\newlabel{tee_os}{{2-3(b)}{18}{Subfigure 第二章 2-3(b)}{subfigure.2-3.2}{}}
+\newlabel{sub@tee_os}{{(b)}{(b)}{Subfigure 第二章 2-3(b)\relax }{subfigure.2-3.2}{}}
+\newlabel{tee_vm}{{2-3(c)}{18}{Subfigure 第二章 2-3(c)}{subfigure.2-3.3}{}}
+\newlabel{sub@tee_vm}{{(c)}{(c)}{Subfigure 第二章 2-3(c)\relax }{subfigure.2-3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-3}{\ignorespaces 基于系统抽象层级与软件执行模型的TEE分类}}{18}{figure.caption.9}\protected@file@percent }
+\newlabel{tee_style}{{2-3}{18}{基于系统抽象层级与软件执行模型的TEE分类}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {可信应用}}}{18}{subfigure.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {可信操作系统}}}{18}{subfigure.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {机密虚拟机}}}{18}{subfigure.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}面向异构计算环境的TEE}{19}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}微内核操作系统EasyAda介绍}{21}{section.2.3}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {21}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces EasyAda-hypervisor总体架构}}{21}{figure.caption.10}\protected@file@percent }
-\newlabel{hyper_arch}{{2-4}{21}{EasyAda-hypervisor总体架构}{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Rust相关知识介绍}{22}{section.2.4}\protected@file@percent }
-\pp@pagectr{footnote}{3}{65}{23}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第三章}基于RISC-V的微内核虚拟化方案设计}{23}{chapter.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces 微内核操作系统EasyAda总体架构}}{21}{figure.caption.10}\protected@file@percent }
+\newlabel{mk_arch}{{2-4}{21}{微内核操作系统EasyAda总体架构}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}微内核虚拟化方案EasyAda-Hypervisor介绍}{22}{section.2.4}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {23}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2-5}{\ignorespaces EasyAda-Hypervisor总体架构}}{23}{figure.caption.11}\protected@file@percent }
+\newlabel{hyper_arch}{{2-5}{23}{EasyAda-Hypervisor总体架构}{figure.caption.11}{}}
+\citation{rust}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Rust相关知识介绍}{24}{section.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}本章小结}{25}{section.2.6}\protected@file@percent }
+\pp@pagectr{footnote}{3}{69}{26}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第三章}基于RISC-V的微内核虚拟化方案设计}{26}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}设计目标和需求分析}{23}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}EasyAda-trust工作流}{23}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}威胁模型}{24}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}EasyAda-trust详细设计}{25}{section.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}总体设计}{25}{subsection.3.4.1}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {25}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces 基于RISC-V的微内核虚拟化方案总体架构}}{25}{figure.caption.11}\protected@file@percent }
-\newlabel{sw_arch}{{3-1}{25}{基于RISC-V的微内核虚拟化方案总体架构}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}安全监视器EasyAda-SM设计}{27}{subsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2.1}设计目标}{27}{subsubsection.3.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}设计目标和需求分析}{26}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}EasyAda-trust工作流}{26}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}威胁模型}{27}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}EasyAda-trust详细设计}{28}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}总体设计}{28}{subsection.3.4.1}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {28}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces EasyAda-SM总体架构}}{28}{figure.caption.12}\protected@file@percent }
-\newlabel{sm_arch}{{3-2}{28}{EasyAda-SM总体架构}{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2.2}内存分类}{28}{subsubsection.3.4.2.2}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {29}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces EasyAda-SM的内存管理模式}}{29}{figure.caption.13}\protected@file@percent }
-\newlabel{secmem_divided}{{3-3}{29}{EasyAda-SM的内存管理模式}{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2.3}模块化和分层设计}{30}{subsubsection.3.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}安全特性设计}{30}{subsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.1}安全启动}{30}{subsubsection.3.4.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces 基于RISC-V的微内核虚拟化方案总体架构}}{28}{figure.caption.12}\protected@file@percent }
+\newlabel{sw_arch}{{3-1}{28}{基于RISC-V的微内核虚拟化方案总体架构}{figure.caption.12}{}}
+\citation{rubbish}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}安全监视器EasyAda-SM设计}{30}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2.1}设计目标}{30}{subsubsection.3.4.2.1}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {31}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces EasyAda-trust可信启动流程}}{31}{figure.caption.14}\protected@file@percent }
-\newlabel{secboot}{{3-4}{31}{EasyAda-trust可信启动流程}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces EasyAda-SM总体架构}}{31}{figure.caption.13}\protected@file@percent }
+\newlabel{sm_arch}{{3-2}{31}{EasyAda-SM总体架构}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2.2}内存分类}{31}{subsubsection.3.4.2.2}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {32}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces EasyAda-SM的内存管理模式}}{32}{figure.caption.14}\protected@file@percent }
+\newlabel{secmem_divided}{{3-3}{32}{EasyAda-SM的内存管理模式}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2.3}模块化和分层设计}{32}{subsubsection.3.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}安全特性设计}{33}{subsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.1}安全启动}{33}{subsubsection.3.4.3.1}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {34}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces EasyAda-trust可信启动流程}}{34}{figure.caption.15}\protected@file@percent }
+\newlabel{secboot}{{3-4}{34}{EasyAda-trust可信启动流程}{figure.caption.15}{}}
 \citation{localattest}
 \citation{ace}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.2}安全CPU虚拟化}{33}{subsubsection.3.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.3}安全内存虚拟化}{33}{subsubsection.3.4.3.3}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {34}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces CVM二阶段页表初始化}}{34}{figure.caption.15}\protected@file@percent }
-\newlabel{cvm_mminit}{{3-5}{34}{CVM二阶段页表初始化}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.4}安全中断虚拟化}{35}{subsubsection.3.4.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.5}安全I/O虚拟化}{36}{subsubsection.3.4.3.5}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {38}-1bp}}
-\newlabel{iosec_encrypt}{{3-6(a)}{38}{Subfigure 第三章 3-6(a)}{subfigure.3-6.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.2}安全CPU虚拟化}{36}{subsubsection.3.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.3}安全内存虚拟化}{36}{subsubsection.3.4.3.3}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {37}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces CVM二阶段页表初始化}}{37}{figure.caption.16}\protected@file@percent }
+\newlabel{cvm_mminit}{{3-5}{37}{CVM二阶段页表初始化}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.4}安全中断虚拟化}{38}{subsubsection.3.4.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.5}安全I/O虚拟化}{39}{subsubsection.3.4.3.5}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {41}-1bp}}
+\newlabel{iosec_encrypt}{{3-6(a)}{41}{Subfigure 第三章 3-6(a)}{subfigure.3-6.1}{}}
 \newlabel{sub@iosec_encrypt}{{(a)}{(a)}{Subfigure 第三章 3-6(a)\relax }{subfigure.3-6.1}{}}
-\newlabel{iosec_temp}{{3-6(b)}{38}{Subfigure 第三章 3-6(b)}{subfigure.3-6.2}{}}
+\newlabel{iosec_temp}{{3-6(b)}{41}{Subfigure 第三章 3-6(b)}{subfigure.3-6.2}{}}
 \newlabel{sub@iosec_temp}{{(b)}{(b)}{Subfigure 第三章 3-6(b)\relax }{subfigure.3-6.2}{}}
-\newlabel{iosec_part}{{3-6(c)}{38}{Subfigure 第三章 3-6(c)}{subfigure.3-6.3}{}}
+\newlabel{iosec_part}{{3-6(c)}{41}{Subfigure 第三章 3-6(c)}{subfigure.3-6.3}{}}
 \newlabel{sub@iosec_part}{{(c)}{(c)}{Subfigure 第三章 3-6(c)\relax }{subfigure.3-6.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces CVM的I/O数据保护机制}}{38}{figure.caption.16}\protected@file@percent }
-\newlabel{iosec_frame}{{3-6}{38}{CVM的I/O数据保护机制}{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {基于密码学的I/O数据保护框架}}}{38}{subfigure.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {基于临时设备授权的I/O数据保护框架}}}{38}{subfigure.6.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {基于硬件分区的I/O数据保护框架}}}{38}{subfigure.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces CVM的I/O数据保护机制}}{41}{figure.caption.17}\protected@file@percent }
+\newlabel{iosec_frame}{{3-6}{41}{CVM的I/O数据保护机制}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {基于密码学的I/O数据保护框架}}}{41}{subfigure.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {基于临时设备授权的I/O数据保护框架}}}{41}{subfigure.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {基于硬件分区的I/O数据保护框架}}}{41}{subfigure.6.3}\protected@file@percent }
 \citation{gputee_performance}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.6}安全异构计算环境设计}{39}{subsubsection.3.4.3.6}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {40}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-7}{\ignorespaces 硬件加速器管理CVM设计}}{40}{figure.caption.17}\protected@file@percent }
-\newlabel{iosec_arch}{{3-7}{40}{硬件加速器管理CVM设计}{figure.caption.17}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}本章小结}{41}{section.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3.6}安全异构计算环境设计}{42}{subsubsection.3.4.3.6}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {43}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-7}{\ignorespaces 硬件加速器管理CVM设计}}{43}{figure.caption.18}\protected@file@percent }
+\newlabel{iosec_arch}{{3-7}{43}{硬件加速器管理CVM设计}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}本章小结}{44}{section.3.5}\protected@file@percent }
 \citation{rustsbi}
-\pp@pagectr{footnote}{4}{103}{42}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第四章}基于Rust的内存安全固件实现}{42}{chapter.4}\protected@file@percent }
+\pp@pagectr{footnote}{4}{107}{45}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第四章}基于Rust的内存安全固件实现}{45}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}内存安全固件}{42}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}安全区域和内存管理层SRMM实现}{42}{section.4.2}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {42}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces SRMM管理单元实现}}{42}{figure.caption.18}\protected@file@percent }
-\newlabel{sec_region}{{4-1}{42}{SRMM管理单元实现}{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}内存管理原语}{43}{subsection.4.2.1}\protected@file@percent }
-\@writefile{lot}{\cftsetpnumwidth {\widthof {43}-1bp}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces EasyAda-SM内存管理原语}}{43}{table.caption.19}\protected@file@percent }
-\newlabel{memmgr}{{4-1}{43}{EasyAda-SM内存管理原语}{table.caption.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.1}基于空分配算法的原语实现}{44}{subsubsection.4.2.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.2}基于伙伴分配算法的原语实现}{44}{subsubsection.4.2.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.3}基于一次性分配器的原语实现}{44}{subsubsection.4.2.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.4}基于页分配器的原语实现}{45}{subsubsection.4.2.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}内存安全固件}{45}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}安全区域和内存管理层实现}{45}{section.4.2}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {45}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces PageAllocator结构}}{45}{figure.caption.20}\protected@file@percent }
-\newlabel{pageallocator}{{4-2}{45}{PageAllocator结构}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}内存保护原语}{46}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces SRMM管理单元实现}}{45}{figure.caption.19}\protected@file@percent }
+\newlabel{sec_region}{{4-1}{45}{SRMM管理单元实现}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}内存管理原语}{46}{subsection.4.2.1}\protected@file@percent }
 \@writefile{lot}{\cftsetpnumwidth {\widthof {46}-1bp}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces EasyAda-SM内存保护原语}}{46}{table.caption.21}\protected@file@percent }
-\newlabel{mempro}{{4-2}{46}{EasyAda-SM内存保护原语}{table.caption.21}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}基于PMP的内存保护原语实现}{47}{subsubsection.4.2.2.1}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {47}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces PMP槽结构}}{47}{figure.caption.22}\protected@file@percent }
-\newlabel{pmpslot}{{4-3}{47}{PMP槽结构}{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}安全内存管理原语}{48}{subsection.4.2.3}\protected@file@percent }
-\@writefile{lot}{\cftsetpnumwidth {\widthof {48}-1bp}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces EasyAda-SM安全内存管理原语}}{48}{table.caption.23}\protected@file@percent }
-\newlabel{secmemmgr}{{4-3}{48}{EasyAda-SM安全内存管理原语}{table.caption.23}{}}
-\@writefile{lof}{\cftsetpnumwidth {\widthof {49}-1bp}}
-\newlabel{pmp_iso}{{4-4(a)}{49}{Subfigure 第四章 4-4(a)}{subfigure.4-4.1}{}}
-\newlabel{sub@pmp_iso}{{(a)}{(a)}{Subfigure 第四章 4-4(a)\relax }{subfigure.4-4.1}{}}
-\newlabel{pmp_auth}{{4-4(b)}{49}{Subfigure 第四章 4-4(b)}{subfigure.4-4.2}{}}
-\newlabel{sub@pmp_auth}{{(b)}{(b)}{Subfigure 第四章 4-4(b)\relax }{subfigure.4-4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces PMP运行时配置}}{49}{figure.caption.24}\protected@file@percent }
-\newlabel{pmp_use}{{4-4}{49}{PMP运行时配置}{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {不可信上下文中PMP配置}}}{49}{subfigure.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {可信上下文中PMP配置}}}{49}{subfigure.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}面向通用enclave部署场景的安全内存管理原语实现}{50}{subsubsection.4.2.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces EasyAda-SM内存管理原语}}{46}{table.caption.20}\protected@file@percent }
+\newlabel{memmgr}{{4-1}{46}{EasyAda-SM内存管理原语}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.1}基于空分配算法的原语实现}{47}{subsubsection.4.2.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.2}基于伙伴分配算法的原语实现}{47}{subsubsection.4.2.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.3}基于一次性分配器的原语实现}{47}{subsubsection.4.2.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1.4}基于页分配器的原语实现}{48}{subsubsection.4.2.1.4}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {48}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces PageAllocator结构}}{48}{figure.caption.21}\protected@file@percent }
+\newlabel{pageallocator}{{4-2}{48}{PageAllocator结构}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}内存保护原语}{49}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lot}{\cftsetpnumwidth {\widthof {49}-1bp}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces EasyAda-SM内存保护原语}}{49}{table.caption.22}\protected@file@percent }
+\newlabel{mempro}{{4-2}{49}{EasyAda-SM内存保护原语}{table.caption.22}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}基于PMP的内存保护原语实现}{50}{subsubsection.4.2.2.1}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {50}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-5}{\ignorespaces PageAllocator结构}}{50}{figure.caption.25}\protected@file@percent }
-\newlabel{unimemmgr}{{4-5}{50}{PageAllocator结构}{figure.caption.25}{}}
-\@writefile{lof}{\cftsetpnumwidth {\widthof {51}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-6}{\ignorespaces 不同类型Enclave与区域类型和分配器的关联关系}}{51}{figure.caption.26}\protected@file@percent }
-\newlabel{enclave_divided}{{4-6}{51}{不同类型Enclave与区域类型和分配器的关联关系}{figure.caption.26}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}面向CVM的enclave管理模块实现}{51}{section.4.3}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {51}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-7}{\ignorespaces CVM管理器结构}}{51}{figure.caption.27}\protected@file@percent }
-\newlabel{cvmm}{{4-7}{51}{CVM管理器结构}{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Enclave间内存安全}{52}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}安全启动}{52}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}中断和异常安全}{54}{subsection.4.3.3}\protected@file@percent }
-\newlabel{cvmm_exception_sec}{{4.3.3}{54}{中断和异常安全}{subsection.4.3.3}{}}
-\@writefile{lot}{\cftsetpnumwidth {\widthof {54}-1bp}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces CVM管理模块在机密流支持的句柄类型}}{54}{table.caption.28}\protected@file@percent }
-\newlabel{tab:confidential-flow}{{4-4}{54}{CVM管理模块在机密流支持的句柄类型}{table.caption.28}{}}
-\@writefile{lot}{\cftsetpnumwidth {\widthof {54}-1bp}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces CVM管理模块在机密流支持的句柄类型}}{54}{table.caption.29}\protected@file@percent }
-\newlabel{tab:non-confidential-flow}{{4-5}{54}{CVM管理模块在机密流支持的句柄类型}{table.caption.29}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}机密流和非机密流}{55}{subsubsection.4.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}IOPMP管理}{55}{subsection.4.3.4}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {56}-1bp}}
-\newlabel{iopmp_nonsecdev}{{4-8(a)}{56}{Subfigure 第四章 4-8(a)}{subfigure.4-8.1}{}}
-\newlabel{sub@iopmp_nonsecdev}{{(a)}{(a)}{Subfigure 第四章 4-8(a)\relax }{subfigure.4-8.1}{}}
-\newlabel{iopmp_secdev}{{4-8(b)}{56}{Subfigure 第四章 4-8(b)}{subfigure.4-8.2}{}}
-\newlabel{sub@iopmp_secdev}{{(b)}{(b)}{Subfigure 第四章 4-8(b)\relax }{subfigure.4-8.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-8}{\ignorespaces EasyAda -SM中非安全/安全设备的IOPMP管理}}{56}{figure.caption.30}\protected@file@percent }
-\newlabel{iopmp_mg}{{4-8}{56}{EasyAda -SM中非安全/安全设备的IOPMP管理}{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {非安全设备的IOPMP配置}}}{56}{subfigure.8.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {安全设备的IOPMP配置}}}{56}{subfigure.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{57}{section.4.4}\protected@file@percent }
-\pp@pagectr{footnote}{5}{135}{58}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第五章}基于微内核的可信虚拟化方案实现}{58}{chapter.5}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}安全CPU虚拟化实现}{58}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}安全上下文管理}{58}{subsection.5.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1.1}安全上下文切换}{58}{subsubsection.5.1.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces PMP槽结构}}{50}{figure.caption.23}\protected@file@percent }
+\newlabel{pmpslot}{{4-3}{50}{PMP槽结构}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}安全内存管理原语}{51}{subsection.4.2.3}\protected@file@percent }
+\@writefile{lot}{\cftsetpnumwidth {\widthof {51}-1bp}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces EasyAda-SM安全内存管理原语}}{51}{table.caption.24}\protected@file@percent }
+\newlabel{secmemmgr}{{4-3}{51}{EasyAda-SM安全内存管理原语}{table.caption.24}{}}
+\@writefile{lof}{\cftsetpnumwidth {\widthof {52}-1bp}}
+\newlabel{pmp_iso}{{4-4(a)}{52}{Subfigure 第四章 4-4(a)}{subfigure.4-4.1}{}}
+\newlabel{sub@pmp_iso}{{(a)}{(a)}{Subfigure 第四章 4-4(a)\relax }{subfigure.4-4.1}{}}
+\newlabel{pmp_auth}{{4-4(b)}{52}{Subfigure 第四章 4-4(b)}{subfigure.4-4.2}{}}
+\newlabel{sub@pmp_auth}{{(b)}{(b)}{Subfigure 第四章 4-4(b)\relax }{subfigure.4-4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces PMP运行时配置}}{52}{figure.caption.25}\protected@file@percent }
+\newlabel{pmp_use}{{4-4}{52}{PMP运行时配置}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {不可信上下文中PMP配置}}}{52}{subfigure.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {可信上下文中PMP配置}}}{52}{subfigure.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}面向通用Enclave部署场景的安全内存管理原语实现}{53}{subsubsection.4.2.3.1}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {53}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-5}{\ignorespaces PageAllocator结构}}{53}{figure.caption.26}\protected@file@percent }
+\newlabel{unimemmgr}{{4-5}{53}{PageAllocator结构}{figure.caption.26}{}}
+\@writefile{lof}{\cftsetpnumwidth {\widthof {54}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-6}{\ignorespaces 不同类型Enclave与区域类型和分配器的关联关系}}{54}{figure.caption.27}\protected@file@percent }
+\newlabel{Enclave_divided}{{4-6}{54}{不同类型Enclave与区域类型和分配器的关联关系}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}面向CVM的Enclave管理模块实现}{54}{section.4.3}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {54}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-7}{\ignorespaces CVM管理器结构}}{54}{figure.caption.28}\protected@file@percent }
+\newlabel{cvmm}{{4-7}{54}{CVM管理器结构}{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Enclave间内存安全}{55}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}安全启动}{55}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}中断和异常安全}{56}{subsection.4.3.3}\protected@file@percent }
+\newlabel{cvmm_exception_sec}{{4.3.3}{56}{中断和异常安全}{subsection.4.3.3}{}}
+\@writefile{lot}{\cftsetpnumwidth {\widthof {57}-1bp}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces CVM管理模块在机密流支持的句柄类型}}{57}{table.caption.29}\protected@file@percent }
+\newlabel{tab:confidential-flow}{{4-4}{57}{CVM管理模块在机密流支持的句柄类型}{table.caption.29}{}}
+\@writefile{lot}{\cftsetpnumwidth {\widthof {57}-1bp}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces CVM管理模块在机密流支持的句柄类型}}{57}{table.caption.30}\protected@file@percent }
+\newlabel{tab:non-confidential-flow}{{4-5}{57}{CVM管理模块在机密流支持的句柄类型}{table.caption.30}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3.1}机密流和非机密流}{58}{subsubsection.4.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}IOPMP管理}{58}{subsection.4.3.4}\protected@file@percent }
 \@writefile{lof}{\cftsetpnumwidth {\widthof {59}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces EasyAda-trust下hart分区结构图}}{59}{figure.caption.31}\protected@file@percent }
-\newlabel{cpu_area}{{5-1}{59}{EasyAda-trust下hart分区结构图}{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}安全异常处理}{60}{subsection.5.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}安全内存虚拟化实现}{60}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}安全区域生命周期管理}{61}{subsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1.1}安全区域创建}{61}{subsubsection.5.2.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1.2}安全区域分配}{62}{subsubsection.5.2.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1.3}安全区域回收}{62}{subsubsection.5.2.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}不可信共享内存映射}{62}{subsection.5.2.2}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {63}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces EasyAda-trust共享内存创建流程}}{63}{figure.caption.32}\protected@file@percent }
-\newlabel{req_sharemem}{{5-2}{63}{EasyAda-trust共享内存创建流程}{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}安全I/O虚拟化实现}{63}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}安全设备管理}{64}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {65}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces EasyAda-trust下CVM的I/O密钥管理}}{65}{figure.caption.33}\protected@file@percent }
-\newlabel{weights_protect}{{5-3}{65}{EasyAda-trust下CVM的I/O密钥管理}{figure.caption.33}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}数据使用环境保护}{65}{subsection.5.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}CPU侧I/O数据安全}{65}{subsection.5.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}设备侧I/O数据安全}{66}{subsection.5.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}机密异构计算环境实现}{66}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}硬件加速器的保护}{66}{subsection.5.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}加速器管理CVM初始化}{67}{subsection.5.4.2}\protected@file@percent }
-\@writefile{lof}{\cftsetpnumwidth {\widthof {67}-1bp}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5-4}{\ignorespaces 引入安全设备后的CVM安全内存视图}}{67}{figure.caption.34}\protected@file@percent }
-\newlabel{acccvm_pmp}{{5-4}{67}{引入安全设备后的CVM安全内存视图}{figure.caption.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}建立信道}{68}{subsection.5.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章小结}{69}{section.5.5}\protected@file@percent }
-\pp@pagectr{footnote}{6}{159}{70}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第六章}系统测试与分析}{70}{chapter.6}\protected@file@percent }
+\newlabel{iopmp_nonsecdev}{{4-8(a)}{59}{Subfigure 第四章 4-8(a)}{subfigure.4-8.1}{}}
+\newlabel{sub@iopmp_nonsecdev}{{(a)}{(a)}{Subfigure 第四章 4-8(a)\relax }{subfigure.4-8.1}{}}
+\newlabel{iopmp_secdev}{{4-8(b)}{59}{Subfigure 第四章 4-8(b)}{subfigure.4-8.2}{}}
+\newlabel{sub@iopmp_secdev}{{(b)}{(b)}{Subfigure 第四章 4-8(b)\relax }{subfigure.4-8.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-8}{\ignorespaces EasyAda -SM中非安全/安全设备的IOPMP管理}}{59}{figure.caption.31}\protected@file@percent }
+\newlabel{iopmp_mg}{{4-8}{59}{EasyAda -SM中非安全/安全设备的IOPMP管理}{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {非安全设备的IOPMP配置}}}{59}{subfigure.8.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {安全设备的IOPMP配置}}}{59}{subfigure.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{59}{section.4.4}\protected@file@percent }
+\pp@pagectr{footnote}{5}{139}{61}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第五章}基于微内核的可信虚拟化方案实现}{61}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\pp@pagectr{footnote}{7}{161}{71}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第七章}总结和展望}{71}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}安全CPU虚拟化实现}{61}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}安全上下文管理}{61}{subsection.5.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1.1}安全上下文切换}{61}{subsubsection.5.1.1.1}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {62}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-1}{\ignorespaces EasyAda-trust下hart分区示意图}}{62}{figure.caption.32}\protected@file@percent }
+\newlabel{cpu_area}{{5-1}{62}{EasyAda-trust下hart分区示意图}{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}安全异常处理}{63}{subsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}安全内存虚拟化实现}{64}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}基于TSM接口的安全区域生命周期管理}{65}{subsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1.1}安全区域的动态创建触发}{65}{subsubsection.5.2.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1.2}基于单次请求的特权提升与按需分配}{65}{subsubsection.5.2.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1.3}安全区域的安全回收调度}{65}{subsubsection.5.2.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}安全I/O虚拟化实现}{66}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}安全直通设备生命周期管理}{66}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}基于IOPMP的设备侧防DMA攻击隔离}{67}{subsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}I/O数据平面安全与端到端保护}{68}{subsection.5.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3.1}信任根推演与密钥供应}{68}{subsubsection.5.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3.2}端到端数据传输保护机制}{68}{subsubsection.5.3.3.2}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {69}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-2}{\ignorespaces EasyAda-trust下CVM的I/O密钥管理}}{69}{figure.caption.33}\protected@file@percent }
+\newlabel{weights_protect}{{5-2}{69}{EasyAda-trust下CVM的I/O密钥管理}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}机密异构计算环境实现}{69}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}硬件加速器的保护}{69}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}加速器管理CVM初始化}{70}{subsection.5.4.2}\protected@file@percent }
+\@writefile{lof}{\cftsetpnumwidth {\widthof {70}-1bp}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5-3}{\ignorespaces 引入安全设备后的CVM安全内存视图}}{70}{figure.caption.34}\protected@file@percent }
+\newlabel{acccvm_pmp}{{5-3}{70}{引入安全设备后的CVM安全内存视图}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}建立信道}{71}{subsection.5.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}本章小结}{71}{section.5.5}\protected@file@percent }
+\pp@pagectr{footnote}{6}{163}{73}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第六章}系统测试与分析}{73}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\zref@newlabel{page: acknowledgement end}{\default{第七章}\page{71}\abspage{81}}
+\pp@pagectr{footnote}{7}{165}{74}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第七章}总结和展望}{74}{chapter.7}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\zref@newlabel{page: acknowledgement end}{\default{第七章}\page{74}\abspage{83}}
 \bibdata{ref}
 \bibcite{openamp}{{1}{}{{}}{{}}}
 \bibcite{trustzone}{{2}{}{{}}{{}}}
@@ -321,7 +332,7 @@
 \bibcite{rust-tz}{{12}{}{{}}{{}}}
 \bibcite{virt_def}{{13}{}{{}}{{}}}
 \bibcite{hypervisor_def}{{14}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{72}{section*.35}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{参考文献}{75}{section*.35}\protected@file@percent }
 \bibcite{kvm}{{15}{}{{}}{{}}}
 \bibcite{xen}{{16}{}{{}}{{}}}
 \bibcite{embedded-kvm}{{17}{}{{}}{{}}}
@@ -330,11 +341,11 @@
 \bibcite{acrn}{{20}{}{{}}{{}}}
 \bibcite{multipartes}{{21}{}{{}}{{}}}
 \bibcite{sel4-virt}{{22}{}{{}}{{}}}
-\bibcite{qnx-hypervisor}{{23}{}{{}}{{}}}
+\bibcite{qnx-Hypervisor}{{23}{}{{}}{{}}}
 \bibcite{trustvisor}{{24}{}{{}}{{}}}
 \bibcite{nova}{{25}{}{{}}{{}}}
-\bibcite{hyper-enclave}{{26}{}{{}}{{}}}
-\bibcite{bao-enclave}{{27}{}{{}}{{}}}
+\bibcite{hyper-Enclave}{{26}{}{{}}{{}}}
+\bibcite{bao-Enclave}{{27}{}{{}}{{}}}
 \bibcite{sev-snp}{{28}{}{{}}{{}}}
 \bibcite{tdx}{{29}{}{{}}{{}}}
 \bibcite{rt-tee}{{30}{}{{}}{{}}}
@@ -351,10 +362,13 @@
 \bibcite{ccai}{{41}{}{{}}{{}}}
 \bibcite{gpu_sec}{{42}{}{{}}{{}}}
 \bibcite{rv-setman}{{43}{}{{}}{{}}}
-\bibcite{localattest}{{44}{}{{}}{{}}}
-\bibcite{gputee_performance}{{45}{}{{}}{{}}}
-\bibcite{rustsbi}{{46}{}{{}}{{}}}
+\bibcite{tee_survey}{{44}{}{{}}{{}}}
+\bibcite{cc_def}{{45}{}{{}}{{}}}
+\bibcite{rubbish}{{46}{}{{}}{{}}}
+\bibcite{localattest}{{47}{}{{}}{{}}}
+\bibcite{gputee_performance}{{48}{}{{}}{{}}}
+\bibcite{rustsbi}{{49}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间取得的成果}{76}{appendix*.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间取得的成果}{79}{appendix*.37}\protected@file@percent }
 \ttl@finishall
-\gdef \@abspage@last{86}
+\gdef \@abspage@last{88}
