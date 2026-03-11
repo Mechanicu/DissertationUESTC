@@ -70,5 +70,11 @@
 \cftsetpnumwidth {\widthof {70}-1bp}
 \contentsline {figure}{\numberline {5-3}{\ignorespaces 引入安全设备后的CVM安全内存视图}}{70}{figure.caption.34}%
 \addvspace {10\p@ }
+\cftsetpnumwidth {\widthof {74}-1bp}
+\contentsline {figure}{\numberline {6-1}{\ignorespaces 原生环境与EasyAda-SM环境下Coremark的对比测试}}{74}{figure.caption.35}%
+\cftsetpnumwidth {\widthof {75}-1bp}
+\contentsline {figure}{\numberline {6-2}{\ignorespaces 原生环境与EasyAda-SM环境下RV8 benchmark测试结果对比}}{75}{figure.caption.36}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Penglai对比测试结果}}}{75}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Keystone对比测试结果}}}{75}{subfigure.2.2}%
 \addvspace {10\p@ }
 \contentsfinish 

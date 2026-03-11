@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.23)  9 MAR 2026 17:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.23)  10 MAR 2026 23:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3985,7 +3985,15 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[4] (./tutorial.lof)
+[4]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[5] (./tutorial.lof)
 \tf@lof=\write7
 \openout7 = `tutorial.lof'.
 
@@ -3997,7 +4005,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[5
+[6
 
 ]
 Chapter 第一章.
@@ -4719,6 +4727,16 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 [72]
 Chapter 第六章.
 
+Underfull \hbox (badness 1888) in paragraph at lines 1420--1424
+[]\TU/SimSun(0)/m/n/12.045 本 章 旨 在 对 基 于 微 内 核 的 可 信 虚 拟 化 架 构 \TU/times(0)/m/n
+/12.045 EasyAda-trust \TU/SimSun(0)/m/n/12.045 及 其 核 心 组 件
+ []
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1434.
+
+
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
 (fancyhdr)                \setlength{\headheight}{12.64723pt}.
@@ -4728,6 +4746,46 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 [73
 
 ]
+File: coremark.png Graphic file (type bmp)
+<coremark.png>
+File: penglai_rv8mark.png Graphic file (type bmp)
+<penglai_rv8mark.png>
+File: keystone_rv8mark.png Graphic file (type bmp)
+<keystone_rv8mark.png>
+
+Overfull \hbox (6.02249pt too wide) in paragraph at lines 1453--1459
+ [][] 
+ []
+
+
+Overfull \hbox (6.02249pt too wide) in paragraph at lines 1453--1459
+ [][] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[74]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[75]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[76]
 Chapter 第七章.
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4736,7 +4794,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[74
+[77
 
 ] (./tutorial.bbl
 
@@ -4746,7 +4804,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[75
+[78
 
 
 ]
@@ -4757,7 +4815,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[76]
+[79]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4765,7 +4823,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[77]
+[80]
 Underfull \hbox (badness 1107) in paragraph at lines 277--281
 \TU/times(0)/m/n/10.53937 10-19, [][]$[] [] [] [] [] [] [] [] [] [] [] [] [] []
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [
@@ -4781,7 +4839,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[78]
+[81]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4789,7 +4847,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[79
+[82
 
 ] (./tutorial.aux)
  ***********
@@ -4797,15 +4855,15 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `tutorial.out' has not changed.
-(rerunfilecheck)             Checksum: D1B929A56B5CA6DBEE44339EF3D8860F;16444.
+(rerunfilecheck)             Checksum: 51AD3ADFFB157E194A42AE28FB1F93F2;17185.
  ) 
 Here is how much of TeX's memory you used:
- 50890 strings out of 468174
- 1070386 string characters out of 5433150
- 1581596 words of memory out of 5000000
- 78776 multiletter control sequences out of 15000+600000
+ 50938 strings out of 468174
+ 1071909 string characters out of 5433150
+ 1582740 words of memory out of 5000000
+ 78821 multiletter control sequences out of 15000+600000
  638579 words of font info for 148 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 125i,12n,134p,1467b,1310s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,12n,134p,1467b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tutorial.pdf (88 pages).
+Output written on tutorial.pdf (92 pages).

@@ -741,7 +741,7 @@
 
 	\subsection{安全监视器EasyAda-SM设计}
 	\subsubsection{设计目标}
-	EasyAda-SM并非专为EasyAda-trust设计，而是被设计为支持部署从简单裸机应用到复杂CVM级别Enclave抽象的通用的安全固件\citess{rubbish}。任何运行在HS/S态的不可信组件都可以通过SBI接口获取EasyAda-SM提供的TEE等能力。因此本文对EasyAda-SM提出了以下设计目标。
+	EasyAda-SM并非专为EasyAda-trust设计，而是被设计为支持部署从简单裸机应用到复杂CVM级别Enclave抽象的通用的安全固件\citess{rubbish}。任何运行在更低特权级的不可信组件可以通过SBI接口获取EasyAda-SM提供的TEE等能力。因此本文对EasyAda-SM提出了以下设计目标。
 	\begin{enumerate}
 		\item 兼容性：EasyAda-SM应当兼容现有RISC-V主流TEE方案，包括不可信组件的host，Enclave中运行的TA和TEE-OS，以及开发工具链等。同时EasyAda-SM应当尽可能兼容RISC-V商用硬件环境，支持在不同级别的硬件环境上提供统一的TEE安全能力。
 		\item 安全性：不安全的内存访问是TEE中可信组件需要面临的主要代码漏洞。EasyAda-SM应当尽可能消除内部不安全的内存操作，增强TEE的安全性。
@@ -785,9 +785,9 @@
 	EasyAda-SM将TEE所需的操作，如内存隔离，密钥管理，镜像度量和安全中断和异常处理等抽象为独立的子模块，每个子模块对外提供抽象的操作原语。如图\ref{sm_arch}所示，EasyAda-trust开发者可以针对不同的TEE方案开发独立的Enclave管理模块，也可以对特定模块进行修改以适配专有指令集和硬件。根据最小特权原则（Principle of Least Privilege），每个模块仅被授予完成其特定功能所必需的最小权限集合，从而限制潜在安全漏洞的影响范围。
 	
 
-	同时，通过对现有RISC-V主流TEE方案进行深入分析，本文发现不同TEE方案对安全内存管理，使用和隔离机制存在较大差异，在安全启动和中断，I/O隔离等方面的机制和策略则较为共通，如Penglai的SM被设计为实现更灵活和细粒度的安全内存管理，因此需要SM实现安全内存分配能力；Keystone的SM则被设计为一次性内存分配，SM不进行动态安全内存分配，仅负责进行保护；ACE中TSM为了适应CVM二阶段页表的构建，实现了专用的物理页分配器（Page Allocator），充分利用Rust的所有权机制消除了重复分配的隐患。
+	同时，通过对现有RISC-V主流TEE方案进行深入分析，本文发现不同TEE方案对安全内存管理，使用和隔离机制存在较大差异，在安全启动和中断，I/O隔离等方面的机制和策略则较为共通，如Penglai的SM被设计为实现更灵活和细粒度的安全内存管理，因此需要SM实现安全内存分配能力；Keystone的SM则被设计为一次性内存分配，SM不进行动态安全内存分配，仅负责进行保护；ACE中TSM为了适应CVM二阶段页表的构建，实现了专用的页分配器，充分利用Rust的所有权机制消除了重复分配的隐患。
 	
-	EasyAda-SM分层设计的核心是统一的安全区域和内存管理层（Secure Region and Memory Management，SRMM）。SRMM将安全内存相关操作，如创建/销毁安全区域，申请/释放安全内存，隔离安全内存等进行封装，对上层的Enclave管理模块等提供了统一的安全内存管理原语。同时，SRMM将安全内存管理原语依赖的硬件操作划分为内存管理和内存保护两个部分，并且抽象出了统一的内存管理原语和内存保护原语，开发者可以根据硬件环境和业务需求提供具体的原语实现。通过提供统一的内存安全原语，SRMM简化了开发Enclave模块的难度；通过抽象统一的内存管理和保护原语，SRMM实现了不同Enclave管理模式间基础代码的复用和可拓展性，开发者可以在上层无感的条件下复用已有原语或根据场景需求和硬件环境实现新的原语。
+	EasyAda-SM分层设计的核心是统一的安全区域和内存管理层（以下简称安全区域管理层）。安全区域管理层将安全内存相关操作，如创建/销毁安全区域，申请/释放安全内存，隔离安全内存等进行封装，对上层的Enclave管理模块等提供了统一的安全内存管理原语。同时，安全区域管理层将安全内存管理原语依赖的硬件操作划分为内存管理和内存保护两个部分，并且抽象出了统一的内存管理原语和内存保护原语，开发者可以根据硬件环境和业务需求提供具体的原语实现。通过提供统一的内存安全原语，SRMM简化了开发Enclave模块的难度；通过抽象统一的内存管理和保护原语，安全区域管理层实现了不同Enclave管理模式间基础代码的复用和可拓展性，开发者可以在上层无感的条件下复用已有原语或根据场景需求和硬件环境实现新的原语。
 	
 	\subsection{安全特性设计}
 	接下来将介绍EasyAda-trust如何针对CVM需求设计安全的虚拟化方案。
@@ -1416,10 +1416,62 @@
 	本章详细论述了基于微内核的可信虚拟化方案的工程实现，重点阐述了如何适配EasyAda-Hypervisor以实现对CVM的安全管理与资源虚拟化 。在CPU虚拟化方面，方案通过扩展EasyAda-Hypervisor的hart分区架构，引入了机密与非机密 vhart运行区，并利用TSM接管CVM的两阶段安全上下文切换流程，确保了CVM的CPU状态对不可信Hypervisor完全隐匿。在内存与I/O虚拟化层面，方案将安全资源的直接控制权从EasyAda-Hypervisor中剥离，确立了由Hypervisor负责物理内存分配、设备发现与宏观生命周期调度，进而委托TSM完成安全区域动态构建、二阶段页表隔离映射及安全设备鉴权配置的职责解耦机制。此外，针对端侧异构计算需求，方案利用EasyAda-Hypervisor辅助建立不可信共享内存通信信道，成功实现了专用硬件加速器管理CVM的安全部署与跨环境复用。综上所述，本章通过对EasyAda-Hypervisor 实施职责解耦与非侵入式安全拓展，在充分复用微内核统一资源管理优势的同时，为CVM提供了一个高安全、高可靠的可信虚拟化运行底座。
 	
 	\chapter{系统测试与分析}
-	\section{测试环境}
+	\section{测试目标}
+	本章旨在对基于微内核的可信虚拟化架构EasyAda-trust及其核心组件EasyAda-SM进行系统性的定量评估与安全性验证。评测过程重点围绕以下四个核心科学问题展开：
+	1.生态兼容性：采用Rust语言重构并引入安全区域抽象的EasyAda-SM是否能够以尽可能小的代价兼容现有RISC-V TEE生态系统？
+	2.基础性能开销：消除不安全内存访问并引入强隔离机制后，EasyAda-trust在核心计算任务中引入的额外性能损耗是否在可接受范围内？
+	3.异构防御效能：EasyAda-trust基于IOPMP的物理隔离与加速器管理CVM 的机密异构计算架构，能否有效抵御恶意设备的DMA攻击并保障端到端I/O数据的机密性和完整性？
 	
-	\section{基于Rust的内存安全固件测试}
+	\section{测试软硬件环境}
+	
+	因为当前RISC-V硬件生态的客观限制，目前量产的RISC-V商用芯片在安全特性上存在明显的路线分化：面向端侧的芯片普遍支持PMP和IOPMP拓展，但是缺乏对H拓展的支持；而面向高性能计算场景的芯片虽然支持H拓展，但是通常使用较复杂的IOMMU和高级中断架构（Advanced Interrupt Architecture，AIA），其高昂的硬件面积开销和基于总线事务的中断延迟抖动等使其难以在对成本与实时性高度敏感的嵌入式SoC中广泛落地。
+	
+	针对当前RISC-V硬件生态的客观限制，本文采用严格依照RISC-V指令集标准实现的QEMU作为硬件测试环境。
+	
+	\section{SM生态兼容性测试}
+	参考EasyAdaZone的实验设计\citess{rubbish}。为验证系统的生态兼容性，本文在极小化代码修改的前提下，除引导程序与安全监视器外完全复用了既有Keystone与Penglai框架中的全量组件。复用范围涵盖宿主机用户态接口、编译工具链、软件依赖库、测试用例以及受保护侧的TA，并以Linux（内核版本4.15）作为Host OS。在性能评估方面，本文选用Coremark和RV8 benchmark作为基准测试集，并以原生Linux环境的执行表现作为对比基线。
+	
+	\subsubsection{Coremark测试套}
+	如图\ref{coremark}所示，所有测试结果均以非EasyAda-SM环境的原生Linux环境（Native Linux）的得分为基线（100\%）进行归一化处理。实验数据表明，在引入EasyAda-SM后，系统的计算性能得到了极大的保留。在Linux、Keystone与Penglai三种工作负载下与未引入安全防护的原生环境相比，EasyAda-SM环境的相对性能衰减均被严格控制在2\%以内。
+	
+	因为Coremark属典型的CPU密集型载荷，其执行路径高度集中于用户态及Enclave内部。由于本文所提架构充分利用了RISC-V硬件级的PMP扩展，安全隔离校验在微架构流水线中隐式完成，且Rust语言的内存安全检查均发生在编译期。因此，只要未触发跨特权级的上下文切换，EasyAda-SM不会对核心运算流水线引入任何运行时开销。
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{coremark.png}
+		\caption{原生环境与EasyAda-SM环境下Coremark的对比测试}
+		\label{coremark}
+	\end{figure}
+	
+	\subsubsection{RV8基准测试套}
+	为了进一步探究EasyAda-SM环境在面对具有不同指令分布与复杂访存行为特征的应用时的性能表现，本文引入了RV8 benchmark测试集。该测试集包含AES（加密）、Miniz（数据压缩）、Primes（素数计算）、Bigint（大数运算）以及Norx（认证加密）等五项典型负载。所有测试结果均以原生 Linux环境为归一化基准（1.0）。
+	
+	\begin{figure}[!htb]
+		\centering
+		\subfloat[Penglai对比测试结果]{
+			\includegraphics[width=1\linewidth]{penglai_rv8mark.png}
+			\label{penglai_rv8mark}
+		}
+		\hfill
+		\subfloat[Keystone对比测试结果]{
+			\includegraphics[width=1\linewidth]{keystone_rv8mark.png}
+			\label{keystone_rv8mark}
+		}
+		\caption{原生环境与EasyAda-SM环境下RV8 benchmark测试结果对比}\label{rv8mark}
+	\end{figure}
+	
+	如图\ref{penglai_rv8mark}所示，在未显式开启微架构侧信道防御的Penglai轻量级Enclave场景下，Penglai在原生环境和EasyAda-SM环境下均展现出卓越的执行效率，各项负载归一化得分均不低于0.96。以访存密集型的Miniz为例，二者得分分别为0.96与0.97，证实了引入基于Rust的EasyAda-SM及安全区域内存抽象后，系统的额外性能损耗被严格控制在1\%至2\%的极小区间内，底层特权级调度对上层复杂业务逻辑的执行干扰极微。
+	
+	然而，在适配Keystone框架的测试中，系统性能呈现出显著的差异化衰减：如图\ref{keystone_rv8mark}所示，Miniz与AES的相对性能分别断崖式下跌至约0.40与0.57，而计算密集型的Bigint受影响较小，分析可能是因为Keystone为防御缓存侧信道攻击，在物理层面强制启用了硬件缓存分区隔离机制，严格限制了Enclave可用的末级缓存路数，导致高度依赖数据局部性的算法缓存缺失率剧增。在未启用缓存分析的环境中，横向对比原生环境和EasyAda-SM环境可知，EasyAda-SM引入的绝对软件开销仅为3\%至7\%，这一处于合理区间的微小性能折损，主要源于EasyAda-SM模块化分层抽象所导致的底层执行链路延长。
+
+	
+	综合上述交叉验证与基准测试结果表明，本文提出的基于Rust构建的内存安全监视器EasyAda-SM在确立坚实底层信任根的同时，兼具高度的执行效率与架构弹性。具体而言，在纯计算密集型负载下，得益于PMP机制的流水线隐式校验以及Rust语言编译期的零成本抽象特性，该安全架构所引入的运行时额外开销趋近于零；而在处理具备复杂访存行为与高频上下文交互的应用时，EasyAda-SM因模块化分层抽象而产生的绝对软件开销亦被有效控制在1\%至7\%的低损耗区间内。
+
+	
+
+	
+	
 	\chapter{总结和展望}
+
 	
 	
 	

@@ -84,7 +84,12 @@
 \contentsline {subsection}{\numberline {5.4.3}建立信道}{71}{subsection.5.4.3}%
 \contentsline {section}{\numberline {5.5}本章小结}{71}{section.5.5}%
 \contentsline {chapter}{\numberline {第六章}系统测试与分析}{73}{chapter.6}%
-\contentsline {chapter}{\numberline {第七章}总结和展望}{74}{chapter.7}%
-\contentsline {chapter}{参考文献}{75}{section*.35}%
-\contentsline {chapter}{攻读硕士学位期间取得的成果}{79}{appendix*.37}%
+\contentsline {section}{\numberline {6.1}测试目标}{73}{section.6.1}%
+\contentsline {section}{\numberline {6.2}测试软硬件环境}{73}{section.6.2}%
+\contentsline {section}{\numberline {6.3}SM生态兼容性测试}{73}{section.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.0.1}Coremark测试套}{74}{subsubsection.6.3.0.1}%
+\contentsline {subsubsection}{\numberline {6.3.0.2}RV8基准测试套}{74}{subsubsection.6.3.0.2}%
+\contentsline {chapter}{\numberline {第七章}总结和展望}{77}{chapter.7}%
+\contentsline {chapter}{参考文献}{78}{section*.37}%
+\contentsline {chapter}{攻读硕士学位期间取得的成果}{82}{appendix*.39}%
 \contentsfinish 
