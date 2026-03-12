@@ -303,4 +303,10 @@ RustSBI.
 \newblock rustsbi[EB/OL].
 \newblock 2026-02-10, \url{https://github.com/rustsbi/rustsbi}.
 
+\bibitem{lebench}
+Ren X~J, Rodrigues K, Chen L, et~al.
+\newblock An analysis of performance evolution of linux's core operations[C].
+\newblock Proceedings of the 27th ACM Symposium on Operating Systems
+  Principles, Association for Computing Machinery, SOSP '19, 2019: 554–569.
+
 \end{thebibliography}

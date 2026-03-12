@@ -7,11 +7,11 @@
 \contentsline {figure}{\numberline {1-2}{\ignorespaces 章节结构}}{11}{figure.caption.6}%
 \addvspace {10\p@ }
 \cftsetpnumwidth {\widthof {13}-1bp}
-\contentsline {figure}{\numberline {2-1}{\ignorespaces 未引入硬件虚拟化拓展时RISC-V系统架构}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {2-1}{\ignorespaces 未引入硬件虚拟化扩展时RISC-V系统架构}}{13}{figure.caption.7}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {特权级转换}}}{13}{subfigure.1.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {软硬件架构}}}{13}{subfigure.1.2}%
 \cftsetpnumwidth {\widthof {17}-1bp}
-\contentsline {figure}{\numberline {2-2}{\ignorespaces 引入硬件虚拟化拓展后的RISC-V系统架构}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {2-2}{\ignorespaces 引入硬件虚拟化扩展后的RISC-V系统架构}}{17}{figure.caption.8}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {特权级转换}}}{17}{subfigure.2.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {软硬件架构}}}{17}{subfigure.2.2}%
 \cftsetpnumwidth {\widthof {18}-1bp}
@@ -76,15 +76,19 @@
 \contentsline {figure}{\numberline {6-2}{\ignorespaces 原生环境与EasyAda-SM环境下RV8 benchmark测试结果对比}}{75}{figure.caption.36}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Penglai对比测试结果}}}{75}{subfigure.2.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Keystone对比测试结果}}}{75}{subfigure.2.2}%
-\cftsetpnumwidth {\widthof {76}-1bp}
-\contentsline {figure}{\numberline {6-3}{\ignorespaces SBI固件初始化}}{76}{figure.caption.37}%
 \cftsetpnumwidth {\widthof {77}-1bp}
-\contentsline {figure}{\numberline {6-4}{\ignorespaces EasyAda-SM初始化测试}}{77}{figure.caption.38}%
+\contentsline {figure}{\numberline {6-3}{\ignorespaces SBI固件初始化}}{77}{figure.caption.37}%
+\cftsetpnumwidth {\widthof {78}-1bp}
+\contentsline {figure}{\numberline {6-4}{\ignorespaces EasyAda-SM初始化测试}}{78}{figure.caption.38}%
 \cftsetpnumwidth {\widthof {78}-1bp}
 \contentsline {figure}{\numberline {6-5}{\ignorespaces 可信CVM在可信平台上启动测试}}{78}{figure.caption.39}%
-\cftsetpnumwidth {\widthof {78}-1bp}
-\contentsline {figure}{\numberline {6-6}{\ignorespaces 不可信CVM在可信平台上启动测试}}{78}{figure.caption.40}%
+\cftsetpnumwidth {\widthof {79}-1bp}
+\contentsline {figure}{\numberline {6-6}{\ignorespaces 不可信CVM在可信平台上启动测试}}{79}{figure.caption.40}%
 \cftsetpnumwidth {\widthof {79}-1bp}
 \contentsline {figure}{\numberline {6-7}{\ignorespaces 可信CVM在不可信平台上启动测试}}{79}{figure.caption.41}%
+\cftsetpnumwidth {\widthof {80}-1bp}
+\contentsline {figure}{\numberline {6-8}{\ignorespaces LEBench测试结果}}{80}{figure.caption.42}%
+\cftsetpnumwidth {\widthof {81}-1bp}
+\contentsline {figure}{\numberline {6-9}{\ignorespaces 安全设备直通架构与半虚拟化机制（不可信共享内存）下的网卡I/O对比测试结果}}{81}{figure.caption.43}%
 \addvspace {10\p@ }
 \contentsfinish 
