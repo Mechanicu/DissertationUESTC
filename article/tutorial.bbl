@@ -9,6 +9,13 @@ OpenAMP.
 \newblock 2026-01-11,
   \url{https://openamp.readthedocs.io/en/latest/index.html}.
 
+\bibitem{os_tcb}
+Yan J, Chen Q, Zhou S, et~al.
+\newblock Ekc: a portable and extensible kernel compartment for de-privileging
+  commodity os[C].
+\newblock Proceedings of the 34th USENIX Conference on Security Symposium,
+  USENIX Association.
+
 \bibitem{trustzone}
 ARM.
 \newblock Arm security technology building a secure system using trustzone
@@ -54,6 +61,11 @@ Limited A.
   architecture version 4.0[EB/OL].
 \newblock 2025-03-19,
   \url{https://developer.arm.com/documentation/den0125/latest}.
+
+\bibitem{tdx}
+AMD.
+\newblock Intel® trust domain extensions[EB/OL].
+\newblock 2025-06-01, \url{https://cdrdv2.intel.com/v1/dl/getContent/690419}.
 
 \bibitem{tee-vul}
 Cerdeira D, Santos N, Fonseca P, et~al.
@@ -177,11 +189,6 @@ AMD.
 \newblock 2020-01-01,
   \url{https://docs.amd.com/v/u/en-US/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more}.
 
-\bibitem{tdx}
-AMD.
-\newblock Intel® trust domain extensions[EB/OL].
-\newblock 2025-06-01, \url{https://cdrdv2.intel.com/v1/dl/getContent/690419}.
-
 \bibitem{rt-tee}
 Wang J, Li A, Li H, et~al.
 \newblock Rt-tee: Real-time system availability for cyber-physical systems
@@ -279,12 +286,11 @@ Consortium C~C.
 \newblock 2021-10-19,
   \url{https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/Everest_Group_-_Confidential_Computing_-_The_Next_Frontier_in_Data_Security_-_2021-10-19.pdf}.
 
-\bibitem{rubbish}
-Jinzhe L, Kun X, Lei L, et~al.
-\newblock Easy adazone: A memory-safe physical memory isolation framwork for
-  risc-v[C].
-\newblock 2025 22nd International Computer Conference on Wavelet Active Media
-  Technology and Information Processing (ICCWAMTIP), 2025: 1-4.
+\bibitem{dma_attack}
+Wang X, Shen W, Bu Y, et~al.
+\newblock Dmaauth: a lightweight pointer integrity-based secure architecture to
+  defeat dma attacks[C].
+\newblock Proceedings of the 33rd USENIX Conference on Security Symposium.
 
 \bibitem{localattest}
 Hunt G~D~H, Pai R, Le M~V, et~al.
@@ -302,6 +308,13 @@ Lee J, Wang Y, Rajat R, et~al.
 RustSBI.
 \newblock rustsbi[EB/OL].
 \newblock 2026-02-10, \url{https://github.com/rustsbi/rustsbi}.
+
+\bibitem{rubbish}
+Jinzhe L, Kun X, Lei L, et~al.
+\newblock Easy adazone: A memory-safe physical memory isolation framwork for
+  risc-v[C].
+\newblock 2025 22nd International Computer Conference on Wavelet Active Media
+  Technology and Information Processing (ICCWAMTIP), 2025: 1-4.
 
 \bibitem{lebench}
 Ren X~J, Rodrigues K, Chen L, et~al.

@@ -5,6 +5,9 @@ The style file: DissertUESTC.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: ref.bib
+`pages' is a missing field, not a string, for entry os_tcb
+while executing---line 1686 of file DissertUESTC.bst
+Warning--empty pages in os_tcb
 Warning--empty booktitle in rust
 Warning--there's a number but no volume in sel4-virt
 Warning--empty booktitle in sanctury
@@ -12,45 +15,48 @@ Warning--empty booktitle in sanctury
 while executing---line 1686 of file DissertUESTC.bst
 Warning--empty pages in cage
 Warning--empty chapter and pages in ccai
-You've used 50 entries,
+`pages' is a missing field, not a string, for entry dma_attack
+while executing---line 1686 of file DissertUESTC.bst
+Warning--empty pages in dma_attack
+You've used 52 entries,
             3315 wiz_defined-function locations,
-            933 strings with 15648 characters,
-and the built_in function-call counts, 33308 in all, are:
-= -- 3511
-> -- 596
+            942 strings with 16152 characters,
+and the built_in function-call counts, 34601 in all, are:
+= -- 3632
+> -- 628
 < -- 0
-+ -- 298
-- -- 149
-* -- 1649
-:= -- 3272
-add.period$ -- 149
-call.type$ -- 50
-change.case$ -- 49
++ -- 314
+- -- 157
+* -- 1723
+:= -- 3402
+add.period$ -- 155
+call.type$ -- 52
+change.case$ -- 51
 chr.to.int$ -- 0
-cite$ -- 55
-duplicate$ -- 3854
-empty$ -- 2788
-format.name$ -- 186
-if$ -- 7597
+cite$ -- 59
+duplicate$ -- 4010
+empty$ -- 2905
+format.name$ -- 196
+if$ -- 7877
 int.to.chr$ -- 0
-int.to.str$ -- 50
-missing$ -- 439
-newline$ -- 255
-num.names$ -- 50
-pop$ -- 1716
+int.to.str$ -- 52
+missing$ -- 459
+newline$ -- 265
+num.names$ -- 52
+pop$ -- 1799
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 932
+skip$ -- 953
 stack$ -- 0
-substring$ -- 3823
-swap$ -- 1023
+substring$ -- 3958
+swap$ -- 1052
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 249
-width$ -- 52
-write$ -- 510
-(There was 1 error message)
+warning$ -- 7
+while$ -- 259
+width$ -- 54
+write$ -- 529
+(There were 3 error messages)
