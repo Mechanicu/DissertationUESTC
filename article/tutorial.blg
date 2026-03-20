@@ -18,45 +18,45 @@ Warning--empty chapter and pages in ccai
 `pages' is a missing field, not a string, for entry dma_attack
 while executing---line 1686 of file DissertUESTC.bst
 Warning--empty pages in dma_attack
-You've used 52 entries,
+You've used 50 entries,
             3315 wiz_defined-function locations,
-            942 strings with 16152 characters,
-and the built_in function-call counts, 34601 in all, are:
-= -- 3632
-> -- 628
+            933 strings with 15859 characters,
+and the built_in function-call counts, 33179 in all, are:
+= -- 3493
+> -- 596
 < -- 0
-+ -- 314
-- -- 157
-* -- 1723
-:= -- 3402
-add.period$ -- 155
-call.type$ -- 52
-change.case$ -- 51
++ -- 298
+- -- 149
+* -- 1657
+:= -- 3256
+add.period$ -- 149
+call.type$ -- 50
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 4010
-empty$ -- 2905
-format.name$ -- 196
-if$ -- 7877
+cite$ -- 57
+duplicate$ -- 3864
+empty$ -- 2778
+format.name$ -- 186
+if$ -- 7544
 int.to.chr$ -- 0
-int.to.str$ -- 52
-missing$ -- 459
-newline$ -- 265
-num.names$ -- 52
-pop$ -- 1799
+int.to.str$ -- 50
+missing$ -- 439
+newline$ -- 255
+num.names$ -- 50
+pop$ -- 1736
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 953
+skip$ -- 901
 stack$ -- 0
-substring$ -- 3958
-swap$ -- 1052
+substring$ -- 3807
+swap$ -- 1002
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 7
-while$ -- 259
-width$ -- 54
-write$ -- 529
+while$ -- 244
+width$ -- 52
+write$ -- 509
 (There were 3 error messages)

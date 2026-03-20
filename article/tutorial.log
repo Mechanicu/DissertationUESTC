@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.23)  20 MAR 2026 00:36
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.23)  20 MAR 2026 12:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4089,22 +4089,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [8]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[9]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[10]
 Chapter 第二章.
 File: priv_nonvirt.pdf Graphic file (type pdf)
 <use priv_nonvirt.pdf>
@@ -4117,9 +4101,30 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[11
+[9
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[10]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[11]
+File: priv_virt.pdf Graphic file (type pdf)
+<use priv_virt.pdf>
+File: overall_virt_arch.pdf Graphic file (type pdf)
+<use overall_virt_arch.pdf>
+
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4136,10 +4141,16 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [13]
-File: priv_virt.pdf Graphic file (type pdf)
-<use priv_virt.pdf>
-File: overall_virt_arch.pdf Graphic file (type pdf)
-<use overall_virt_arch.pdf>
+File: tee_app.pdf Graphic file (type pdf)
+<use tee_app.pdf>
+File: tee_os.pdf Graphic file (type pdf)
+<use tee_os.pdf>
+File: tee_vm.pdf Graphic file (type pdf)
+<use tee_vm.pdf>
+
+Overfull \hbox (12.04498pt too wide) in paragraph at lines 542--552
+ [][][][] 
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4157,17 +4168,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [15]
-File: tee_app.pdf Graphic file (type pdf)
-<use tee_app.pdf>
-File: tee_os.pdf Graphic file (type pdf)
-<use tee_os.pdf>
-File: tee_vm.pdf Graphic file (type pdf)
-<use tee_vm.pdf>
-
-Overfull \hbox (12.04498pt too wide) in paragraph at lines 558--568
- [][][][] 
- []
-
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4176,22 +4176,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [16]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[17]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[18]
 File: microkernel.pdf Graphic file (type pdf)
 <use microkernel.pdf>
 
@@ -4202,13 +4186,29 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[19]
+[17]
 File: Hypervisor.pdf Graphic file (type pdf)
 <use Hypervisor.pdf>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[18]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[19]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4225,22 +4225,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [21]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[22]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[23]
 Chapter 第三章.
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4249,7 +4233,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[24
+[22
 
 ]
 File: second_tcb.pdf Graphic file (type pdf)
@@ -4262,9 +4246,31 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[25]
+[23]
 File: first_tcb.pdf Graphic file (type pdf)
 <use first_tcb.pdf>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[24]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[25]
+File: sm_arch.pdf Graphic file (type pdf)
+<use sm_arch.pdf>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -4285,11 +4291,8 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [27]
-File: sm_arch.pdf Graphic file (type pdf)
-<use sm_arch.pdf>
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+File: secmem_divided.pdf Graphic file (type pdf)
+<use secmem_divided.pdf>
 
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4307,9 +4310,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [29]
-File: secmem_divided.pdf Graphic file (type pdf)
-<use secmem_divided.pdf>
-
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4318,6 +4318,9 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [30]
+File: cvm_mminit.pdf Graphic file (type pdf)
+<use cvm_mminit.pdf>
+
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4334,9 +4337,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [32]
-File: cvm_mminit.pdf Graphic file (type pdf)
-<use cvm_mminit.pdf>
-
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4353,6 +4353,13 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [34]
+File: iosec_encrypt.pdf Graphic file (type pdf)
+<use iosec_encrypt.pdf>
+File: iosec_temp.pdf Graphic file (type pdf)
+<use iosec_temp.pdf>
+File: iosec_part.pdf Graphic file (type pdf)
+<use iosec_part.pdf>
+
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4369,12 +4376,11 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [36]
-File: iosec_encrypt.pdf Graphic file (type pdf)
-<use iosec_encrypt.pdf>
-File: iosec_temp.pdf Graphic file (type pdf)
-<use iosec_temp.pdf>
-File: iosec_part.pdf Graphic file (type pdf)
-<use iosec_part.pdf>
+File: iosec_arch.pdf Graphic file (type pdf)
+<use iosec_arch.pdf>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4392,12 +4398,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [38]
-File: iosec_arch.pdf Graphic file (type pdf)
-<use iosec_arch.pdf>
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4406,22 +4406,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [39]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[40]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[41]
 Chapter 第四章.
 File: sec_region.pdf Graphic file (type pdf)
 <use sec_region.pdf>
@@ -4432,9 +4416,28 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[42
+[40
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[41]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[42]
+File: pageallocator.pdf Graphic file (type pdf)
+<use pageallocator.pdf>
+
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4451,8 +4454,8 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [44]
-File: pageallocator.pdf Graphic file (type pdf)
-<use pageallocator.pdf>
+File: pmpslot.pdf Graphic file (type pdf)
+<use pmpslot.pdf>
 
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4470,25 +4473,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [46]
-File: pmpslot.pdf Graphic file (type pdf)
-<use pmpslot.pdf>
-
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[47]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[48]
 File: pmp_iso.pdf Graphic file (type pdf)
 <use pmp_iso.pdf>
 File: pmp_auth.pdf Graphic file (type pdf)
@@ -4501,7 +4485,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[49]
+[47]
 File: unimemmgr.pdf Graphic file (type pdf)
 <use unimemmgr.pdf>
 File: Enclave_divided.pdf Graphic file (type pdf)
@@ -4514,13 +4498,29 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[50]
+[48]
 File: cvmm.pdf Graphic file (type pdf)
 <use cvmm.pdf>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[49]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[50]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4537,6 +4537,20 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [52]
+File: iopmp_nonsecdev.pdf Graphic file (type pdf)
+<use iopmp_nonsecdev.pdf>
+File: iopmp_secdev.pdf Graphic file (type pdf)
+<use iopmp_secdev.pdf>
+
+Overfull \hbox (6.02249pt too wide) in paragraph at lines 1179--1186
+ [][] 
+ []
+
+
+Overfull \hbox (6.02249pt too wide) in paragraph at lines 1179--1186
+ [][] 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4553,20 +4567,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [54]
-File: iopmp_nonsecdev.pdf Graphic file (type pdf)
-<use iopmp_nonsecdev.pdf>
-File: iopmp_secdev.pdf Graphic file (type pdf)
-<use iopmp_secdev.pdf>
-
-Overfull \hbox (6.02249pt too wide) in paragraph at lines 1195--1202
- [][] 
- []
-
-
-Overfull \hbox (6.02249pt too wide) in paragraph at lines 1195--1202
- [][] 
- []
-
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4575,22 +4575,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [55]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[56]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[57]
 Chapter 第五章.
 File: key_stage1.pdf Graphic file (type pdf)
 <use key_stage1.pdf>
@@ -4601,7 +4585,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[58
+[56
 
 ]
 File: key_stage3.pdf Graphic file (type pdf)
@@ -4614,7 +4598,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[59]
+[57]
 File: key_stage4.pdf Graphic file (type pdf)
 <use key_stage4.pdf>
 
@@ -4625,13 +4609,29 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[60]
+[58]
 File: cpu_area.pdf Graphic file (type pdf)
 <use cpu_area.pdf>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[59]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[60]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4672,6 +4672,12 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [65]
+File: weights_protect.pdf Graphic file (type pdf)
+<use weights_protect.pdf>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4688,11 +4694,8 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [67]
-File: weights_protect.pdf Graphic file (type pdf)
-<use weights_protect.pdf>
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+File: acccvm_pmp.pdf Graphic file (type pdf)
+<use acccvm_pmp.pdf>
 
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4710,9 +4713,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [69]
-File: acccvm_pmp.pdf Graphic file (type pdf)
-<use acccvm_pmp.pdf>
-
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4721,32 +4721,16 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [70]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[71]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[72]
 Chapter 第六章.
 
-Underfull \hbox (badness 1888) in paragraph at lines 1407--1410
+Underfull \hbox (badness 1888) in paragraph at lines 1391--1394
 []\TU/SimSun(0)/m/n/12.045 本 章 旨 在 对 基 于 微 内 核 的 可 信 虚 拟 化 架 构 \TU/times(0)/m/n
 /12.045 EasyAda-trust \TU/SimSun(0)/m/n/12.045 及 其 核 心 组 件
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1419.
+(hyperref)                than one, level fixed on input line 1403.
 
 File: coremark.png Graphic file (type bmp)
 <coremark.png>
@@ -4757,7 +4741,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[73
+[71
 
 ]
 File: penglai_rv8mark.png Graphic file (type bmp)
@@ -4765,12 +4749,12 @@ File: penglai_rv8mark.png Graphic file (type bmp)
 File: keystone_rv8mark.png Graphic file (type bmp)
 <keystone_rv8mark.png>
 
-Overfull \hbox (6.02249pt too wide) in paragraph at lines 1438--1444
+Overfull \hbox (6.02249pt too wide) in paragraph at lines 1422--1428
  [][] 
  []
 
 
-Overfull \hbox (6.02249pt too wide) in paragraph at lines 1438--1444
+Overfull \hbox (6.02249pt too wide) in paragraph at lines 1422--1428
  [][] 
  []
 
@@ -4781,7 +4765,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[74]
+[72]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4789,7 +4773,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[75]
+[73]
 File: hw_init.png Graphic file (type bmp)
 <hw_init.png>
 
@@ -4810,7 +4794,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[76]
+[74]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -4828,7 +4812,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[77]
+[75]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -4839,7 +4823,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[78]
+[76]
 File: lebench.png Graphic file (type bmp)
 <lebench.png>
 
@@ -4853,7 +4837,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[79]
+[77]
 File: io_passthrough.png Graphic file (type bmp)
 <io_passthrough.png>
 
@@ -4867,7 +4851,26 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[80]
+[78]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[79]
+Chapter 第七章.
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[80
+
+]
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4876,7 +4879,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
 [81]
-Chapter 第七章.
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4886,24 +4888,6 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 
 [82
 
-]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[83]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[84
-
 ] (./tutorial.bbl
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
@@ -4912,10 +4896,34 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[85
+[83
 
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[84]
+
+Package fancyhdr Warning: \headheight is too small (9.03374pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
+
+[85]
+Underfull \hbox (badness 1107) in paragraph at lines 273--277
+\TU/times(0)/m/n/10.53937 10-19, [][]$[] [] [] [] [] [] [] [] [] [] [] [] [] []
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [
+] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]
+ []
+
+)
 
 Package fancyhdr Warning: \headheight is too small (9.03374pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -4931,31 +4939,7 @@ Package fancyhdr Warning: \headheight is too small (9.03374pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
 
-[87]
-Underfull \hbox (badness 1107) in paragraph at lines 284--288
-\TU/times(0)/m/n/10.53937 10-19, [][]$[] [] [] [] [] [] [] [] [] [] [] [] [] []
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [
-] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
- [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][]
- []
-
-)
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[88]
-
-Package fancyhdr Warning: \headheight is too small (9.03374pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-3.6135pt}.
-
-[89
+[87
 
 ] (./tutorial.aux)
  ***********
@@ -4963,15 +4947,15 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `tutorial.out' has not changed.
-(rerunfilecheck)             Checksum: D316A01F36AB671F41DEB1EF73337031;18007.
+(rerunfilecheck)             Checksum: 31FC1C47B1FEA04B9824464E7D05845B;17651.
  ) 
 Here is how much of TeX's memory you used:
- 50969 strings out of 468174
- 1070892 string characters out of 5433150
- 1581200 words of memory out of 5000000
- 78843 multiletter control sequences out of 15000+600000
+ 50963 strings out of 468174
+ 1070799 string characters out of 5433150
+ 1579800 words of memory out of 5000000
+ 78837 multiletter control sequences out of 15000+600000
  638579 words of font info for 148 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 125i,12n,134p,1043b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,12n,134p,1043b,1304s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tutorial.pdf (101 pages).
+Output written on tutorial.pdf (99 pages).

@@ -159,11 +159,6 @@ Limited B.
 \newblock 2025-10-01,
   \url{https://qnx.software/content/dam/qnx-xwalk/pdf/product-briefs/qnx-hypervisor-8-product-brief.pdf}.
 
-\bibitem{trustvisor}
-McCune J~M, Li Y, Qu N, et~al.
-\newblock Trustvisor: Efficient tcb reduction and attestation[C].
-\newblock 2010 IEEE Symposium on Security and Privacy, 2010: 143-158.
-
 \bibitem{nova}
 Steinberg U, Kauer B.
 \newblock Nova: a microhypervisor-based secure virtualization architecture[C].
@@ -182,35 +177,16 @@ Pereira S, Sousa J, Pinto S, et~al.
 \newblock Bao-enclave: Virtualization-based enclaves for arm[C].
 \newblock 2022 IEEE 8th World Forum on Internet of Things (WF-IoT), 2022: 1-6.
 
-\bibitem{sev-snp}
-AMD.
-\newblock Amd sev-snp: Strengthening vm isolation with integrity protection and
-  more[EB/OL].
-\newblock 2020-01-01,
-  \url{https://docs.amd.com/v/u/en-US/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more}.
+\bibitem{sanctury}
+Brasser F, Gens D, Jauernig P, et~al.
+\newblock Sanctuary: Arming trustzone with user-space enclaves[C].
+\newblock 2019: .
 
 \bibitem{rt-tee}
 Wang J, Li A, Li H, et~al.
 \newblock Rt-tee: Real-time system availability for cyber-physical systems
   using arm trustzone[C].
 \newblock 2022 IEEE Symposium on Security and Privacy (SP), 2022: 352-369.
-
-\bibitem{sanctury}
-Brasser F, Gens D, Jauernig P, et~al.
-\newblock Sanctuary: Arming trustzone with user-space enclaves[C].
-\newblock 2019: .
-
-\bibitem{sectee}
-Zhao S, Zhang Q, Qin Y, et~al.
-\newblock Sectee: A software-based approach to secure enclave architecture
-  using tee[C].
-\newblock Proceedings of the 2019 ACM SIGSAC Conference on Computer and
-  Communications Security, 2019: 1723–1740.
-
-\bibitem{vtz}
-Hua Z, Gu J, Xia Y, et~al.
-\newblock {vTZ}: Virtualizing {ARM} {TrustZone}[C].
-\newblock 26th USENIX Security Symposium (USENIX Security 17), 2017: 541--556.
 
 \bibitem{penglai-iopmp}
 Feng E, Feng D, Du D, et~al.
@@ -232,6 +208,19 @@ Ozga W.
   confidential computing[C].
 \newblock Proceedings of the 12th International Workshop on Hardware and
   Architectural Support for Security and Privacy, 2023: 73–81.
+
+\bibitem{sev-snp}
+AMD.
+\newblock Amd sev-snp: Strengthening vm isolation with integrity protection and
+  more[EB/OL].
+\newblock 2020-01-01,
+  \url{https://docs.amd.com/v/u/en-US/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more}.
+
+\bibitem{cove}
+Sahita R, Shanbhogue V, Bresticker A, et~al.
+\newblock Cove: Towards confidential computing on risc-v platforms[C].
+\newblock Proceedings of the 20th ACM International Conference on Computing
+  Frontiers, 2023: 315–321.
 
 \bibitem{x86_gputee}
 Wu X, Tian D~J, Kim C~H.
