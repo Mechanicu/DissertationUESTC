@@ -111,29 +111,29 @@
 	
 	% 开启中文摘要
 	\zhabstract
-	随着边缘异构计算的快速发展，嵌入式系统面临严峻的数据安全挑战。机密虚拟机作为保障敏感数据与模型资产的核心技术已被广泛应用。然而，现有商用架构多存闭源局限，传统由C/C++构建的底层固件易受内存破坏漏洞威胁；且在端侧受限环境下，实现安全的异构计算环境仍是机密计算领域的难题。为此，本文基于开源RISC-V架构，设计并实现了一套高安全、低开销的微内核可信为内核虚拟化方案EasyAda-trust。本文主要研究与创新如下：
+	随着边缘异构计算的发展，嵌入式系统面临数据安全与隐私泄露挑战。机密虚拟机（CVM）作为保障敏感数据与模型资产的核心技术，已成为机密计算领域的研究热点。然而，现有商用CVM架构多受限于闭源体系，且传统基于C/C++构建的底层安全固件易受内存破坏漏洞的威胁。此外，在资源受限的端侧环境中，兼顾隔离安全性与异构设备的复用效率仍是当前面临的技术挑战。针对上述问题，本文基于开源RISC-V 指令集架构，设计并实现了一套微内核机密虚拟化系统EasyAda-trust。本文的主要研究工作如下：
 	
-	1.提出基于Rust的内存安全底层固件。 深度结合Rust所有权机制设计页分配器，从编译期根除二次释放等内存隐患；将RISC-V物理内存保护原语抽象为统一安全原语，构筑CVM与不可信组件间的物理级强隔离屏障，确立底层信任根。
+	1.提出了一种基于Rust内存安全特性的底层可信固件架构。 结合Rust所有权机制重构页分配器，通过编译期静态检查消除二次释放等内存隐患；同时，将RISC-V物理内存保护（PMP）机制抽象为统一的内存保护原语，实现CVM与不可信组件间的硬件级隔离，构建系统底层信任根。
 	
-	2.构建支持CVM全生命周期的微内核虚拟化架构。实施物理资源调度与安全鉴权的深度解耦。Hypervisor仅负责宏观资源调度，而安全区域构建、二阶段页表隔离映射及机密流的两阶段上下文切换，均由可信安全管理器（TSM）隐匿执行；并结合本地证明机制实现了CVM的双向可信启动。
+	2.构建了支持CVM全生命周期的软硬协同虚拟化机制。实现了物理资源调度与安全鉴权的解耦。不可信Hypervisor负责宏观资源分配，而安全区域构建、二阶段页表映射及机密执行流的上下文切换等敏感操作，均由TEE安全管理器（TSM）代理执行。此外，结合本地证明机制实现了CVM与硬件环境的双向信任度量。
 	
-	3.设计防DMA攻击的机密异构计算环境。 引入RISC-V IOPMP扩展在总线级实施设备动态鉴权；通过构建加速器管理CVM，利用不可信共享内存与半虚拟化技术打通跨域通信，使机密应用旁路不可信软件中转栈，实现底层加速器在机密环境内零拷贝明文使用。
+	3. 设计了防范DMA攻击的端侧机密异构计算环境。 在EasyAda-trust中引入RISC-V IOPMP硬件扩展支持，在总线级实施外设动态鉴权与细粒度访问控制。在此基础上，构建加速器管理CVM，利用I/O半虚拟化与安全共享内存映射技术建立跨域信道，使机密应用能够旁路不可信软件栈，实现底层硬件加速器在机密环境内的零拷贝明文复用。
 	
-	最后，在QEMU仿真环境下对系统开展了多维度评估。结果表明，EasyAda-SM能够有效兼容现有RISC-V TEE方案且核心计算（Coremark与RV8）损耗均低于2\%；得益于静态内存预分配，CVM在系统时钟与访存等核心原语上实现近似零损耗；同时，安全直通架构显著提升了异构I/O吞吐量。本文方案在内存安全、异构设备复用与总体计算效能之间实现了有效的架构折中。
+	最后，在QEMU仿真环境下对系统开展了多维度量化评估。实验结果表明，EasyAda-SM能够以较小的代价兼容现有RISC-V TEE方案，其核心计算（CoreMark与 RV8）性能损耗低于2\%，验证EasyAda-SM的可拓展性；得益于静态内存预分配机制，EasyAda-trust中CVM在系统时钟与访存等核心原语上的执行开销与原生系统相近；同时，安全直通架构有效保障了异构I/O的吞吐效率。评估结果表明，本文方案在内存安全性、异构设备复用率与总体计算效能之间实现了合理的架构折中，为端侧机密计算的部署提供了系统级解决方案。
 	\zhkeywords{Rust，RISC-V，微内核虚拟化，机密计算，可信异构计算}
 	
 	
 	% 开启英文摘要
 	\enabstract
-	With the rapid development of edge heterogeneous computing, embedded systems face severe data security challenges. Confidential Virtual Machines (CVMs) have been widely applied as a core technology to protect sensitive data and model assets. However, existing commercial architectures mostly suffer from closed-source limitations, and traditional low-level firmware built with C/C++ is vulnerable to memory corruption threats. Moreover, realizing a secure heterogeneous computing environment in resource-constrained edge scenarios remains a formidable challenge in the field of confidential computing. To address these issues, based on the open-source RISC-V architecture, this thesis designs and implements EasyAda-trust, a high-security and low-overhead trusted microkernel virtualization framework. The main research and innovations of this thesis are as follows:
+	With the rapid development of edge heterogeneous computing, embedded systems face severe challenges regarding data security and privacy leakage. As a core technology to safeguard sensitive data and high-value model assets, the Confidential Virtual Machine (CVM) has become a research hotspot in the field of confidential computing. However, existing commercial CVM architectures are mostly constrained by closed-source ecological barriers, and traditional underlying security firmware built with C/C++ suffers from critical memory safety vulnerabilities. Furthermore, achieving a balance between high-security isolation and the efficient reuse of heterogeneous devices in resource-constrained edge environments remains an urgent technical challenge. To address these pain points, this thesis designs and implements EasyAda-trust, a microkernel-based confidential virtualization system based on the open-source RISC-V instruction set architecture. The main research work and innovations of this thesis are as follows:
 	
-	1.Proposing a memory-safe underlying firmware based on Rust. By deeply integrating Rust's ownership mechanism, a page allocator is designed to eradicate memory hazards such as double-free vulnerabilities at compile time. Furthermore, RISC-V physical memory protection primitives are abstracted into unified security primitives to construct a strong physical-level isolation barrier between CVMs and untrusted components, thereby establishing the underlying root of trust.
+	1. Proposed an underlying trusted firmware architecture based on the memory safety features of Rust. By deeply integrating Rust's ownership mechanism to reconstruct the page allocator, memory vulnerabilities such as Double-Free are statically eliminated at compile time. Meanwhile, the RISC-V Physical Memory Protection (PMP) mechanism is abstracted into a unified security primitive, constructing a hardware-level strong isolation boundary between the CVM and untrusted components, thereby establishing the underlying root of trust of the system.
 	
-	2.Constructing a microkernel virtualization architecture supporting the full lifecycle of CVMs. A deep decoupling of physical resource scheduling and security authentication is implemented. The Hypervisor is solely responsible for macro-resource scheduling, whereas the construction of secure regions, the isolated mapping of two-stage page tables, and the two-stage context switching of confidential flows are all transparently executed by the Trusted Security Manager (TSM). Combined with a local attestation mechanism, a bidirectional trusted boot for CVMs is achieved.
+	2. Constructed a hardware-software co-designed virtualization management mechanism supporting the full lifecycle of CVMs. The responsibility decoupling of physical resource scheduling and security authentication is innovatively implemented. The untrusted Hypervisor is solely responsible for macroscopic resource allocation, while core sensitive operations such as secure region construction, two-stage page table mapping, and context switching of confidential execution flows are mediated by the Trusted Security Manager (TSM). In addition, a local attestation mechanism is introduced to realize bidirectional trusted measurement between the CVM and the underlying hardware.
 	
-	3.Designing a confidential heterogeneous computing environment resistant to DMA attacks. The RISC-V IOPMP extension is introduced to implement dynamic device authentication at the bus level. By constructing an accelerator-management CVM and utilizing untrusted shared memory alongside paravirtualization technologies, cross-domain communication is bridged. This enables confidential applications to bypass the untrusted software relay stack, achieving zero-copy plaintext access to underlying accelerators within the confidential environment.
+	3. Designed an edge confidential heterogeneous computing environment to prevent DMA attacks. By introducing the RISC-V IOPMP hardware extension, peripheral dynamic authentication and fine-grained access control are enforced at the bus level. On this basis, a dedicated "Accelerator Management CVM" is designed. Relying on I/O para-virtualization and secure shared memory mapping technologies to bridge cross-domain channels, confidential applications can bypass the untrusted software stack, successfully achieving the zero-copy plaintext utilization of underlying hardware accelerators within the confidential environment.
 	
-	Finally, a multi-dimensional evaluation of the system is conducted in a QEMU simulation environment. The results indicate that the proposed framework exhibits excellent ecological compatibility, with the performance overhead of core computations (Coremark and RV8 benchmark) kept below 2\%. Thanks to static memory pre-allocation, the CVM achieves near-zero overhead on core primitives such as system clock and memory access. Meanwhile, the secure passthrough architecture significantly enhances the heterogeneous I/O throughput. The proposed framework achieves an ideal architectural tradeoff among ultimate memory safety, heterogeneous device multiplexing, and overall computing performance.
+	Finally, multi-dimensional quantitative evaluations of the system were conducted in the QEMU simulation environment. The experimental results show that EasyAda-SM can be compatible with the existing RISC-V TEE ecosystem with extremely low overhead, and the performance degradation of core computing (CoreMark and RV8) is strictly controlled within 2\%, verifying its excellent scalability. Thanks to the static memory pre-allocation mechanism, the execution overhead of the CVM on core primitives such as system clock and memory access approaches that of the native system. Meanwhile, the secure pass-through architecture effectively guarantees the throughput efficiency of heterogeneous I/O. In summary, the proposed scheme achieves a reasonable architectural trade-off among memory safety, heterogeneous device reuse rate, and overall computing efficiency, providing an effective system-level solution for the generalized deployment of edge confidential computing.
 	
 	% 英文关键词
 	\enkeywords{Rust Language; RISC-V; Microkernel Virtualization; Confidential Computing; Trust Heterogeneous Computing}
@@ -387,7 +387,7 @@
 	
 	虚拟化技术的逻辑起源可追溯至20世纪70年代，其核心本质在于通过构建硬件抽象层实现物理资源与执行环境的解耦。1974年，Popek与Goldberg提出了虚拟机监视器（VMM）的经典理论框架，界定了合格VMM须具备的等效性（Equivalence）、高效性（Efficiency）及资源控制（Resource Control）三大关键属性\citess{virt_def}。
 	
-	虚拟化的实现基石在于“陷入-模拟”（Trap-and-Emulate）机制，该机制深度依赖于指令集中特权指令与敏感指令的正交性逻辑：当硬件架构满足敏感指令集为特权指令集的子集时，即具备原生虚拟化能力。在此架构下，客户机操作系统（Guest OS）执行敏感指令将触发特权级陷阱（Trap），由处于最高特权级的Hypervisor捕获异常并实施语义模拟，从而在保障物理资源受控的前提下，实现多虚拟机间的强隔离与资源复用\citess{hypervisor_def}。根据实现路径及Guest OS的感知程度，虚拟化技术演进为两种主流范式：全虚拟化通过完全的硬件模拟支持未经修改的Guest OS，具备极佳的兼容性；而半虚拟化则通过超级调用（Hypercall）接口建立Guest与Hypervisor的协同演进机制，以适度的非侵入式修改换取更高的交互效率。
+	虚拟化的实现基石在于陷入-模拟（Trap-and-Emulate）机制，该机制深度依赖于指令集中特权指令与敏感指令的正交性逻辑：当硬件架构满足敏感指令集为特权指令集的子集时，即具备原生虚拟化能力。在此架构下，客户机操作系统（Guest OS）执行敏感指令将触发特权级陷阱（Trap），由处于最高特权级的Hypervisor捕获异常并实施语义模拟，从而在保障物理资源受控的前提下，实现多虚拟机间的强隔离与资源复用\citess{hypervisor_def}。根据实现路径及Guest OS的感知程度，虚拟化技术演进为两种主流范式：全虚拟化通过完全的硬件模拟支持未经修改的Guest OS，具备极佳的兼容性；而半虚拟化则通过超级调用（Hypercall）接口建立Guest与Hypervisor的协同演进机制，以适度的非侵入式修改换取更高的交互效率。
 	\begin{figure}[!htb]
 		\centering
 		\subfloat[]{
@@ -436,7 +436,7 @@
 	
 	为破解灵活性与安全性的双重瓶颈，主流硬件厂商相继推出了支持CVM抽象的体系结构。以x86架构为例，AMD SEV\citess{sev}（Secure Encrypted Virtualization）利用硬件虚拟化扩展，为每个虚拟机分配唯一的地址空间标识符（ASID），并结合硬件级AES引擎确保内存数据以密文形式存储，实现了Guest VM与Hypervisor的语义脱钩；其增强版SEV-SNP\citess{sev-snp}则引入反向映射表（RMP）机制，强制防止Hypervisor篡改内存权限。Intel提出的TDX\citess{tdx}架构引入了全新的SEAM特权层级及专用模块，在架构层面彻底剥离了不可信Hypervisor对可信域生命周期的控制权。在ARM架构中，ARM CCA同样引入了机密领域（Realm）的概念，以支持虚拟机级别的硬件强隔离。
 	
-	与此同时，在开源的RISC-V生态中，传统多租户计算平台（Multi-tenant computing platforms）由于将平台固件、操作系统、虚拟机监视器及操作人员均纳入租户的可信计算基（TCB），导致其无法满足隐私导向型工作负载对TCB最小化的需求。针对这一局限性，Sahita等人\citess{cove}提出了面向RISC-V平台的机密虚拟机扩展（Confidential Virtual-Machine Extension, CoVE）架构。CoVE充分利用了RISC-V架构无历史包袱（Clean slate）的优势，定义了全新的指令集（ISA）与非指令集（Non-ISA）规范，以及系统级芯片（SoC）要求。该架构通过提供具备硬件认证（HW-attested）的TEE来实现对使用中数据（Data-in-use）的保护，为构建具备可量化TCB的原生机密计算架构奠定了基础。
+	与此同时，在开源的RISC-V生态中，传统多租户计算平台（Multi-tenant computing platforms）由于将平台固件、操作系统、虚拟机监视器及操作人员均纳入租户的可信计算基（TCB），导致其无法满足隐私导向型工作负载对TCB最小化的需求。针对这一局限性，Sahita等人\citess{cove}提出了面向RISC-V平台的机密虚拟机扩展（Confidential Virtual-Machine Extension, CoVE）架构的开源参考软件栈实现Salus。CoVE充分利用了RISC-V架构无历史包袱（Clean slate）的优势，定义了全新的指令集（ISA）与非指令集（Non-ISA）规范，以及系统级芯片（SoC）要求。该架构通过提供具备硬件认证（HW-attested）的TEE来实现对使用中数据（Data-in-use）的保护，为构建具备可量化TCB的原生机密计算架构奠定了基础。
 	
 	此外，机密计算不仅在隔离云端庞大的不可信代码中发挥着关键作用，更亟需向资源受限的嵌入式场景延伸。针对这一需求，Ozga等人\citess{ace}提出了面向嵌入式RISC-V系统的机密计算框架ACE（Assured Confidential Execution）。作为一种开源且免授权费（Royalty-free）的技术方案，ACE旨在将云端机密计算的安全能力下沉，以构建更安全、更可靠的任务关键型（Mission-critical）嵌入式系统，进一步完善了基于虚拟化扩展的RISC-V机密计算应用生态。
 	
@@ -450,11 +450,33 @@
 	
 	为应对新一代指令集架构与存量基础设施的兼容性挑战，机密计算研究逐渐转向软硬协同的深度解耦范式。Wang等人\citess{cage}提出的CAGE框架借助粒度保护检查（GPC）原语率先实现了ARMv9架构下的GPU硬件级隔离。此外，针对现有机密加速器高度依赖特定硬件更迭的问题，Wang等人\citess{ccai}设计了具备强兼容性的ccAI系统。该方案在物理层动态截获并重定向GPU任务提交路径，平滑支持了DeepSeek、Llama等大模型的机密推理。
 	
-	尽管异构隔离技术不断演进，Lu等人\citess{gpu_sec}在MOLE研究中揭示了新型硬件侧攻击面：GPU内部集成的微控制器（MCU，如Falcon/GSP）拥有超越系统IOMMU限制的特权级访问能力。攻击者可通过劫持MCU固件绕过CPU侧监控机制直接窃取TEE显存数据。该发现打破了“直通即安全”的传统假设，表明未来的异构机密计算亟需建立涵盖外设内部组件完整性度量的全路径防护体系。
+	尽管异构隔离技术不断演进，Lu等人\citess{gpu_sec}在MOLE研究中揭示了新型硬件侧攻击面：GPU内部集成的微控制器（MCU，如Falcon/GSP）拥有超越系统IOMMU限制的特权级访问能力。攻击者可通过劫持MCU固件绕过CPU侧监控机制直接窃取TEE显存数据。该发现打破了直通即安全的传统假设，表明未来的异构机密计算亟需建立涵盖外设内部组件完整性度量的全路径防护体系。
 	
 	\section{本文主要贡献和创新}
+	本文以基于RISC-V硬件虚拟化扩展及机密虚拟机（CVM）安全生命周期管理为核心研究对象。为了克服传统虚拟化在机密计算场景中的安全隔离瓶颈，本文依托既有的基于微内核的虚拟化方案EasyAda-Hypervisor，重点开展了底层安全固件设计、虚拟化组件安全扩展及端侧异构机密计算环境的构建。其主要研究内容与创新工作如下：
+	
+	1.提出并实现了一种基于Rust内存安全特性的模块化底层安全监视器EasyAda-SM：针对传统C语言构建的安全固件极易受内存破坏漏洞威胁的局限性，本文采用Rust语言从底层独立设计并实现了EasyAda-SM。在架构抽象层面，构建了安全区域与内存管理层，并深度结合Rust的所有权模型，实现了一套基于页分配器（Page Allocator）的安全内存调度机制，从而在编译期静态消除了二次释放等内存隐患。更进一步，为了实现执行环境间的强隔离，本文将CPU和设备侧物理内存保护机制抽象为统一的内存保护原语，严格切断了不可信软硬件对CVM安全内存的物理级访问路径。由此可见，该设计从软件自身安全性与硬件物理隔离两个维度，为整个系统确立了坚实的信任根基。
+	
+	2.提出并实现基于微内核的可信虚拟化方案EasyAda-trust：为适应机密计算的严苛安全需求，本文对现有的EasyAda-Hypervisor进行了深度的安全扩展与架构增强。具体而言，在资源调度方面，本文引入了职责解耦机制，将常规的物理内存分配与设备发现保留在不可信的Hypervisor层，而将二阶段页表隔离映射、安全区域动态构建及可信上下文切换等核心敏感操作全权委托给EasyAda-SM处理。此外，在运行态安全防护方面，结合本文设计的基于本地证明机制的安全启动链与机密执行流，确保了CVM的CPU上下文及内存视图对Hypervisor的绝对隐匿。基于上述软硬协同的设计，本文在不破坏原有微内核架构的前提下，成功实现了不可信虚拟机与机密虚拟机的安全共存与统一调度。
+	
+	3.扩展EasyAda-trust架构并构建端侧机密异构计算环境：针对端侧异构硬件中支持直接内存访问（DMA）的外设可能绕过CPU隔离机制发起的恶意攻击，本文进一步扩展了EasyAda-trust的系统设计。首先在硬件防护层，通过引入RISC-V I/O物理内存保护（IOPMP）扩展，实现了基于设备唯一标识（SID）的外设动态鉴权与细粒度内存访问控制。然而，仅依靠底层硬件隔离难以满足复杂外设在多执行环境间的动态调度需求；因此在此基础上，本文创新性地提出并构建了专用的加速器管理CVM代理架构。该架构利用I/O半虚拟化技术与安全共享内存映射机制，在严格保障用户AI模型权重及隐私数据机密性与完整性的前提下，成功实现了底层硬件加速器在不可信与机密执行环境间的时空复用。值得注意的是，这一系列设计不仅化解了跨域DMA攻击威胁，更为端侧异构算力的泛化安全部署确立了完备的技术范式。
 	
 	\section{论文结构}
+	本文的内容组织与结构安排如下：
+	
+	第一章：绪论。首先详细阐述了智能物联网与端侧异构计算环境下面临的安全性挑战，进而深入探讨了当前底层固件与虚拟化隔离所面临的核心痛点与科学问题。针对上述问题，引出了基于开放指令集与微内核架构构建可信执行环境的研究背景和意义，最后概述了本文的主要研究内容与章节结构安排。
+	
+	第二章：相关技术理论概述。为解决第一章提出的架构痛点，本章重点探讨了本文方案所依赖的底层技术底座。首先，详细阐述了底层硬件隔离机制的相关概念（包括特权级模型、物理内存保护体系及硬件虚拟化扩展）；其次，介绍了机密计算的演进范式，并深入探讨了微内核虚拟化的相关理论；最后，进一步说明了异构计算场景下信任边界延伸的架构兼容性需求，从而为后续的系统设计奠定理论基础。
+	
+	第三章：基于RISC-V的微内核虚拟化方案设计。本章从宏观层面介绍了在端侧强隔离需求下如何精准界定系统可信计算基（Trusted Computing Base，TCB）边界。基于该信任边界，阐述了安全启动、内存隔离与中断路由等多维防护机制的构建思路。值得注意的是，本章最后对基于动态外设隔离的硬件加速器安全复用模型进行了具体说明，从全局视角确立了系统的架构蓝图。
+	
+	第四章：内存安全的模块化安全监视器实现。本章详细阐述了针对最高特权级固件内存脆弱性的防护机制。具体而言，首先探讨了如何从语言层面消除内存破坏漏洞，随后介绍了细粒度安全区域管理的抽象方法。此外，本章还对机密上下文切换、信任链推演及外设安全授权的理论模型进行了深入探讨，旨在筑牢系统的底层信任根。
+	
+	第五章：基于微内核的可信虚拟化方案实现。本章介绍了CPU状态隐匿与内存管控解耦的具体集成方案。为了应对复杂的I/O安全威胁，进一步阐述了防DMA攻击与端到端数据保护的部署流程。最后，对跨域通信信道与加速器机密部署机制进行了具体说明，由此打通了微内核机密虚拟化的全链路技术栈。
+	
+	第六章：系统测试与分析。为验证上述架构设计与系统集成的有效性，本章介绍了多维度定量评估与安全分析体系的构建方法。在性能评估方面，通过基准测试量化了底层固件的生态兼容性与计算开销；在安全验证方面，设计边界条件检验了双向证明与可信启动链的稳健性。基于上述结果，对系统在安全隔离与执行效能间的架构折中进行了全面评估，充分证明了本文方案在实际嵌入式场景中的可行性。
+	
+	第七章：总结与展望。综合前述理论、设计与实验验证，对本文的研究工作与核心理论贡献进行系统性总结。同时，客观审视了目前微内核架构与底层安全机制融合中存在的局限性，并由此提出多核并发调度优化、核心组件形式化验证及异构总线安全等后续的研究方向。
 	
 	
 	\chapter{相关技术理论概论}
@@ -463,7 +485,7 @@
 	
 	ARM架构作为精简指令集（RISC）的代表，凭借IP授权模式赋予下游厂商一定的定制自由度，在嵌入式市场占据主导地位。然而，受限于其封闭的商业壁垒，硬件开发面临高昂的IP授权成本；同时，ARM架构跨代演进（如ARMv7至ARMv8）差异显著，导致了严重的指令集碎片化问题，系统高度依赖特定版本的编译工具链以维持跨平台兼容性与性能优化。
 	
-	相比之下，新兴的RISC-V架构凭借开源开放与高度模块化的设计理念，与系统软件的解耦演进需求高度契合。硬件厂商可根据具体场景按需组合指令集扩展，软件生态亦能据此实现灵活伸缩，有效规避了跨代架构更迭带来的高昂代码移植成本。在云边端协同计算趋势下，资源受限的边缘节点可仅实现基础指令子集以满足极低功耗约束，而云端高性能设备则可集成复杂扩展以跃升算力。RISC-V这种高度弹性的架构特性，为构建跨越异构硬件的通用、可扩展可信执行环境（TEE）提供了理想的底层硬件支撑
+	相比之下，新兴的RISC-V架构凭借开源开放与高度模块化的设计理念，与系统软件的解耦演进需求高度契合。硬件厂商可根据具体场景按需组合指令集扩展，软件生态亦能据此实现灵活伸缩，有效规避了跨代架构更迭带来的高昂代码移植成本。在云边端协同计算趋势下，资源受限的边缘节点可仅实现基础指令子集以满足极低功耗约束，而云端高性能设备则可集成复杂扩展以跃升算力。RISC-V这种高度弹性的架构特性，为构建跨越异构硬件的通用、可扩展的可信执行环境（TEE）提供了理想的底层硬件支撑。
 
 	\subsection{RISC-V特权级介绍}
 	\begin{figure}[!htb]
@@ -479,14 +501,14 @@
 		}
 		\caption{未引入硬件虚拟化扩展时RISC-V系统架构}\label{overall_nonvirt}
 	\end{figure}
-	RISC-V架构将独立的CPU核心抽象为硬件线程（Hard Thread，hart）。在任何运行时态下，hart均处于特定的特权级中。RISC-V规范定义了由低至高的三种主要特权级：用户模式（U-Mode）、监管者模式（S-Mode）与机器模式（M-Mode）。如图\ref{overall_nonvirt_arch}所示，根据指令集标准，M态为强制实现的基础特权级，而U态与S态为可选扩展。实际商用硬件通常基于特定应用场景与功耗考量进行架构裁剪，如运行RTOS或裸机应用的MCU场景可以实现U和M态甚至仅实现M态。
+	RISC-V架构将独立的CPU核心抽象为硬件线程（Hard Thread，hart）。在任何运行时态下，hart均处于特定的特权级中。RISC-V规范定义了由低至高的三种主要特权级：用户模式（U-Mode）、监管者模式（S-Mode）与机器模式（M-Mode）。如图\ref{overall_nonvirt_arch}所示，根据指令集标准，M态为强制实现的基础特权级，而U态与S态为可选扩展。实际商用硬件通常基于特定应用场景与功耗考量进行架构裁剪，如运行RTOS或裸机应用的MCU场景可以仅实现U态和M态，甚至仅实现单M态。
 	
 	各特权级之间具备严格的权限隔离边界\citess{rv-setman}：U-Mode作为最低特权级，仅获准访问通用寄存器并执行基础指令，其访存操作严格受限于页表映射机制；S-Mode在此基础上，进一步获准访问特定的控制与状态寄存器（Control Status Register，CSR）并执行相关特权指令，其访存操作同样受限于MMU页表机制；M态作为系统最高特权级，拥有对所有物理硬件、CSR及特权指令的无限制访问权，并可绕过页表直接寻址物理内存。任何低特权级尝试执行越权指令的行为均会触发硬件异常拦截。
 	
-	在特权级状态转换机制上，系统上电重置时hart默认初始化为M态。控制流从高特权级向低特权级转移需显式执行mret或sret指令完成状态降级；反之，当系统发生外部中断或执行异常时，硬件将根据CSR中的委派（Delegation）配置，自动陷入（Trap）至S态或M态的异常向量入口。此外，低特权级软件可主动触发ecall或ebreak指令发起系统调用，以同步陷入的方式将控制权安全移交至高特权级执行环境。各特权级间的状态转换逻辑如\ref{priv_nonvirt}所示。
+	在特权级状态转换机制上，系统上电重置时hart默认初始化为M态。控制流从高特权级向低特权级转移需显式执行mret或sret指令完成状态降级；反之，当系统发生外部中断或执行异常时，硬件将根据CSR中的委派（Delegation）配置，自动陷入（Trap）至S态或M态的异常向量入口。此外，低特权级软件可主动触发ecall或ebreak指令发起系统调用，以同步陷入的方式将控制权安全移交至高特权级执行环境。各特权级间的状态转换逻辑如图\ref{priv_nonvirt}所示。
 
 	\subsection{RISC-V中断与异常处理机制介绍}
-	RISC-V架构将所有打破正常程序控制流的突发事件统称为陷入（Trap。在微架构层面，陷入被严格划分为两类：同步的异常（Exception）与异步的中断（Interrupt）。异常通常由当前执行的指令直接引发（如非法指令解码、缺页异常或主动发起的ecall系统调用)，而中断则由独立于当前执行流的外部异步事件触发。RISC-V手册规定中断按类型分为外部中断（External Interrupt）、软件中断（Software Interrupt）、时钟中断（Timer Interrupt）三种。
+	RISC-V架构将所有打破正常程序控制流的突发事件统称为陷入（Trap）。在微架构层面，陷入被严格划分为两类：同步的异常（Exception）与异步的中断（Interrupt）。异常通常由当前执行的指令直接引发（如非法指令解码、缺页异常或主动发起的ecall系统调用），而中断则由独立于当前执行流的外部异步事件触发。RISC-V手册规定中断按类型分为外部中断（External Interrupt）、软件中断（Software Interrupt）、时钟中断（Timer Interrupt）三种。
 	
 	根据RISC-V基础特权级规范，系统发生的所有陷入默认均强制路由至最高特权级M态处理。然而，在部署了复杂操作系统或Hypervisor的场景中，频繁的M态陷入与上下文切换将引入不可接受的性能开销。为此，RISC-V创新性地设计了陷入委派机制。通过精细化配置M态异常委派寄存器（medeleg）与中断委派寄存器（mideleg），底层安全固件可将特定类型的陷入事件（如S态下的缺页异常或时钟中断）显式旁路，使其直接触发S态的陷入响应而无需M态介入。这一机制极大地缩短了关键中断的响应延迟，是实现高效软硬件协同与机密虚拟化资源调度的核心架构支撑。
 	
@@ -527,7 +549,7 @@
 	
 	如图\ref{overall_virt}所示，使能H扩展后，原有的S态被扩展为Hypervisor扩展监管者模式（HS-Mode），同时新增了虚拟监管者模式（VS-Mode）与虚拟用户模式（VU-Mode）。在HS态下运行的Hypervisor拥有对物理硬件与虚拟机的完全控制权；而Guest OS及Guest App则分别运行在VS态与VU态下。这种设计确保了Guest OS无需修改核心代码即可无感运行，并在试图执行影响全局的敏感特权指令时安全地触发硬件异常并陷入HS态处理。
 	
-	频繁的虚拟机退出（VM-Exit）是制约虚拟化性能的核心瓶颈之一。为此，H扩展为VS态引入了一套完整的S态寄存器影子副本（如vsstatus、vstvec、vsepc、vsscratch）等。当处理器运行在虚拟化环境（V=1）时，Guest OS对常规S态寄存器的读写操作会被硬件自动重定向至对应的虚拟控制状态寄存器中。这一机制使得客户系统在配置自身上下文时无需陷入HS态，极大地降低了寄存器访问带来的上下文切换开销。
+	频繁的虚拟机退出（VM-Exit）是制约虚拟化性能的核心瓶颈之一。为此，H扩展为VS态引入了一套完整的S态寄存器影子副本（如vsstatus、vstvec、vsepc、vsscratch等）。当处理器运行在虚拟化环境（V=1）时，Guest OS对常规S态寄存器的读写操作会被硬件自动重定向至对应的虚拟控制状态寄存器中。这一机制使得客户系统在配置自身上下文时无需陷入HS态，极大地降低了寄存器访问带来的上下文切换开销。
 	
 	为实现虚拟机间的物理内存强隔离，H扩展引入了二阶段页表机制。第一阶段（Stage-1）完全由Guest OS控制，负责将虚拟地址（VA）翻译为客户物理地址（GPA），其页表基址由虚拟监管者地址转换与保护寄存器（vsatp）管理；第二阶段（Stage-2）由Hypervisor严密管控，负责将GPA强制翻译为真实的宿主物理地址（HPA），其页表基址由Hypervisor客户地址转换与保护寄存器（hgatp）管理。MMU在处理VS/VU-Mode的访存请求时，会自动串行执行这两阶翻译，彻底阻断了虚拟机越权访问宿主物理内存或其他虚拟机地址空间的可能。
 	
@@ -551,27 +573,24 @@
 		}
 		\caption{基于系统抽象层级与软件执行模型的TEE分类}\label{tee_style}
 	\end{figure}
-	TEE通过在硬件微架构层面构建受保护的隔离执行空间（该隔离抽象在不同技术语境下命名各异，如Intel TDX的可信域、Intel SGX的飞地、ARM TrustZone的安全世界以及IBM ACE的可信虚拟机等），通过对传入和传出的数据进行加密，为敏感代码与执行状态确立了系统级的机密性与完整性保障 。尤为关键的是，TEE能够从指令集架构底层重塑信任边界，有效抵御来自系统中任何潜在恶意实体或高特权级系统软件（如不可信的宿主操作系统内核或虚拟机监视器）的越权访问与潜在攻击 。相较于全同态加密或多方安全计算等纯密码学计算范式，TEE凭借以下三大核心特性展现出显著的技术实用性与工程优势\citess{tee_survey}：
+	TEE通过在硬件微架构层面构建受保护的隔离执行空间，通过对传入和传出的数据进行加密，为敏感代码与执行状态确立了系统级的机密性与完整性保障。尤为关键的是，TEE能够从指令集架构底层重塑信任边界，有效抵御来自系统中任何潜在恶意实体或高特权级系统软件（如不可信的宿主操作系统内核或虚拟机监视器）的越权访问与潜在攻击。相较于全同态加密或多方安全计算等纯密码学计算范式，TEE凭借以下三大核心特性展现出显著的技术实用性与工程优势\citess{tee_survey}：
 	
-	1.\textbf{通用可编程性（General Purpose Computation）}：TEE内部所支持的执行功能通常表现为用户自定义程序，这赋予了其图灵完备的通用计算能力，使其能够广泛适配各类复杂的业务功能与算法形态 。
+	1.\textbf{通用可编程性（General Purpose Computation）}：TEE内部所支持的执行功能通常表现为用户自定义程序，这赋予了其图灵完备的通用计算能力，使其能够广泛适配各类复杂的业务功能与算法形态。
 	
-	2.\textbf{强机密性与执行完整性（Integrity and Privacy）}：TEE在物理信任边界内同时提供双重安全属性 。机密性（Confidentiality）\citess{cc_def}确保了外部潜在攻击者无法从计算过程中窥探或获取任何敏感信息，而完整性（Integrity）则从底层机制上保证了目标程序的执行逻辑免遭篡改并被严格且正确地执行。
+	2.\textbf{强机密性与执行完整性（Integrity and Privacy）}：TEE在物理信任边界内同时提供双重安全属性。机密性（Confidentiality）\citess{cc_def}确保了外部潜在攻击者无法从计算过程中窥探或获取任何敏感信息，而完整性（Integrity）则从底层机制上保证了目标程序的执行逻辑免遭篡改并被严格且正确地执行。
 	
-	3.近似原生的计算性能（High Performance）：TEE的核心计算范式是在安全飞地内部将所有加密输入解密后，直接依托物理CPU在明文状态下执行目标自定义程序 。因此，除了处理加密数据输入输出所产生的额外开销外，TEE能够充分释放并利用CPU的原生运算速度，彻底规避了纯密码学方案中高昂的算力惩罚，具备极高的高性能优势 。
+	3.\textbf{近似原生的计算性能（High Performance）}：TEE的核心计算范式是在安全飞地内部将所有加密输入解密后，直接依托物理CPU在明文状态下执行目标自定义程序。因此，除了处理加密数据输入输出所产生的额外开销外，TEE能够充分释放并利用CPU的原生运算速度，彻底规避了纯密码学方案中高昂的算力惩罚，具备极高的高性能优势。
 	
-	根据系统抽象层级与软件执行模型的差异，如图\ref{tee_style}所示，当前业界的TEE架构主要可归纳为以下三种演进范式：
+	根据系统抽象层级与软件执行模型的差异，如图\ref{tee_style}所示，当前业界的隔离与机密计算架构主要经历了以下三种演进范式：
 	
-	1.面向可信应用（Trusted Application）的TEE架构:
-	该架构下的Enclave主要承载深度定制的用户态安全应用。其执行逻辑高度依赖于特定平台提供的软件开发工具包（SDK）及底层安全固件，以此实现与不可信宿主的跨边界上下文交互。此轻量级隔离范式的典型代表包括Intel SGX以及RISC-V体系下的Penglai等。
+	1.基于纯虚拟化的安全隔离方案：传统的纯虚拟化方案（如基于KVM或Xen的隔离）通过Hypervisor在系统级提供虚拟机间的强隔离。然而，这种方案的安全性高度依赖于Hypervisor自身的代码可靠性。由于通用Hypervisor体量庞大且极其复杂，其作为可信计算基（TCB）存在巨大的攻击面。一旦Hypervisor被攻破，所有虚拟机的核心数据将面临严重威胁；且纯虚拟化缺乏底层硬件密码学机制的支撑，难以抵御物理层面的硬件探测与内存窃取攻击。这种安全性的内生不足，促使业界向具备芯片级强隔离的TEE技术演进。
 	
-	2.面向可信操作系统（Trusted OS）的TEE架构:
-	该架构在Enclave内部引入了定制化的可信操作系统，能够支持多个可信应用的并发执行与精细化调度，并通过安全固件桥接与宿主环境的通信。其工业界标杆为ARM TrustZone技术及其衍生的GP-TEE（GlobalPlatform TEE规范）。其中，TrustZone筑牢了包含信任根（RoT）、安全启动及物理内存强隔离在内的底层硬件原语；而GP-TEE则在软件抽象层标准化了功能组件模型与跨域交互协议。在RISC-V生态中，Keystone框架亦提供了与上述架构高度对标的系统级隔离能力。
+	2.面向可信操作系统（Trusted OS）的TEE架构:早期硬件辅助的TEE架构主要聚焦于细粒度的可信应用（TA）或可信操作系统（TOS）级别的抽象。此类方案的典型代表包括面向应用级抽象的Intel SGX。在基于可信OS的架构中，通常引入定制化的系统来调度多个TA（例如基于ARM TrustZone扩展与GP-TEE规范的示例实现）。Keystone和Penglai是当前RISC-V主流的TEE方案，它们分别探索了灵活的应用级与OS级隔离机制。这类方案虽然弥补了纯虚拟化的安全性短板，提供了芯片级的强隔离与内存保护，但存在显著的局限性：开发者必须手动剥离敏感代码以划分TCB、重写应用程序或高度依赖特定的专属TEE-OS。这种极高的开发门槛不可避免地导致了严重的生态割裂，显著抬高了现有庞大应用向机密计算环境平滑迁移的综合成本。
 	
-	3.面向机密虚拟机（Confidential VM）的TEE架构:
-	传统的TA与TOS架构对上层业务软件存在较高的侵入性，要求开发者付出高昂的代码重构成本。为破解这一应用迁移瓶颈，现代主流指令集均演进出了基于CVM的隔离方案。该架构通过提升Enclave的系统级抽象维度，允许用户仅需将VMM/Hypervisor及相关依赖部署于可信环境中，即可透明地承载无修改的客户操作系统。同时，不可信宿主侧仅需极少量的底层适配，即可完整支持对CVM生命周期的安全管理。此架构代表了当前机密计算的前沿趋势，典型实现涵盖Intel TDX、AMD SEV-SNP、ARM CCA，以及RISC-V架构下的机密虚拟化扩展（CoVE）等。
+	3.面向机密虚拟机（Confidential VM）的TEE架构:为了彻底打破纯虚拟化在数据安全性上的瓶颈，同时解决基于应用/OS级TEE面临的生态割裂与开发门槛高的困境，将虚拟化技术的灵活抽象能力与TEE专用的硬件安全指令拓展相互结合，成为了机密计算演进的必然选择。该范式提出了基于机密虚拟机（CVM）抽象的混合TEE架构（如Intel TDX、AMD SEV-SNP、ARM CCA以及RISC-V架构下的机密虚拟机扩展CoVE等）。通过将复杂的Hypervisor移出TCB，并在硬件级加密的TEE中直接运行未经修改的Guest OS与大规模应用，该架构最大程度地复用了现有的操作系统生态。这不仅有效收敛了TCB的攻击面，还极大降低了厂商的开发与应用迁移成本，代表了当前机密计算的最前沿趋势。
 	
 	\subsection{面向异构计算环境的TEE}
-	业界已经在CPU侧建立起了相对成熟的TEE机制（如Intel SGX、ARM TrustZone等），用于隔离和保护敏感数据。然而，随着机器学习、大数据处理和区块链等数据密集型应用的爆发，单核或多核CPU的算力已无法满足海量数据的高性能计算需求。为了在利用GPU、NPU和FPGA等硬件加速器提供澎湃算力的同时，依然能够享受高强度的机密性、完整性与隔离性保护，将TEE的安全信任边界从主机CPU延伸至异构加速器设备（即构建加速器TEE或异构TEE）成为了学术界与工业界的必然演进方向。这种信任边界的延伸不仅需要保护传统的明文数据和代码，还必须涵盖AI模型参数、输入输出特征、页表映射以及底层硬件环境状态。
+	业界已经在CPU侧建立起了相对成熟的TEE机制用于隔离和保护敏感数据。然而，随着机器学习、大数据处理等数据密集型应用的爆发，单核或多核CPU的算力已无法满足海量数据的高性能计算需求。为了在利用GPU、NPU和FPGA等硬件加速器提供澎湃算力的同时，依然能够享受高强度的机密性、完整性与隔离性保护，将TEE的安全信任边界从主机CPU延伸至异构加速器设备（即构建加速器TEE或异构TEE）成为了学术界与工业界的必然演进方向。这种信任边界的延伸不仅需要保护传统的明文数据和代码，还必须涵盖AI模型参数、输入输出特征、页表映射以及底层硬件环境状态。
 	
 	根据加速器与主机CPU在物理架构与互连方式上的差异，当前异构计算环境的集成范式主要可划分为以下三类。不同的范式对底层安全隔离机制与TEE架构设计提出了截然不同的挑战：
 
@@ -579,11 +598,12 @@
 		
 	2.片上协处理器（On-chip Coprocessor）：此范式下，加速器作为SoC内部独立的硬件IP存在，通过片上系统总线与CPU交互。加速器拥有独立的控制逻辑与局部存储空间，由CPU通过内存映射I/O（MMIO）进行任务配置和启动，并通过DMA自主完成大规模数据的搬运。通过异步工作机制，CPU仅负责高层调度，而加速器专注于流水化处理大体量数据。从安全维度来看，协处理器通常与CPU共享片上物理内存，其TEE设计需重点防范恶意的越权DMA攻击，高度依赖诸如IOPMP等总线级物理内存保护硬件来确立硬件级隔离边界。这种模式在能效比与系统灵活性之间进行了平衡，是当前主流嵌入式AI SoC的硬件范式。
 		
-	3.片外独立加速器（Discrete Accelerator）：加速器位于独立的物理芯片或插卡上，通过高速串行总线（如PCIe或CXL）与主机互联。此类加速器通常具备独立的高带宽全局显存（如HBM/GDDR和复杂的层次化缓存结构。系统通过驱动程序管理设备内存空间，并采用命令队列模式进行大规模任务的批处理提交。其逻辑设计的复杂度不再受限于主机SoC的热设计功耗与封装面积，能够提供极高的峰值算力。然而在机密计算场景中，由于跨物理总线通信的存在，该范式不仅对主机侧的安全隔离机制提出了更高的时延容忍度要求，还必须引入端到端的内存加密引擎（MEE）与总线加密协议（如TDISP），以彻底抵御总线探测、数据篡改与物理重放攻击。
+	3.片外独立加速器（Discrete Accelerator）：加速器位于独立的物理芯片或插卡上，通过高速串行总线（如PCIe或CXL）与主机互联。此类加速器通常具备独立的高带宽全局显存（如HBM/GDDR）和复杂的层次化缓存结构。系统通过驱动程序管理设备内存空间，并采用命令队列模式进行大规模任务的批处理提交。其逻辑设计的复杂度不再受限于主机SoC的热设计功耗与封装面积，能够提供极高的峰值算力。然而在机密计算场景中，由于跨物理总线通信的存在，该范式不仅对主机侧的安全隔离机制提出了更高的时延容忍度要求，还必须引入端到端的内存加密引擎（MEE）与总线加密协议（如TDISP），以彻底抵御总线探测、数据篡改与物理重放攻击。
 
-	尽管异构TEE研究在近年来呈现出爆发式增长，但其在真实物理设备上的大规模部署仍面临严峻的工程与理论痛点。首先是系统架构的碎片化与通用性缺失，现存的大量加速器TEE方案往往强绑定于特定的“CPU-加速器”硬件组合，缺乏标准化的软硬件交互抽象，导致跨平台迁移极其困难。其次是可信计算基的急剧膨胀，为了支持复杂的异构加速器调度，传统方案往往被迫将体量庞大的设备驱动程序（如动辄百万行代码的GPU软件栈）直接纳入可信环境中，这严重违背了安全固件微内核化的极简设计初衷，剧增了系统的潜在攻击面。
+	尽管异构TEE研究在近年来呈现出爆发式增长，但其在真实物理设备上的大规模部署仍面临严峻的工程与理论痛点。首先是系统架构的碎片化与通用性缺失，现存的大量加速器TEE方案往往强绑定于特定的“CPU-加速器”硬件组合，缺乏标准化的软硬件交互抽象，导致跨平台迁移极其困难。其次是可信计算基的急剧膨胀，为了支持复杂的异构加速器调度，传统方案往往被迫将体量庞大的设备驱动程序（如动辄百万行代码的GPU软件栈）直接纳入可信环境中，严重违背了安全固件微内核化的极简设计初衷，极大地增加了系统的潜在攻击面。
 
-	\section{微内核操作系统EasyAda介绍}
+	\section{微内核相关知识介绍}
+	\subsection{微内核操作系统EasyAda介绍}
 
 	EasyAda是一款自研微内核操作系统，如图\ref{mk_arch}所示，其设计理念遵循最小特权原则，旨在构建高安全性、高可靠性的操作系统内核，适用于对稳定性和安全性要求较高的嵌入式应用场景。
 	\begin{figure}[!h]
@@ -592,16 +612,16 @@
 		\caption{微内核操作系统EasyAda总体架构}
 		\label{mk_arch}
 	\end{figure}
-	EasyAda将内核态精简为仅保留必要的特权功能模块，如核间通信、权能管理、中断与异常处理、时钟管理、地址空间管理和内核对象管理等核心组件，内核将对外提供的服务封装为系统调用接口，仅暴露较小的攻击面。同时，通过硬件兼容层（Hardware Abstract Layer，HAL）抽象了操作系统依赖的硬件原语，如启动/暂停CPU核心，中断配置和处理，MMU配置等，实现了统一的硬件操作接口，简化了操作系统在不同指令集和架构间移植的难度并且有效降低了内核代码的复杂度，确保EasyAda可以在异构环境上对外提供统一的软件平台。
+	EasyAda将内核态精简为仅保留必要的特权功能模块，如核间通信、权能管理、中断与异常处理、时钟管理、地址空间管理和内核对象管理等核心组件，内核将对外提供的服务封装为系统调用接口，仅暴露较小的攻击面。同时，通过硬件抽象层（Hardware Abstraction Layer，HAL）抽象了操作系统依赖的硬件原语，如启动/暂停CPU核心，中断配置和处理，MMU配置等，实现了统一的硬件操作接口。这降低了操作系统在不同指令集和架构间移植的难度，并且有效降低了内核代码的复杂度，确保EasyAda可以在异构环境上对外提供统一的软件平台。
 	
-	EasyAda将除核心功能外的其余大部分服务迁移至用户态，在地址空间隔离的上下文中运行，并由根服务（Rootserver）统一管理。根服务作为一个运行在用户态的多线程进程，集成了多个功能子系统。这些子系统既包括独立的模块化组件，如文件系统、进程管理、网络协议栈等，也包括执行特定任务的独立线程，如Shell交互模块等。根服务将对外提供的服务封装为RPC接口，为操作系统提供统一、透明的服务访问接口，并且对RPC参数进行严格的检查以防范外部攻击。其他服务或用户应用可以通过系统共享库提供的POSIX API前端，将函数调用转换为RPC调用。同时，所有应用和系统服务的拥有独立的权能空间，仅能访问当前权能空间支持的RPC接口和系统调用，进一步缩小系统攻击面。
+	EasyAda将除核心功能外的其余大部分服务迁移至用户态，在地址空间隔离的上下文中运行，并由根服务（Rootserver）统一管理。根服务作为一个运行在用户态的多线程进程，集成了多个功能子系统。这些子系统既包括独立的模块化组件，如文件系统、进程管理、网络协议栈等，也包括执行特定任务的独立线程，如Shell交互模块等。根服务将对外提供的服务封装为RPC接口，为操作系统提供统一、透明的服务访问接口，并且对RPC参数进行严格的检查以防范外部攻击。其他服务或用户应用可以通过系统共享库提供的POSIX API前端，将函数调用转换为RPC调用。同时，所有应用和系统服务均拥有独立的权能空间，仅能访问当前权能空间支持的RPC接口和系统调用，进一步缩小了系统的攻击面。
 	
-	基于微内核的设计思想，EasyAda相比Linux等宏内核操作系统具备更小的软件TCB，而相比传统的RTOS如FreeRTOS等，EasyAda又具备强大的可扩展性，可以通过扩展系统服务实现与宏内核对等的功能和性能。因此EasyAda通过灵活调整用户态系统服务配置，可以适应边缘到中高端嵌入式等多样化的场景和需求，为云边端场景提供通用的OS底座。
+	基于微内核的设计思想，EasyAda相比Linux等宏内核操作系统具备更小的软件TCB，而相比传统的RTOS如FreeRTOS等，EasyAda又具备强大的可扩展性，可以通过扩展系统服务实现与宏内核对等的功能和性能。因此EasyAda通过灵活调整用户态系统服务配置，可以适应从边缘到中高端嵌入式等多维度的场景和需求，为云边端场景提供通用的OS底座。
 	
-	因为EasyAda被设计为面向多样化场景的通用操作系统，所以其应用和系统服务运行在U态，内核运行在S态（未开启虚拟化）/HS态（开启虚拟化支持），并且通过SBI请求与M态SBI固件进行交互以实现硬件管理。
+	由于EasyAda被设计为面向多样化场景的通用操作系统，因此其应用和系统服务运行在用户态，内核运行在内核态（未开启虚拟化）或Hypervisor态（开启虚拟化支持），并且通过安全固件接口与运行在最高特权级的安全固件进行交互以实现硬件管理。
 
-	\section{微内核虚拟化方案EasyAda-Hypervisor介绍}
-	图\ref{hyper_arch}展示了支持管理CVM生命周期的基于RISC-V的EasyAda-Hypervisor设计。EasyAda-Hypervisor仍然遵守了EasyAda微内核的设计哲学和思路：
+	\subsection{微内核虚拟化方案EasyAda-Hypervisor介绍}
+	图\ref{hyper_arch}展示了支持管理CVM生命周期的、基于RISC-V的EasyAda-Hypervisor设计。EasyAda-Hypervisor严格遵守了EasyAda微内核的设计哲学和思路：
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width=1\linewidth]{Hypervisor.pdf}
@@ -611,40 +631,43 @@
 
 	1.统一资源管理：主要系统资源由EasyAda负责管理和分配。充分复用微内核操作系统现有代码和能力，实现统一的资源管理并减少EasyAda-Hypervisor的代码量，缩小其TCB。
 	
-	2.Hypervisor解耦：Hypervisor被划分为运行在EasyAda用户态下的VMM和内核态下的Hypervisor驱动，以尽可能复用EasyAda现有代码和功能。前者负责主要的VM管理工作，包括管理VM生命周期和软硬件资源，模拟虚拟化设备后端，以及管理VM服务线程等；后者作为屏蔽不同架构硬件虚拟化扩展实现的抽象层，对外提供基于虚拟化依赖的硬件原语抽象的统一接口，完成对硬件虚拟化扩展相关寄存器进行配置，以及接收和处理VM中断和异常等。
+	2.Hypervisor解耦：Hypervisor被划分为运行在EasyAda用户态下的VMM和内核态下的Hypervisor驱动，以尽可能复用EasyAda现有代码和功能。前者负责主要的VM管理工作，包括管理VM生命周期和软硬件资源，模拟虚拟化设备后端，以及管理VM服务线程等；后者作为屏蔽不同架构硬件虚拟化扩展实现的抽象层，对外提供基于虚拟化硬件原语抽象的统一接口，完成对硬件虚拟化扩展相关寄存器的配置，以及接收和处理VM中断和异常等。
 	
-	3.静态分区：Hypervisor采用静态分区策略，虽然该策略缺乏灵活性，但是因为嵌入式场景应用高度定制化的特点，静态分区策略足够满足其功能需求。并且静态分区策略可以简化代码逻辑，缩小Hypervisor的攻击面，这一点在引入CVM支持之后更加重要，因为标准RISC-V CoVE扩展要求SM实现数十个SBI接口以实现对CVM资源的细粒度控制，显著增大了TCB的攻击面，并且导致hyperivsor需要数个SBI调用才能完成一个功能，严重影响了系统的实时性和性能。
+	3.静态分区：Hypervisor采用静态分区策略。虽然该策略在资源动态调配上略显不足，但考虑到嵌入式场景应用高度定制化、负载相对确定的特点，静态分区策略足以满足其功能需求。更为关键的是，静态分区策略可以简化代码逻辑，缩小Hypervisor的攻击面。这一点在引入CVM支持之后更加重要，因为标准RISC-V CoVE扩展要求SM实现数十个SBI接口以实现对CVM资源的细粒度控制，这不仅显著增大了TCB的攻击面，还导致Hypervisor需要多次SBI调用才能完成单一功能，严重影响了系统的实时性和性能。
 	
-	EasyAda-Hypervisor通过在EasyAda中引入两个核心组件实现基于硬件虚拟化扩展的VM生命周期管理：（1）运行在内核态（HS态）的Hypervisor驱动，负责抽象虚拟化硬件原语并对上提供虚拟化能力接口。其虚拟化能力主要可以分为以下五类：（1）CPU虚拟化：目标是基于虚拟化专用特权级（RISC-V的VS/VU/HS态），为VM提供符合其运行要求数量的vhart并在隔离的硬件环境中运行VM上下文，在实现操作系统无感迁移到虚拟化环境中运行的同时，避免VM访问和篡改Hypervisor或其他VM的上下文信息；（2）内存虚拟化：目标是基于硬件虚拟化提供的二阶段地址翻译能力，通过动态配置和管理VM的二阶段页表，实现细粒度的，VM无感的强制内存隔离；（3）中断虚拟化：目标是基于硬件提供的中断控制器（包括本地中断控制器和平台中断控制器等），通过中断注入或中断直通等手段，实现VM中断管理的同时，避免VM接收和配置不属于当前VM的中断；（4）时钟虚拟化：目标是基于虚拟硬件时钟，通过虚拟化计时器和虚拟时钟补偿计时器，实现VM无感退出/恢复；（5）I/O虚拟化：目标是基于共享物理内存和虚拟中断，通过为不同VM模拟虚拟设备，在保证VM无感迁移的同时，提升VM的I/O性能和安全性。
+	EasyAda-Hypervisor通过在EasyAda中引入两个核心组件实现基于硬件虚拟化扩展的VM生命周期管理。其中，运行在Hypervisor态的Hypervisor驱动负责抽象虚拟化硬件原语并对上提供虚拟化能力接口。其虚拟化能力主要可以分为以下五类：（1）CPU虚拟化：基于虚拟特权级为VM提供符合其运行要求数量的vCPU，并在隔离的硬件环境中运行VM上下文，在实现操作系统无感迁移运行的同时，避免VM访问和篡改Hypervisor或其他VM的上下文信息；（2）内存虚拟化：基于硬件虚拟化提供的二阶段地址翻译能力，通过动态配置和管理VM的二阶段页表，实现细粒度的、VM无感的强制内存隔离；（3） 中断虚拟化：基于硬件提供的中断控制器，通过中断注入或中断直通等手段实现VM中断管理，避免VM接收和配置不属于当前VM的中断；（4）时钟虚拟化：基于虚拟硬件时钟，通过虚拟化计时器和虚拟时钟补偿计时器，实现VM无感退出与恢复；（5）I/O虚拟化：基于共享物理内存和虚拟中断，通过为不同VM模拟虚拟设备，在保证VM无感迁移的同时，提升VM的I/O性能和安全性。
 		
-	用户态VMM主要包括两个部分：VM资源和生命周期管理模块和vhart服务线程，负责提供完整的虚拟机管理与运行支持。VM资源和生命周期管理模块负责虚拟机的生命周期管理，包括创建、运行、暂停、恢复及删除虚拟机等功能，并且通过Shell和RPC接口对外提供交互式接口，简化用户对虚拟机实例的管理。
+	用户态VMM主要包括三个部分：VM资源和生命周期管理模块、vCPU执行线程以及vCPU服务线程，负责提供完整的虚拟机管理与运行支持。VM资源和生命周期管理模块统筹虚拟机的创建、运行、暂停、恢复及删除等功能，并且通过Shell和RPC接口对外提供交互式命令行，简化用户对虚拟机实例的管理。
 	
-	vhart服务线程可以视为vhart的调度实体和VM在host侧的用户接口，作为VirtIO后端负责响应VM的I/O请求。以实现I/O虚拟化和中断处理的高效执行。vhart服务线程运行于VMM进程上下文中，与VMM及内核态虚拟化组件协同工作，优化虚拟机的计算与I/O任务调度。
+	vCPU执行线程可以视为vCPU在Hypervisor侧的调度实体和用户接口，而vCPU服务线程则作为半虚拟化设备的后端对VM的I/O请求进行响应和异步处理，以实现I/O虚拟化和中断处理的高效执行。vCPU服务和执行线程均运行于VMM进程上下文中，与VMM及内核态虚拟化组件协同工作，优化虚拟机的计算与I/O任务调度。
 	
 	
 	\section{Rust相关知识介绍}
-	Rust\citess{rust}是一种旨在兼顾可靠性与执行效率的系统级编程语言。为了在内存安全（Memory-safety与线程安全（Thread-safety这两个核心维度上实现可靠性，Rust提供了以下机制：（1）确立每个数据对象的所有权（Ownership）；（2）自动检查每个对象的读写权限（即可变性（Mutability）；（3）强制执行针对所有对象的生命周期管理（Lifetime management）；（4）禁止不安全的类型转换以保障类型安全（Type-safety）；（5）禁用危险的裸指针（Raw pointer）操作，例如指针别名（Pointer aliasing）或悬垂指针（Dangling pointers）。
+	Rust\citess{rust}是一种旨在兼顾可靠性与执行效率的系统级编程语言。为了在内存安全（Memory-safety）与线程安全（Thread-safety）这两个核心维度上实现可靠性，Rust提供了以下机制：（1）确立每个数据对象的所有权（Ownership）；（2）自动检查每个对象的读写权限（即可变性，Mutability）；（3）强制执行针对所有对象的生命周期管理（Lifetime management）；（4）禁止不安全的类型转换以保障类型安全（Type-safety）；（5）禁用危险的裸指针（Raw pointer）操作，例如指针别名（Pointer aliasing）或悬垂指针（Dangling pointers）。
 	
 	在程序编译阶段，若代码违反了Rust的任何安全准则，编译器将抛出异常并生成详尽的错误诊断信息，以辅助开发者进行相应的代码修正。除了显著提升代码安全性外，Rust还带来了其他多项工程优势，例如高效的并行处理能力、对开发者友好的编译提示，以及成千上万个用于支撑各类开发需求的Crate（功能类似于C语言中的Library）。
 	
-	尽管Rust默认被设计为遵循严格的安全准则，但为了确保其具备编写任何底层系统程序的能力，它同样提供了unsafe关键字，允许开发者显式地注入非内存安全的代码片段。Rust保留此unsafe选项主要基于两方面核心考量：（1）允许开发者实现某些无法通过编译器默认静态检查的“特殊”功能逻辑；（2）允许代码直接与底层操作系统或物理硬件组件进行交互。被标记为unsafe的代码域能够绕过Rust的内置安全检查器，因此可能会执行存在潜在脆弱性的操作，例如对不可变变量发起写操作、执行非标准的数据类型转换，或是直接操作并解引用裸指针。在Rust开发中，使用unsafe代码段的一个典型场景是必须调用基于C语言构建的底层函数，该机制在Rust中被严格定义为外部函数接口（Foreign Function Interface，FFI）。然而，unsafe Rust在带来底层控制力与能力扩展优势的同时，亦不可避免地引入了安全隐患，unsafe Rust极易为系统引入潜在的安全风险漏洞。
+	尽管Rust默认被设计为遵循严格的安全准则，但为了确保其具备编写任何底层系统程序的能力，它同样提供了unsafe关键字，允许开发者显式地注入非内存安全的代码片段。Rust保留此unsafe选项主要基于两方面核心考量：（1）允许开发者实现某些无法通过编译器默认静态检查的“特殊”功能逻辑；（2）允许代码直接与底层操作系统或物理硬件组件进行交互。被标记为unsafe的代码域能够绕过Rust的内置安全检查器，因此可能会执行存在潜在脆弱性的操作，例如对不可变变量发起写操作、执行非标准的数据类型转换，或是直接操作并解引用裸指针。在Rust开发中，使用unsafe代码段的一个典型场景是必须调用基于C语言构建的底层函数，该机制在Rust中被严格定义为外部函数接口（Foreign Function Interface，FFI）。然而，unsafe Rust在带来底层控制力与能力扩展优势的同时，亦不可避免地极易为系统引入潜在的安全漏洞。
 	
 	\section{本章小结}
-	本章系统性地阐述了构建异构机密计算底座相关的核心技术理论。首先，详细分析了RISC-V架构的特权级模型与陷入委派机制，探讨了包含PMP、Smepmp和IOPMP在内的物理内存保护扩展机制，并论述了硬件虚拟化扩展在微架构层面提升虚拟机运行效率的实现原理。其次，归纳了TEE的基本概念、核心安全特性与主流架构演进范式。针对异构计算场景，分析了信任边界由主机CPU向外部硬件加速器延伸过程中存在的硬件隔离与架构兼容性问题。随后，介绍了当前微内核操作系统EasyAda及其虚拟化方案EasyAda-Hypervisor的架构设计和实现，论证了其基于最小特权原则与统一资源抽象在降低TCB及提升系统可扩展性方面的架构优势。最后，阐述了Rust语言在保障内存安全与线程安全方面的核心机制，并客观分析了其在底层系统编程中的技术优势与潜在安全隐患。
-
+	本章系统性地阐述了构建异构机密计算底座相关的核心技术理论。首先，详细分析了RISC-V架构的特权级模型与陷入委派机制，探讨了包含PMP、Smepmp和IOPMP在内的物理内存保护扩展机制，并论述了硬件虚拟化扩展在微架构层面提升虚拟机运行效率的实现原理。其次，归纳了TEE的基本概念、核心安全特性与主流架构演进范式。针对异构计算场景，分析了信任边界由主机CPU向外部硬件加速器延伸过程中存在的硬件隔离与架构兼容性问题。随后，介绍了自研微内核操作系统EasyAda及其虚拟化方案EasyAda-Hypervisor的架构设计和实现，论证了其基于最小特权原则与统一资源抽象在降低TCB及提升系统可扩展性方面的架构优势。最后，阐述了Rust语言在保障内存安全与线程安全方面的核心机制，并客观分析了其在底层系统编程中的技术优势与潜在安全隐患。
+	
 	\chapter{基于RISC-V的微内核虚拟化方案设计}
-	\section{设计目标和需求分析}
-	根据前文的介绍，基于RISC-V的微内核虚拟化方案——EasyAda-trust主要面向支持硬件虚拟化的中高端嵌入式场景，设计目标为在提供可信计算能力，在CPU侧和I/O侧保护用户隐私代码和数据的同时，尽可能降低因为内存隔离等保护机制引入的额外性能开销，以及降低TEE的开发难度和准入成本，降低端侧AI模型等安全应用供应商的开发成本和难度。
+	\section{使用场景与设计目标分析}
 	
-	基于以上设计目标，本文认为EasyAda-trust应当满足以下需求。
+	本文提出的基于RISC-V的微内核虚拟化方案EasyAda-trust，主要面向支持硬件虚拟化的中高端嵌入式应用场景（如智能驾驶域控制器、端侧人工智能网关等）。在此类复杂的异构场景中，系统通常需要在一套物理硬件上，并发运行实时控制任务（如车辆底盘控制）、通用富执行环境（如车载娱乐系统）以及安全敏感的计算任务（如端侧AI模型推理、生物特征识别）。
 	
-	1.安全性：安全性包括功能安全和数据安全两个方面，从功能上来说，整个虚拟化方案中上层代码中出现的漏洞或不安全行为不应影响更高特权级软硬件的状态，同时单一应用或VM的崩溃不应扩散影响到其它同层应用或VM；从数据保护的角度，每一个软件实体应当遵循最小权限原则，能且仅能访问当前实体所依赖的资源和服务等，即使是更高特权级的软件也不应当拥有无限制访问上层数据和代码的权力。
+	这种业务形态对底层系统提出了双重挑战：一方面，系统必须具备强大的资源抽象与复用能力；另一方面，系统必须应对严峻的安全威胁，以保护用户隐私数据和高价值模型资产。同时，必须考虑到由于受限于成本和功耗，嵌入式设备对安全机制引入的性能损耗极为敏感；且当前端侧TEE高度定制化的特性极大提高了应用迁移的门槛。
 	
-	2.可扩展性：可扩展性同样分为硬件和软件两个方面。从硬件角度，虚拟化方案应当支持用户根据需求引入和整合定制化的硬件，或者引入更高级的指令集扩展（如向量计算扩展等）；从软件角度，虚拟化方案应当支持灵活的部署方案，并且允许用户开发定制化应用。
+	基于上述使用场景中存在的挑战，EasyAda-trust的核心设计目标定为：在提供底层可信计算能力、全面保护CPU侧与I/O侧隐私代码及数据的同时，最大限度地降低由内存隔离等保护机制引入的额外性能开销；并有效降低TEE的开发难度与准入门槛，从而降低安全应用的开发成本。为实现该设计目标，本文规划EasyAda-trust应当满足以下四大核心需求：
 	
-	3.硬件兼容性：虚拟化方案应当实现对现有商用硬件的广泛兼容性，并且能够向前兼容更先进的硬件平台。
+	1.安全性：安全性涵盖功能安全与数据安全两个维度。在功能层面，整个虚拟化方案上层代码中出现的漏洞或不安全行为，绝不应影响更高特权级软硬件的状态；同时，单一应用或VM的崩溃不应扩散并影响其他同层应用或VM。在数据保护层面，每一个软件实体必须遵循最小特权原则（Principle of Least Privilege, PoLP），能且仅能访问当前实体所依赖的资源和服务。即使是更高特权级的系统软件，也不应拥有无限制访问上层应用数据和代码的权限。
 	
-	4.易用性：虚拟化方案应当兼容主流基础软件以及相关工具链，包括普通VM和CVM，降低开发人员开发难度。
+	2.可扩展性：可扩展性同样体现在硬件与软件两个层面。硬件方面，虚拟化方案应当支持用户根据业务需求引入和整合定制化硬件，或引入更高级的指令集扩展（如向量计算扩展等）；软件方面，虚拟化方案应支持灵活的部署架构，并允许用户高效开发定制化应用。
+	
+	3.硬件兼容性：虚拟化方案应当实现对现有商用RISC-V硬件平台的广泛兼容，并具备向前兼容更先进硬件平台的架构潜力。
+	
+	4.易用性：虚拟化方案应当兼容主流基础软件生态及相关工具链（包括不可信VM和CVM），以显著降低开发人员的适配难度与开发成本。
 	
 	\section{EasyAda-trust工作流}
 	在进一步讨论EasyAda-trust的设计之前，为了便于阐述其威胁模型，本节首先定义EasyAda-trust的开发流程和其中涉及的角色。EasyAda-trust根据嵌入式场景的需求简化了生命周期中包含的角色并将其分为四大类：
@@ -673,7 +696,7 @@
 	如图\ref{first_tcb}和\ref{second_tcb}所示，如果将整个EasyAda-trust视为两层TEE的组合：
 	\begin{figure}[!h]
 		\centering
-		\includegraphics[width=1\linewidth]{second_tcb.pdf}
+		\includegraphics[width=1\linewidth]{first_tcb.pdf}
 		\caption{非机密虚拟机可信基}
 		\label{first_tcb}
 	\end{figure}
@@ -682,16 +705,25 @@
 	
 	\begin{figure}[!h]
 		\centering
-		\includegraphics[width=1\linewidth]{first_tcb.pdf}
+		\includegraphics[width=1\linewidth]{second_tcb.pdf}
 		\caption{机密虚拟机可信基}
 		\label{second_tcb}
 	\end{figure}
-	2.机密虚拟机TCB：该部分为EasyAda-trust新引入的TEE架构，用于弥补非机密虚拟机TCB在防御不可信VM攻击时攻击面过大和安全性不足的缺陷。
+	2.机密虚拟机TCB：如图\ref{second_tcb}所示，该部分为EasyAda-trust新引入组件，用于弥补非机密虚拟机TCB在防御不可信VM攻击时攻击面过大和安全性不足的缺陷。
 	该部分是可信且不可被攻破的组件，包括运行在最高特权级的安全监视器EasyAda-SM，实现在SM中的TEE安全管理器（TEE Security Manager，TSM），运行在相互隔离的运行环境（EasyAda-trust统一称为Enclave）中的CVM以及其上运行的各类TA。EasyAda-SM是实现执行环境间隔离的核心组件，EasyAda-Hypervisor通过SM提供的接口实现对CVM生命周期和资源的管理。CVM对其上的TA提供了统一的开发平台，允许开发者透明的使用机密虚拟机保护开发的安全AI应用。
 	
 	EasyAda-trust为了兼顾的兼容性和安全性，要求硬件环境至少应当实现H扩展，PMP和IOPMP。边缘用户可以在一个相对轻量化和精简的硬件环境上运行EasyAda-trust，而需要更高性能或依赖定制化硬件的场景则可以引入增强计算能力的指令扩展和定制化硬件。
 	
-	EasyAda-SM并非专为EasyAda-trust设计的安全固件方案，其设计目标是在不同硬件平台上针对不同TEE场景提供统一的安全底座。通过模块化和分层设计，EasyAda-SM支持用户根据使用场景复用已有模块设计实现新的Enclave管理模块。本文基于EasyAda-SM设计实现了CVM管理模块。为了避免不稳定的中间状态增加EasyAda-SM攻击面增加，本文仅在CVM管理模块中针对CVM定义了三种无中间状态的动作：转换（promote），执行（run）和销毁（destory）用于EasyAda-Hypervisor管理CVM生命周期。因为嵌入式场景对功耗和成本的要求，通常不会实现IOMMU用于限制具备DMA的恶意设备绕过CPU侧的内存隔离访问安全区域，本文在CVM管理模块中引入了IOPMP管理模块用于防御DMA攻击\citess{dma_attack}。
+	EasyAda-trust设计实现了EasyAda-SM以及CVM管理模块以消除SM中不安全内存访问并实现在不同硬件平台上提供统一的，可拓展的安全底座。通过模块化和分层设计，EasyAda-SM支持用户根据使用场景复用已有模块设计实现新的Enclave管理模块。为了避免引入中间状态导致SM攻击面增大，CVM管理模块中定义了三种无中间状态的动作：转换（promote），执行（run）和销毁（destory）作为Hypervisor管理CVM生命周期的主要接口。同时，因为嵌入式场景对功耗和成本的要求，通常不会实现IOMMU用于限制具备DMA的恶意设备绕过CPU侧的内存隔离访问安全区域，EasyAda-trust还在CVM管理模块中引入了IOPMP管理模块用于防御来自恶意外设的DMA攻击\citess{dma_attack}。
+	
+	同时，如图\ref{cvm_lifecyle_fsm}所示EasyAda-trust在EasyAda-Hypervisor现有不可信VM生命周期管理的基础上进行了拓展，配合EasyAda-SM设计实现对CVM全生命周期的安全管理。
+
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\linewidth]{cvm_lifecyle_fsm.pdf}
+		\caption{EasyAda-trust生命周期状态机}
+		\label{cvm_lifecyle_fsm}
+	\end{figure}
 
 	虽然EasyAda-trust将EasyAda-SM和CVM纳入了CVM可信基中，但是可信并不等于安全。用户在开发过程中可能因为缺乏测试等原因引入破坏TEE安全性的代码漏洞，尤其是不安全的内存访问导致的内存泄漏等问题。针对用户可能引入的代码漏洞，EasyAda-SM和CVM分别采取了不同措施以尽可能减少或隔离代码漏洞，避免单一漏洞导致整个TEE被攻破。本文开发了内存安全的EasyAda-SM，并通过分层设计将不安全的内存操作进行封装和限制以降低测试和形式化验证的难度。同时CVM管理模块为每个CVM启用了硬件虚拟化扩展，通过二阶段地址翻译隔离不同CVM的执行环境，避免单一CVM的安全漏洞影响TEE整体稳定性和安全性。具体设计和实现将在后文详细介绍。
 
@@ -1248,9 +1280,8 @@
 	在EasyAda-trust架构中，底层可信安全监视器(TSM)驱动不介入不可信VM的vhart管理，该职责仍由Hypervisor保留。然而对于CVM的vhart，尽管其宏观调度策略仍由Hypervisor负责，但其核心上下文状态必须由TSM进行机密管理，并对Hypervisor呈现完全的不可见性。Hypervisor仅能通过TSM暴露的有限的CVM生命周期管理接口，间接完成对CVM vhart的调度操作。
 	
 	如图\ref{cpu_area}所示，EasyAda-trust在原生hart分区机制的基础上，将vhart运行区进一步细分为CVM vhart运行区与不可信VM运行区。两者在架构上的核心差异在于跨执行环境时的上下文切换流程。
-	
-	\subsubsection{安全上下文切换}
-	为规避非必要的上下文保存与恢复开销，EasyAda-Hypervisor将vhart上下文切换机制划分为“执行环境内轻量级切换”与“跨执行环境安全切换”两个层级。对于不可信VM，Hypervisor在逻辑上将其上下文解耦为VM侧的VM上下文与Hypervisor侧的vhart运行上下文。两者均各自维护一套完整的状态集合，具体包括：(1)最小架构状态寄存器集合(含通用寄存器及TSM运行时可能变更的控制寄存器)；(2)虚拟化控制寄存器状态；(3)虚拟化功能寄存器状态。由于Hypervisor在自身运行期间不会修改上述(2)与(3)中的寄存器状态，因此VM与Hypervisor之间的上下文切换仅需保存集合(1)的信息即可。然而，在不同VM实例之间进行切换时，则必须完整保存并清理涵盖(1)、(2)、(3)在内的全量上下文信息。为此，Hypervisor通过vhart运行线程统一管理这两类逻辑上下文状态。
+
+	为了规避非必要的上下文保存与恢复开销，EasyAda-Hypervisor将vhart上下文切换机制划分为执行环境内轻量级切换与跨执行环境安全切换两个层级。对于不可信VM，Hypervisor在逻辑上将其上下文解耦为VM侧的VM上下文与Hypervisor侧的vhart运行上下文。两者均各自维护一套完整的状态集合，具体包括：(1)最小架构状态寄存器集合(含通用寄存器及TSM运行时可能变更的控制寄存器)；(2)虚拟化控制寄存器状态；(3)虚拟化功能寄存器状态。由于Hypervisor在自身运行期间不会修改上述(2)与(3)中的寄存器状态，因此VM与Hypervisor之间的上下文切换仅需保存集合(1)的信息即可。然而，在不同VM实例之间进行切换时，则必须完整保存并清理涵盖(1)、(2)、(3)在内的全量上下文信息。为此，Hypervisor通过vhart运行线程统一管理这两类逻辑上下文状态。
 	
 	相比之下，CVM的上下文切换呈现出以下显著的安全特征：
 	\begin{enumerate}
@@ -1323,17 +1354,8 @@
 	\subsection{I/O数据平面安全与端到端保护}
 	确立了设备控制平面的物理隔离后，必须进一步保障I/O数据平面的机密性与完整性。机密应用（如部署于CVM中的AI推理引擎）是高价值I/O数据（如AI模型权重与用户输入）的核心消费者。
 
-	\subsubsection{信任根推演与密钥供应}
-	如图\ref{weights_protect}所示，I/O数据保护的基石在于密钥的安全供应。在系统启动阶段，CVM与底层硬件环境之间将执行双向本地证明。确认环境可信后，TSM利用硬件信任根（RoT）内置的私钥解锁受保护的锁盒（Lockbox），获取对称密钥并进一步解密目标应用载荷（TAP），从而安全提取出开发者预置的机密素材（Secrets）并暂存于TSM内部。在CVM运行时，Guest OS可通过安全的SBI请求，从TSM处按需获取相应的开发者密钥或会话密钥。
-	\begin{figure}[!h]
-		\centering		
-		\includegraphics[width=1\linewidth]{weights_protect.pdf}
-		\caption{EasyAda-trust下CVM的I/O密钥管理}
-		\label{weights_protect}
-	\end{figure}
-	
-	
-	\subsubsection{端到端数据传输保护机制}
+	I/O数据保护的基石在于密钥的安全供应。在系统启动阶段，CVM与底层硬件环境之间将执行双向本地证明。确认环境可信后，TSM利用RoT内置的设备私钥解锁受保护的锁盒（Lockbox），获取对称密钥并进一步解密目标CVM提供的TAP，从而安全提取出开发者预置的机密素材（Secrets）并暂存于TSM内部。在CVM运行时，Guest OS可通过安全的SBI请求，从TSM处按需获取相应的开发者密钥或会话密钥。
+
 	获取密钥后，CVM需针对不同类型的I/O通道采取差异化的安全策略：
 	\begin{enumerate}
 		\item \textbf{安全直通设备的数据流}：得益于PMP与IOPMP构建的双向物理隔离屏障，不可信组件（包括Hypervisor）无法以任何形式窥探直通外设的MMIO与DMA区域。因此，机密应用可直接以明文形态向安全设备（如直通硬件加速器）下发控制指令与AI模型参数，而无需承受额外的软件加解密性能损耗。
@@ -1395,10 +1417,10 @@
 	
 	\section{测试软硬件环境}
 	
-	鉴于当前RISC-V硬件生态的客观限制，目前量产的RISC-V商用芯片在安全特性上存在明显的路线分化：面向端侧的芯片普遍支持PMP和IOPMP扩展，但是缺乏对H扩展的支持；而面向高性能计算场景的芯片虽然支持H扩展，但是通常集成较复杂的IOMMU和高级中断架构（AIA）。然而，这类复杂组件高昂的硬件面积开销及基于总线事务的中断延迟抖动，使其难以在成本与实时性敏感的嵌入式SoC中广泛落地。。
+	鉴于当前RISC-V硬件生态的客观限制，目前量产的RISC-V商用芯片在安全特性上存在明显的路线分化：面向端侧的芯片普遍支持PMP和IOPMP扩展，但是缺乏对H扩展的支持；而面向高性能计算场景的芯片虽然支持H扩展，但是通常集成较复杂的IOMMU和高级中断架构（AIA）。然而，这类复杂组件高昂的硬件面积开销及基于总线事务的中断延迟抖动，使其难以在成本与实时性敏感的嵌入式SoC中广泛落地。因此，
 	
-	\section{SM生态兼容性测试}
-	参考EasyAdaZone的实验设计\citess{rubbish}。为验证系统的生态兼容性，本文在极小化代码修改的前提下，除引导程序与安全监视器外完全复用了既有Keystone与Penglai框架中的全量组件。复用范围涵盖宿主机用户态接口、编译工具链、软件依赖库、测试用例以及受保护侧的TA，并以Linux（内核版本4.15）作为Host OS。在性能评估方面，本文选用Coremark和RV8 benchmark作为基准测试集，并以原生Linux环境的执行表现作为对比基线。
+	\section{EasyAda-SM可拓展性测试}
+	参考EasyAdaZone的实验设计\citess{rubbish}。EasyAda-trust基于EasyAda-SM实现了兼容Penglai和Keystone的Enclave管理模块以验证EasyAda-SM可拓展性。该测试在极小化代码修改的前提下，除引导程序与SM外完全复用了既有Keystone与Penglai框架中的全量组件。复用范围涵盖宿主机用户态接口、编译工具链、软件依赖库、测试用例以及受保护侧的TA，并以Linux（内核版本4.15）作为Host OS。在性能评估方面，本文选用Coremark和RV8 benchmark作为基准测试集，并以原生Linux环境的执行表现作为对比基线。
 	
 	\subsubsection{Coremark测试套}
 	如图\ref{coremark}所示，所有测试结果均以非EasyAda-SM环境的原生Linux环境（Native Linux）的得分为基线（100\%）进行归一化处理。实验数据表明，在引入EasyAda-SM后，系统的计算性能得到了极大的保留。在Linux、Keystone与Penglai三种工作负载下与未引入安全防护的原生环境相比，EasyAda-SM环境的相对性能衰减均被严格控制在2\%以内。
@@ -1517,7 +1539,7 @@
 	\section{本章小结}
 	本章对所提出的EasyAda-trust微内核可信虚拟化架构及其核心固件EasyAda-SM进行了系统性的定量评估与安全性验证。首先，通过Coremark与RV8基准测试证明了引入Rust内存安全机制后的EasyAda-SM具备极高的生态兼容性，且在核心计算场景下引入的额外运行时开销趋近于零。其次，验证了系统安全启动与双向本地证明机制的有效性，结果表明该机制能精准识别并拦截受损的虚拟机镜像与不可信的底层运行环境，确保了信任链的完整性。
 	
-	此外，通过LEBench微基准测试与网络I/O测试对CVM的全生命周期开销进行了深度剖析。数据表明，得益于静态安全内存预分配策略与Sstc硬件扩展的支持，CVM在系统时钟与内存管理等核心原语上实现了近似零损耗的极致性能。而在面临物理隔离边界导致的I/O性能衰减时，本文提出的基于IOPMP扩展的安全设备直通架构，成功绕过了高昂的软件密码学计算与不可信内存中转栈，在捍卫系统极高隔离强度的同时，实现了异构外设的零拷贝明文高速复用。综合而言，本系统在极致的内存安全保障与总体执行效能之间取得了科学且理想的架构折中。
+	此外，通过LEBench微基准测试与网络I/O测试对CVM的全生命周期开销进行了深度剖析。数据表明，得益于静态安全内存预分配策略与Sstc硬件扩展的支持，CVM在系统时钟与内存管理等核心原语上实现了与原生实现相同的性能。而在面临物理隔离边界导致的I/O性能衰减时，本文提出的基于IOPMP扩展的安全设备直通架构，成功绕过了高昂的软件密码学计算与不可信内存中转栈，在保障系统隔离强度的同时，实现了异构外设的明文访问。综合而言，本系统在极致的内存安全保障与总体执行效能之间取得了较理想的架构折中。
 	
 	\chapter{总结和展望}
 	\section{全文总结}
