@@ -924,15 +924,16 @@
 	为了消除安全监视器中不安全的内存访问，EasyAda-SM使用适合嵌入式场景的内存安全语言Rust实现，通过静态的编译时内存检查消除代码中可能存在的不安全内存访问，避免了昂贵的运行时内存检查和回收。EasyAda-SM基于RustSBI\citess{rustsbi}而非基于内存不安全语言C的SBI固件（如OpenSBI），进一步消除了SBI固件中不安全的内存访问。
 	
 	\section{安全区域和内存管理层实现}
-	\begin{figure}[!h]
-		\centering		
-		\includegraphics[width=0.8\linewidth]{sec_region.pdf}
-		\caption{安全区域和内存管理层实现}
-		\label{sec_region}
-	\end{figure}
 	安全区域和内存管理层的目标是实现不可信组件与安全内存间隔离的同时提高系统整体的内存利用率。如图\ref{sec_region}所示，安全区域和内存管理层以安全内存管理器作为安全内存的顶级管理单元，对外提供安全内存管理接口，每个安全内存管理器包含多个安全区域（Secure Region）和一个安全内存保护器。
 	
 	每个安全区域关联一块连续内存区域和一个内存分配器（allocator），内存分配器对应一套内存管理算法实现。严格来说安全区域管理的内存在被强制隔离之前并不属于安全内存，因为不同TEE方案对于安全内存的保护时机存在较大差异，因此EasyAda-SM将安全内存保护器和allocator分离，由安全内存管理器自行决定内存的保护时机，为了方便叙述，后文以安全内存代指安全区域管理的内存区域。
+	
+	\begin{figure}[!h]
+		\centering		
+		\includegraphics[width=1\linewidth]{sec_region.pdf}
+		\caption{安全区域和内存管理层结构图}
+		\label{sec_region}
+	\end{figure}
 	
 	安全内存保护器则负责管理用于隔离安全内存的安全硬件如PMP,并对外提供内存保护接口。安全内存保护器的保护粒度是安全区域，主要目标是隔离不可信组件和安全内存，并辅助实现飞地间内存隔离。
 	
@@ -941,6 +942,14 @@
 	根据上一章中介绍EasyAda-SM的分层设计思想，安全内存管理器抽象了安全内存管理原语，allocator抽象了内存管理原语，而安全内存保护器则抽象了内存保护原语，三者共同实现对安全内存生命周期的管理。下面将按序说明每个原语的具体实现。
 	
 	\subsection{内存管理原语}
+	如表\ref{memmgr}所示，内存管理原语抽象了安全内存管理所需的操作。包括初始化安全内存，申请/释放安全内存等。为了简化实现并避免重复安全检查引入的系统性能开销，内存管理原语不进行任何安全检查，如不在free原语中检查释放内存是否属于当前安全区域以避免破坏内存管理元数据等。
+	
+	本文分析了不同飞地抽象的安全内存使用特点：
+	\begin{enumerate}
+		\item 基于应用的飞地抽象（App 飞地）：此类轻量化飞地通常直接运行在用户态，无权访问和控制任何内核态资源，如MMU和中断配置等。因此TA的虚拟地址空间和物理地址空间在飞地运行时不会进行任何修改。
+		\item 基于OS的飞地抽象（Rt 飞地）：此类飞地更加复杂，拥有完整的用户态和内核态资源，TA的虚拟地址空间在运行时可能修改；但是因为直接运行在与宿主OS相同的特权级，为了保证高效的内存隔离，飞地的物理地址空间在运行时不会进行修改。
+		\item 基于虚拟机的飞地抽象（虚拟机 飞地）：因为开启了硬件虚拟化，此类飞地兼具前两种飞地的特点：在虚拟化特权级下拥有完整的用户态和内核态资源，又可以在运行时无感可控地调整飞地物理地址空间并且不破坏当前内存隔离。
+	\end{enumerate}
 	\begin{table}[!ht]
 		\caption{EasyAda-SM内存管理原语}
 		\label{memmgr}
@@ -957,15 +966,6 @@
 			\bottomrule
 		\end{tabular}
 	\end{table}
-	如表\ref{memmgr}所示，内存管理原语抽象了安全内存管理所需的操作。包括初始化安全内存，申请/释放安全内存等。为了简化实现并避免重复安全检查引入的系统性能开销，内存管理原语不进行任何安全检查，如不在free原语中检查释放内存是否属于当前安全区域以避免破坏内存管理元数据等。
-	
-	本文分析了不同飞地抽象的安全内存使用特点：
-	\begin{enumerate}
-		\item 基于应用的飞地抽象（App 飞地）：此类轻量化飞地通常直接运行在用户态，无权访问和控制任何内核态资源，如MMU和中断配置等。因此TA的虚拟地址空间和物理地址空间在飞地运行时不会进行任何修改。
-		\item 基于OS的飞地抽象（Rt 飞地）：此类飞地更加复杂，拥有完整的用户态和内核态资源，TA的虚拟地址空间在运行时可能修改；但是因为直接运行在与宿主OS相同的特权级，为了保证高效的内存隔离，飞地的物理地址空间在运行时不会进行修改。
-		\item 基于虚拟机的飞地抽象（虚拟机 飞地）：因为开启了硬件虚拟化，此类飞地兼具前两种飞地的特点：在虚拟化特权级下拥有完整的用户态和内核态资源，又可以在运行时无感可控地调整飞地物理地址空间并且不破坏当前内存隔离。
-	\end{enumerate}
-	
 	EasyAda-SM针对不同类型飞地使用安全内存的特点，提供了三种参考内存管理原语实现，下面将介绍其具体实现。
 	
 	\subsubsection{基于空分配算法的原语实现}
@@ -1093,13 +1093,7 @@
 	下面将详细介绍EasyAda-SM针对多种飞地抽象提供统一管理的安全内存管理原语实现。
 	
 	\subsubsection{面向通用飞地部署场景的安全内存管理原语实现}
-	\begin{figure}[!h]
-		\centering		
-		\includegraphics[width=1\linewidth]{unimemmgr.pdf}
-		\caption{PageAllocator结构}
-		\label{unimemmgr}
-	\end{figure}
-	为了支持通用的飞地管理，降低用户开发难度，EasyAda-SM实现了如图\ref{unimemmgr}所示的通用安全内存管理器（简称为通用内存管理器），将飞地和安全区域划分为一一对应的五类：（1）Application（2）Runtime（3）VirtualMachine（4）Devices（Devices会进一步划分为串口，硬件加速器等设备类型）（5）None（仅用于保护的安全区域），并且如图\ref{Enclave_divided}所示，为每类飞地绑定了特定的内存分配器。
+	为了支持通用的飞地管理，降低用户开发难度，EasyAda-SM实现了通用安全内存管理器（简称为通用内存管理器），将飞地和安全区域划分为一一对应的五类：（1）Application（2）Runtime（3）VirtualMachine（4）Devices（Devices会进一步划分为串口，硬件加速器等设备类型）（5）None（仅用于保护的安全区域），并且如图\ref{Enclave_divided}所示，为每类飞地绑定了特定的内存分配器。
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.75\linewidth]{Enclave_divided.pdf}
@@ -1596,10 +1590,10 @@
 	
 	\achievement % 仅研究生用
 
-	%\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0pt, parsep=0pt]
+	\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0pt, parsep=0pt]
 		
-	%	\item Jinzhe L, Kun X, Lei L, et al. Easy adazone: A memory-safe physical memory isolation framework for risc-v[C]. 2025 22nd International Computer Conference on Wavelet Active Media Technology and Information Processing (ICCWAMTIP), 2025: 1-4.
+	\item \ifreview[]{Jinzhe L, Kun X, Lei L, et al.} Easy adazone: A memory-safe physical memory isolation framework for risc-v[C]. 2025 22nd International Computer Conference on Wavelet Active Media Technology and Information Processing (ICCWAMTIP), 2025: 1-4.
 		
-	%\end{enumerate}
+	\end{enumerate}
 
 \end{document}

@@ -26,10 +26,10 @@
 \contentsline {figure}{\numberline {3-1}{\ignorespaces 非机密虚拟机可信基}}{26}{figure.caption.12}%
 \cftsetpnumwidth {\widthof {27}-1bp}
 \contentsline {figure}{\numberline {3-2}{\ignorespaces 机密虚拟机可信基}}{27}{figure.caption.13}%
+\cftsetpnumwidth {\widthof {28}-1bp}
+\contentsline {figure}{\numberline {3-3}{\ignorespaces EasyAda-trust生命周期状态机}}{28}{figure.caption.14}%
 \cftsetpnumwidth {\widthof {29}-1bp}
-\contentsline {figure}{\numberline {3-3}{\ignorespaces EasyAda-trust生命周期状态机}}{29}{figure.caption.14}%
-\cftsetpnumwidth {\widthof {30}-1bp}
-\contentsline {figure}{\numberline {3-4}{\ignorespaces EasyAda-SM总体架构}}{30}{figure.caption.15}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces EasyAda-SM总体架构}}{29}{figure.caption.15}%
 \cftsetpnumwidth {\widthof {31}-1bp}
 \contentsline {figure}{\numberline {3-5}{\ignorespaces EasyAda-SM的内存管理模式}}{31}{figure.caption.16}%
 \cftsetpnumwidth {\widthof {34}-1bp}
@@ -43,56 +43,54 @@
 \contentsline {figure}{\numberline {3-8}{\ignorespaces 硬件加速器管理机密虚拟机设计}}{41}{figure.caption.19}%
 \addvspace {10\p@ }
 \cftsetpnumwidth {\widthof {43}-1bp}
-\contentsline {figure}{\numberline {4-1}{\ignorespaces 安全区域和内存管理层实现}}{43}{figure.caption.20}%
-\cftsetpnumwidth {\widthof {46}-1bp}
-\contentsline {figure}{\numberline {4-2}{\ignorespaces PageAllocator结构}}{46}{figure.caption.22}%
+\contentsline {figure}{\numberline {4-1}{\ignorespaces 安全区域和内存管理层结构图}}{43}{figure.caption.20}%
+\cftsetpnumwidth {\widthof {45}-1bp}
+\contentsline {figure}{\numberline {4-2}{\ignorespaces PageAllocator结构}}{45}{figure.caption.22}%
 \cftsetpnumwidth {\widthof {48}-1bp}
 \contentsline {figure}{\numberline {4-3}{\ignorespaces PMP槽结构}}{48}{figure.caption.24}%
+\cftsetpnumwidth {\widthof {50}-1bp}
+\contentsline {figure}{\numberline {4-4}{\ignorespaces PMP运行时配置}}{50}{figure.caption.26}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {不可信上下文中PMP配置}}}{50}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {可信上下文中PMP配置}}}{50}{subfigure.4.2}%
 \cftsetpnumwidth {\widthof {51}-1bp}
-\contentsline {figure}{\numberline {4-4}{\ignorespaces PMP运行时配置}}{51}{figure.caption.26}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {不可信上下文中PMP配置}}}{51}{subfigure.4.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {可信上下文中PMP配置}}}{51}{subfigure.4.2}%
-\cftsetpnumwidth {\widthof {51}-1bp}
-\contentsline {figure}{\numberline {4-5}{\ignorespaces PageAllocator结构}}{51}{figure.caption.27}%
+\contentsline {figure}{\numberline {4-5}{\ignorespaces 不同类型飞地与区域类型和分配器的关联关系}}{51}{figure.caption.27}%
 \cftsetpnumwidth {\widthof {52}-1bp}
-\contentsline {figure}{\numberline {4-6}{\ignorespaces 不同类型飞地与区域类型和分配器的关联关系}}{52}{figure.caption.28}%
-\cftsetpnumwidth {\widthof {53}-1bp}
-\contentsline {figure}{\numberline {4-7}{\ignorespaces 机密虚拟机管理器结构}}{53}{figure.caption.29}%
-\cftsetpnumwidth {\widthof {57}-1bp}
-\contentsline {figure}{\numberline {4-8}{\ignorespaces EasyAda -安全监视器中非安全/安全设备的IOPMP管理}}{57}{figure.caption.32}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {非安全设备的IOPMP配置}}}{57}{subfigure.8.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {安全设备的IOPMP配置}}}{57}{subfigure.8.2}%
+\contentsline {figure}{\numberline {4-6}{\ignorespaces 机密虚拟机管理器结构}}{52}{figure.caption.28}%
+\cftsetpnumwidth {\widthof {56}-1bp}
+\contentsline {figure}{\numberline {4-7}{\ignorespaces EasyAda -安全监视器中非安全/安全设备的IOPMP管理}}{56}{figure.caption.31}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {非安全设备的IOPMP配置}}}{56}{subfigure.7.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {安全设备的IOPMP配置}}}{56}{subfigure.7.2}%
 \addvspace {10\p@ }
+\cftsetpnumwidth {\widthof {58}-1bp}
+\contentsline {figure}{\numberline {5-1}{\ignorespaces EasyAda-SM签名验证流程}}{58}{figure.caption.32}%
 \cftsetpnumwidth {\widthof {59}-1bp}
-\contentsline {figure}{\numberline {5-1}{\ignorespaces EasyAda-SM签名验证流程}}{59}{figure.caption.33}%
-\cftsetpnumwidth {\widthof {60}-1bp}
-\contentsline {figure}{\numberline {5-2}{\ignorespaces 机密虚拟机验证信息封装流程}}{60}{figure.caption.34}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces 机密虚拟机验证信息封装流程}}{59}{figure.caption.33}%
+\cftsetpnumwidth {\widthof {61}-1bp}
+\contentsline {figure}{\numberline {5-3}{\ignorespaces EasyAda-trust中双向验证流程}}{61}{figure.caption.34}%
 \cftsetpnumwidth {\widthof {62}-1bp}
-\contentsline {figure}{\numberline {5-3}{\ignorespaces EasyAda-trust中双向验证流程}}{62}{figure.caption.35}%
-\cftsetpnumwidth {\widthof {63}-1bp}
-\contentsline {figure}{\numberline {5-4}{\ignorespaces EasyAda-trust下Hart分区示意图}}{63}{figure.caption.36}%
-\cftsetpnumwidth {\widthof {71}-1bp}
-\contentsline {figure}{\numberline {5-5}{\ignorespaces 引入安全设备后的机密虚拟机安全内存视图}}{71}{figure.caption.37}%
+\contentsline {figure}{\numberline {5-4}{\ignorespaces EasyAda-trust下Hart分区示意图}}{62}{figure.caption.35}%
+\cftsetpnumwidth {\widthof {70}-1bp}
+\contentsline {figure}{\numberline {5-5}{\ignorespaces 引入安全设备后的机密虚拟机安全内存视图}}{70}{figure.caption.36}%
 \addvspace {10\p@ }
+\cftsetpnumwidth {\widthof {74}-1bp}
+\contentsline {figure}{\numberline {6-1}{\ignorespaces 原生环境与EasyAda-SM环境下Coremark的对比测试}}{74}{figure.caption.37}%
 \cftsetpnumwidth {\widthof {75}-1bp}
-\contentsline {figure}{\numberline {6-1}{\ignorespaces 原生环境与EasyAda-SM环境下Coremark的对比测试}}{75}{figure.caption.38}%
-\cftsetpnumwidth {\widthof {76}-1bp}
-\contentsline {figure}{\numberline {6-2}{\ignorespaces 原生环境与EasyAda-SM环境下RV8 benchmark测试结果对比}}{76}{figure.caption.39}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Penglai对比测试结果}}}{76}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Keystone对比测试结果}}}{76}{subfigure.2.2}%
+\contentsline {figure}{\numberline {6-2}{\ignorespaces 原生环境与EasyAda-SM环境下RV8 benchmark测试结果对比}}{75}{figure.caption.38}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Penglai对比测试结果}}}{75}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Keystone对比测试结果}}}{75}{subfigure.2.2}%
+\cftsetpnumwidth {\widthof {77}-1bp}
+\contentsline {figure}{\numberline {6-3}{\ignorespaces SBI固件初始化}}{77}{figure.caption.39}%
 \cftsetpnumwidth {\widthof {78}-1bp}
-\contentsline {figure}{\numberline {6-3}{\ignorespaces SBI固件初始化}}{78}{figure.caption.40}%
+\contentsline {figure}{\numberline {6-4}{\ignorespaces EasyAda-SM初始化测试}}{78}{figure.caption.40}%
+\cftsetpnumwidth {\widthof {78}-1bp}
+\contentsline {figure}{\numberline {6-5}{\ignorespaces 可信机密虚拟机在可信平台上启动测试}}{78}{figure.caption.41}%
 \cftsetpnumwidth {\widthof {79}-1bp}
-\contentsline {figure}{\numberline {6-4}{\ignorespaces EasyAda-SM初始化测试}}{79}{figure.caption.41}%
+\contentsline {figure}{\numberline {6-6}{\ignorespaces 不可信机密虚拟机在可信平台上启动测试}}{79}{figure.caption.42}%
 \cftsetpnumwidth {\widthof {79}-1bp}
-\contentsline {figure}{\numberline {6-5}{\ignorespaces 可信机密虚拟机在可信平台上启动测试}}{79}{figure.caption.42}%
+\contentsline {figure}{\numberline {6-7}{\ignorespaces 可信机密虚拟机在不可信平台上启动测试}}{79}{figure.caption.43}%
 \cftsetpnumwidth {\widthof {80}-1bp}
-\contentsline {figure}{\numberline {6-6}{\ignorespaces 不可信机密虚拟机在可信平台上启动测试}}{80}{figure.caption.43}%
-\cftsetpnumwidth {\widthof {80}-1bp}
-\contentsline {figure}{\numberline {6-7}{\ignorespaces 可信机密虚拟机在不可信平台上启动测试}}{80}{figure.caption.44}%
+\contentsline {figure}{\numberline {6-8}{\ignorespaces LEBench测试结果}}{80}{figure.caption.44}%
 \cftsetpnumwidth {\widthof {81}-1bp}
-\contentsline {figure}{\numberline {6-8}{\ignorespaces LEBench测试结果}}{81}{figure.caption.45}%
-\cftsetpnumwidth {\widthof {82}-1bp}
-\contentsline {figure}{\numberline {6-9}{\ignorespaces 安全设备直通架构与半虚拟化机制（不可信共享内存）下的磁盘I/O对比测试结果}}{82}{figure.caption.46}%
+\contentsline {figure}{\numberline {6-9}{\ignorespaces 安全设备直通架构与半虚拟化机制（不可信共享内存）下的磁盘I/O对比测试结果}}{81}{figure.caption.45}%
 \addvspace {10\p@ }
 \contentsfinish 
