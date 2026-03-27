@@ -41,10 +41,9 @@
 \nomenclatureentry{PCIe@&{PCIe}&\begingroup \nomdescr {Peripheral Component Interconnect Express}\hspace *{\tabcolsep }\nomdescrchn {高速串行计算机扩展总线标准}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{PCR@&{PCR}&\begingroup \nomdescr {Platform Configuration Register}\hspace *{\tabcolsep }\nomdescrchn {平台配置寄存器}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{PMP@&{PMP}&\begingroup \nomdescr {Physical Memory Protection}\hspace *{\tabcolsep }\nomdescrchn {物理内存保护}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
-\nomenclatureentry{PoLP@&{PoLP}&\begingroup \nomdescr {Principle of Least Privilege}\hspace *{\tabcolsep }\nomdescrchn {最小特权原则}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
-\nomenclatureentry{POSIX@&{POSIX}&\begingroup \nomdescr {Portable Operating System Interface}\hspace *{\tabcolsep }\nomdescrchn {可移植操作系统接口}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{RISC@&{RISC}&\begingroup \nomdescr {Reduced Instruction Set Computer}\hspace *{\tabcolsep }\nomdescrchn {精简指令集}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{RLB@&{RLB}&\begingroup \nomdescr {Rule Lock Bypass}\hspace *{\tabcolsep }\nomdescrchn {规则锁定旁路}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
+\nomenclatureentry{RoT@&{RoT}&\begingroup \nomdescr {Root of Trust}\hspace *{\tabcolsep }\nomdescrchn {信任根}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{RMP@&{RMP}&\begingroup \nomdescr {Reverse Map Table}\hspace *{\tabcolsep }\nomdescrchn {反向映射表}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{RPC@&{RPC}&\begingroup \nomdescr {Remote Procedure Call}\hspace *{\tabcolsep }\nomdescrchn {远程过程调用}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{RTOS@&{RTOS}&\begingroup \nomdescr {Real-Time Operating System}\hspace *{\tabcolsep }\nomdescrchn {实时操作系统}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
@@ -62,7 +61,6 @@
 \nomenclatureentry{TPM@&{TPM}&\begingroup \nomdescr {Trusted Platform Module}\hspace *{\tabcolsep }\nomdescrchn {可信平台模块}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{TSM@&{TSM}&\begingroup \nomdescr {TEE Security Manager}\hspace *{\tabcolsep }\nomdescrchn {TEE安全管理器}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{U-Mode@&{U-Mode}&\begingroup \nomdescr {User Mode}\hspace *{\tabcolsep }\nomdescrchn {用户模式}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
-\nomenclatureentry{vCPU@&{vCPU}&\begingroup \nomdescr {Virtual Central Processing Unit}\hspace *{\tabcolsep }\nomdescrchn {虚拟处理器}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{VMM@&{VMM}&\begingroup \nomdescr {Virtual Machine Monitor}\hspace *{\tabcolsep }\nomdescrchn {虚拟机监视器}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{VS-Mode@&{VS-Mode}&\begingroup \nomdescr {Virtual Supervisor Mode}\hspace *{\tabcolsep }\nomdescrchn {虚拟监管者模式}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
 \nomenclatureentry{VU-Mode@&{VU-Mode}&\begingroup \nomdescr {Virtual User Mode}\hspace *{\tabcolsep }\nomdescrchn {虚拟用户模式}\endgroup &\unit {}&\begingroup \endgroup &\begingroup \nomeqref {0-0}|nompageref}{XI}
